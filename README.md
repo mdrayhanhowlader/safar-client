@@ -4,7 +4,7 @@ This project was Tailwind with [safar](https://github.com/facebook/create-react-
 
 ## Features
 
-hello from shimul
+hello from mohiuddin shimul
 
 In the project directory, you can run:
 
