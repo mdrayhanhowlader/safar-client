@@ -2,7 +2,7 @@
 
 This project was Tailwind with [safar](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Features
 
 In the project directory, you can run:
 
