@@ -1,8 +1,8 @@
-# Getting Started with Create React App
+# Getting Started with Safar
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was Tailwind with [safar](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Features
 
 hello from shimul
 
