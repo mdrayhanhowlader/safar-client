@@ -1,16 +1,4 @@
-<<<<<<< HEAD
-import React from 'react';
 
-const Offers = () => {
-    return (
-        <div>
-            <h2 className="text-2xl font-semibold">Offers</h2>
-        </div>
-    );
-};
-
-export default Offers;
-=======
 import React from "react";
 
 const Offers = () => {
@@ -80,4 +68,3 @@ const Offers = () => {
 };
 
 export default Offers;
->>>>>>> 358246b0ab68e3cd6bdfb98a74e5a83043b9f6b6

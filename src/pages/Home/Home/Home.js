@@ -1,9 +1,22 @@
 import React from 'react';
+import Footer from '../../Shared/Footer/Footer';
+import Navbar from '../../Shared/Navbar/Navbar';
+import Banner from '../Banner/Banner';
+import Destination from '../Destination/Destination';
+import Offers from '../Offers/Offers';
+import Properties from '../Properties/Properties';
+import TopRated from '../TopRated/TopRated';
 
 const Home = () => {
     return (
         <div>
-            <h2 className="text-2xl font-semibold">Home</h2>
+            <Navbar></Navbar>
+            <Banner></Banner>
+            <Offers></Offers>
+            <Destination></Destination>
+            <TopRated></TopRated>
+            <Properties></Properties>
+            <Footer></Footer>
         </div>
     );
 };

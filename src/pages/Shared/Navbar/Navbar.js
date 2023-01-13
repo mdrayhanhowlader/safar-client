@@ -8,17 +8,17 @@ const Navbar = () => {
   return (
     <nav
       x-data="{ isOpen: false }"
-      className="relative bg-slate-50 dark:bg-gray-800"
+      className="relative bg-gray-800"
     >
       <div className="container px-6 py-4 mx-auto">
         <div className="lg:flex lg:items-center lg:justify-between">
           <div className="flex items-center justify-between">
             <div className="text-xl font-semibold text-gray-700">
               <a
-                className="text-2xl font-bold transition-colors duration-300 transform lg:text-3xl hover:text-gray-700"
+                className="text-2xl font-bold transition-colors duration-300 transform lg:text-3xl text-white hover:text-gray-700"
                 href="/"
               >
-                Sales BD
+                Safar
               </a>
             </div>
 
