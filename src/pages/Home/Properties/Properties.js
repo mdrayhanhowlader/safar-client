@@ -10,7 +10,7 @@ const Properties = () => {
           there are our avilable property
         </p>
       </div>
-      <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
         {/* columns 1 */}
         <div className="bg-slate-300 lg:h-[332px] md:h-[332px] rounded-md hover:animate-bounce cursor-pointer">
           <div>
@@ -19,7 +19,7 @@ const Properties = () => {
               alt=""
             />
           </div>
-          <div>
+          <div className="pb-2">
             <h2 className="font-bold ml-2 mt-4">cox bazar</h2>
             <p className="ml-2 mt-2 pb-2">140 properties</p>
           </div>
@@ -32,7 +32,7 @@ const Properties = () => {
               alt=""
             />
           </div>
-          <div>
+          <div className="pb-2">
             <h2 className="font-bold ml-2 mt-4">cox bazar</h2>
             <p className="ml-2 mt-2 pb-2">140 properties</p>
           </div>
@@ -45,7 +45,7 @@ const Properties = () => {
               alt=""
             />
           </div>
-          <div>
+          <div className="pb-2">
             <h2 className="font-bold ml-2 mt-4">cox bazar</h2>
             <p className="ml-2 mt-2 pb-2">140 properties</p>
           </div>
@@ -59,7 +59,7 @@ const Properties = () => {
               alt=""
             />
           </div>
-          <div>
+          <div className="pb-2">
             <h2 className="font-bold ml-2 mt-4">cox bazar</h2>
             <p className="ml-2 mt-2 pb-2">140 properties</p>
           </div>
