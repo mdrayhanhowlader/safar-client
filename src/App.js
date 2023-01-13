@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
 
       <article className='prose'>
       <h1 >Test Typography</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae obcaecati, laborum explicabo doloremque repudiandae dicta mollitia impedit sint ratione placeat nemo quia ipsum eaque praesentium voluptates perferendis fugiat adipisci delectus!</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing  doloremque repudiandae dicta mollitia impedit sint ratione placeat nemo quia ipsum eaque praesentium voluptates perferendis fugiat adipisci delectus!</p>
       </article>
     </div>
   );
