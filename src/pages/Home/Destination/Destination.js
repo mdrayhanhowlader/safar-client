@@ -25,7 +25,7 @@ const Destination = () => {
           </div>
         </div>
         {/* columns 2 */}
-        <div className="bg-slate-300 h-[332px] rounded-md lg:h-[332px] md:h-[332px]">
+        <div className="bg-slate-300 h-[332px] sm:p-4  rounded-md lg:h-[332px] md:h-[332px]">
           <div>
             <img
               src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8aG90ZWx8ZW58MHx8MHx8&w=1000&q=80"
@@ -38,7 +38,7 @@ const Destination = () => {
           </div>
         </div>
         {/* columns 3 */}
-        <div className="bg-slate-300 h-[332px] rounded-md lg:h-[332px] md:h-[332px]">
+        <div className="bg-slate-300 h-[332px] sm:p-4 rounded-md lg:h-[332px] md:h-[332px]">
           <div>
             <img
               src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8aG90ZWx8ZW58MHx8MHx8&w=1000&q=80"
@@ -52,7 +52,7 @@ const Destination = () => {
         </div>
 
         {/* columns 4 */}
-        <div className="bg-slate-300 h-[332px] rounded-md lg:h-[332px] md:h-[332px]">
+        <div className="bg-slate-300 h-[332px] sm:p-4 rounded-md lg:h-[332px] md:h-[332px]">
           <div>
             <img
               src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8aG90ZWx8ZW58MHx8MHx8&w=1000&q=80"
