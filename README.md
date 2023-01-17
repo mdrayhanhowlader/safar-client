@@ -2,7 +2,7 @@
 
 This project was Tailwind with [safar](https://github.com/facebook/create-react-app).
 
-## Features shimul
+## Features Safar
 
 hello from mohiuddin shimul
 hello from mohiuddin shimul
