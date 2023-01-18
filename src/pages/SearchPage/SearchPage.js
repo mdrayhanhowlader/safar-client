@@ -1,9 +1,12 @@
 import React from "react";
+import Filters from "./Filters/Filters";
+import SearchProducts from "./SearchProducts/SearchProducts";
 
 const SearchPage = () => {
   return (
-    <div>
-      <h2>hello search</h2>
+    <div className="flex">
+      <Filters></Filters>
+      <SearchProducts></SearchProducts>
     </div>
   );
 };
