@@ -1,9 +1,12 @@
 import React from "react";
+import SearchBanner from "./SearchBanner";
 
 const SearchPage = () => {
   return (
     <div>
-      <h2>hello search</h2>
+      <div>
+        <SearchBanner></SearchBanner>
+      </div>
     </div>
   );
 };
