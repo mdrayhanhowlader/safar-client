@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import Cookies from "js-cookie";
 
 const LoginForm = () => {
   const {
@@ -22,8 +21,7 @@ const LoginForm = () => {
       // make API call to register user
       //const response = await registerUser(data);
       console.log(data.email);
-      Cookies.set("email", data.email, { expires: 7 });
-      Cookies.set("password", data.password, { expires: 7 });
+
       setIsSubmitting(false);
       // redirect to homepage
     } catch (err) {
