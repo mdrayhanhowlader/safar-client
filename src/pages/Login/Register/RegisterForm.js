@@ -1,8 +1,10 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider";
 
 const RegisterForm = () => {
+  const {createUser}  = useContext(AuthContext)
   const {
     register,
     handleSubmit,
@@ -19,6 +21,14 @@ const RegisterForm = () => {
     setIsSubmitting(true);
     try {
       // make API call to register user
+     createUser(data.email, data.password)
+     .then(data => {
+        console.log(data.user)
+     })
+     .catch(error => {
+      setError(error)
+      console.error(error)
+    })
       //const response = await registerUser(data);
       console.log(data);
       setIsSubmitting(false);
