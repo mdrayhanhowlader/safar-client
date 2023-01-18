@@ -2,7 +2,7 @@ import React from "react";
 
 const SearchBanner = () => {
   return (
-    <div className="bg-blue-700 h-52 w-full">
+    <div className="bg-gradient-to-r from-cyan-500 to-blue-500 h-52 w-full">
       <div className="pt-16 pl-16">
         <h2 className="text-3xl text-slate-50 font-bold">
           Explore (District Name)

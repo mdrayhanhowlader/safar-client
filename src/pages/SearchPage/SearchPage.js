@@ -10,17 +10,17 @@ const SearchPage = () => {
         <SearchBanner></SearchBanner>
       </div>
       <div className="flex">
-      <Filters></Filters>
-      <SearchProducts></SearchProducts>
-</div>
+        <Filters></Filters>
+        <SearchProducts></SearchProducts>
+      </div>
     </div>
-);
+  );
 };
-
 
 export default SearchPage;
 
-{/* import SearchBanner from "./SearchBanner";
+{
+  /* import SearchBanner from "./SearchBanner";
 
 const SearchPage = () => {
   return (
@@ -30,4 +30,5 @@ const SearchPage = () => {
       </div>
     </div>
   );
-}; */}
+}; */
+}
