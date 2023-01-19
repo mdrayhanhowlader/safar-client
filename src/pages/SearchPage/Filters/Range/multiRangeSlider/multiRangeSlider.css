@@ -1,9 +1,9 @@
-/* .container {
+.range-container {
   height: 10vh;
   display: flex;
   align-items: center;
   justify-content: center;
-} */
+}
 
 .slider {
   position: relative;
