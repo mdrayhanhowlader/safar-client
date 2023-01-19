@@ -1,11 +1,16 @@
 import React from "react";
-import SearchNav from "./SearchNav";
+import SearchProductCard from "./SearchProductCard/SearchProductCard";
 
 const SearchProducts = () => {
   return (
-    <div className="w-full mt-12">
-      <div className="md:float-right pr-6">
-        <SearchNav></SearchNav>
+    <div className="w-3/4 m-4 px-3 ">
+      <div className="grid grid-cols-3 gap-6">
+        <SearchProductCard></SearchProductCard>
+        <SearchProductCard></SearchProductCard>
+        <SearchProductCard></SearchProductCard>
+        <SearchProductCard></SearchProductCard>
+        <SearchProductCard></SearchProductCard>
+        <SearchProductCard></SearchProductCard>
       </div>
     </div>
   );
