@@ -7,7 +7,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <nav x-data="{ isOpen: false }" className="relative bg-slate-50">
-      <div className="container px-6 py-4 mx-auto">
+      <div className="w-full px-6 py-4 mx-auto">
         <div className="lg:flex lg:items-center lg:justify-between">
           <div className="flex items-center justify-between">
             <div className="text-xl font-semibold text-gray-700">
