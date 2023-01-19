@@ -1,6 +1,28 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
 const Destination = () => {
+  // get all destinations data from api
+  const {
+    data: destinations,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["destinations"],
+    queryFn: async () => {
+      const res = await fetch(
+        "https://safar-server.vercel.app/destinationcategories"
+      );
+      const data = await res.json();
+      return data;
+    },
+  });
+
+  if (isLoading) return "destinations api is loading";
+  if (error)
+    return "An error has occurred on destinations route: " + error.message;
+
+  console.log(destinations);
   return (
     <section className="container mx-auto">
       {/* section title  */}
@@ -12,58 +34,22 @@ const Destination = () => {
       </div>
       <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
         {/* columns 1 */}
-        <div className="bg-slate-300 lg:h-[332px] md:h-[332px] rounded-md hover:animate-bounce cursor-pointer">
-          <div>
-            <img
-              src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8aG90ZWx8ZW58MHx8MHx8&w=1000&q=80"
-              alt=""
-            />
+        {destinations.map((destination) => (
+          <div
+            key={destination._id}
+            className="bg-slate-200 lg:h-[332px] md:h-[332px] rounded-md  cursor-pointer"
+          >
+            <div>
+              <img src={destination.img} alt="" />
+            </div>
+            <div className="pb-2">
+              <h2 className="font-bold ml-2 mt-4">{destination.district}</h2>
+              <p className="ml-2 mt-2 pb-2">
+                {destination.spots} Properties Available
+              </p>
+            </div>
           </div>
-          <div className="pb-2">
-            <h2 className="font-bold ml-2 mt-4">cox bazar</h2>
-            <p className="ml-2 mt-2 pb-2">140 properties</p>
-          </div>
-        </div>
-        {/* columns 2 */}
-        <div className="bg-slate-300 h-[332px]  rounded-md lg:h-[332px] md:h-[332px]">
-          <div>
-            <img
-              src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8aG90ZWx8ZW58MHx8MHx8&w=1000&q=80"
-              alt=""
-            />
-          </div>
-          <div className="pb-2">
-            <h2 className="font-bold ml-2 mt-4">cox bazar</h2>
-            <p className="ml-2 mt-2 pb-2">140 properties</p>
-          </div>
-        </div>
-        {/* columns 3 */}
-        <div className="bg-slate-300 h-[332px] rounded-md lg:h-[332px] md:h-[332px]">
-          <div>
-            <img
-              src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8aG90ZWx8ZW58MHx8MHx8&w=1000&q=80"
-              alt=""
-            />
-          </div>
-          <div className="pb-2">
-            <h2 className="font-bold ml-2 mt-4">cox bazar</h2>
-            <p className="ml-2 mt-2 pb-2">140 properties</p>
-          </div>
-        </div>
-
-        {/* columns 4 */}
-        <div className="bg-slate-300 h-[332px] rounded-md lg:h-[332px] md:h-[332px]">
-          <div>
-            <img
-              src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8aG90ZWx8ZW58MHx8MHx8&w=1000&q=80"
-              alt=""
-            />
-          </div>
-          <div className="pb-2">
-            <h2 className="font-bold ml-2 mt-4">cox bazar</h2>
-            <p className="ml-2 mt-2 pb-2">140 properties</p>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );
