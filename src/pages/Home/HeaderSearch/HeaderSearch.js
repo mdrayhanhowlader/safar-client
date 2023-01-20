@@ -3,7 +3,7 @@ import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
-
+import SearchBannerImage from "../../../assets/search-banner.jpg"
 const HeaderSearch = () => {
   const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState([
@@ -15,7 +15,10 @@ const HeaderSearch = () => {
   ]);
 
   return (
-    <div className="w-full mx-auto h-16 md:h-52 md:flex md:items-center justify-center bg-blue-900 relative">
+    <div className="w-full mx-auto h-16 md:h-52 md:flex md:items-center justify-center bg-blue-900 relative" style={{ backgroundImage: `url(${SearchBannerImage})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPositionY: "center",}}>
       <div className="w-full md:w-3/5 mx-auto h-12 md:h-8 bg-white border-4 border-orange-500 flex justify-between md:justify-around items-center py-6 px-0 absolute top-14 md:top-44">
         <div>
           <input
