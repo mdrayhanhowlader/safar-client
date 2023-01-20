@@ -1,8 +1,11 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider";
+
 
 const LoginForm = () => {
+  const {emailSignIn} = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -19,6 +22,13 @@ const LoginForm = () => {
     setIsSubmitting(true);
     try {
       // make API call to register user
+      emailSignIn(data.email, data.password)
+      .then(data => {
+        console.log(data.user)
+      })
+    //  const user = await authUser;
+  
+ 
       //const response = await registerUser(data);
       console.log(data.email);
 
