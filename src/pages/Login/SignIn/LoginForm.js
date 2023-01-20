@@ -31,6 +31,7 @@ const LoginForm = () => {
  
       //const response = await registerUser(data);
       console.log(data.email);
+
       setIsSubmitting(false);
       // redirect to homepage
     } catch (err) {
