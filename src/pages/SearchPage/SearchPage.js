@@ -5,11 +5,11 @@ import SearchProducts from "./SearchProducts/SearchProducts";
 
 const SearchPage = () => {
   return (
-    <div>
+    <div className="w-full mx-auto">
       <div>
         <SearchBanner></SearchBanner>
       </div>
-      <div className="flex">
+      <div className="lg:flex">
         <Filters></Filters>
         <SearchProducts></SearchProducts>
       </div>
