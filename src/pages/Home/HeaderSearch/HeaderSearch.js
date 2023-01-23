@@ -4,6 +4,7 @@ import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import SearchBannerImage from "../../../assets/search-banner.jpg"
+import { Link } from "react-router-dom";
 const HeaderSearch = () => {
   const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState([
@@ -52,9 +53,11 @@ const HeaderSearch = () => {
           <span>2 adults 2 children 1 room</span>
         </div> */}
         <div>
+          <Link to='/searchpage'>
           <button className="px-2 md:px-4 bg-blue-700 text-white py-2">
             Search
           </button>
+          </Link>
         </div>
       </div>
     </div>

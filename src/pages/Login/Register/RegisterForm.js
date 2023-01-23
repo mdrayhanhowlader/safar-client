@@ -112,7 +112,7 @@ const RegisterForm = () => {
                   href="#"
                   className="font-medium text-indigo-600 hover:text-indigo-500"
                 >
-                  Forgot your password?
+                  {/* Forgot your password? */}
                 </Link>
               </div>
             </div>
