@@ -4,6 +4,12 @@ import Home from "../../pages/Home/Home/Home";
 import Register from "../../pages/Login/Register/Register";
 import Login from "../../pages/Login/SignIn/Login";
 import SearchPage from "../../pages/SearchPage/SearchPage";
+import Deals from "../../Test/CardDashboard/Deals/Deals";
+import Info from "../../Test/CardDashboard/Info/Info";
+import Overview from "../../Test/CardDashboard/Overview/Overview";
+import Photos from "../../Test/CardDashboard/Photos/Photos";
+import Reviews from "../../Test/CardDashboard/Reviews/Reviews";
+import Test from "../../Test/Test";
 
 
 
