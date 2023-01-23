@@ -4,7 +4,14 @@ import Home from "../../pages/Home/Home/Home";
 import Register from "../../pages/Login/Register/Register";
 import Login from "../../pages/Login/SignIn/Login";
 import SearchPage from "../../pages/SearchPage/SearchPage";
+import CardDashboard from "../../Test/CardDashboard/CardDashboard";
+import Deals from "../../Test/CardDashboard/Deals/Deals";
+import Info from "../../Test/CardDashboard/Info/Info";
+import Overview from "../../Test/CardDashboard/Overview/Overview";
+import Photos from "../../Test/CardDashboard/Photos/Photos";
+import Reviews from "../../Test/CardDashboard/Reviews/Reviews";
 import Test from "../../Test/Test";
+import TestRayhan from "../../Test/TestRayhan";
 
 export const router = createBrowserRouter([
   {
@@ -27,10 +34,40 @@ export const router = createBrowserRouter([
         path: "/searchpage",
         element: <SearchPage></SearchPage>,
       },
-      {
-        path: '/test',
-        element: <Test />
-      }
+      // {
+      //   path: '/test',
+      //   element: <Test />
+      // },
+      // {
+      //   path: "/testRayhan",
+      //   element: <TestRayhan />
+      // }
     ],
   },
+  {
+    path: '/test',
+    element: <Test />,
+    children: [
+      {
+        path: "/test/overview",
+        element: <Overview />
+      },
+      {
+        path: '/test/info',
+        element: <Info />
+      },
+      {
+        path: '/test/photos',
+        element: <Photos />
+      },
+      {
+        path: '/test/reviews',
+        element: <Reviews />
+      },
+      {
+        path: '/test/deals',
+        element: <Deals />
+      }
+    ]
+  }
 ]);
