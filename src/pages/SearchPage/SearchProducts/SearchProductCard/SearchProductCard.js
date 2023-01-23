@@ -8,11 +8,11 @@ const SearchProductCard = () => {
   <h2 className="p-2 mb-4">Best of Mui Tour</h2>
   <div className='flex justify-between px-3'>
     <p className='text-gray-400'>(1200 Reviews)</p>
-    <p className='line-through text-gray-400'>135</p>
+    <p className='line-through text-gray-400'>$135</p>
   </div>
   <div className='flex justify-between my-2 px-3 pb-2'>
     <p className='text-sm text-blue-600'>Save upto 50% off</p>
-    <p className='text-xl'>105</p>
+    <p className='text-xl'>$105</p>
   </div>
 </div>
     );
