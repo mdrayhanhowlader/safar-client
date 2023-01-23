@@ -45,9 +45,9 @@ const HeaderSearch = () => {
           )}`}
         </span>
 
-        {/* <div>
-          <span>2 adults 2 children 1 room</span>
-        </div> */}
+        <div>
+          <span>Guests</span>
+        </div>
         <div>
           <button className="px-2 md:px-4 bg-blue-700 text-white py-2">
             Search
