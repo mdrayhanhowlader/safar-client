@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 const RegisterWelcome = () => {
   return (
     <div>
+      <div>
+        <h2 className="text-3xl mt-28 text-center">Welcome Back!</h2>
+        <p className="text-center">
       <div className="">
         <h2 className="text-3xl mt-32 text-center">Welcome Back!</h2>
         <p className="text-center">

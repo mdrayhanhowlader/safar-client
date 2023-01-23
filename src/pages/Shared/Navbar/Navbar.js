@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FaBars, FaTimesCircle } from "react-icons/fa";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
@@ -6,7 +6,7 @@ import { FaUser } from "react-icons/fa";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const { logOut } = useContext(AuthContext);
+  const { logOut, user } = useContext(AuthContext);
 
   const handleSignOut = () => {
     logOut()
