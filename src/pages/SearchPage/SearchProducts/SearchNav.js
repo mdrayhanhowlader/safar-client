@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
 const SearchNav = () => {
-  const [isHigh, isSetHigh] = useState(false);
+  const [isHigh, setIsHigh] = useState(false);
   const handleLowToHigh = () => {
-    isSetHigh(true);
+    setIsHigh(true);
   };
   const handleHighToLow = () => {
-    isSetHigh(false);
+    setIsHigh(false);
   };
   return (
     <div>

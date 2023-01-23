@@ -11,7 +11,7 @@ const SearchBanner = () => {
           backgroundSize: "cover",
           backgroundPositionY: "center",
         }}
-        className="p-8 h-40 rounded text-white border w-full mx-auto my-6"
+        className="p-8 w-[95%] h-40 rounded-md text-white border shadow-xl mx-auto my-6"
       >
         <h2 className="text-2xl font-bold">Hotels</h2>
         <p>120 Hotels available in this area</p>

@@ -5,6 +5,8 @@ import Register from "../../pages/Login/Register/Register";
 import Login from "../../pages/Login/SignIn/Login";
 import SearchPage from "../../pages/SearchPage/SearchPage";
 
+
+
 export const router = createBrowserRouter([
   {
     path: "/",
