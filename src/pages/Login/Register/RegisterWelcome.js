@@ -6,7 +6,6 @@ const RegisterWelcome = () => {
     <div>
       <div>
         <h2 className="text-3xl mt-28 text-center">Welcome Back!</h2>
-
         <div className="">
           <h2 className="text-3xl mt-32 text-center">Welcome Back!</h2>
           <p className="text-center">
