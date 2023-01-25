@@ -37,14 +37,13 @@ const Offers = () => {
         </div>
         {/* columns 2 */}
         <div
-          className="bg-slate-300 rounded-md cursor-pointer p-4"
+          className="bg-slate-300 rounded-md cursor-pointer p-4 opacity-70 hover:opacity-95"
           style={{
             // backgroundImage: `url(${SearchBannerImage})`,
             backgroundImage: `url("https://images.pexels.com/photos/33041/antelope-canyon-lower-canyon-arizona.jpg?auto=compress&cs=tinysrgb&w=600")`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPositionY: "center",
-            opacity: "0.9",
           }}
         >
           <div>
