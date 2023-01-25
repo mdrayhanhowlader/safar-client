@@ -9,7 +9,9 @@ import Info from "../../Test/CardDashboard/Info/Info";
 import Overview from "../../Test/CardDashboard/Overview/Overview";
 import Photos from "../../Test/CardDashboard/Photos/Photos";
 import Reviews from "../../Test/CardDashboard/Reviews/Reviews";
+import SinglePage from "../../Test/SinglePage/SinglePage";
 import Test from "../../Test/Test";
+import Modals from "../../Test/SinglePage/Modals/Modals"
 
 
 
@@ -34,14 +36,14 @@ export const router = createBrowserRouter([
         path: "/searchpage",
         element: <SearchPage></SearchPage>,
       },
-      // {
-      //   path: '/test',
-      //   element: <Test />
-      // },
-      // {
-      //   path: "/testRayhan",
-      //   element: <TestRayhan />
-      // }
+      {
+        path: "/singlePage",
+        element: <SinglePage />
+      },
+      {
+        path: "/modal",
+        element: <Modals />
+      }
     ],
   },
   {
