@@ -7,14 +7,6 @@ import ProfileUpdateForm from "./ProfileUpdateForm";
 const Profile = () => {
   const [editProfile, setEditProfile] = useState(false);
 
-  const handleOpenEditProfile = () => {
-    setEditProfile(true);
-  };
-
-  const handleCloseEditProfile = () => {
-    setEditProfile(false);
-  };
-
   return (
     <section className="container mx-auto p-8">
       <div className="grid md:grid-cols-3 gap-4">
@@ -57,28 +49,17 @@ const Profile = () => {
           <p className="py-2">Joined in 2023</p>
           {/* Edit Profile  */}
           <div className="">
-            {editProfile === false ? (
-              <button className="underline" onClick={handleOpenEditProfile}>
-                Edit Profile
-              </button>
-            ) : (
-              <button className="underline" onClick={handleCloseEditProfile}>
-                Edit Profile
-              </button>
-            )}
-
-            {
-                editProfile ? 
-                <div className="visible">
-                <ProfileUpdateForm></ProfileUpdateForm>
-                </div>
-                :
-                <div className="hidden">
-                <ProfileUpdateForm></ProfileUpdateForm>
-                </div>
-            }
-           
-           
+            {/* edit profile button */}
+            <button
+              className="underline"
+              onClick={() => setEditProfile(!editProfile)}
+            >
+              Edit Profile
+            </button>
+            {/* profile update form  */}
+            <div className={`${editProfile ? "visible" : "hidden"}`}>
+              <ProfileUpdateForm></ProfileUpdateForm>
+            </div>
           </div>
           {/* rating */}
           <div className="flex items-center">
