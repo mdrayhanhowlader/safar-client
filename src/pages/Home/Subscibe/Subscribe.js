@@ -3,17 +3,17 @@ import React from "react";
 const Subscribe = () => {
   return (
     <section
-      className="my-12 m-4 md:mx-0 lg:mx-0 bg-sky-300"
+      className="my-12 m-4 md:mx-0 lg:mx-0 bg-sky-100"
       // style={{background: '#00224F'}}
     >
       <div className="max-w-3xl px-6 py-16 mx-auto text-center">
         <h1
-          className="text-3xl font-semibold text-rose-400 dark:text-gray-100"
-          style={{ color: "#e7e7e7" }}
+          className="text-3xl font-semibold text-slate-600 dark:text-gray-400"
+          // style={{ color: "#e7e7e7" }}
         >
           Save time, save money!
         </h1>
-        <p className="max-w-md mx-auto mt-5 dark:text-gray-400 text-white">
+        <p className="max-w-md mx-auto mt-5 dark:text-gray-400 text-slate-300">
           Sign up and we'll send the best deals to you
         </p>
 
@@ -36,14 +36,14 @@ const Subscribe = () => {
             /> */}
 
             <input
-              className="w-full col-span-2 p-2 rounded"
+              className="w-full col-span-2 p-3 rounded-md"
               type="email"
               name=""
               id=""
               placeholder="Enter Email"
             />
             <input
-              className="w-full col-span-1 bg-teal-800 rounded text-slate-50"
+              className="w-full col-span-1 p-1 mt-1 md:mt-0 bg-teal-700 rounded-md text-slate-50"
               type="submit"
               value="Subscribe"
             />

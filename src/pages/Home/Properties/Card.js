@@ -56,18 +56,18 @@ const Card = () => {
   };
 
   return (
-    <div className="w-full mx-auto bg-white border-2 border-sky-50 rounded-lg relative group">
+    <div className="w-full mx-auto bg-white  rounded-lg relative group">
       {/* card slider */}
       <div>
         <div
-          className="w-full h-56 mx-auto bg-center bg-cover duration-500 rounded-t-lg "
+          className="w-full h-56 mx-auto bg-center bg-cover duration-500 rounded-xl "
           style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
         ></div>
         {/* heart icon */}
         {!like === true ? (
           <div
             onClick={handleLike}
-            className="absolute top-3 right-3 text-2xl text-red-500 cursor-pointer outline-1 outline-white"
+            className="absolute top-3 right-3 text-2xl text-red-500 cursor-pointer"
           >
             <BsSuitHeartFill />
           </div>
@@ -131,25 +131,25 @@ const Card = () => {
         </div>
       </div>
       {/* card body */}
-      <div className="p-2 font-semibold">
+      <div className="p-2">
         {/* title and rating */}
         <div className="flex justify-between items-center">
           {/* title */}
-          <h4 className="text-md text-slate-800">Pattaya city thiland</h4>
+          <h4 className="text-md text-slate-700 font-semibold">Dhaka City</h4>
           {/* rating */}
           <div className="flex justify-around items-center">
             <span>
               <AiFillStar />
             </span>
-            <span className="ml-1 text-md text-slate-800">4.86</span>
+            <span className="ml-1 text-md text-slate-700">4.86</span>
           </div>
         </div>
         {/* body price */}
         <div className="text-start flex justify-start flex-col">
-          <h6 className="mt-1 text-md text-slate-500">Marina View</h6>
-          <h6 className="mt-1 text-md text-slate-500">Feb 1-6</h6>
+          <h6 className="mt-1 text-slate-500">Marina View</h6>
+          <h6 className="mt-1 text-slate-500">Feb 1-6</h6>
           <div>
-            <h6 className="text-md text-slate-800 mt-1">
+            <h6 className="text-md text-slate-700 mt-1">
               $<span>61</span> night
             </h6>
           </div>
