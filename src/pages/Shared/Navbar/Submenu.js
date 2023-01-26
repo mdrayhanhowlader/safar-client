@@ -43,7 +43,7 @@ const Submenu = () => {
 
           >
             <FaHeart></FaHeart>
-            <span className="mx-1">Notifications</span>
+            <span className="mx-1">Wishlists</span>
           </Link>
         </li>
       
