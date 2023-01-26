@@ -146,10 +146,10 @@ const Card = () => {
         </div>
         {/* body price */}
         <div className="text-start flex justify-start flex-col">
-          <h6 className="mt-1 text-slate-500">Marina View</h6>
-          <h6 className="mt-1 text-slate-500">Feb 1-6</h6>
+          <h6 className=" text-slate-500">Marina View</h6>
+          <h6 className=" text-slate-500">Feb 1-6</h6>
           <div>
-            <h6 className="text-md text-slate-700 mt-1">
+            <h6 className="text-md text-slate-700">
               $<span>61</span> night
             </h6>
           </div>
