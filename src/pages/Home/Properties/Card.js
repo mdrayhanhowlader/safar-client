@@ -4,7 +4,10 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
 import { BsSuitHeartFill } from "react-icons/bs";
 
-const Card = () => {
+const Card = ({ data }) => {
+  const { hotel, images, review, original_price } = data;
+
+  console.log(images[0].url);
   const slides = [
     {
       url: "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -26,7 +29,7 @@ const Card = () => {
     },
   ];
 
-  const dotSlide = slides.slice(0, 3);
+  const dotSlide = images.slice(0, 3);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   // const [changeColor, setChangeColor] = useState(false)
@@ -61,7 +64,7 @@ const Card = () => {
       <div>
         <div
           className="w-full h-56 mx-auto bg-center bg-cover duration-500 rounded-xl "
-          style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
+          style={{ backgroundImage: `url(${images[currentIndex].url})` }}
         ></div>
         {/* heart icon */}
         {!like === true ? (
@@ -135,22 +138,22 @@ const Card = () => {
         {/* title and rating */}
         <div className="flex justify-between items-center">
           {/* title */}
-          <h4 className="text-md text-slate-700 font-semibold">Dhaka City</h4>
+          <h4 className="text-md text-slate-700 font-semibold">{hotel}</h4>
           {/* rating */}
           <div className="flex justify-around items-center">
             <span>
               <AiFillStar />
             </span>
-            <span className="ml-1 text-md text-slate-700">4.86</span>
+            <span className="ml-1 text-md text-slate-700">{review}</span>
           </div>
         </div>
         {/* body price */}
         <div className="text-start flex justify-start flex-col">
-          <h6 className=" text-slate-500">Marina View</h6>
-          <h6 className=" text-slate-500">Feb 1-6</h6>
+          {/* <h6 className=" text-slate-500">Marina View</h6> */}
+          {/* <h6 className=" text-slate-500">Feb 1-6</h6> */}
           <div>
             <h6 className="text-md text-slate-700">
-              $<span>61</span> night
+              $<span>{original_price}</span> Night
             </h6>
           </div>
         </div>

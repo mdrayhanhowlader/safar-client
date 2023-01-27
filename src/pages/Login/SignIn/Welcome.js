@@ -12,7 +12,7 @@ const Welcome = () => {
         </p>
         <div className="mt-4 text-center">
           <Link to="/register">
-            {" "}
+           
             <button className="bg-transparent rounded-full px-16 py-2  border">
               Create Account
             </button>

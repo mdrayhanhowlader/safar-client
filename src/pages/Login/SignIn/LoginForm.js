@@ -1,11 +1,11 @@
 import React, { useCallback, useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
-
 const LoginForm = () => {
-  const {emailSignIn} = useContext(AuthContext);
+  const { emailSignIn } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -22,13 +22,23 @@ const LoginForm = () => {
     setIsSubmitting(true);
     try {
       // make API call to register user
-      emailSignIn(data.email, data.password)
-      .then(data => {
-        console.log(data.user)
-      })
-    //  const user = await authUser;
-  
- 
+      emailSignIn(data.email, data.password).then((data) => {
+        console.log(data.user);
+        const userEmail = data.user.email;
+        console.log(userEmail);
+        fetch(`https://safar-server-nasar06.vercel.app/jwt?email=${userEmail}`)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("after login", data);
+            localStorage.setItem("access-token", data.token);
+          })
+          .catch((err) => {
+            console.err(err);
+          });
+        toast.success("login successfully done");
+      });
+      //  const user = await authUser;
+
       //const response = await registerUser(data);
       console.log(data.email);
 
@@ -63,7 +73,7 @@ const LoginForm = () => {
                   Email
                 </label>
                 <input
-                  {...register("email", { required: true, maxLength: 20 })}
+                  {...register("email", { required: true })}
                   id="email-address"
                   type="email"
                   autoComplete="email"
