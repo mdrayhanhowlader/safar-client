@@ -5,7 +5,6 @@ const RegisterWelcome = () => {
   return (
     <div>
       <div>
-        <h2 className="text-3xl mt-28 text-center">Welcome Back!</h2>
         <div className="">
           <h2 className="text-3xl mt-32 text-center">Welcome Back!</h2>
           <p className="text-center">
@@ -14,7 +13,6 @@ const RegisterWelcome = () => {
           </p>
           <div className="mt-4 text-center">
             <Link to="/login">
-              {" "}
               <button className="bg-transparent rounded-full px-16 py-2  border">
                 Sign In
               </button>
