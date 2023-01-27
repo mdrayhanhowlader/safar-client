@@ -13,7 +13,6 @@ import Notifications from "../../pages/UserDashboard/Notifications/Notifications
 import Wishlists from "../../pages/UserDashboard/Wishlists/Wishlists";
 import OfferPage from "../../pages/OfferPage/OfferPage";
 import Register from "../../pages/Login/Register/Register"
-import SingleProductCard from "../../pages/SearchPage/SearchProducts/SearchProductCard/SingleProductCard";
 export const router = createBrowserRouter([
   {
     path: "/",

@@ -19,7 +19,7 @@ const HeaderSearch = () => {
     const name = e.target.name.value;
     console.log(name);
   }
-  
+
 
   // search location
   const handleSearch = (e) => {
@@ -44,14 +44,14 @@ const HeaderSearch = () => {
       <div className="w-full md:w-3/5 px-2 mx-auto h-12 md:h-8 bg-white rounded-lg flex justify-between sm:mx-4 md:justify-around items-center lg:py-12 absolute top-14 md:top-80">
         <div>
           <form onSubmit={handleGetLocation}>
-          <input
-          
-            name="name"
-            type="text"
-            placeholder="Where are you going?"
-            className="py-2 border-none outline-none text-xs lg:text-lg"
-          />
-          <input type="submit" value="Submit" className="px-2 md:px-4 rounded-sm bg-blue-700 text-white lg:text-lg py-2"/>
+            <input
+
+              name="name"
+              type="text"
+              placeholder="Where are you going?"
+              className="py-2 border-none outline-none text-xs lg:text-lg"
+            />
+            <input type="submit" value="Submit" className="px-2 md:px-4 rounded-sm bg-blue-700 text-white lg:text-lg py-2" />
           </form>
         </div>
         {/* <div>
