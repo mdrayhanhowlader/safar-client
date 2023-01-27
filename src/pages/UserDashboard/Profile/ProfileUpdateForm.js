@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProfileUpdateForm = () => {
+const ProfileUpdateForm = ({editProfile }) => {
   return (
     <>
       <>
@@ -40,7 +40,7 @@ const ProfileUpdateForm = () => {
           </div>
           <div className="mt-3 flex justify-between items-center">
             <div>
-              <button className="underline">cancel</button>
+              <button className={`underline ${editProfile ? "visible" : "hidden"}`}>cancel</button>
             </div>
             <div>
               <input

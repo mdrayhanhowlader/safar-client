@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
 import Home from "../../pages/Home/Home/Home";
-import Register from "../../pages/Login/Register/Register";
+
 import Login from "../../pages/Login/SignIn/Login";
 import SearchPage from "../../pages/SearchPage/SearchPage";
 import Deals from "../../Test/CardDashboard/Deals/Deals";
@@ -19,7 +19,7 @@ import Trips from "../../pages/UserDashboard/Trips/Trips";
 import Notifications from "../../pages/UserDashboard/Notifications/Notifications";
 import Wishlists from "../../pages/UserDashboard/Wishlists/Wishlists";
 import OfferPage from "../../pages/OfferPage/OfferPage";
-
+import Register from "../../pages/Login/Register/Register"
 export const router = createBrowserRouter([
   {
     path: "/",
