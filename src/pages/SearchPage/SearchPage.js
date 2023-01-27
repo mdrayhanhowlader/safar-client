@@ -1,9 +1,12 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
 import Filters from "./Filters/Filters";
 import SearchBanner from "./SearchBanner";
 import SearchProducts from "./SearchProducts/SearchProducts";
 
 const SearchPage = () => {
+  const destination = useLoaderData();
+  console.log(destination);
   return (
     <div className="w-full mx-auto">
       <div>
@@ -11,7 +14,7 @@ const SearchPage = () => {
       </div>
       <div className="lg:flex">
         <Filters></Filters>
-        <SearchProducts></SearchProducts>
+        <SearchProducts destination={destination}></SearchProducts>
       </div>
     </div>
   );

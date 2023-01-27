@@ -10,6 +10,7 @@ const DetailSection = () => {
 
     const [isHandleClick, setIsHandleClick] = useState(false);
     const [isClick, setIsClick] = useState(false);
+    const [count, setCount] = useState(0);
     const [state, setState] = useState([
         {
             startDate: new Date(),
@@ -34,6 +35,12 @@ const DetailSection = () => {
     const handleClickClose = () => {
         setIsClick(false)
     }
+
+    const countData = [
+        {
+
+        }
+    ]
 
     return (
         <div>
@@ -113,20 +120,22 @@ const DetailSection = () => {
                             }
                         </div>
                         <div className={isClick === true ? 'visible' : 'hidden'} style={{ width: "100%" }}>
-                            <div className='flex justify-between mx-4 my-6'>
-                                <div>
-                                    <h1 className='font-bold'>Adults</h1>
-                                    <p>Age 13+</p>
-                                </div>
-                                <div className='flex items-center'>
-                                    <div className='flex'>
-                                        <button className='flex justify-center items-center hover:bg-slate-200' style={{ width: "1.5rem", height: "1.5rem", border: "1px solid grey", borderRadius: "5rem" }}>
-                                            <FaMinus className='h-3 w-3' />
-                                        </button>
-                                        <p className='mx-2'>count</p>
-                                        <button className='flex justify-center items-center hover:bg-slate-200' style={{ width: "1.5rem", height: "1.5rem", border: "1px solid grey", borderRadius: "5rem" }}>
-                                            <FaPlus className='h-3 w-3' />
-                                        </button>
+                            <div>
+                                <div className='flex justify-between mx-4 my-6'>
+                                    <div>
+                                        <h1 className='font-bold'>Adults</h1>
+                                        <p>Age 13+</p>
+                                    </div>
+                                    <div className='flex items-center'>
+                                        <div className='flex'>
+                                            <button onClick={() => setCount(count - 1)} className='flex justify-center items-center hover:bg-slate-200' style={{ width: "1.5rem", height: "1.5rem", border: "1px solid grey", borderRadius: "5rem" }}>
+                                                <FaMinus className='h-3 w-3' />
+                                            </button>
+                                            <p className='mx-2'>{count}</p>
+                                            <button onClick={() => setCount(count + 1)} className='flex justify-center items-center hover:bg-slate-200' style={{ width: "1.5rem", height: "1.5rem", border: "1px solid grey", borderRadius: "5rem" }}>
+                                                <FaPlus className='h-3 w-3' />
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
