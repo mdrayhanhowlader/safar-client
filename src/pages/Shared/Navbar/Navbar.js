@@ -1,29 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { FaBars, FaTimesCircle } from "react-icons/fa";
-import { AuthContext } from "../../../contexts/AuthProvider";
-
 import { FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Submenu from "./Submenu";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const { logOut, user } = useContext(AuthContext);
+
   const [submenu, setSubmenu] = useState(false);
-
-  // const handleOpenMenu = () => {
-  //   setSubmenu(true);
-  // };
-
-  // const handleCloseMenu = () => {
-  //   setSubmenu(false);
-  // };
-
-  const handleSignOut = () => {
-    logOut()
-      .then(() => {})
-      .catch((error) => console.error(error));
-  };
 
   return (
     <nav x-data="{ isOpen: false }" className="relative bg-slate-50 ">
@@ -82,14 +66,6 @@ const Navbar = () => {
               >
                 Login
               </Link>
-              <a
-                onClick={handleSignOut}
-                href="/"
-                to="/signup"
-                className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 hover:bg-gray-100"
-              >
-                Log Out
-              </a>
             </div>
 
             <div className="flex items-center mt-4 lg:mt-0">
@@ -99,32 +75,32 @@ const Navbar = () => {
               ></button>
 
               <div className="relative">
-                  {/* sub menu  */}
-                  <div className={`${submenu ? 'visible' : 'hidden'}`}><Submenu></Submenu></div>
-              <button
-                type="button"
-                className="flex items-center focus:outline-none"
-                aria-label="toggle profile dropdown"
-              >
-                {
-                  <div onClick={() =>setSubmenu(!submenu)} className="w-10 h-10 overflow-hidden border-2 border-gray-400 rounded-full">
-                  <FaUser className="text-2xl text-center mx-auto pt-2" />
+                {/* sub menu  */}
+                <div className={`${submenu ? "visible" : "hidden"}`}>
+                  <Submenu></Submenu>
                 </div>
-                }
-              </button>
+                <button
+                  type="button"
+                  className="flex items-center focus:outline-none"
+                  aria-label="toggle profile dropdown"
+                >
+                  {
+                    <div
+                      onClick={() => setSubmenu(!submenu)}
+                      className="w-10 h-10 overflow-hidden border-2 border-gray-400 rounded-full"
+                    >
+                      <FaUser className="text-2xl text-center mx-auto pt-2" />
+                    </div>
+                  }
+                </button>
               </div>
 
-                
-
-                  {/* {
+              {/* {
                     submenu ?
                     <div className="visible"><Submenu></Submenu></div>
                     :
                     <div className="hidden"><Submenu></Submenu></div>
                   } */}
-
-
-
             </div>
           </div>
         </div>
