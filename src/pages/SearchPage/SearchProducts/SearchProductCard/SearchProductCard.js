@@ -1,8 +1,8 @@
 import React from "react";
-import Test from "../../../../Test/Test";
+import SingleProductCard from "./SingleProductCard";
 
 const SearchProductCard = ({ stay }) => {
-  const { hotel, images } = stay;
+  // const { hotel, images } = stay;
   return (
     <div>
       {/* <div className="w-auto bg-base-100 shadow-xl">
@@ -21,8 +21,8 @@ const SearchProductCard = ({ stay }) => {
         </div>
       </div> */}
 
-      {/* test card implemet */}
-      <Test></Test>
+      {/* single card */}
+      <SingleProductCard />
     </div>
   );
 };
