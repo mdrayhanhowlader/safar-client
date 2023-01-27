@@ -13,7 +13,7 @@ import Notifications from "../../pages/UserDashboard/Notifications/Notifications
 import Wishlists from "../../pages/UserDashboard/Wishlists/Wishlists";
 import OfferPage from "../../pages/OfferPage/OfferPage";
 import Register from "../../pages/Login/Register/Register";
-import SingleProductCard from "../../pages/SearchPage/SearchProducts/SearchProductCard/SingleProductCard";
+import SearchProvider from "../../contexts/SearchProvider";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -80,4 +80,30 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  // {
+  //   path: "/test",
+  //   element: <Test />,
+  //   children: [
+  //     {
+  //       path: "/test/overview",
+  //       element: <Overview />,
+  //     },
+  //     {
+  //       path: "/test/info",
+  //       element: <Info />,
+  //     },
+  //     {
+  //       path: "/test/photos",
+  //       element: <Photos />,
+  //     },
+  //     {
+  //       path: "/test/reviews",
+  //       element: <Reviews />,
+  //     },
+  //     {
+  //       path: "/test/deals",
+  //       element: <Deals />,
+  //     },
+  //   ],
+  // },
 ]);
