@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const RegisterForm = () => {
-  const {createUser}  = useContext(AuthContext)
+  const { createUser } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -21,16 +21,16 @@ const RegisterForm = () => {
     setIsSubmitting(true);
     try {
       // make API call to register user
-     createUser(data.email, data.password)
-     .then(data => {
-        console.log(data.user)
-        
-        saveUser({email: data.user.email})
-     })
-     .catch(error => {
-      setError(error)
-      console.error(error)
-    })
+      createUser(data.email, data.password)
+        .then((data) => {
+          console.log(data.user);
+
+          saveUser({ email: data.user.email });
+        })
+        .catch((error) => {
+          setError(error);
+          console.error(error);
+        });
       //const response = await registerUser(data);
       console.log(data);
       setIsSubmitting(false);
@@ -44,23 +44,23 @@ const RegisterForm = () => {
 
   // save user to database
   const saveUser = (user) => {
-    console.log(user)
+    console.log(user);
     fetch("https://safar-server-nasar06.vercel.app/users", {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'content-type': 'application/json'
+        "content-type": "application/json",
       },
-      body: JSON.stringify(user)
+      body: JSON.stringify(user),
     })
-    .then(res => res.json())
-    .then(data => {
-      console.log('after storage',data)
-      localStorage.setItem('accessToken', data.token)
-      // if(data.acknowledged){
-      //   console.log('user save to database')
-      // }
-    })
-  }
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("after storage", data);
+        localStorage.setItem("accessToken", data.token);
+        // if(data.acknowledged){
+        //   console.log('user save to database')
+        // }
+      });
+  };
 
   return (
     <div>
@@ -85,7 +85,7 @@ const RegisterForm = () => {
                   Email
                 </label>
                 <input
-                  {...register("email", { required: true, maxLength: 20 })}
+                  {...register("email", { required: true })}
                   id="email-address"
                   type="email"
                   autoComplete="email"
