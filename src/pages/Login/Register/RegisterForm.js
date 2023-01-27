@@ -24,6 +24,8 @@ const RegisterForm = () => {
      createUser(data.email, data.password)
      .then(data => {
         console.log(data.user)
+        
+        saveUser({email: data.user.email})
      })
      .catch(error => {
       setError(error)
@@ -39,6 +41,27 @@ const RegisterForm = () => {
       console.log(err);
     }
   }, []);
+
+  // save user to database
+  const saveUser = (user) => {
+    console.log(user)
+    fetch("https://safar-server-nasar06.vercel.app/users", {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log('after storage',data)
+      localStorage.setItem('accessToken', data.token)
+      // if(data.acknowledged){
+      //   console.log('user save to database')
+      // }
+    })
+  }
+
   return (
     <div>
       {" "}
@@ -108,12 +131,12 @@ const RegisterForm = () => {
               </div>
 
               <div className="text-sm">
-                <Link
-                  href="#"
+                {/* <Link
+                  to="#"
                   className="font-medium text-indigo-600 hover:text-indigo-500"
                 >
-                  {/* Forgot your password? */}
-                </Link>
+                  Forgot your password?
+                </Link> */}
               </div>
             </div>
 
