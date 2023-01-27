@@ -10,10 +10,10 @@ const SearchNav = () => {
   };
   return (
     <div>
-      <div className="flex justify-center items-center font-normal">
-        <p>PRICE</p>
+      <div className="md:flex justify-center items-center font-normal">
         {/* price range start */}
         <div className="flex justify-center items-center">
+          <p>PRICE</p>
           {/* low to high */}
           <div>
             <input
@@ -26,7 +26,7 @@ const SearchNav = () => {
             <label
               className={
                 isHigh === true
-                  ? "text-red-600"
+                  ? "text-red-900"
                   : "text-slate-600 cursor-pointer"
               }
               onClick={handleLowToHigh}
@@ -36,7 +36,7 @@ const SearchNav = () => {
             </label>
           </div>
 
-          <span className="ml-2 text-slate-300">|</span>
+          <span className="ml-2 text-slate-600">|</span>
           {/* high to low */}
           <div>
             <input
@@ -49,7 +49,7 @@ const SearchNav = () => {
             <label
               className={
                 isHigh === false
-                  ? "text-red-600"
+                  ? "text-red-900"
                   : "text-slate-600 cursor-pointer"
               }
               onClick={handleHighToLow}
@@ -60,9 +60,9 @@ const SearchNav = () => {
           </div>
         </div>
         {/* price range end */}
-        <div className="flex justify-center items-center pr-2">
+        <div className="flex justify-center items-center mt-2 md:mt-0 pr-2">
           <h4 className="px-4 font-medium">SORT BY</h4>
-          <select className="text-red-500">
+          <select className="text-slate-600">
             <option value="option1">Relevance</option>
             <option value="option2">Newest</option>
             <option value="option3">Popularity</option>

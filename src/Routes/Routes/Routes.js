@@ -36,8 +36,12 @@ export const router = createBrowserRouter([
         element: <OfferPage></OfferPage>,
       },
       {
-        path: "/searchpage",
+        path: "/searchpage/:id",
         element: <SearchPage></SearchPage>,
+        loader: async ({ params }) =>
+          fetch(
+            `https://safar-server-nasar06.vercel.app/destination/get-destination-category/${params.id}`
+          ),
       },
       {
         path: "/singlePage",
