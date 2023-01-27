@@ -1,31 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import SearchBannerImage from "../../../assets/bgImage.png";
-import { Link } from "react-router-dom";
-const HeaderSearch = () => {
-  const [openDate, setOpenDate] = useState(false);
-  const [date, setDate] = useState([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: "selection",
-    },
-  ]);
-  const handleGetLocation = (e) => {
-    e.preventDefault();
-    const name = e.target.name.value;
-    console.log(name);
-  }
-  
+
+const HeaderSearch = ({ handleSearch }) => {
+  // const [openDate, setOpenDate] = useState(false);
+  // const [date, setDate] = useState([
+  //   {
+  //     startDate: new Date(),
+  //     endDate: new Date(),
+  //     key: "selection",
+  //   },
+  // ]);
 
   // search location
-  const handleSearch = (e) => {
-    const location = e.target.value;
-    console.log(location, date[0].startDate, date[0].endDate);
-  };
+  // const handleSearch = (e) => {
+  //   const location = e.target.value;
+  //   console.log(location, date[0].startDate, date[0].endDate);
+  // };
   return (
     <div
       className="w-full mx-auto h-44 md:h-[550px] md:flex md:items-center justify-center bg-blue-900 relative"
@@ -43,7 +37,7 @@ const HeaderSearch = () => {
       </div>
       <div className="w-full md:w-[30%] px-2 mx-auto h-12 md:h-8 bg-white rounded-lg flex justify-between sm:mx-4 md:justify-around items-center lg:py-12 absolute top-14 md:top-80">
         <div>
-          <form onSubmit={handleGetLocation}>
+          <form >
           <input
           
             name="name"

@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaBell, FaHeart, FaShuttleVan, FaUserAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Submenu = () => {
+  const {logOut} = useContext(AuthContext)
+
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div className="absolute top-full  md:right-0 bg-white p-4 w-56">
       <ul className="text-gray-700  pt-1">
@@ -45,6 +54,15 @@ const Submenu = () => {
             <FaHeart></FaHeart>
             <span className="mx-1">Wishlists</span>
           </Link>
+        </li>
+        <li className="">
+          <button
+            onClick={handleSignOut}
+            className=" hover:bg-gray-400 py-2 px-8  whitespace-no-wrap"
+
+          >
+            Log out
+          </button>
         </li>
       
       </ul>
