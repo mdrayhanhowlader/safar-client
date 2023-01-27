@@ -1,7 +1,9 @@
 import React from "react";
 import Card from "./Card";
 
-const Properties = () => {
+const Properties = ({ state }) => {
+  console.log(state?.stays);
+  const location = state?.stays;
   return (
     <section className="container mx-auto">
       {/* section title  */}
@@ -67,10 +69,12 @@ const Properties = () => {
         </div> */}
 
         {/* card */}
+        {/* <Card></Card>
         <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
+        <Card></Card> */}
+        {location?.map((data) => (
+          <Card key={data._id} data={data}></Card>
+        ))}
       </div>
     </section>
   );
