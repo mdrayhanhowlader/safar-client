@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import AdminDashboard from "../../Layout/AdminDashboard";
 import Main from "../../Layout/Main";
+import SellerDashboard from "../../Layout/SellerDashboard";
+
 import UserDashboard from "../../Layout/UserDashboard";
 import Home from "../../pages/Home/Home/Home";
 import Register from "../../pages/Login/Register/Register";
@@ -85,4 +87,10 @@ export const router = createBrowserRouter([
     path: "/dashboard",
     element: <AdminDashboard></AdminDashboard>,
   },
+  // Seller Dashboard routes 
+  {
+    path: '/sellerdashboard',
+    element: <SellerDashboard></SellerDashboard>
+  }
+  
 ]);
