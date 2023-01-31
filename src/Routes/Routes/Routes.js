@@ -14,6 +14,7 @@ import Wishlists from "../../pages/UserDashboard/Wishlists/Wishlists";
 import OfferPage from "../../pages/OfferPage/OfferPage";
 import Register from "../../pages/Login/Register/Register";
 import SingleProductCard from "../../pages/SearchPage/SearchProducts/SearchProductCard/SingleProductCard";
+import AdminDashboard from "../../Layout/AdminDashboard";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -80,4 +81,9 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  // admin dashboard routes 
+  {
+    path: '/dashboard',
+    element: <AdminDashboard></AdminDashboard>
+  }
 ]);
