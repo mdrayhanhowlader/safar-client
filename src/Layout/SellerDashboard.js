@@ -9,6 +9,7 @@ import {
     FaUser,
   } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi";
+import { Link, Outlet } from 'react-router-dom';
 import DashboardNab from '../pages/Shared/Navbar/DashboardNab';
 
 
@@ -49,24 +50,26 @@ const SellerDashboard = () => {
                       <div className={`${productsSubmenu ? "visible" : "hidden"}`}>
                         <ul>
                           <li>
-                            <a
+                            <Link
+                            to='/sellerdashboard/managesellerproduct'
                               className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                              href="/"
+                              
                             >
                               <span className="md:ml-4 text-sm tracking-wide truncate">
                                 Manage Product
                               </span>
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a
+                            <Link
+                            to='/sellerdashboard/addsellerproduct'
                               className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                              href="/"
+                             
                             >
                               <span className="md:ml-4 text-sm tracking-wide truncate">
                                 Add Product
                               </span>
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </div>
@@ -88,34 +91,37 @@ const SellerDashboard = () => {
                       <div className={`${ordersSubMenu ? "visible" : "hidden"}`}>
                         <ul>
                           <li>
-                            <a
+                            <Link
+                            to='/sellerdashboard/managesellerorder'
                               className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                              href="/"
+
                             >
                               <span className="md:ml-4 text-sm tracking-wide truncate">
                                 Manage Orders
                               </span>
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a
+                            <Link
+                            to='/sellerdashboard/managesellerreview'
                               className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                              href="/"
+                            
                             >
                               <span className="md:ml-4 text-sm tracking-wide truncate">
                                 Manage Review
                               </span>
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a
+                            <Link
+                            to='/sellerdashboard/cancelsellerorder'
                               className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                              href="/"
+                            
                             >
                               <span className="md:ml-4 text-sm tracking-wide truncate">
                                 Cancel Orders
                               </span>
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </div>
@@ -315,7 +321,7 @@ const SellerDashboard = () => {
               </div>
             </div>
             <div className="col-span-4 mt-[50px]">
-              <h2 className="text-3xl text-black">Hello Bangladesh</h2>
+              <Outlet></Outlet>
             </div>
           </div>
         </div>
