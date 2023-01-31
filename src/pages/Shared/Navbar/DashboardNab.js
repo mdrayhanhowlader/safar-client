@@ -12,7 +12,7 @@ const DashboardNab = () => {
         />
         <span className="hidden md:block">Safar</span>
       </div>
-      <div className="flex justify-between items-center h-14 header-right">
+      <div className="flex justify-between items-center header-right">
         <div className="rounded flex items-center w-full max-w-xl mr-4 p-2 shadow-sm border border-gray-200">
           <input
             type="search"
