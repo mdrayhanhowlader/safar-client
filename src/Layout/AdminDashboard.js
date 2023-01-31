@@ -315,9 +315,8 @@ const AdminDashboard = () => {
           </div>
         </div>
         <div className="col-span-3 mt-[50px]">
-        <h2 className="text-3xl text-black">Hello Bangladesh</h2>
+          <h2 className="text-3xl text-black">Hello Bangladesh</h2>
         </div>
-       
       </div>
     </div>
   );
