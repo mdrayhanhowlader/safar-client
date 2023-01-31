@@ -1,19 +1,19 @@
 import { createBrowserRouter } from "react-router-dom";
+import AdminDashboard from "../../Layout/AdminDashboard";
 import Main from "../../Layout/Main";
-import Home from "../../pages/Home/Home/Home";
-import Login from "../../pages/Login/SignIn/Login";
-import SearchPage from "../../pages/SearchPage/SearchPage";
-import SinglePage from "../../Test/SinglePage/SinglePage";
-import Modals from "../../Test/SinglePage/Modals/Modals";
-import ManageAccount from "../../pages/UserDashboard/MyAccount/ManageAccount/ManageAccount";
 import UserDashboard from "../../Layout/UserDashboard";
+import Home from "../../pages/Home/Home/Home";
+import Register from "../../pages/Login/Register/Register";
+import Login from "../../pages/Login/SignIn/Login";
+import OfferPage from "../../pages/OfferPage/OfferPage";
+import SearchPage from "../../pages/SearchPage/SearchPage";
+import ManageAccount from "../../pages/UserDashboard/MyAccount/ManageAccount/ManageAccount";
+import Notifications from "../../pages/UserDashboard/Notifications/Notifications";
 import Profile from "../../pages/UserDashboard/Profile/Profile";
 import Trips from "../../pages/UserDashboard/Trips/Trips";
-import Notifications from "../../pages/UserDashboard/Notifications/Notifications";
 import Wishlists from "../../pages/UserDashboard/Wishlists/Wishlists";
-import OfferPage from "../../pages/OfferPage/OfferPage";
-import Register from "../../pages/Login/Register/Register";
-import SearchProvider from "../../contexts/SearchProvider";
+import Modals from "../../Test/SinglePage/Modals/Modals";
+import SinglePage from "../../Test/SinglePage/SinglePage";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -80,30 +80,9 @@ export const router = createBrowserRouter([
       },
     ],
   },
-  // {
-  //   path: "/test",
-  //   element: <Test />,
-  //   children: [
-  //     {
-  //       path: "/test/overview",
-  //       element: <Overview />,
-  //     },
-  //     {
-  //       path: "/test/info",
-  //       element: <Info />,
-  //     },
-  //     {
-  //       path: "/test/photos",
-  //       element: <Photos />,
-  //     },
-  //     {
-  //       path: "/test/reviews",
-  //       element: <Reviews />,
-  //     },
-  //     {
-  //       path: "/test/deals",
-  //       element: <Deals />,
-  //     },
-  //   ],
-  // },
+  // admin dashboard routes
+  {
+    path: "/dashboard",
+    element: <AdminDashboard></AdminDashboard>,
+  },
 ]);
