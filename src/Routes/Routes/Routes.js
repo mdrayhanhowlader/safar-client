@@ -1,26 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
-import AdminDashboard from "../../Layout/AdminDashboard";
 import Main from "../../Layout/Main";
-import SellerDashboard from "../../Layout/SellerDashboard";
-
-import UserDashboard from "../../Layout/UserDashboard";
 import Home from "../../pages/Home/Home/Home";
-import Register from "../../pages/Login/Register/Register";
 import Login from "../../pages/Login/SignIn/Login";
-import OfferPage from "../../pages/OfferPage/OfferPage";
 import SearchPage from "../../pages/SearchPage/SearchPage";
-import CancelSellerOrder from "../../pages/Seller/Orders/CancelSellerOrder/CancelSellerOrder";
-import ManageSellerOrder from "../../pages/Seller/Orders/ManageSellerOrder/ManageSellerOrder";
-import ManageSellerReview from "../../pages/Seller/Orders/ManageSellerReview/ManageSellerReview";
-import AddSellerProduct from "../../pages/Seller/Products/AddSellerProduct/AddSellerProduct";
-import ManageSellerProduct from "../../pages/Seller/Products/ManageSellerProduct/ManageSellerProduct";
+import SinglePage from "../../Test/SinglePage/SinglePage";
+import Modals from "../../Test/SinglePage/Modals/Modals";
 import ManageAccount from "../../pages/UserDashboard/MyAccount/ManageAccount/ManageAccount";
-import Notifications from "../../pages/UserDashboard/Notifications/Notifications";
+import UserDashboard from "../../Layout/UserDashboard";
 import Profile from "../../pages/UserDashboard/Profile/Profile";
 import Trips from "../../pages/UserDashboard/Trips/Trips";
+import Notifications from "../../pages/UserDashboard/Notifications/Notifications";
 import Wishlists from "../../pages/UserDashboard/Wishlists/Wishlists";
-import Modals from "../../Test/SinglePage/Modals/Modals";
-import SinglePage from "../../Test/SinglePage/SinglePage";
+import SingleProductCard from "../../pages/SearchPage/SearchProducts/SearchProductCard/SingleProductCard";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -87,37 +78,4 @@ export const router = createBrowserRouter([
       },
     ],
   },
-  // admin dashboard routes
-  {
-    path: "/dashboard",
-    element: <AdminDashboard></AdminDashboard>,
-  },
-  // Seller Dashboard routes 
-  {
-    path: '/sellerdashboard',
-    element: <SellerDashboard></SellerDashboard>,
-    children: [
-      {
-        path: '/sellerdashboard/addsellerproduct',
-        element: <AddSellerProduct></AddSellerProduct>
-      },
-      {
-        path: '/sellerdashboard/managesellerproduct',
-        element: <ManageSellerProduct></ManageSellerProduct>
-      },
-      {
-        path: '/sellerdashboard/managesellerorder',
-        element: <ManageSellerOrder></ManageSellerOrder>
-      },
-      {
-        path: '/sellerdashboard/managesellerreview',
-        element: <ManageSellerReview></ManageSellerReview>
-      },
-      {
-        path: '/sellerdashboard/cancelsellerorder',
-        element: <CancelSellerOrder></CancelSellerOrder>
-      }
-    ]
-  }
-  
 ]);
