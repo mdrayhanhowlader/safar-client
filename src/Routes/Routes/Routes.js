@@ -14,6 +14,8 @@ import Wishlists from "../../pages/UserDashboard/Wishlists/Wishlists";
 import SingleProductCard from "../../pages/SearchPage/SearchProducts/SearchProductCard/SingleProductCard";
 import Register from "../../pages/Login/Register/Register";
 import OfferPage from "../../pages/OfferPage/OfferPage";
+import FAQ from "../../pages/Shared/Footer/FAQ";
+import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -51,6 +53,14 @@ export const router = createBrowserRouter([
         path: "/modal",
         element: <Modals />,
       },
+      {
+        path: "/faq",
+        element: <FAQ />
+      },
+      {
+        path: "/*",
+        element: <ErrorPage />
+      }
     ],
   },
   // user dashboard routes
