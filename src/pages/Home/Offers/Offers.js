@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 // import SearchBannerImage from "../../../assets/search-banner.jpg";
 
 const Offers = () => {

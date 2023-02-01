@@ -23,7 +23,7 @@ const Destination = () => {
   if (error)
     return "An error has occurred on destinations route: " + error.message;
 
-  console.log(destinations);
+  // console.log(destinations);
   return (
     <section className="container mx-auto mb-8">
       {/* section title  */}
@@ -36,11 +36,11 @@ const Destination = () => {
       <div className="grid md:grid-cols-4 lg:grid-cols-4 gap-4 px-4">
         {/* columns 1 */}
         {destinations.map((destination) => (
-          <Link to={`/searchpage/${destination.category_id}`}>
-            <div
-              key={destination._id}
-              className="bg-white shadow-md border-slate-50 lg:h-[332px] md:h-[332px] rounded-md  cursor-pointer"
-            >
+          <Link
+            key={destination._id}
+            to={`/searchpage/${destination.category_id}`}
+          >
+            <div className="bg-white shadow-md border-slate-50 lg:h-[332px] md:h-[332px] rounded-md  cursor-pointer">
               <div>
                 <img src={destination.img} alt="" />
               </div>
