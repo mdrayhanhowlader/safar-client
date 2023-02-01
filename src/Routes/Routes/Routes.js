@@ -12,6 +12,8 @@ import Trips from "../../pages/UserDashboard/Trips/Trips";
 import Notifications from "../../pages/UserDashboard/Notifications/Notifications";
 import Wishlists from "../../pages/UserDashboard/Wishlists/Wishlists";
 import SingleProductCard from "../../pages/SearchPage/SearchProducts/SearchProductCard/SingleProductCard";
+import Register from "../../pages/Login/Register/Register";
+import OfferPage from "../../pages/OfferPage/OfferPage";
 export const router = createBrowserRouter([
   {
     path: "/",
