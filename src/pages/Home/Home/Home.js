@@ -4,7 +4,7 @@ import Destination from "../Destination/Destination";
 import HeaderSearch from "../HeaderSearch/HeaderSearch";
 import Offers from "../Offers/Offers";
 import Properties from "../Properties/Properties";
-import Subscribe from "../Subscibe/Subscribe";
+// import Subscribe from "../Subscibe/Subscribe";
 import TopRated from "../TopRated/TopRated";
 
 const Home = () => {
@@ -27,7 +27,7 @@ const Home = () => {
       <Offers></Offers>
       <Destination></Destination>
       <TopRated></TopRated>
-      <Subscribe></Subscribe>
+      {/* <Subscribe></Subscribe> */}
     </div>
   );
 };

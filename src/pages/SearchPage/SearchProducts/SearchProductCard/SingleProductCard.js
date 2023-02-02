@@ -1,18 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FaMapMarkerAlt, FaRegHeart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 
 const SingleProductCard = () => {
 
-    const [isOpen, setIsOpen] = useState(false);
-
-    const handleOpenCard = () => {
-        setIsOpen(true)
-    }
-    const handleCloseCard = () => {
-        setIsOpen(false)
-    }
     return (
         <div className='grid lg:grid-cols-3 border'>
 
@@ -94,9 +86,3 @@ const SingleProductCard = () => {
 };
 
 export default SingleProductCard;
-
-
-
-{/* <div className={isOpen === true ? 'visible -mt-6' : 'hidden'}>
-                        <CardDashboard handleCloseCard={handleCloseCard} />
-                    </div> */}
