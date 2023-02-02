@@ -6,12 +6,14 @@ import { format } from "date-fns";
 import SearchBannerImage from "../../../assets/bgImage.png";
 import { FaUser } from "react-icons/fa";
 import  './HeaderSearch.css';
+import { SearchContext } from "../../../contexts/SearchProvider";
+import { useNavigate } from "react-router-dom";
 
-const HeaderSearch = ({ handleSearch }) => {
+const HeaderSearch = () => {
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
   const [openOptions ,setOpenOptions] = useState(false);
-  const [date, setDate] = useState([
+  const [dates, setDates] = useState([
     {
       startDate: new Date(),
       endDate: new Date(),
@@ -21,6 +23,14 @@ const HeaderSearch = ({ handleSearch }) => {
   const [options, setOptions] = useState({
     adult: 1, children: 0, room: 1
   })
+
+  const {dispatch} = useContext(SearchContext);
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    // dispatch({type: 'NEW_SEARCH', payload: (destination, dates, options)});
+    navigate("/searchpage", {state: {destination, dates, options}});
+  }
 
   const handleOption = (name, operation) => {
     setOptions((prev) => {
@@ -61,25 +71,24 @@ const HeaderSearch = ({ handleSearch }) => {
             className="py-2 border-none outline-none text-xs lg:text-lg"
             onChange={(e) => setDestination(e.target.value)}
           />
-          
         </div>
         <div>
           {openDate && (
             <DateRange
               editableDateInputs={true}
-              onChange={(item) => setDate([item.selection])}
+              onChange={(item) => setDates([item.selection])}
               moveRangeOnFirstSelection={false}
-              ranges={date}
+              ranges={dates}
               className="absolute top-16"
             />
           )}
         </div>
         <span
           onClick={() => setOpenDate(!openDate)}
-          className="headersearchtext  cursor-pointer text-xs lg:text-lg"
+          className=" cursor-pointer text-xs lg:text-lg"
         >
-          {`${format(date[0].startDate, "MM/dd/yyyy")} - ${format(
-            date[0].endDate,
+          {`${format(dates[0].startDate, "MM/dd/yyyy")} - ${format(
+            dates[0].endDate,
             "MM/dd/yyyy"
           )}`}
         </span>
@@ -167,7 +176,7 @@ const HeaderSearch = ({ handleSearch }) => {
                   </div>
                 )}
               </div>
-              <input type="submit" value="Search" className="px-2 md:px-4 rounded-sm bg-blue-700 text-white lg:text-lg py-2"/>
+              <input type="submit" onClick={handleSearch} value="Search" className="px-2 md:px-4 rounded-sm bg-blue-700 text-white lg:text-lg py-2"/>
       </div>
     </div>
   );
