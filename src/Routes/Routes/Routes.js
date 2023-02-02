@@ -16,6 +16,8 @@ import Register from "../../pages/Login/Register/Register";
 import OfferPage from "../../pages/OfferPage/OfferPage";
 import FAQ from "../../pages/Shared/Footer/FAQ";
 import ErrorPage from "../../pages/ErrorPage/ErrorPage";
+import OurTeam from "../../pages/Shared/Footer/OurTeam";
+import Checkout from "../../pages/Checkout/Checkout";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -58,9 +60,17 @@ export const router = createBrowserRouter([
         element: <FAQ />
       },
       {
+        path: "/team",
+        element: <OurTeam />
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />
+      },
+      {
         path: "/*",
         element: <ErrorPage />
-      }
+      },
     ],
   },
   // user dashboard routes
