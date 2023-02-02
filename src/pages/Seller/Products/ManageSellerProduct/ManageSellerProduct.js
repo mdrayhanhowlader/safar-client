@@ -7,7 +7,7 @@ const ManageSellerProduct = () => {
     <section className="py-4">
       <h2 className="text-3xl">My Products</h2>
       {/* product table  */}
-      <div className="overflow-hidden rounded-lg border border-gray-200 mr-2 mt-5">
+      <div className="rounded-lg border border-gray-200 mr-2 mt-5">
         <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
           <thead className="bg-gray-50">
             <tr>
