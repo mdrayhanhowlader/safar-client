@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Destination = () => {
   // get all destinations data from api
@@ -22,7 +23,7 @@ const Destination = () => {
   if (error)
     return "An error has occurred on destinations route: " + error.message;
 
-  console.log(destinations);
+  // console.log(destinations);
   return (
     <section className="container mx-auto mb-8">
       {/* section title  */}
@@ -35,20 +36,22 @@ const Destination = () => {
       <div className="grid md:grid-cols-4 lg:grid-cols-4 gap-4 px-4">
         {/* columns 1 */}
         {destinations.map((destination) => (
-          <div
+          <Link
             key={destination._id}
-            className="bg-white shadow-md border-slate-50 lg:h-[332px] md:h-[332px] rounded-md  cursor-pointer"
+            to={`/searchpage/${destination.category_id}`}
           >
-            <div>
-              <img src={destination.img} alt="" />
+            <div className="bg-white shadow-md border-slate-50 lg:h-[332px] md:h-[332px] rounded-md  cursor-pointer">
+              <div>
+                <img src={destination.img} alt="" />
+              </div>
+              <div className="pb-2">
+                <h2 className="font-bold ml-2 mt-4">{destination.district}</h2>
+                <p className="ml-2 mt-2 pb-2">
+                  {destination.spots} Properties Available
+                </p>
+              </div>
             </div>
-            <div className="pb-2">
-              <h2 className="font-bold ml-2 mt-4">{destination.district}</h2>
-              <p className="ml-2 mt-2 pb-2">
-                {destination.spots} Properties Available
-              </p>
-            </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
