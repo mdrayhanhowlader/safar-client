@@ -26,6 +26,7 @@ const OfferPage = () => {
             </div>
             <Subscribe></Subscribe>
         </div>
+        </div>
     );
 };
 
