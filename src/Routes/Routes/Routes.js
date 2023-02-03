@@ -20,6 +20,7 @@ import OurTeam from "../../pages/Shared/Footer/OurTeam";
 import Checkout from "../../pages/Checkout/Checkout";
 import BecomeOrganizer from "../../pages/Shared/Footer/BecomeOrganizer/BecomeOrganizer";
 import OrganizerForm from "../../pages/Shared/Footer/BecomeOrganizer/OrganizerForm";
+import DestinationPage from "../../pages/Home/Destination/DestinationPage";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -66,6 +67,14 @@ export const router = createBrowserRouter([
           ),
       },
       {
+        path: "/destinationPage/:city",
+        element: <DestinationPage></DestinationPage>,
+        loader: async ({ params }) =>
+          fetch(
+            `https://safar-server-nasar06.vercel.app/destination/get-destination-category/${params.city}`
+          ),
+      },
+      {
         path: "/modal",
         element: <Modals />,
       },
@@ -83,11 +92,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/organizer",
-        element: <BecomeOrganizer />
+        element: <BecomeOrganizer />,
       },
       {
         path: "/orgform",
-        element: <OrganizerForm />
+        element: <OrganizerForm />,
       },
       {
         path: "/*",

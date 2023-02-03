@@ -36,7 +36,10 @@ const Destination = () => {
       <div className="grid md:grid-cols-4 lg:grid-cols-4 gap-4 px-4">
         {/* columns 1 */}
         {destinations.map((destination) => (
-          <Link key={destination._id} to={`/searchpage/${destination.city}`}>
+          <Link
+            key={destination._id}
+            to={`/destinationPage/${destination.city}`}
+          >
             <div
               style={{
                 backgroundImage: `url(${destination.img})`,
@@ -44,18 +47,18 @@ const Destination = () => {
                 backgroundSize: "cover",
                 backgroundPositionY: "center",
               }}
-              className="bg-white shadow-md border-slate-50 lg:h-[200px] md:h-[200px] rounded-md cursor-pointer relative"
+              className="shadow-md hover:shadow-lg border-slate-50 lg:h-[200px] md:h-[200px] rounded-md cursor-pointer contrast-100 hover:contrast-200 relative "
             >
               {/* <div>
                 <img className="h-60" src={destination.img} alt="" />
               </div> */}
-              <div className=" text-slate-600 absolute inset-0">
-                <h2 className="text-3xl font-bold ml-2 mt-4 uppercase">
+              <div className=" text-slate-100 absolute flex flex-col justify-center items-center text-center bg-blend-lighten hover:bg-blend-darken h-full w-full">
+                <h2 className="text-3xl font-bold ml-2 mt-4 uppercase hover:bg-sky-400 hover:text-slate-200 p-2 rounded-md">
                   {destination.city}
                 </h2>
-                <p className="ml-2 mt-2 pb-2 capitalize">
+                {/* <p className="ml-2 mt-2 pb-2 capitalize hover:hidden">
                   {destination.spots} Properties Available
-                </p>
+                </p> */}
               </div>
             </div>
           </Link>
