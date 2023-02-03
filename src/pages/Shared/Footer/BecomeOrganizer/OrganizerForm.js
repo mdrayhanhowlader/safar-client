@@ -25,7 +25,7 @@ const OrganizerForm = () => {
             .then(res => res.json())
             .then(imgData => {
                 console.log(imgData)
-                if (imgData?.success === true) {
+                if (imgData?.success) {
                     console.log(imgData.data.url)
                 }
             })
@@ -141,7 +141,7 @@ const OrganizerForm = () => {
                             <fieldset className="col-span-6 my-2">
                                 <div className="mt-1 bg-white rounded-md shadow-sm">
                                     <div className="flex">
-                                        {/* <div className="flex-1">
+                                        <div className="flex-1">
                                             <label htmlFor="Hotel Picture" className="sr-only"> Hotel Picture </label>
 
                                             <input
@@ -154,7 +154,7 @@ const OrganizerForm = () => {
                                                 className="h-full w-full my-2 border border-gray-300 rounded-md sm:text-sm"
                                             />
                                             {errors.hotelPicture && <p className='text-red-600'>{errors.hotelPicture?.message}</p>}
-                                        </div> */}
+                                        </div>
 
                                         <div className="flex-1 mx-2">
                                             <label htmlFor="Hotel Location" className="sr-only"> Hotel Location </label>
