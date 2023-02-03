@@ -29,7 +29,12 @@ const HeaderSearch = () => {
 
   const handleSearch = () => {
     // dispatch({type: 'NEW_SEARCH', payload: (destination, dates, options)});
-    navigate("/searchpage", {state: {destination, dates, options}});
+    if(destination){
+      navigate("/searchpage", {state: {destination, dates, options}});
+    }
+    else{
+      navigate('/')
+    }
   }
 
   const handleOption = (name, operation) => {

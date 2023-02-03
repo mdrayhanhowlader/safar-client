@@ -3,25 +3,27 @@ import { FaMapMarkerAlt, FaRegHeart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 
-const SingleProductCard = () => {
+const SingleProductCard = ({hotelData}) => {
+
+    const {hotel_name,regular_price, offer_price, images, location} = hotelData;
 
     return (
         <div className='grid lg:grid-cols-3 border'>
 
             {/*image section */}
             <div>
-                <img className='h-full p-1 rounded-lg' src='https://www.itchotels.com/content/dam/itchotels/in/umbrella/images/headmast-desktop/welcomhotel-bhubaneswar.jpg' alt='' />
+                <img className='h-full p-1 rounded-lg' src={images[0].url} alt='' />
             </div>
 
             {/* details/middle section */}
             <div className='m-2'>
                 <div className='flex justify-between'>
-                    <h1 className='text-xl font-bold'>Dhaka gol gol</h1>
+                    <h1 className='text-xl font-bold'>{hotel_name}</h1>
                     <FaRegHeart className='h-5 w-5 mt-1 mr-4' />
                 </div>
                 <div>
                     <div className='flex'>
-                        <h1> stars *</h1>
+                        <h1> 5 *</h1>
                         <h1>Hotel</h1>
                     </div>
                 </div>
@@ -29,7 +31,7 @@ const SingleProductCard = () => {
                     <div className='flex justify-between '>
                         <div className='flex'>
                             <FaMapMarkerAlt className='h-4 w-4 mt-1 mx-2' />
-                            <h1 className=''>2.5 miles to city centre</h1>
+                            <h1 className=''>2.5 miles to {location.city } city centre</h1>
                         </div>
                     </div>
                 </div>
@@ -51,7 +53,7 @@ const SingleProductCard = () => {
                         <div className=''>
                             <div>
                                 <h1><small>Renaissance</small></h1>
-                                <h1 className='text-xl font-bold text-green-800 mt-4'><small>$167</small></h1>
+                                <h1 className='text-xl font-bold text-green-800 mt-4'><small>${regular_price}</small></h1>
                             </div>
                         </div>
                         <div>
@@ -63,14 +65,14 @@ const SingleProductCard = () => {
                         <div style={{ width: '40%', backgroundColor: '#dcfce7', borderRadius: ".5rem", marginRight: ".2rem" }}>
                             <div className='p-2'>
                                 <small>Renaissance</small>
-                                <h1 className='font-bold text-green-800'>$167</h1>
+                                <h1 className='font-bold text-green-800'>${offer_price}</h1>
                             </div>
                         </div>
                         <div style={{ width: '60%', backgroundColor: '#dcfce7', borderRadius: ".5rem", padding: '.3rem' }}>
                             <div className='flex justify-center items-center'>
                                 <div>
                                     <small>Lowest Price:</small>
-                                    <small>$167 Renaissance </small>
+                                    <small>${offer_price} Renaissance </small>
                                 </div>
                             </div>
                         </div>

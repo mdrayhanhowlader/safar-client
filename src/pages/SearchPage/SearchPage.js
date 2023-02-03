@@ -34,7 +34,7 @@ const SearchPage = () => {
   return (
     <div className="w-full mx-auto">
       <div>
-        <SearchBanner></SearchBanner>
+        <SearchBanner allHotels={allHotels}></SearchBanner>
       </div>
       <div className="lg:flex">
         <Filters 
