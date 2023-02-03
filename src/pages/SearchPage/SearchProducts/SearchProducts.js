@@ -10,11 +10,16 @@ const SearchProducts = ({ allHotels, isLoading }) => {
         <SearchNav></SearchNav>
       </div>
       <div className="grid lg:grid-cols-1 gap-2">
-        {isLoading
-          ? ("loading")
-          : ( <> {allHotels?.map((stay, i) => (
+        {isLoading ? (
+          "loading"
+        ) : (
+          <>
+            {" "}
+            {allHotels?.map((stay, i) => (
               <SearchProductCard key={i} stay={stay}></SearchProductCard>
-            ))}</>)}
+            ))}
+          </>
+        )}
       </div>
     </div>
   );
