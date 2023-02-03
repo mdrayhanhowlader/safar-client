@@ -1,11 +1,10 @@
 import React from "react";
 import SingleProductCard from "./SingleProductCard";
 
-const SearchProductCard = ({ hotel }) => {
-  console.log(hotel);
+const SearchProductCard = () => {
   return (
     <div>
-      <SingleProductCard hotel={hotel} />
+      <SingleProductCard />
     </div>
   );
 };

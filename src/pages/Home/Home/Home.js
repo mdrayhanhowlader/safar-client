@@ -23,7 +23,7 @@ const Home = () => {
     <div>
       {/* <Banner></Banner> */}
       <HeaderSearch></HeaderSearch>
-      <Properties state={state}></Properties>
+      {/* <Properties state={state}></Properties> */}
       <Offers></Offers>
       <Destination></Destination>
       {/* <TopRated></TopRated> */}
