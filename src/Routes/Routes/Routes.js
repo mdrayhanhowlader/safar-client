@@ -40,16 +40,20 @@ export const router = createBrowserRouter([
         element: <OfferPage></OfferPage>,
       },
       {
-        path: "/searchpage/:id",
+        path: "/searchpage/:city",
         element: <SearchPage></SearchPage>,
         loader: async ({ params }) =>
           fetch(
-            `https://safar-server-nasar06.vercel.app/destination/get-destination-category/${params.id}`
+            `https://safar-server-nasar06.vercel.app/destination/get-destination-category/${params.city}`
           ),
       },
       {
-        path: "/singlePage",
+        path: "/singlePage/:id",
         element: <SinglePage />,
+        loader: async ({ params }) =>
+          fetch(
+            `https://safar-server-nasar06.vercel.app/destination/get-hotel-details/${params.id}`
+          ),
       },
       {
         path: "/modal",
@@ -57,19 +61,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/faq",
-        element: <FAQ />
+        element: <FAQ />,
       },
       {
         path: "/team",
-        element: <OurTeam />
+        element: <OurTeam />,
       },
       {
         path: "/checkout",
-        element: <Checkout />
+        element: <Checkout />,
       },
       {
         path: "/*",
-        element: <ErrorPage />
+        element: <ErrorPage />,
       },
     ],
   },

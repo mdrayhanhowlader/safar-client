@@ -23,10 +23,10 @@ const Home = () => {
     <div>
       {/* <Banner></Banner> */}
       <HeaderSearch handleSearch={handleSearch}></HeaderSearch>
-      <Properties state={state}></Properties>
+      {/* <Properties state={state}></Properties> */}
       <Offers></Offers>
       <Destination></Destination>
-      <TopRated></TopRated>
+      {/* <TopRated></TopRated> */}
       {/* <Subscribe></Subscribe> */}
     </div>
   );
