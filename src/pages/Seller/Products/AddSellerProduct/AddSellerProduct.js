@@ -58,18 +58,18 @@ const AddSellerProduct = () => {
       };
       console.log(productData);
 
-      // send to db
-      fetch('https://safar-server-nasar06.vercel.app/destination/post-all-destinations', {
-        method: "POST",
-        headers: {
-          'content-type' : 'application/json'
-        },
-        body: JSON.stringify(productData)
-      })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-      })
+      // // send to db
+      // fetch('https://safar-server-nasar06.vercel.app/destination/post-all-destinations', {
+      //   method: "POST",
+      //   headers: {
+      //     'content-type' : 'application/json'
+      //   },
+      //   body: JSON.stringify(productData)
+      // })
+      // .then(res => res.json())
+      // .then(data => {
+      //   console.log(data);
+      // })
   };
 
   return (

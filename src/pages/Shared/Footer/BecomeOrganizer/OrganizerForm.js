@@ -11,24 +11,26 @@ const OrganizerForm = () => {
 
     const onSubmit = (data) => {
 
-        const proPicture = data.profilePicture[0];
-        console.log(proPicture)
+        const proPicture = data?.image[0];
         const formData = new FormData();
-        formData.append('profilePicture', proPicture);
+        formData.append('image', proPicture);
 
         // const url = `https://api.imgbb.com/1/upload?key=${imgHostingKey}`
-        const imageUrl = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
+        const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
 
-        fetch(imageUrl, {
+        fetch(url, {
             method: "POST",
             body: formData
         })
             .then(res => res.json())
-            .then(proPicData => {
-                console.log(proPicData)
-                // if (profilePicData.success) {
-                //     console.log(profilePicData.data.url)
-                // }
+            .then(imgData => {
+                console.log(imgData)
+                if (imgData?.success === true) {
+                    console.log(imgData.data.url)
+                }
+            })
+            .catch(e => {
+                console.error(e.message);
             })
 
         const firstName = data.firstName;
@@ -90,7 +92,7 @@ const OrganizerForm = () => {
                                 </label>
 
                                 <input
-                                    {...register("profilePicture", {
+                                    {...register("image", {
                                         required: "Photo is required"
                                     })}
                                     type="file"
