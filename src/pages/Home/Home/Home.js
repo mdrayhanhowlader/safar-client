@@ -21,7 +21,6 @@ const Home = () => {
   // };
   return (
     <div>
-      {/* <Banner></Banner> */}
       <HeaderSearch ></HeaderSearch>
       <Properties state={state}></Properties>
       <Offers></Offers>
