@@ -3,9 +3,7 @@ import { useForm } from 'react-hook-form';
 
 const OrganizerForm = () => {
 
-    // const imgHostingKey = process.env.REACT_APP_imagePostKey;
     const imageHostKey = process.env.REACT_APP_imagePostKey;
-    // console.log(imgHostingKey)
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -15,7 +13,6 @@ const OrganizerForm = () => {
         const formData = new FormData();
         formData.append('image', proPicture);
 
-        // const url = `https://api.imgbb.com/1/upload?key=${imgHostingKey}`
         const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
 
         fetch(url, {
@@ -145,7 +142,7 @@ const OrganizerForm = () => {
                                             <label htmlFor="Hotel Picture" className="sr-only"> Hotel Picture </label>
 
                                             <input
-                                                {...register("hotelPicture", {
+                                                {...register("h_image", {
                                                     required: "Photo is required"
                                                 })}
                                                 type="file"
