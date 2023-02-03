@@ -4,16 +4,42 @@ import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import SearchBannerImage from "../../../assets/bgImage.png";
+import { FaUser } from "react-icons/fa";
+import  './HeaderSearch.css';
+import { SearchContext } from "../../../contexts/SearchProvider";
+import { useNavigate } from "react-router-dom";
 
-const HeaderSearch = ({ handleSearch }) => {
-  // const [openDate, setOpenDate] = useState(false);
-  // const [date, setDate] = useState([
-  //   {
-  //     startDate: new Date(),
-  //     endDate: new Date(),
-  //     key: "selection",
-  //   },
-  // ]);
+const HeaderSearch = () => {
+  const [destination, setDestination] = useState("");
+  const [openDate, setOpenDate] = useState(false);
+  const [openOptions ,setOpenOptions] = useState(false);
+  const [dates, setDates] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
+  ]);
+  const [options, setOptions] = useState({
+    adult: 1, children: 0, room: 1
+  })
+
+  const {dispatch} = useContext(SearchContext);
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    // dispatch({type: 'NEW_SEARCH', payload: (destination, dates, options)});
+    navigate("/searchpage", {state: {destination, dates, options}});
+  }
+
+  const handleOption = (name, operation) => {
+    setOptions((prev) => {
+      return {
+        ...prev,
+        [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
+      }
+    })
+  }
 
   // search location
   // const handleSearch = (e) => {
@@ -35,42 +61,37 @@ const HeaderSearch = ({ handleSearch }) => {
           Explore, travel and love
         </h2>
       </div>
-      <div className="w-full md:w-3/5 px-2 mx-auto h-12 md:h-8 bg-white rounded-lg flex justify-between sm:mx-4 md:justify-around items-center lg:py-12 absolute top-14 md:top-80">
+      <div className="w-full md:w-[60%] px-2 mx-auto h-12 md:h-8 bg-white rounded flex justify-between sm:mx-4 md:justify-around items-center lg:py-12 absolute top-14 md:top-80">
         <div>
-          <form onSubmit={handleSearch}>
-            <input
-              name="name"
-              type="text"
-              placeholder="Where are you going?"
-              className="py-2 border-none outline-none text-xs lg:text-lg"
-            />
-            <input
-              type="submit"
-              value="Submit"
-              className="px-2 md:px-4 rounded-sm bg-blue-700 text-white lg:text-lg py-2"
-            />
-          </form>
+          <input
+          
+            name="name"
+            type="text"
+            placeholder="Where are you going?"
+            className="py-2 border-none outline-none text-xs lg:text-lg"
+            onChange={(e) => setDestination(e.target.value)}
+          />
         </div>
-        {/* <div>
+        <div>
           {openDate && (
             <DateRange
               editableDateInputs={true}
-              onChange={(item) => setDate([item.selection])}
+              onChange={(item) => setDates([item.selection])}
               moveRangeOnFirstSelection={false}
-              ranges={date}
-              className="absolute top-14"
+              ranges={dates}
+              className="absolute top-16"
             />
           )}
-        </div> */}
-        {/* <span
+        </div>
+        <span
           onClick={() => setOpenDate(!openDate)}
-          className="headersearchtext  cursor-pointer text-xs lg:text-lg"
+          className=" cursor-pointer text-xs lg:text-lg"
         >
-          {`${format(date[0].startDate, "MM/dd/yyyy")} - ${format(
-            date[0].endDate,
+          {`${format(dates[0].startDate, "MM/dd/yyyy")} - ${format(
+            dates[0].endDate,
             "MM/dd/yyyy"
           )}`}
-        </span> */}
+        </span>
 
         {/* <div className="py-2 flex items-center">
           <span className="text-[10px] lg:text-lg">2 adults 2 children 1 room</span>
@@ -80,6 +101,82 @@ const HeaderSearch = ({ handleSearch }) => {
             Search
           </button>
         </div> */}
+        <div className="headerSearchItem">
+                <span
+                  onClick={() => setOpenOptions(!openOptions)}
+                  className="headerSearchText"
+                >
+                {options.adult > 1 ? `${options.adult} adults · ${options.children} children · ${options.room} room` : `${options.adult} adult · ${options.children} children · ${options.room} room`}
+                </span>
+                {openOptions && (
+                  <div className="options mt-4">
+                    <div className="optionItem">
+                      <span className="optionText">Adult</span>
+                      <div className="optionCounter">
+                        <button
+                          disabled={options.adult <= 1}
+                          className="optionCounterButton"
+                          onClick={() => handleOption("adult", "d")}
+                        >
+                          -
+                        </button>
+                        <span className="optionCounterNumber">
+                          {options.adult}
+                        </span>
+                        <button
+                          className="optionCounterButton"
+                          onClick={() => handleOption("adult", "i")}
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+                    <div className="optionItem">
+                      <span className="optionText">Children</span>
+                      <div className="optionCounter">
+                        <button
+                          disabled={options.children <= 0}
+                          className="optionCounterButton"
+                          onClick={() => handleOption("children", "d")}
+                        >
+                          -
+                        </button>
+                        <span className="optionCounterNumber">
+                          {options.children}
+                        </span>
+                        <button
+                          className="optionCounterButton"
+                          onClick={() => handleOption("children", "i")}
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+                    <div className="optionItem">
+                      <span className="optionText">Room</span>
+                      <div className="optionCounter">
+                        <button
+                          disabled={options.room <= 1}
+                          className="optionCounterButton"
+                          onClick={() => handleOption("room", "d")}
+                        >
+                          -
+                        </button>
+                        <span className="optionCounterNumber">
+                          {options.room}
+                        </span>
+                        <button
+                          className="optionCounterButton"
+                          onClick={() => handleOption("room", "i")}
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+              <input type="submit" onClick={handleSearch} value="Search" className="px-2 md:px-4 rounded-sm bg-blue-700 text-white lg:text-lg py-2"/>
       </div>
     </div>
   );

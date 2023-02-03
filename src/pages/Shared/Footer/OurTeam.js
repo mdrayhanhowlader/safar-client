@@ -31,14 +31,14 @@ const OurTeam = () => {
     ]
     return (
         <div>
-            <div>
+            {/* <div>
                 <h1 className='text-2xl font-bold text-center my-2'>About Us</h1>
                 <div className='lg:w-1/2 lg:mx-auto mx-6 my-4 shadow-2xl p-6 rounded-3xl'>
                     <p className='text-center'>
 
                     </p>
                 </div>
-            </div>
+            </div> */}
             <div>
                 <h1 className='text-2xl font-bold text-center mt-12'>Our Team</h1>
 
