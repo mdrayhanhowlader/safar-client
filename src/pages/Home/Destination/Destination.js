@@ -36,17 +36,24 @@ const Destination = () => {
       <div className="grid md:grid-cols-4 lg:grid-cols-4 gap-4 px-4">
         {/* columns 1 */}
         {destinations.map((destination) => (
-          <Link
-            key={destination._id}
-            to={`/searchpage/${destination.category_id}`}
-          >
-            <div className="bg-white shadow-md border-slate-50 lg:h-[332px] md:h-[332px] rounded-md  cursor-pointer">
-              <div>
-                <img src={destination.img} alt="" />
-              </div>
-              <div className="pb-2">
-                <h2 className="font-bold ml-2 mt-4">{destination.district}</h2>
-                <p className="ml-2 mt-2 pb-2">
+          <Link key={destination._id} to={`/searchpage/${destination.city}`}>
+            <div
+              style={{
+                backgroundImage: `url(${destination.img})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                backgroundPositionY: "center",
+              }}
+              className="bg-white shadow-md border-slate-50 lg:h-[200px] md:h-[200px] rounded-md cursor-pointer relative"
+            >
+              {/* <div>
+                <img className="h-60" src={destination.img} alt="" />
+              </div> */}
+              <div className=" text-slate-600 absolute inset-0">
+                <h2 className="text-3xl font-bold ml-2 mt-4 uppercase">
+                  {destination.city}
+                </h2>
+                <p className="ml-2 mt-2 pb-2 capitalize">
                   {destination.spots} Properties Available
                 </p>
               </div>

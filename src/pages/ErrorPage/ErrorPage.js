@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Error_Page = () => {
+const ErrorPage = () => {
     return (
 
         <div class="grid h-screen px-4 bg-white place-content-center">
@@ -49,4 +49,4 @@ const Error_Page = () => {
     );
 };
 
-export default Error_Page;
+export default ErrorPage;

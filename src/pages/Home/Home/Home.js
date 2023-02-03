@@ -4,7 +4,7 @@ import Destination from "../Destination/Destination";
 import HeaderSearch from "../HeaderSearch/HeaderSearch";
 import Offers from "../Offers/Offers";
 import Properties from "../Properties/Properties";
-import Subscribe from "../Subscibe/Subscribe";
+// import Subscribe from "../Subscibe/Subscribe";
 import TopRated from "../TopRated/TopRated";
 
 const Home = () => {
@@ -23,11 +23,11 @@ const Home = () => {
     <div>
       {/* <Banner></Banner> */}
       <HeaderSearch handleSearch={handleSearch}></HeaderSearch>
-      <Properties state={state}></Properties>
+      {/* <Properties state={state}></Properties> */}
       <Offers></Offers>
       <Destination></Destination>
-      <TopRated></TopRated>
-      <Subscribe></Subscribe>
+      {/* <TopRated></TopRated> */}
+      {/* <Subscribe></Subscribe> */}
     </div>
   );
 };
