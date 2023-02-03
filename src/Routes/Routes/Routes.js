@@ -40,6 +40,14 @@ export const router = createBrowserRouter([
         element: <OfferPage></OfferPage>,
       },
       {
+        path: "/searchpage",
+        element: <SearchPage></SearchPage>,
+      },
+      {
+        path: "/searchpage",
+        element: <SearchPage></SearchPage>,
+      },
+      {
         path: "/searchpage/:city",
         element: <SearchPage></SearchPage>,
         loader: async ({ params }) =>
