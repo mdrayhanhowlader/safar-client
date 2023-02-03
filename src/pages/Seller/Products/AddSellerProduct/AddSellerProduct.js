@@ -1,53 +1,115 @@
 import React from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
+import { AiOutlinePlusSquare } from 'react-icons/ai';
 
 const AddSellerProduct = () => {
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
-  const handleAddProduct = (data) => {
-    const image = data.image[0];
-    const formData = new FormData();
-    formData.append("image", image);
+  const handleImageChange = async (event) => {
+
     const imageHostKey = process.env.REACT_APP_imagePostKey;
     const imageUrl = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
-
-    fetch(imageUrl, {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((imageData) => {
-        const productData = {
-          name: data.name,
-          description: data.description,
-          price: data.price,
-          offerPrice: data.offerPrice,
-          view: data.view,
-          facility: data.facility,
-          class: data.class,
-          contact: data.contact,
-          yearly: data.yearly,
-          monthly: data.monthly,
-          hotelId: data.hotelId,
-          roomSize: data.roomSize,
-          promoted: data.promoted,
-          image: imageData.data.display_url,
-          address: data.address,
-          country: data.country,
-          city: data.country,
-          postal: data.postal,
-        };
-        console.log(productData);
+    setLoading(true);
+    const files = event.target.files;
+    const uploadedImages = [];
+    for (let i = 0; i < files.length; i++) {
+      const formData = new FormData();
+      formData.append('image', files[i]);
+      formData.append('key', imageHostKey);
+      const response = await fetch(imageUrl, {
+        method: "POST",
+        body: formData
       });
+      const result = await response.json();
+      console.log(result)
+      uploadedImages.push(...images,{url: result.data.url});
+      console.log(uploadedImages)
+    }
+    setImages(uploadedImages);
+    console.log(images)
+    setLoading(false);
+  };
+
+  const handleAddProduct = (data) => {
+  
+      const productData = {
+        hotel_name: data.name,
+        description: data.description,
+        location: {
+            country: data.country,
+            city: data.city.toUpperCase(),
+            address: data.address,
+            zip_code: data.postal
+        },
+        images: images,
+        facilities: [
+          {name: data.facility}    
+        ],
+        Room_type: [
+            {
+                name: data.class,
+                bed: [
+                    {
+                        size: data.roomSize
+                    }   
+                ],
+                sleep: 4
+            }       
+        ],
+        
+        Yearly_deals: false,
+        Monthly_deals: false,
+        Contact: data.contact,
+        Hotel_id: data.hotelId,
+        Promoted: ""
+        
+
+      
+      };
+      console.log(productData);
+
+    //   send to db
+      fetch('https://safar-server-nasar06.vercel.app/destination/post-all-destinations', {
+        method: "POST",
+        headers: {
+          'content-type' : 'application/json'
+        },
+        body: JSON.stringify(productData)
+      })
+      .then(res => res.json())
+      .then(data => {
+        if(data.acknowledge){
+            setImages([])
+            reset()
+            toast.success('hotel added')    
+            console.log(data);
+        }
+        else{
+            console.error('please try again')
+        }     
+      })
   };
 
   return (
     <section className="py-4">
       <h2 className="text-3xl py-4">Add a New Product</h2>
+      <div className="flex flex-wrap items-center">
+        <label htmlFor="pdImg"><AiOutlinePlusSquare className="text-8xl text-gray-400"/></label>
+      <input className="hidden" type="file" id="pdImg" accept="image/*" multiple onChange={handleImageChange} />
+      {loading ? 'Uploading...' : null}
+      {images?.map((image, idx) => (
+        <img className="h-24 w-24 m-1 border border-slate-300 rounded-md" key={idx} src={image.url} alt="Uploaded" />
+      ))}
+    </div>
       <form
         onSubmit={handleSubmit(handleAddProduct)}
         action=""
@@ -61,7 +123,7 @@ const AddSellerProduct = () => {
             type="text"
             {...register("name", { required: "product name is required" })}
           />
-          {errors.name && <p className="text-red-500">{errors.name.message}</p>}
+          {errors?.name && <p className="text-red-500">{errors?.name?.message}</p>}
         </div>
         <div className="">
           <label htmlFor="">Description</label>
@@ -92,8 +154,8 @@ const AddSellerProduct = () => {
               id=""
               {...register("price", { required: "price is required" })}
             />
-            {errors.country && (
-              <p className="text-red-500">{errors.price.message}</p>
+            {errors?.price && (
+              <p className="text-red-500">{errors?.price?.message}</p>
             )}
           </div>
           <div>
@@ -232,7 +294,7 @@ const AddSellerProduct = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-2">
+        <div className="grid md:grid-cols-2 gap-2">
           <div className="">
             <label htmlFor="">Room Size</label>
             <input
@@ -247,7 +309,7 @@ const AddSellerProduct = () => {
               <p className="text-red-500">{errors.roomSize.message}</p>
             )}
           </div>
-          <div>
+          <div className="w-full">
             <label htmlFor="">Promoted</label>
             <input
               className="border-2 p-2 rounded-md w-full border-blue-50"
@@ -260,22 +322,6 @@ const AddSellerProduct = () => {
             {errors.promoted && (
               <p className="text-red-500">{errors.promoted.message}</p>
             )}
-          </div>
-          <div>
-            <label
-              htmlFor="dropzone-file"
-              className="flex items-center p-1 mt-6 mx-auto  text-center bg-white border-2 border-dashed rounded-md cursor-pointer"
-            >
-              <input
-                type="file"
-                name="image"
-                className="bg-white rounded-xl"
-                {...register("image", { required: "image is required" })}
-              />
-              {errors.image && (
-                <p className="text-red-500">{errors.image.message}</p>
-              )}
-            </label>
           </div>
         </div>
 
