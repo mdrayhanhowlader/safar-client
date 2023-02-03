@@ -29,7 +29,7 @@ const Footer = () => {
 								className="w-full rounded-full border-gray-200 bg-gray-100 p-4 pr-32 text-sm font-medium"
 								id="email"
 								type="email"
-								placeholder="john@doe.com"
+								placeholder="safar@jarnn.com"
 							/>
 
 							<button
@@ -174,8 +174,8 @@ const Footer = () => {
 								<a className="text-gray-700 transition hover:text-gray-700/75" href="/">
 									Customer Service
 								</a>
-								<a className="text-gray-700 transition hover:text-gray-700/75" href="/">
-									Become a seller
+								<a className="text-gray-700 transition hover:text-gray-700/75" href="/organizer">
+									Become an organizer
 								</a>
 								<a className="text-gray-700 transition hover:text-gray-700/75" href="/">
 									News/Blogs
@@ -190,7 +190,7 @@ const Footer = () => {
 								aria-label="Footer About Nav"
 								className="mt-6 flex flex-col space-y-1"
 							>
-								<a className="text-gray-700 transition hover:text-gray-700/75" href="/team">
+								<a className="text-gray-700 transition hover:text-gray-700/75" href="/">
 									About Us
 								</a>
 								<a className="text-gray-700 transition hover:text-gray-700/75" href="/team">

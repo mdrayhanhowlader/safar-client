@@ -18,6 +18,8 @@ import FAQ from "../../pages/Shared/Footer/FAQ";
 import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 import OurTeam from "../../pages/Shared/Footer/OurTeam";
 import Checkout from "../../pages/Checkout/Checkout";
+import BecomeOrganizer from "../../pages/Shared/Footer/BecomeOrganizer/BecomeOrganizer";
+import OrganizerForm from "../../pages/Shared/Footer/BecomeOrganizer/OrganizerForm";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -78,6 +80,14 @@ export const router = createBrowserRouter([
       {
         path: "/checkout",
         element: <Checkout />,
+      },
+      {
+        path: "/organizer",
+        element: <BecomeOrganizer />
+      },
+      {
+        path: "/orgform",
+        element: <OrganizerForm />
       },
       {
         path: "/*",
