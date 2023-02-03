@@ -23,7 +23,7 @@ const AdminDashboard = () => {
       <DashboardNab></DashboardNab>
       <div className="grid grid-cols-5 gap-1">
         <div>
-          <div className="fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 bg-blue-900 h-full text-white transition-all duration-300 border-none z-10 sidebar">
+          <div className="fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 bg-blue-900 h-full text-white transition-all duration-300 border-none z-10">
             <div className="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow">
               <ul className="flex flex-col py-4 space-y-1">
                 <li className="px-5 hidden md:block">
@@ -316,7 +316,6 @@ const AdminDashboard = () => {
         </div>
         <div className="col-span-4 mt-[50px]">
           <h2 className="text-3xl text-black">Hello Bangladesh</h2>
-         
         </div>
       </div>
     </div>
