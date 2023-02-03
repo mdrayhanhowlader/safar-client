@@ -1,26 +1,47 @@
 import React, { useState } from 'react';
 import { DateRange } from 'react-date-range';
-import { FaAngleDown, FaRegStar } from "react-icons/fa";
+import { FaAngleDown, FaMinus, FaPlus, FaRegStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import LeftSide from './LeftSide';
 import ReviewSection from './ReviewSection';
+
+
 const DetailSection = () => {
 
     const [isHandleClick, setIsHandleClick] = useState(false);
+    const [isClick, setIsClick] = useState(false);
+    const [count, setCount] = useState(0);
     const [state, setState] = useState([
         {
             startDate: new Date(),
-            endDate: null,
+            endDate: new Date(),
             key: 'selection'
         }
     ]);
 
+    console.log(state)
     const handleOpenCalender = () => {
         setIsHandleClick(true)
+
     }
     const handleCloseCalender = () => {
         setIsHandleClick(false)
     }
+
+    const handleClickOpen = () => {
+        setIsClick(true)
+    }
+
+    const handleClickClose = () => {
+        setIsClick(false)
+    }
+
+    const countData = [
+        {
+
+        }
+    ]
+
     return (
         <div>
             <div className='flex p-4 w-full relative'>
@@ -72,8 +93,8 @@ const DetailSection = () => {
                                         </div>
                                 }
                             </div>
-                            <div className={isHandleClick === true ? 'visible w-full' : 'hidden'}>
-                                <DateRange
+                            <div className={isHandleClick === true ? 'visible' : 'hidden'}>
+                                <DateRange className='w-full'
                                     editableDateInputs={true}
                                     onChange={item => setState([item.selection])}
                                     moveRangeOnFirstSelection={false}
@@ -87,11 +108,36 @@ const DetailSection = () => {
                                 <h1><small>GUESTS</small></h1>
                                 <p>2 guests</p>
                             </div>
-                            <div className='flex items-center mx-2' >
-                                <FaAngleDown className='h-5 w-5' />
-                            </div>
+                            {
+                                isClick === true ?
+                                    <div onClick={handleClickClose} className='flex items-center mx-2' >
+                                        <FaAngleDown className='h-5 w-5' />
+                                    </div>
+                                    :
+                                    <div onClick={handleClickOpen} className='flex items-center mx-2' >
+                                        <FaAngleDown className='h-5 w-5' />
+                                    </div>
+                            }
+                        </div>
+                        <div className={isClick === true ? 'visible' : 'hidden'} style={{ width: "100%" }}>
                             <div>
-
+                                <div className='flex justify-between mx-4 my-6'>
+                                    <div>
+                                        <h1 className='font-bold'>Adults</h1>
+                                        <p>Age 13+</p>
+                                    </div>
+                                    <div className='flex items-center'>
+                                        <div className='flex'>
+                                            <button onClick={() => setCount(count - 1)} className='flex justify-center items-center hover:bg-slate-200' style={{ width: "1.5rem", height: "1.5rem", border: "1px solid grey", borderRadius: "5rem" }}>
+                                                <FaMinus className='h-3 w-3' />
+                                            </button>
+                                            <p className='mx-2'>{count}</p>
+                                            <button onClick={() => setCount(count + 1)} className='flex justify-center items-center hover:bg-slate-200' style={{ width: "1.5rem", height: "1.5rem", border: "1px solid grey", borderRadius: "5rem" }}>
+                                                <FaPlus className='h-3 w-3' />
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 

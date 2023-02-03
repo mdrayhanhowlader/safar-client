@@ -1,14 +1,16 @@
 import React from "react";
 import Range from "./Range/Range";
 
-const FiltersPriceRange = () => {
+const FiltersPriceRange = ({priceRangeResource}) => {
   return (
     <div>
       <div>
         <hr />
         <h2 className="text-base my-1 font-semibold">Price Range</h2>
         <div>
-          <Range></Range>
+          <Range
+          priceRangeResource={priceRangeResource}
+          ></Range>
         </div>
         <div className="my-2">
           <input

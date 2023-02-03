@@ -2,19 +2,24 @@ import React from "react";
 import SearchNav from "./SearchNav";
 import SearchProductCard from "./SearchProductCard/SearchProductCard";
 
-const SearchProducts = () => {
+const SearchProducts = ({ allHotels, isLoading }) => {
+  // const { stays } = destination;
   return (
-    <div className="lg:w-3/4 m-4 px-3 ">
-      <div className="mb-12 flex justify-end">
+    <div className="w-5/5 m-4 px-3 ">
+      <div className="mb-12 md:flex md:justify-end">
         <SearchNav></SearchNav>
       </div>
-      <div className="grid lg:grid-cols-3 gap-6">
-        <SearchProductCard></SearchProductCard>
-        <SearchProductCard></SearchProductCard>
-        <SearchProductCard></SearchProductCard>
-        <SearchProductCard></SearchProductCard>
-        <SearchProductCard></SearchProductCard>
-        <SearchProductCard></SearchProductCard>
+      <div className="grid lg:grid-cols-1 gap-2">
+        {isLoading ? (
+          "loading"
+        ) : (
+          <>
+            {" "}
+            {allHotels?.map((stay, i) => (
+              <SearchProductCard key={i} stay={stay}></SearchProductCard>
+            ))}
+          </>
+        )}
       </div>
     </div>
   );
