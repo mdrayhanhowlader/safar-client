@@ -24,6 +24,9 @@ const AddSellerProduct = () => {
         const productData = {
           name: data.name,
           description: data.description,
+          price: data.price,
+          offerPrice: data.offerPrice,
+          view: data.view,
           facility: data.facility,
           class: data.class,
           contact: data.contact,
@@ -75,6 +78,54 @@ const AddSellerProduct = () => {
             <p className="text-red-500">{errors.description.message}</p>
           )}
         </div>
+
+
+            
+        <div className="grid md:grid-cols-3 gap-2">
+          <div className="">
+            <label htmlFor="">Price</label>
+            <input
+              className="border-2 p-2 rounded-md w-full border-blue-50"
+              placeholder="Price"
+              type="text"
+              name=""
+              id=""
+              {...register("price", { required: "price is required" })}
+            />
+            {errors.country && (
+              <p className="text-red-500">{errors.price.message}</p>
+            )}
+          </div>
+          <div>
+            <label htmlFor="">Offer Price</label>
+            <input
+              className="border-2 p-2 rounded-md w-full border-blue-50"
+              placeholder="Offer Price"
+              type="text"
+              name=""
+              id=""
+              {...register("offerPrice", { required: "offer Price is required" })}
+            />
+            {errors.city && (
+              <p className="text-red-500">{errors.city.message}</p>
+            )}
+          </div>
+          <div>
+            <label htmlFor="">View</label>
+            <input
+              className="border-2 p-2 rounded-md w-full border-blue-50"
+              placeholder="View"
+              type="text"
+              name=""
+              id=""
+              {...register("view", { required: "view is required" })}
+            />
+            {errors.postal && (
+              <p className="text-red-500">{errors.postal.message}</p>
+            )}
+          </div>
+        </div>
+
 
         <div className="">
           <label htmlFor="">Facilities</label>
@@ -287,6 +338,7 @@ const AddSellerProduct = () => {
             )}
           </div>
         </div>
+
         <div>
           <input
             className="px-4 py-2 bg-blue-800 text-white rounded-md cursor-pointer"
