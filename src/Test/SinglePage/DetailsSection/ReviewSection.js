@@ -88,7 +88,7 @@ const ReviewSection = () => {
                 <div className='my-3'>
                     <div className='flex'>
                         <div className='mx-4'>
-                            <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" />
+                            <img className="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" />
                         </div>
                         <div>
                             <h1 className='font-bold'>Rayhan Howlader</h1>
@@ -106,7 +106,7 @@ const ReviewSection = () => {
                 <div className='my-3'>
                     <div className='flex'>
                         <div className='mx-4'>
-                            <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" />
+                            <img className="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" />
                         </div>
                         <div>
                             <h1 className='font-bold'>Nurul Islam</h1>
@@ -125,7 +125,7 @@ const ReviewSection = () => {
                 <div className='my-3'>
                     <div className='flex'>
                         <div className='mx-4'>
-                            <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" />
+                            <img className="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" />
                         </div>
                         <div>
                             <h1 className='font-bold'>Rayhan Howlader</h1>
@@ -143,7 +143,7 @@ const ReviewSection = () => {
                 <div className='my-3'>
                     <div className='flex'>
                         <div className='mx-4'>
-                            <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" />
+                            <img className="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" />
                         </div>
                         <div>
                             <h1 className='font-bold'>Nurul Islam</h1>
