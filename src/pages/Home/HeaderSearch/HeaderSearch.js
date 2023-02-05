@@ -50,7 +50,7 @@ const HeaderSearch = () => {
   // };
   return (
     <div
-      className="w-full mx-auto h-44 md:h-[250px] md:flex md:items-center justify-center bg-blue-900 relative"
+      className="w-full mx-auto h-44 md:h-[250px] md:flex md:items-center justify-center bg-blue-900 relative z-10 mb-24"
       style={{
         // backgroundImage: `url(${SearchBannerImage})`,
         backgroundImage: `url("https://media.istockphoto.com/id/185109771/photo/shopping-street-of-maldives.jpg?b=1&s=170667a&w=0&k=20&c=z_7GZBae0qs323Y85S5CSItDgs6xDmU0ymxP8-8Iji0=")`,
