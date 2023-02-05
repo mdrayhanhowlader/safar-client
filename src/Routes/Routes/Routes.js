@@ -11,15 +11,22 @@ import Profile from "../../pages/UserDashboard/Profile/Profile";
 import Trips from "../../pages/UserDashboard/Trips/Trips";
 import Notifications from "../../pages/UserDashboard/Notifications/Notifications";
 import Wishlists from "../../pages/UserDashboard/Wishlists/Wishlists";
-import SingleProductCard from "../../pages/SearchPage/SearchProducts/SearchProductCard/SingleProductCard";
 import Register from "../../pages/Login/Register/Register";
-import OfferPage from "../../pages/OfferPage/OfferPage";
 import FAQ from "../../pages/Shared/Footer/FAQ";
 import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 import OurTeam from "../../pages/Shared/Footer/OurTeam";
 import Checkout from "../../pages/Checkout/Checkout";
 import BecomeOrganizer from "../../pages/Shared/Footer/BecomeOrganizer/BecomeOrganizer";
 import OrganizerForm from "../../pages/Shared/Footer/BecomeOrganizer/OrganizerForm";
+import DestinationPage from "../../pages/Home/Destination/DestinationPage";
+import AdminDashboard from "../../Layout/AdminDashboard";
+import CancelSellerOrder from "../../pages/Seller/Orders/CancelSellerOrder/CancelSellerOrder";
+import ManageSellerOrder from "../../pages/Seller/Orders/ManageSellerOrder/ManageSellerOrder";
+import ManageSellerReview from "../../pages/Seller/Orders/ManageSellerReview/ManageSellerReview";
+import AddSellerProduct from "../../pages/Seller/Products/AddSellerProduct/AddSellerProduct";
+import ManageSellerProduct from "../../pages/Seller/Products/ManageSellerProduct/ManageSellerProduct";
+import SellerDashboard from "../../Layout/SellerDashboard";
+import OfferPage from "../../pages/OfferPage/OfferPage";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -42,16 +49,36 @@ export const router = createBrowserRouter([
         element: <OfferPage></OfferPage>,
       },
       {
-        path: "/searchpage/:id",
+        path: "/searchpage",
+        element: <SearchPage></SearchPage>,
+      },
+      {
+        path: "/searchpage",
+        element: <SearchPage></SearchPage>,
+      },
+      {
+        path: "/searchpage/:city",
         element: <SearchPage></SearchPage>,
         loader: async ({ params }) =>
           fetch(
-            `https://safar-server-nasar06.vercel.app/destination/get-destination-category/${params.id}`
+            `https://safar-server-nasar06.vercel.app/destination/get-destination-category/${params.city}`
           ),
       },
       {
-        path: "/singlePage",
+        path: "/singlePage/:id",
         element: <SinglePage />,
+        loader: async ({ params }) =>
+          fetch(
+            `https://safar-server-nasar06.vercel.app/destination/get-hotel-details/${params.id}`
+          ),
+      },
+      {
+        path: "/destinationPage/:city",
+        element: <DestinationPage></DestinationPage>,
+        loader: async ({ params }) =>
+          fetch(
+            `https://safar-server-nasar06.vercel.app/destination/get-destination-category/${params.city}`
+          ),
       },
       {
         path: "/modal",
@@ -59,27 +86,27 @@ export const router = createBrowserRouter([
       },
       {
         path: "/faq",
-        element: <FAQ />
+        element: <FAQ />,
       },
       {
         path: "/team",
-        element: <OurTeam />
+        element: <OurTeam />,
       },
       {
         path: "/checkout",
-        element: <Checkout />
+        element: <Checkout />,
       },
       {
         path: "/organizer",
-        element: <BecomeOrganizer />
+        element: <BecomeOrganizer />,
       },
       {
         path: "/orgform",
-        element: <OrganizerForm />
+        element: <OrganizerForm />,
       },
       {
         path: "/*",
-        element: <ErrorPage />
+        element: <ErrorPage />,
       },
     ],
   },
@@ -107,6 +134,39 @@ export const router = createBrowserRouter([
       {
         path: "/myaccount/wishlists",
         element: <Wishlists></Wishlists>,
+      },
+    ],
+  },
+
+  // admin dashboard routes
+  {
+    path: "/dashboard",
+    element: <AdminDashboard></AdminDashboard>,
+  },
+  // Seller Dashboard routes
+  {
+    path: "/sellerdashboard",
+    element: <SellerDashboard></SellerDashboard>,
+    children: [
+      {
+        path: "/sellerdashboard/addsellerproduct",
+        element: <AddSellerProduct></AddSellerProduct>,
+      },
+      {
+        path: "/sellerdashboard/managesellerproduct",
+        element: <ManageSellerProduct></ManageSellerProduct>,
+      },
+      {
+        path: "/sellerdashboard/managesellerorder",
+        element: <ManageSellerOrder></ManageSellerOrder>,
+      },
+      {
+        path: "/sellerdashboard/managesellerreview",
+        element: <ManageSellerReview></ManageSellerReview>,
+      },
+      {
+        path: "/sellerdashboard/cancelsellerorder",
+        element: <CancelSellerOrder></CancelSellerOrder>,
       },
     ],
   },
