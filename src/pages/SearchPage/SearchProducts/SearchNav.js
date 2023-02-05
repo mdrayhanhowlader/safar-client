@@ -30,7 +30,7 @@ const SearchNav = () => {
                   : "text-slate-600 cursor-pointer"
               }
               onClick={handleLowToHigh}
-              for="low"
+              htmlFor="low"
             >
               Low to High
             </label>
@@ -53,7 +53,7 @@ const SearchNav = () => {
                   : "text-slate-600 cursor-pointer"
               }
               onClick={handleHighToLow}
-              for="high"
+              htmlFor="high"
             >
               High to Low
             </label>

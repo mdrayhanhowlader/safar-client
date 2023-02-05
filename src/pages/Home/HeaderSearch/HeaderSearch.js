@@ -5,14 +5,14 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import SearchBannerImage from "../../../assets/bgImage.png";
 import { FaUser } from "react-icons/fa";
-import  './HeaderSearch.css';
+import "./HeaderSearch.css";
 import { SearchContext } from "../../../contexts/SearchProvider";
 import { useNavigate } from "react-router-dom";
 
 const HeaderSearch = () => {
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
-  const [openOptions ,setOpenOptions] = useState(false);
+  const [openOptions, setOpenOptions] = useState(false);
   const [dates, setDates] = useState([
     {
       startDate: new Date(),
@@ -21,25 +21,27 @@ const HeaderSearch = () => {
     },
   ]);
   const [options, setOptions] = useState({
-    adult: 1, children: 0, room: 1
-  })
+    adult: 1,
+    children: 0,
+    room: 1,
+  });
 
-  const {dispatch} = useContext(SearchContext);
+  const { dispatch } = useContext(SearchContext);
   const navigate = useNavigate();
 
   const handleSearch = () => {
     // dispatch({type: 'NEW_SEARCH', payload: (destination, dates, options)});
-    navigate("/searchpage", {state: {destination, dates, options}});
-  }
+    navigate("/searchpage", { state: { destination, dates, options } });
+  };
 
   const handleOption = (name, operation) => {
     setOptions((prev) => {
       return {
         ...prev,
         [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
-      }
-    })
-  }
+      };
+    });
+  };
 
   // search location
   // const handleSearch = (e) => {
@@ -48,9 +50,10 @@ const HeaderSearch = () => {
   // };
   return (
     <div
-      className="w-full mx-auto h-44 md:h-[550px] md:flex md:items-center justify-center bg-blue-900 relative"
+      className="w-full mx-auto h-44 md:h-[250px] md:flex md:items-center justify-center bg-blue-900 relative z-10 mb-24"
       style={{
-        backgroundImage: `url(${SearchBannerImage})`,
+        // backgroundImage: `url(${SearchBannerImage})`,
+        backgroundImage: `url("https://media.istockphoto.com/id/185109771/photo/shopping-street-of-maldives.jpg?b=1&s=170667a&w=0&k=20&c=z_7GZBae0qs323Y85S5CSItDgs6xDmU0ymxP8-8Iji0=")`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPositionY: "center",
@@ -61,10 +64,9 @@ const HeaderSearch = () => {
           Explore, travel and love
         </h2>
       </div>
-      <div className="w-full md:w-[60%] px-2 mx-auto h-12 md:h-8 bg-white rounded flex justify-between sm:mx-4 md:justify-around items-center lg:py-12 absolute top-14 md:top-80">
+      <div className="w-full md:w-[60%] px-2 mx-auto h- md:h-4 rounded-full bg-white flex justify-between sm:mx-4 md:justify-around items-center lg:py-8 absolute top-14 md:top-52 border shadow border-slate-50">
         <div>
           <input
-          
             name="name"
             type="text"
             placeholder="Where are you going?"
@@ -102,81 +104,84 @@ const HeaderSearch = () => {
           </button>
         </div> */}
         <div className="headerSearchItem">
-                <span
-                  onClick={() => setOpenOptions(!openOptions)}
-                  className="headerSearchText"
-                >
-                {options.adult > 1 ? `${options.adult} adults · ${options.children} children · ${options.room} room` : `${options.adult} adult · ${options.children} children · ${options.room} room`}
-                </span>
-                {openOptions && (
-                  <div className="options mt-4">
-                    <div className="optionItem">
-                      <span className="optionText">Adult</span>
-                      <div className="optionCounter">
-                        <button
-                          disabled={options.adult <= 1}
-                          className="optionCounterButton"
-                          onClick={() => handleOption("adult", "d")}
-                        >
-                          -
-                        </button>
-                        <span className="optionCounterNumber">
-                          {options.adult}
-                        </span>
-                        <button
-                          className="optionCounterButton"
-                          onClick={() => handleOption("adult", "i")}
-                        >
-                          +
-                        </button>
-                      </div>
-                    </div>
-                    <div className="optionItem">
-                      <span className="optionText">Children</span>
-                      <div className="optionCounter">
-                        <button
-                          disabled={options.children <= 0}
-                          className="optionCounterButton"
-                          onClick={() => handleOption("children", "d")}
-                        >
-                          -
-                        </button>
-                        <span className="optionCounterNumber">
-                          {options.children}
-                        </span>
-                        <button
-                          className="optionCounterButton"
-                          onClick={() => handleOption("children", "i")}
-                        >
-                          +
-                        </button>
-                      </div>
-                    </div>
-                    <div className="optionItem">
-                      <span className="optionText">Room</span>
-                      <div className="optionCounter">
-                        <button
-                          disabled={options.room <= 1}
-                          className="optionCounterButton"
-                          onClick={() => handleOption("room", "d")}
-                        >
-                          -
-                        </button>
-                        <span className="optionCounterNumber">
-                          {options.room}
-                        </span>
-                        <button
-                          className="optionCounterButton"
-                          onClick={() => handleOption("room", "i")}
-                        >
-                          +
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                )}
+          <span
+            onClick={() => setOpenOptions(!openOptions)}
+            className="headerSearchText"
+          >
+            {options.adult > 1
+              ? `${options.adult} adults · ${options.children} children · ${options.room} room`
+              : `${options.adult} adult · ${options.children} children · ${options.room} room`}
+          </span>
+          {openOptions && (
+            <div className="options mt-4">
+              <div className="optionItem">
+                <span className="optionText">Adult</span>
+                <div className="optionCounter">
+                  <button
+                    disabled={options.adult <= 1}
+                    className="optionCounterButton"
+                    onClick={() => handleOption("adult", "d")}
+                  >
+                    -
+                  </button>
+                  <span className="optionCounterNumber">{options.adult}</span>
+                  <button
+                    className="optionCounterButton"
+                    onClick={() => handleOption("adult", "i")}
+                  >
+                    +
+                  </button>
+                </div>
               </div>
-              <input type="submit" onClick={handleSearch} value="Search" className="px-2 md:px-4 rounded-sm bg-blue-700 text-white lg:text-lg py-2"/>
+              <div className="optionItem">
+                <span className="optionText">Children</span>
+                <div className="optionCounter">
+                  <button
+                    disabled={options.children <= 0}
+                    className="optionCounterButton"
+                    onClick={() => handleOption("children", "d")}
+                  >
+                    -
+                  </button>
+                  <span className="optionCounterNumber">
+                    {options.children}
+                  </span>
+                  <button
+                    className="optionCounterButton"
+                    onClick={() => handleOption("children", "i")}
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+              <div className="optionItem">
+                <span className="optionText">Room</span>
+                <div className="optionCounter">
+                  <button
+                    disabled={options.room <= 1}
+                    className="optionCounterButton"
+                    onClick={() => handleOption("room", "d")}
+                  >
+                    -
+                  </button>
+                  <span className="optionCounterNumber">{options.room}</span>
+                  <button
+                    className="optionCounterButton"
+                    onClick={() => handleOption("room", "i")}
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+        <input
+          type="submit"
+          onClick={handleSearch}
+          value="Search"
+          className="px-2 md:px-4 rounded-sm bg-sky-500 text-white lg:text-lg py-2 md:rounded-r-full"
+        />
       </div>
     </div>
   );

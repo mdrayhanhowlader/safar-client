@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 // import SearchBannerImage from "../../../assets/search-banner.jpg";
 
@@ -16,82 +16,82 @@ const Offers = () => {
       <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-4 text-slate-50">
         {/* columns 1 */}
 
-        <Link style={{
-          backgroundImage: `url("https://images.pexels.com/photos/9711952/pexels-photo-9711952.jpeg?auto=compress&cs=tinysrgb&w=600")`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPositionY: "center",
-        }}
+        <Link
+          style={{
+            backgroundImage: `url("https://images.pexels.com/photos/9711952/pexels-photo-9711952.jpeg?auto=compress&cs=tinysrgb&w=600")`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPositionY: "center",
+          }}
           href="#"
-          class="relative block overflow-hidden rounded-xl bg-[url(https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1592&q=80)] bg-cover bg-center bg-no-repeat"
+          className="relative block overflow-hidden rounded-xl bg-[url(https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1592&q=80)] bg-cover bg-center bg-no-repeat"
         >
-          <span
-            class="absolute right-4 top-4 z-10 inline-flex items-center rounded-full bg-black px-3 py-1 text-xs font-semibold text-white"
-          > 4.5
-          </span>
-
-          <div class="relative bg-black bg-opacity-40 p-8 pt-40 text-white">
-            <h3 class="text-2xl font-bold">Lalbag kella</h3>
-            <p class="text-sm">Dhaka</p>
-          </div>
-        </Link>
-        <Link style={{
-          backgroundImage: `url("https://images.pexels.com/photos/122107/pexels-photo-122107.jpeg?auto=compress&cs=tinysrgb&w=600")`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPositionY: "center",
-        }}
-          href="#"
-          class="relative block overflow-hidden rounded-xl bg-[url(https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1592&q=80)] bg-cover bg-center bg-no-repeat"
-        >
-          <span
-            class="absolute right-4 top-4 z-10 inline-flex items-center rounded-full bg-black px-3 py-1 text-xs font-semibold text-white"
-          >4.5
-          </span>
-
-          <div class="relative bg-black bg-opacity-40 p-8 pt-40 text-white">
-            <h3 class="text-2xl font-bold">Cox's Bazar</h3>
-
-            <p class="text-sm">Chattogram</p>
-          </div>
-        </Link>
-        <Link style={{
-          backgroundImage: `url("https://3.bp.blogspot.com/-Qwtv0KFoYvo/UcVxR4RajKI/AAAAAAAAAB0/OYnmZWe-td8/s1600/Kuakata+001.jpg")`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPositionY: "center",
-        }}
-          href="#"
-          class="relative block overflow-hidden rounded-xl bg-[url(https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1592&q=80)] bg-cover bg-center bg-no-repeat"
-        >
-          <span
-            class="absolute right-4 top-4 z-10 inline-flex items-center rounded-full bg-black px-3 py-1 text-xs font-semibold text-white"
-          > 4.5
-          </span>
-
-          <div class="relative bg-black bg-opacity-40 p-8 pt-40 text-white">
-            <h3 class="text-2xl font-bold">Kuakata</h3>
-
-            <p class="text-sm">Barishal</p>
-          </div>
-        </Link>
-        <Link style={{
-          backgroundImage: `url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/201_Dome_Mosque%2C_Tangail.jpg/1024px-201_Dome_Mosque%2C_Tangail.jpg")`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPositionY: "center",
-        }}
-          href="#"
-          class="relative block overflow-hidden rounded-xl bg-[url(https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1592&q=80)] bg-cover bg-center bg-no-repeat"
-        >
-          <span
-            class="absolute right-4 top-4 z-10 inline-flex items-center rounded-full bg-black px-3 py-1 text-xs font-semibold text-white"
-          >
+          <span className="absolute right-4 top-4 z-10 inline-flex items-center rounded-full bg-black px-3 py-1 text-xs font-semibold text-white">
+            {" "}
             4.5
+          </span>
 
+          <div className="relative bg-black bg-opacity-40 p-8 pt-40 text-white">
+            <h3 className="text-2xl font-bold">Lalbag kella</h3>
+            <p className="text-sm">Dhaka</p>
+          </div>
+        </Link>
+        <Link
+          style={{
+            backgroundImage: `url("https://images.pexels.com/photos/122107/pexels-photo-122107.jpeg?auto=compress&cs=tinysrgb&w=600")`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPositionY: "center",
+          }}
+          href="#"
+          className="relative block overflow-hidden rounded-xl bg-[url(https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1592&q=80)] bg-cover bg-center bg-no-repeat"
+        >
+          <span className="absolute right-4 top-4 z-10 inline-flex items-center rounded-full bg-black px-3 py-1 text-xs font-semibold text-white">
+            4.5
+          </span>
+
+          <div className="relative bg-black bg-opacity-40 p-8 pt-40 text-white">
+            <h3 className="text-2xl font-bold">Cox's Bazar</h3>
+
+            <p className="text-sm">Chattogram</p>
+          </div>
+        </Link>
+        <Link
+          style={{
+            backgroundImage: `url("https://3.bp.blogspot.com/-Qwtv0KFoYvo/UcVxR4RajKI/AAAAAAAAAB0/OYnmZWe-td8/s1600/Kuakata+001.jpg")`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPositionY: "center",
+          }}
+          href="#"
+          className="relative block overflow-hidden rounded-xl bg-[url(https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1592&q=80)] bg-cover bg-center bg-no-repeat"
+        >
+          <span className="absolute right-4 top-4 z-10 inline-flex items-center rounded-full bg-black px-3 py-1 text-xs font-semibold text-white">
+            {" "}
+            4.5
+          </span>
+
+          <div className="relative bg-black bg-opacity-40 p-8 pt-40 text-white">
+            <h3 className="text-2xl font-bold">Kuakata</h3>
+
+            <p className="text-sm">Barishal</p>
+          </div>
+        </Link>
+        <Link
+          style={{
+            backgroundImage: `url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/201_Dome_Mosque%2C_Tangail.jpg/1024px-201_Dome_Mosque%2C_Tangail.jpg")`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPositionY: "center",
+          }}
+          href="#"
+          className="relative block overflow-hidden rounded-xl bg-[url(https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1592&q=80)] bg-cover bg-center bg-no-repeat"
+        >
+          <span className="absolute right-4 top-4 z-10 inline-flex items-center rounded-full bg-black px-3 py-1 text-xs font-semibold text-white">
+            4.5
             {/* <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="ml-1.5 h-4 w-4 text-yellow-300"
+              className="ml-1.5 h-4 w-4 text-yellow-300"
               viewBox="0 0 20 20"
               fill="currentColor"
             >
@@ -101,18 +101,12 @@ const Offers = () => {
             </svg> */}
           </span>
 
-          <div class="relative bg-black bg-opacity-40 p-8 pt-40 text-white">
-            <h3 class="text-2xl font-bold">Tangail</h3>
+          <div className="relative bg-black bg-opacity-40 p-8 pt-40 text-white">
+            <h3 className="text-2xl font-bold">Tangail</h3>
 
-            <p class="text-sm">Dhaka</p>
+            <p className="text-sm">Dhaka</p>
           </div>
         </Link>
-
-
-
-
-
-
 
         {/* <div
           className="bg-slate-300 rounded-md cursor-pointer p-4"
