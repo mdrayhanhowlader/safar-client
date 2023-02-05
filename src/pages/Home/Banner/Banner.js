@@ -11,7 +11,7 @@ const Banner = () => {
       style={{ backgroundImage: `url(${img})` }}
     >
       {/* <img src={img} className="brightness-50 h-screen w-screen" alt="" /> */}
-      <div className='class="prose lg:prose-xl text-white'>
+      <div className='className="prose lg:prose-xl text-white'>
         <h1 className="font-bold text-3xl">Find your next stay</h1>
         <p className="">Search deals on hotels, homes, and much more.....</p>
         <div className="lg:flex">

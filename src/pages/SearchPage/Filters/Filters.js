@@ -4,7 +4,7 @@ import FiltersDuration from "./FiltersDuration";
 import FiltersEventTime from "./FiltersEventTime";
 import FiltersPriceRange from "./FiltersPriceRange";
 
-const Filters = () => {
+const Filters = ({priceRangeResource}) => {
   return (
     <div className="lg:w-1/4 m-3 px-3 ">
       <div className="flex justify-between my-4">
@@ -13,7 +13,7 @@ const Filters = () => {
       </div>
 
       <FiltersCollections></FiltersCollections>
-      <FiltersPriceRange></FiltersPriceRange>
+      <FiltersPriceRange priceRangeResource={priceRangeResource}></FiltersPriceRange>
       <FiltersEventTime></FiltersEventTime>
       <FiltersDuration></FiltersDuration>
     </div>
