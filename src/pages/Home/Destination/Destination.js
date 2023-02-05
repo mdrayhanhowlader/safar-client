@@ -36,7 +36,10 @@ const Destination = () => {
       <div className="grid md:grid-cols-4 lg:grid-cols-4 gap-4 px-4">
         {/* columns 1 */}
         {destinations.map((destination) => (
-          <Link key={destination._id} to={`/searchpage/${destination.city}`}>
+          <Link
+            key={destination._id}
+            to={`/destinationPage/${destination.city}`}
+          >
             <div
               style={{
                 backgroundImage: `url(${destination.img})`,
