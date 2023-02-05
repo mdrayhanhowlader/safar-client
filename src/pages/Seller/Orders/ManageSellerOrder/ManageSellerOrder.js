@@ -4,26 +4,26 @@ const ManageSellerOrder = () => {
   return (
     <div>
       <h2 className="text-3xl">Manage seller order page</h2>
-      <div class="overflow-x-auto">
-        <div class="min-w-screen flex items-center justify-center font-sans ">
-          <div class="w-full lg:w-5/6">
-            <div class="bg-white shadow-md rounded my-6">
-              <table class="min-w-max w-full table-auto">
+      <div className="overflow-x-auto">
+        <div className="min-w-screen flex items-center justify-center font-sans ">
+          <div className="w-full lg:w-5/6">
+            <div className="bg-white shadow-md rounded my-6">
+              <table className="min-w-max w-full table-auto">
                 <thead>
-                  <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                    <th class="py-3 px-6 text-left">Hotel/Resort</th>
-                    <th class="py-3 px-6 text-left">Guest</th>
-                    <th class="py-3 px-6 text-center">Room</th>
-                    <th class="py-3 px-6 text-center">Price</th>
-                    <th class="py-3 px-6 text-center">Status</th>
-                    <th class="py-3 px-6 text-center">Actions</th>
+                  <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                    <th className="py-3 px-6 text-left">Hotel/Resort</th>
+                    <th className="py-3 px-6 text-left">Guest</th>
+                    <th className="py-3 px-6 text-center">Room</th>
+                    <th className="py-3 px-6 text-center">Price</th>
+                    <th className="py-3 px-6 text-center">Status</th>
+                    <th className="py-3 px-6 text-center">Actions</th>
                   </tr>
                 </thead>
-                <tbody class="text-gray-600 text-sm font-light">
-                  <tr class="border-b border-gray-200 hover:bg-gray-100">
-                    <td class="py-3 px-6 text-left whitespace-nowrap">
-                      <div class="flex items-center">
-                        <div class="mr-2">
+                <tbody className="text-gray-600 text-sm font-light">
+                  <tr className="border-b border-gray-200 hover:bg-gray-100">
+                    <td className="py-3 px-6 text-left whitespace-nowrap">
+                      <div className="flex items-center">
+                        <div className="mr-2">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             x="0px"
@@ -52,39 +52,39 @@ const ManageSellerOrder = () => {
                             ></circle>
                           </svg>
                         </div>
-                        <span class="font-medium">React Project</span>
+                        <span className="font-medium">React Project</span>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-left">
-                      <div class="flex items-center">
-                        <div class="mr-2">
+                    <td className="py-3 px-6 text-left">
+                      <div className="flex items-center">
+                        <div className="mr-2">
                           <img
                             alt="hello"
-                            class="w-6 h-6 rounded-full"
+                            className="w-6 h-6 rounded-full"
                             src="https://randomuser.me/api/portraits/men/1.jpg"
                           />
                         </div>
                         <span>Eshal Rosas</span>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex items-center justify-center">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex items-center justify-center">
                         <h6 className="font-semibold">Deluxe 1</h6>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex items-center justify-center">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex items-center justify-center">
                         <h6 className="font-semibold">$10</h6>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">
+                    <td className="py-3 px-6 text-center">
+                      <span className="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">
                         Active
                       </span>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex item-center justify-center">
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex item-center justify-center">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -105,7 +105,7 @@ const ManageSellerOrder = () => {
                             />
                           </svg>
                         </div>
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -120,7 +120,7 @@ const ManageSellerOrder = () => {
                             />
                           </svg>
                         </div>
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -138,49 +138,49 @@ const ManageSellerOrder = () => {
                       </div>
                     </td>
                   </tr>
-                  <tr class="border-b border-gray-200 bg-gray-50 hover:bg-gray-100">
-                    <td class="py-3 px-6 text-left">
-                      <div class="flex items-center">
-                        <div class="mr-2">
+                  <tr className="border-b border-gray-200 bg-gray-50 hover:bg-gray-100">
+                    <td className="py-3 px-6 text-left">
+                      <div className="flex items-center">
+                        <div className="mr-2">
                           <img
                             alt="hello"
-                            class="w-6 h-6"
+                            className="w-6 h-6"
                             src="https://img.icons8.com/color/100/000000/vue-js.png"
                           />
                         </div>
-                        <span class="font-medium">Vue Project</span>
+                        <span className="font-medium">Vue Project</span>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-left">
-                      <div class="flex items-center">
-                        <div class="mr-2">
+                    <td className="py-3 px-6 text-left">
+                      <div className="flex items-center">
+                        <div className="mr-2">
                           <img
                             alt="hello"
-                            class="w-6 h-6 rounded-full"
+                            className="w-6 h-6 rounded-full"
                             src="https://randomuser.me/api/portraits/women/2.jpg"
                           />
                         </div>
                         <span>Anita Rodriquez</span>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex items-center justify-center">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex items-center justify-center">
                         <h6 className="font-semibold">Deluxe</h6>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex items-center justify-center">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex items-center justify-center">
                         <h6 className="font-semibold">$10</h6>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">
+                    <td className="py-3 px-6 text-center">
+                      <span className="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">
                         Completed
                       </span>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex item-center justify-center">
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex item-center justify-center">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -201,7 +201,7 @@ const ManageSellerOrder = () => {
                             />
                           </svg>
                         </div>
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -216,7 +216,7 @@ const ManageSellerOrder = () => {
                             />
                           </svg>
                         </div>
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -234,49 +234,49 @@ const ManageSellerOrder = () => {
                       </div>
                     </td>
                   </tr>
-                  <tr class="border-b border-gray-200 hover:bg-gray-100">
-                    <td class="py-3 px-6 text-left">
-                      <div class="flex items-center">
-                        <div class="mr-2">
+                  <tr className="border-b border-gray-200 hover:bg-gray-100">
+                    <td className="py-3 px-6 text-left">
+                      <div className="flex items-center">
+                        <div className="mr-2">
                           <img
                             alt="hello"
-                            class="w-6 h-6"
+                            className="w-6 h-6"
                             src="https://img.icons8.com/color/100/000000/angularjs.png"
                           />
                         </div>
-                        <span class="font-medium">Angular Project</span>
+                        <span className="font-medium">Angular Project</span>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-left">
-                      <div class="flex items-center">
-                        <div class="mr-2">
+                    <td className="py-3 px-6 text-left">
+                      <div className="flex items-center">
+                        <div className="mr-2">
                           <img
                             alt="hello"
-                            class="w-6 h-6 rounded-full"
+                            className="w-6 h-6 rounded-full"
                             src="https://randomuser.me/api/portraits/men/3.jpg"
                           />
                         </div>
                         <span>Taylan Bush</span>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex items-center justify-center">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex items-center justify-center">
                         <h6 className="font-semibold">Deluxe</h6>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex items-center justify-center">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex items-center justify-center">
                         <h6 className="font-semibold">$10</h6>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <span class="bg-yellow-200 text-yellow-600 py-1 px-3 rounded-full text-xs">
+                    <td className="py-3 px-6 text-center">
+                      <span className="bg-yellow-200 text-yellow-600 py-1 px-3 rounded-full text-xs">
                         Scheduled
                       </span>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex item-center justify-center">
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex item-center justify-center">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -297,7 +297,7 @@ const ManageSellerOrder = () => {
                             />
                           </svg>
                         </div>
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -312,7 +312,7 @@ const ManageSellerOrder = () => {
                             />
                           </svg>
                         </div>
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -330,49 +330,49 @@ const ManageSellerOrder = () => {
                       </div>
                     </td>
                   </tr>
-                  <tr class="border-b border-gray-200 bg-gray-50 hover:bg-gray-100">
-                    <td class="py-3 px-6 text-left">
-                      <div class="flex items-center">
-                        <div class="mr-2">
+                  <tr className="border-b border-gray-200 bg-gray-50 hover:bg-gray-100">
+                    <td className="py-3 px-6 text-left">
+                      <div className="flex items-center">
+                        <div className="mr-2">
                           <img
                             alt="hello"
-                            class="w-6 h-6"
+                            className="w-6 h-6"
                             src="https://cdn3.iconfinder.com/data/icons/popular-services-brands/512/laravel-64.png"
                           />
                         </div>
-                        <span class="font-medium">Laravel Project</span>
+                        <span className="font-medium">Laravel Project</span>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-left">
-                      <div class="flex items-center">
-                        <div class="mr-2">
+                    <td className="py-3 px-6 text-left">
+                      <div className="flex items-center">
+                        <div className="mr-2">
                           <img
                             alt="hello"
-                            class="w-6 h-6 rounded-full"
+                            className="w-6 h-6 rounded-full"
                             src="https://randomuser.me/api/portraits/men/4.jpg"
                           />
                         </div>
                         <span>Tarik Novak</span>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex items-center justify-center">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex items-center justify-center">
                         <h6 className="font-semibold">Deluxe</h6>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex items-center justify-center">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex items-center justify-center">
                         <h6 className="font-semibold">$10</h6>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <span class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs">
+                    <td className="py-3 px-6 text-center">
+                      <span className="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs">
                         Pending
                       </span>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex item-center justify-center">
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex item-center justify-center">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -393,7 +393,7 @@ const ManageSellerOrder = () => {
                             />
                           </svg>
                         </div>
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -408,7 +408,7 @@ const ManageSellerOrder = () => {
                             />
                           </svg>
                         </div>
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -426,49 +426,49 @@ const ManageSellerOrder = () => {
                       </div>
                     </td>
                   </tr>
-                  <tr class="border-b border-gray-200 hover:bg-gray-100">
-                    <td class="py-3 px-6 text-left">
-                      <div class="flex items-center">
-                        <div class="mr-2">
+                  <tr className="border-b border-gray-200 hover:bg-gray-100">
+                    <td className="py-3 px-6 text-left">
+                      <div className="flex items-center">
+                        <div className="mr-2">
                           <img
                             alt="hello"
-                            class="w-6 h-6"
+                            className="w-6 h-6"
                             src="https://img.icons8.com/color/48/000000/git.png"
                           />
                         </div>
-                        <span class="font-medium">GIT Project</span>
+                        <span className="font-medium">GIT Project</span>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-left">
-                      <div class="flex items-center">
-                        <div class="mr-2">
+                    <td className="py-3 px-6 text-left">
+                      <div className="flex items-center">
+                        <div className="mr-2">
                           <img
                             alt="hello"
-                            class="w-6 h-6 rounded-full"
+                            className="w-6 h-6 rounded-full"
                             src="https://randomuser.me/api/portraits/men/5.jpg"
                           />
                         </div>
                         <span>Oscar Howard</span>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex items-center justify-center">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex items-center justify-center">
                         <h6 className="font-semibold">Deluxe</h6>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex items-center justify-center">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex items-center justify-center">
                         <h6 className="font-semibold">$10</h6>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">
+                    <td className="py-3 px-6 text-center">
+                      <span className="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">
                         Accepted
                       </span>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex item-center justify-center">
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex item-center justify-center">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -489,7 +489,7 @@ const ManageSellerOrder = () => {
                             />
                           </svg>
                         </div>
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -504,7 +504,7 @@ const ManageSellerOrder = () => {
                             />
                           </svg>
                         </div>
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -522,49 +522,49 @@ const ManageSellerOrder = () => {
                       </div>
                     </td>
                   </tr>
-                  <tr class="border-b border-gray-200 bg-gray-50 hover:bg-gray-100">
-                    <td class="py-3 px-6 text-left">
-                      <div class="flex items-center">
-                        <div class="mr-2">
+                  <tr className="border-b border-gray-200 bg-gray-50 hover:bg-gray-100">
+                    <td className="py-3 px-6 text-left">
+                      <div className="flex items-center">
+                        <div className="mr-2">
                           <img
                             alt="hello"
-                            class="w-6 h-6"
+                            className="w-6 h-6"
                             src="https://img.icons8.com/color/48/000000/nodejs.png"
                           />
                         </div>
-                        <span class="font-medium">NodeJS Project</span>
+                        <span className="font-medium">NodeJS Project</span>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-left">
-                      <div class="flex items-center">
-                        <div class="mr-2">
+                    <td className="py-3 px-6 text-left">
+                      <div className="flex items-center">
+                        <div className="mr-2">
                           <img
                             alt="hello"
-                            class="w-6 h-6 rounded-full"
+                            className="w-6 h-6 rounded-full"
                             src="https://randomuser.me/api/portraits/women/6.jpg"
                           />
                         </div>
                         <span>Melisa Moon</span>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex items-center justify-center">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex items-center justify-center">
                         <h6 className="font-semibold">Deluxe</h6>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex items-center justify-center">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex items-center justify-center">
                         <h6 className="font-semibold">$10</h6>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <span class="bg-yellow-200 text-yellow-600 py-1 px-3 rounded-full text-xs">
+                    <td className="py-3 px-6 text-center">
+                      <span className="bg-yellow-200 text-yellow-600 py-1 px-3 rounded-full text-xs">
                         Scheduled
                       </span>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex item-center justify-center">
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex item-center justify-center">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -585,7 +585,7 @@ const ManageSellerOrder = () => {
                             />
                           </svg>
                         </div>
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -600,7 +600,7 @@ const ManageSellerOrder = () => {
                             />
                           </svg>
                         </div>
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -618,49 +618,49 @@ const ManageSellerOrder = () => {
                       </div>
                     </td>
                   </tr>
-                  <tr class="border-b border-gray-200 hover:bg-gray-100">
-                    <td class="py-3 px-6 text-left">
-                      <div class="flex items-center">
-                        <div class="mr-2">
+                  <tr className="border-b border-gray-200 hover:bg-gray-100">
+                    <td className="py-3 px-6 text-left">
+                      <div className="flex items-center">
+                        <div className="mr-2">
                           <img
                             alt="hello"
-                            class="w-6 h-6"
+                            className="w-6 h-6"
                             src="https://img.icons8.com/color/48/000000/javascript.png"
                           />
                         </div>
-                        <span class="font-medium">JavaScript Project</span>
+                        <span className="font-medium">JavaScript Project</span>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-left">
-                      <div class="flex items-center">
-                        <div class="mr-2">
+                    <td className="py-3 px-6 text-left">
+                      <div className="flex items-center">
+                        <div className="mr-2">
                           <img
                             alt="hello"
-                            class="w-6 h-6 rounded-full"
+                            className="w-6 h-6 rounded-full"
                             src="https://randomuser.me/api/portraits/women/7.jpg"
                           />
                         </div>
                         <span>Cora Key</span>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex items-center justify-center">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex items-center justify-center">
                         <h6 className="font-semibold">Deluxe</h6>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex items-center justify-center">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex items-center justify-center">
                         <h6 className="font-semibold">$10</h6>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <span class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs">
+                    <td className="py-3 px-6 text-center">
+                      <span className="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs">
                         Pending
                       </span>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex item-center justify-center">
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex item-center justify-center">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -681,7 +681,7 @@ const ManageSellerOrder = () => {
                             />
                           </svg>
                         </div>
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -696,7 +696,7 @@ const ManageSellerOrder = () => {
                             />
                           </svg>
                         </div>
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -714,49 +714,49 @@ const ManageSellerOrder = () => {
                       </div>
                     </td>
                   </tr>
-                  <tr class="border-b border-gray-200 bg-gray-50 hover:bg-gray-100">
-                    <td class="py-3 px-6 text-left">
-                      <div class="flex items-center">
-                        <div class="mr-2">
+                  <tr className="border-b border-gray-200 bg-gray-50 hover:bg-gray-100">
+                    <td className="py-3 px-6 text-left">
+                      <div className="flex items-center">
+                        <div className="mr-2">
                           <img
                             alt="hello"
-                            class="w-6 h-6"
+                            className="w-6 h-6"
                             src="https://img.icons8.com/color/48/000000/php.png"
                           />
                         </div>
-                        <span class="font-medium">PHP Project</span>
+                        <span className="font-medium">PHP Project</span>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-left">
-                      <div class="flex items-center">
-                        <div class="mr-2">
+                    <td className="py-3 px-6 text-left">
+                      <div className="flex items-center">
+                        <div className="mr-2">
                           <img
                             alt="hello"
-                            class="w-6 h-6 rounded-full"
+                            className="w-6 h-6 rounded-full"
                             src="https://randomuser.me/api/portraits/men/8.jpg"
                           />
                         </div>
                         <span>Kylan Dorsey</span>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex items-center justify-center">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex items-center justify-center">
                         <h6 className="font-semibold">Deluxe</h6>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex items-center justify-center">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex items-center justify-center">
                         <h6 className="font-semibold">$10</h6>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">
+                    <td className="py-3 px-6 text-center">
+                      <span className="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">
                         Completed
                       </span>
                     </td>
-                    <td class="py-3 px-6 text-center">
-                      <div class="flex item-center justify-center">
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex item-center justify-center">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -777,7 +777,7 @@ const ManageSellerOrder = () => {
                             />
                           </svg>
                         </div>
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -792,7 +792,7 @@ const ManageSellerOrder = () => {
                             />
                           </svg>
                         </div>
-                        <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                        <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
