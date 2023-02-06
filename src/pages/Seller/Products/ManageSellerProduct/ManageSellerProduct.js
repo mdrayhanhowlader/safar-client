@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { HiPencilAlt } from "react-icons/hi";
 
 const ManageSellerProduct = () => {
+  const [submenu, setSubmenu] = useState(false);
+
   return (
     <section className="py-4">
       <h2 className="text-3xl">My Products</h2>
@@ -37,7 +39,7 @@ const ManageSellerProduct = () => {
               <th
                 scope="col"
                 className="px-6 py-4 font-medium text-gray-900"
-              ></th>
+              >Actions</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100 border-t border-gray-100">
@@ -87,14 +89,29 @@ const ManageSellerProduct = () => {
               </td>
 
               <td className="px-6 py-4">
-                <div className="flex justify-end gap-4">
+                {/* <div className="flex justify-end gap-4">
                   <a href="/">
                     <FaTrashAlt className="h-6 w-6"></FaTrashAlt>
                   </a>
                   <a href="/">
                     <HiPencilAlt className="h-6 w-6"></HiPencilAlt>
                   </a>
+                </div>  */}
+
+                 <div className="absolute">
+                  <p onClick={() => setSubmenu(!submenu)} className="font-xxl font-bold cursor-pointer ">More</p>
+                  <div className={`${submenu ? 'visible' : 'hidden'} z-10 relative bg-white shadow-md `}>
+                  <ul>
+                  <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md"><a href="/">Edit</a></li>
+                  <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md"><a href="/">Active</a></li>
+                  <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md"><a href="/">Deactivate</a></li>
+                  <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md"><a href="/">Delete</a></li>
+                  </ul>
+                  </div>
+ 
                 </div>
+
+                
               </td>
             </tr>
             <tr className="hover:bg-gray-50">
