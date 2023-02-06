@@ -10,15 +10,18 @@ const Footer = () => {
   const sendEmail = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost:8000/send-email", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-      }),
-    });
+    const res = await fetch(
+      "https://safar-server-nasar06.vercel.app/subscribe/send-email",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+        }),
+      }
+    );
 
     const data = await res.json();
     console.log(data);
