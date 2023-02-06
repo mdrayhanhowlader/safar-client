@@ -3,10 +3,13 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { AiOutlinePlusSquare } from "react-icons/ai";
+// import { FaMinus, FaPlus } from "react-icons/fa";
+import { HiOutlineChevronDown, HiOutlineChevronUp } from "react-icons/hi";
 
 const AddSellerProduct = () => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [openFacility, setOpenFacility] = useState(false);
   const {
     register,
     handleSubmit,
@@ -42,61 +45,73 @@ const AddSellerProduct = () => {
     const productData = {
       hotel_name: data.name,
       description: data.description,
-      location: {
-        country: data.country,
-        city: data.city.toUpperCase(),
-        address: data.address,
-        zip_code: data.postal,
-      },
-      images: images,
-      facilities: [{ name: data.facility }],
-      Room_type: [
-        {
-          name: data.class,
-          bed: [
-            {
-              size: data.roomSize,
-            },
-          ],
-          sleep: 4,
-        },
+
+      // location: {
+      //   country: data.country,
+      //   city: data.city.toUpperCase(),
+      //   address: data.address,
+      //   zip_code: data.postal,
+      // },
+
+      price: data.price,
+      offerPrice: data.offerPrice,
+      facility: [
+        data.wifi, data.hitter, data.geyser, data.breakfast, data.breakfastLaunch, data.drink, data.parking
       ],
 
-      Yearly_deals: false,
-      Monthly_deals: false,
-      Contact: data.contact,
+      images: images,
+      // facilities: [{ name: data.facility }],
+      // Room_type: [
+      //   {
+      //     name: data.class,
+      //     bed: [
+      //       {
+      //         size: data.roomSize,
+      //       },
+      //     ],
+      //     sleep: 4,
+      //   },
+      // ],
+
+      // Yearly_deals: false,
+      // Monthly_deals: false,
+      // Contact: data.contact,
       Hotel_id: data.hotelId,
-      Promoted: "",
+      // Promoted: "",
     };
     console.log(productData);
 
-    //   send to db
-    fetch(
-      "https://safar-server-nasar06.vercel.app/destination/post-all-destinations",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(productData),
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.acknowledge) {
-          setImages([]);
-          reset();
-          toast.success("hotel added");
-          console.log(data);
-        } else {
-          console.error("please try again");
-        }
-      });
+      // send to db
+    // fetch(
+    //   "https://safar-server-nasar06.vercel.app/destination/post-all-destinations",
+    //   {
+    //     method: "POST",
+    //     headers: {
+    //       "content-type": "application/json",
+    //     },
+    //     body: JSON.stringify(productData),
+    //   }
+    // )
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.acknowledge) {
+    //       setImages([]);
+    //       reset();
+    //       toast.success("hotel added");
+    //       console.log(data);
+    //     } else {
+    //       console.error("please try again");
+    //     }
+    //   });
+      
   };
+
+
+
 
   return (
     <section className="py-4">
-      <h2 className="text-3xl py-4">Add a New Product</h2>
+      <h2 className="text-3xl py-4">Add a New Room</h2>
       <div className="flex flex-wrap items-center">
         <label htmlFor="pdImg">
           <AiOutlinePlusSquare className="text-8xl text-gray-400" />
@@ -125,10 +140,10 @@ const AddSellerProduct = () => {
         className="container flex flex-col mx-auto space-y-4 ng-untouched ng-pristine ng-valid pr-4"
       >
         <div className="">
-          <label htmlFor="">Product Name</label>
+          <label className="font-semibold" htmlFor="">Room name/Room type</label>
           <input
             className="border-2 p-2 rounded-md w-full border-blue-50"
-            placeholder="Product Name"
+            placeholder="Room Name or room type"
             type="text"
             {...register("name", { required: "product name is required" })}
           />
@@ -137,10 +152,10 @@ const AddSellerProduct = () => {
           )}
         </div>
         <div className="">
-          <label htmlFor="">Description</label>
+          <label className="font-semibold" htmlFor="">Description</label>
           <textarea
             className="border-2 p-2 rounded-md w-full border-blue-50"
-            placeholder="product description"
+            placeholder="Description"
             name=""
             rows="5"
             {...register("description", {
@@ -154,74 +169,173 @@ const AddSellerProduct = () => {
 
         <div className="grid md:grid-cols-3 gap-2">
           <div className="">
-            <label htmlFor="">Price</label>
+            <label className="font-semibold" htmlFor="">Room Quantity</label>
+            <input
+              className="border-2 p-2 rounded-md w-full border-blue-50"
+              placeholder="quantity"
+              defaultValue="0"
+              type="number"
+              name=""
+              id=""
+              {...register("quantity", { required: "quantity is required" })}
+            />
+            {errors?.quantity && (
+              <p className="text-red-500">{errors?.price?.message}</p>
+            )}
+          </div>
+          <div>
+            <label className="font-semibold" htmlFor="">Price</label>
             <input
               className="border-2 p-2 rounded-md w-full border-blue-50"
               placeholder="Price"
               type="text"
               name=""
               id=""
-              {...register("price", { required: "price is required" })}
+              {...register("price", {
+                required: "offer Price is required",
+              })}
             />
-            {errors?.price && (
-              <p className="text-red-500">{errors?.price?.message}</p>
+            {errors.price && (
+              <p className="text-red-500">{errors.price.message}</p>
             )}
           </div>
           <div>
-            <label htmlFor="">Offer Price</label>
+            <label className="font-semibold" htmlFor="">Offer Price</label>
             <input
               className="border-2 p-2 rounded-md w-full border-blue-50"
-              placeholder="Offer Price"
+              placeholder="offer Price"
               type="text"
               name=""
               id=""
               {...register("offerPrice", {
-                required: "offer Price is required",
+                required: "Offer Price is required",
               })}
             />
-            {errors.city && (
-              <p className="text-red-500">{errors.city.message}</p>
-            )}
-          </div>
-          <div>
-            <label htmlFor="">View</label>
-            <input
-              className="border-2 p-2 rounded-md w-full border-blue-50"
-              placeholder="View"
-              type="text"
-              name=""
-              id=""
-              {...register("view", { required: "view is required" })}
-            />
-            {errors.postal && (
-              <p className="text-red-500">{errors.postal.message}</p>
+            {errors.offerPrice && (
+              <p className="text-red-500">{errors.offerPrice.message}</p>
             )}
           </div>
         </div>
 
-        <div className="">
-          <label htmlFor="">Facilities</label>
-          <input
-            className="border-2 p-2 rounded-md w-full border-blue-50"
-            placeholder="Facilities"
-            type="text"
-            name=""
-            id=""
-            {...register("facility", { required: "Facilities is required" })}
-          />
-          {errors.facility && (
-            <p className="text-red-500">{errors.facility.message}</p>
-          )}
+        <div>
+          <div onClick={() => setOpenFacility(!openFacility)} className="flex items-center">
+            <h2 className="text-xl mb-2 font-semibold">Please Add facilities</h2>
+            {openFacility ? (
+              <HiOutlineChevronUp className="ml-4 cursor-pointer font-3xl"></HiOutlineChevronUp>
+            ) : (
+              <HiOutlineChevronDown className="ml-4 cursor-pointer font-3xl"></HiOutlineChevronDown>
+            )}
+          </div>
+          <div className={`flex items-center justify-between px-4 ${openFacility ? "visible" : "hidden"}`}>
+            <div className="flex items-center">
+              <input
+                className="bg-gray-200 hover:bg-gray-300 cursor-pointer 
+                w-4 h-4  focus:outline-none rounded-lg"
+                type="checkbox"
+                name="wifi"
+                id=""
+                value="free wifi"
+                {...register("wifi")}
+              />
+              <label className="ml-2 font-semibold" htmlFor="wifi">
+                Free Wifi
+              </label>
+            </div>
+            <div className="flex items-center">
+              <input
+                className="bg-gray-200 hover:bg-gray-300 cursor-pointer 
+              w-4 h-4  focus:outline-none rounded-lg"
+                type="checkbox"
+                name="hitter"
+                id=""
+                value="hitter"
+                {...register("hitter")}
+              />
+              <label className="ml-2 font-semibold" htmlFor="hitter">
+                Hitter
+              </label>
+            </div>
+            <div className="flex items-center">
+              <input
+                className="bg-gray-200 hover:bg-gray-300 cursor-pointer 
+            w-4 h-4 focus:outline-none rounded-lg"
+                type="checkbox"
+                name="geyser"
+                id=""
+                value="geyser"
+                {...register("geyser")}
+              />
+              <label className="ml-2 font-semibold" htmlFor="geyser">
+                Geyser
+              </label>
+            </div>
+            <div className="flex items-center">
+              <input
+                className="bg-gray-200 hover:bg-gray-300 cursor-pointer 
+            w-4 h-4 focus:outline-none rounded-lg"
+                type="checkbox"
+                name="breakfast"
+                id=""
+                value="breakfast"
+                {...register("breakfast")}
+              />
+              <label className="ml-2 font-semibold" htmlFor="breakfast">
+                Breakfast
+              </label>
+            </div>
+            <div className="flex items-center">
+              <input
+                className="bg-gray-200 hover:bg-gray-300 cursor-pointer 
+               w-4 h-4 focus:outline-none rounded-lg"
+                type="checkbox"
+                name=""
+                id=""
+                value="Breakfast and launch"
+                {...register("breakfastLaunch")}
+              />
+              <label className="ml-2 font-semibold" htmlFor=" BreakfastLaunch">
+                Breakfast and Launch
+              </label>
+            </div>
+            <div className="flex items-center">
+              <input
+                className="bg-gray-200 hover:bg-gray-300 cursor-pointer 
+            w-4 h-4 focus:outline-none rounded-lg"
+                type="checkbox"
+                name=""
+                id=""
+                value="drink"
+                {...register("drink")}
+              />
+              <label className="ml-2 font-semibold" htmlFor=" BreakfastLaunch">
+                Drink
+              </label>
+            </div>
+            <div className="flex items-center">
+              <input
+                className="bg-gray-200 hover:bg-gray-300 cursor-pointer 
+            w-4 h-4  focus:outline-none rounded-lg"
+                type="checkbox"
+                name=""
+                id=""
+                value="car parking"
+                {...register("parking")}
+              />
+              <label className="ml-2 font-semibold" htmlFor=" BreakfastLaunch">
+                Car parking
+              </label>
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-2 gap-2">
           <div className="">
-            <label htmlFor="pet-select">Choose Class:</label>
+            <label className="font-semibold" htmlFor="pet-select">Choose Room Type</label>
 
             <select
               className="border-2 p-2 rounded-md w-full border-blue-50"
               id="pet-select"
-              {...register("class", { required: "class is required" })}
+              {...register("roomType", { required: "Room Type is required" })}
             >
               <option value="">--Please choose an option--</option>
               <option value="Deluxe King Room">Deluxe King Room</option>
@@ -239,57 +353,12 @@ const AddSellerProduct = () => {
               <option value="Standard Double Room">Standard Double Room</option>
               <option value="Superior Queen Room">Superior Queen Room</option>
             </select>
-            {errors.class && (
-              <p className="text-red-500">{errors.class.message}</p>
+            {errors.roomType && (
+              <p className="text-red-500">{errors.roomType.message}</p>
             )}
           </div>
           <div>
-            <label htmlFor="">Contact</label>
-            <input
-              className="border-2 p-2 rounded-md w-full border-blue-50"
-              placeholder="phone number"
-              type="text"
-              name=""
-              id=""
-              {...register("contact", { required: "contact is required" })}
-            />
-            {errors.contact && (
-              <p className="text-red-500">{errors.contact.message}</p>
-            )}
-          </div>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-2">
-          <div className="">
-            <label htmlFor="">Yearly deals</label>
-            <input
-              className="border-2 p-2 rounded-md w-full border-blue-50"
-              placeholder="Yearly deals"
-              type="text"
-              name=""
-              id=""
-              {...register("yearly", { required: "yearly is required" })}
-            />
-            {errors.yearly && (
-              <p className="text-red-500">{errors.yearly.message}</p>
-            )}
-          </div>
-          <div>
-            <label htmlFor="">Monthly deals</label>
-            <input
-              className="border-2 p-2 rounded-md w-full border-blue-50"
-              placeholder="Monthly deals"
-              type="text"
-              name=""
-              id=""
-              {...register("monthly", { required: "monthly is required" })}
-            />
-            {errors.monthly && (
-              <p className="text-red-500">{errors.monthly.message}</p>
-            )}
-          </div>
-          <div>
-            <label htmlFor="">Hotel id</label>
+            <label className="font-semibold" htmlFor="">Hotel id</label>
             <input
               className="border-2 p-2 rounded-md w-full border-blue-50"
               placeholder="Hotel id"
@@ -304,102 +373,11 @@ const AddSellerProduct = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-2">
-          <div className="">
-            <label htmlFor="">Room Size</label>
-            <input
-              className="border-2 p-2 rounded-md w-full border-blue-50"
-              placeholder="Room Size"
-              type="text"
-              name=""
-              id=""
-              {...register("roomSize", { required: "room size is required" })}
-            />
-            {errors.roomSize && (
-              <p className="text-red-500">{errors.roomSize.message}</p>
-            )}
-          </div>
-          <div className="w-full">
-            <label htmlFor="">Promoted</label>
-            <input
-              className="border-2 p-2 rounded-md w-full border-blue-50"
-              placeholder="Promoted"
-              type="text"
-              name=""
-              id=""
-              {...register("promoted", { required: "promoted is required" })}
-            />
-            {errors.promoted && (
-              <p className="text-red-500">{errors.promoted.message}</p>
-            )}
-          </div>
-        </div>
-
-        <div className="">
-          <label htmlFor="">Address</label>
-          <input
-            className="border-2 p-2 rounded-md w-full border-blue-50"
-            placeholder="Address"
-            type="text"
-            name=""
-            id=""
-            {...register("address", { required: "address is required" })}
-          />
-          {errors.address && (
-            <p className="text-red-500">{errors.address.message}</p>
-          )}
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-2">
-          <div className="">
-            <label htmlFor="">Country</label>
-            <input
-              className="border-2 p-2 rounded-md w-full border-blue-50"
-              placeholder="Country"
-              type="text"
-              name=""
-              id=""
-              {...register("country", { required: "country is required" })}
-            />
-            {errors.country && (
-              <p className="text-red-500">{errors.country.message}</p>
-            )}
-          </div>
-          <div>
-            <label htmlFor="">City</label>
-            <input
-              className="border-2 p-2 rounded-md w-full border-blue-50"
-              placeholder="City"
-              type="text"
-              name=""
-              id=""
-              {...register("city", { required: "city is required" })}
-            />
-            {errors.city && (
-              <p className="text-red-500">{errors.city.message}</p>
-            )}
-          </div>
-          <div>
-            <label htmlFor="">ZIP / Postal</label>
-            <input
-              className="border-2 p-2 rounded-md w-full border-blue-50"
-              placeholder="ZIP Code"
-              type="text"
-              name=""
-              id=""
-              {...register("postal", { required: "postal is required" })}
-            />
-            {errors.postal && (
-              <p className="text-red-500">{errors.postal.message}</p>
-            )}
-          </div>
-        </div>
-
         <div>
           <input
             className="px-4 py-2 bg-blue-800 text-white rounded-md cursor-pointer"
             type="submit"
-            value="Add Product"
+            value="Add Room"
           />
         </div>
       </form>
