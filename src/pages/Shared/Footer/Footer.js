@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
 
   const [email, setEmail] = useState("");
   console.log(email);
@@ -29,7 +29,7 @@ const Footer = () => {
     if (data.status === 401 || !data) {
       console.log("error");
     } else {
-      setShow(true);
+      // setShow(true);
       setEmail("");
       console.log("Email sent");
     }
