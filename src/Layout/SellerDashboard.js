@@ -136,14 +136,24 @@ const SellerDashboard = () => {
                   <div className={`${promotionSubmenu ? "visible" : "hidden"}`}>
                     <ul>
                       <li>
-                        <a
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          href="/"
+                        <Link
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          to="/sellerdashboard/sellercampaign"
                         >
-                          <span className="md:ml-4 text-black text-sm tracking-wide truncate">
-                            Create Promotion
+                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                            Campaign
                           </span>
-                        </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          to="/sellerdashboard/selleroffer"
+                        >
+                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                            Offer
+                          </span>
+                        </Link>
                       </li>
                     </ul>
                   </div>

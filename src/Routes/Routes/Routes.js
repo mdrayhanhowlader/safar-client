@@ -27,6 +27,8 @@ import AddSellerProduct from "../../pages/Seller/Products/AddSellerProduct/AddSe
 import ManageSellerProduct from "../../pages/Seller/Products/ManageSellerProduct/ManageSellerProduct";
 import SellerDashboard from "../../Layout/SellerDashboard";
 import OfferPage from "../../pages/OfferPage/OfferPage";
+import SellerCampaign from "../../pages/Seller/Promotions/SellerCampaign";
+import SellerOffer from "../../pages/Seller/Promotions/SellerOffer";
 import OrganizersLogin from "../../pages/Shared/Footer/BecomeOrganizer/OrganizersLogin";
 export const router = createBrowserRouter([
   {
@@ -172,6 +174,14 @@ export const router = createBrowserRouter([
       {
         path: "/sellerdashboard/cancelsellerorder",
         element: <CancelSellerOrder></CancelSellerOrder>,
+      },
+      {
+        path: "/sellerdashboard/sellercampaign",
+        element: <SellerCampaign></SellerCampaign>,
+      },
+      {
+        path: "/sellerdashboard/selleroffer",
+        element: <SellerOffer></SellerOffer>,
       },
     ],
   },

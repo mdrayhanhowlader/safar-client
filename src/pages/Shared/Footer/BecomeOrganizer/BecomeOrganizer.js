@@ -17,7 +17,7 @@ const BecomeOrganizer = () => {
         createUser(email, password)
             .then(organizer => {
                 console.log(organizer)
-
+                saveOrganizer()
                 navigate("/orgform")
             })
         // console.log(email, password)
@@ -26,7 +26,7 @@ const BecomeOrganizer = () => {
     const saveOrganizer = (organizer) => {
         console.log(organizer)
 
-        fetch("https://safar-server-nasar06.vercel.app/users", {
+        fetch(" https://safar-server-nasar06.vercel.app/users/seller-update", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
