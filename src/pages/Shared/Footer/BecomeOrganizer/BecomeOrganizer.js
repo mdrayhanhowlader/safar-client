@@ -16,22 +16,28 @@ const BecomeOrganizer = () => {
 
         createUser(email, password)
             .then(organizer => {
-                console.log(organizer)
-                saveOrganizer()
+                // console.log(organizer)
+                const organizerData = {
+                    email: organizer.user.email,
+                    role: 'organizer'
+                }
+                saveOrganizer(organizerData)
                 navigate("/orgform")
             })
-        // console.log(email, password)
+            .catch(err => console.error(err))
     }
 
-    const saveOrganizer = (organizer) => {
-        console.log(organizer)
+
+    // save organizers data
+    const saveOrganizer = (organizerData) => {
+        console.log(organizerData)
 
         fetch(" https://safar-server-nasar06.vercel.app/users/seller-update", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify(organizer),
+            body: JSON.stringify(organizerData),
         })
             .then((res) => res.json())
             .then((data) => {

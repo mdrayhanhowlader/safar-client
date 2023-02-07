@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../../contexts/AuthProvider';
 
 const OrganizersLogin = () => {
+    const { emailSignIn } = useContext(AuthContext);
 
     const { register, handleSubmit, formState: { errors }, } = useForm();
     const navigate = useNavigate();
@@ -12,6 +14,11 @@ const OrganizersLogin = () => {
         const email = data.email;
         const password = data.password;
         console.log(email, password)
+        emailSignIn(email, password)
+            .then(organizer => {
+                console.log(organizer)
+            })
+            .catch(err => console.error(err))
         navigate("/orgform")
     }
 
