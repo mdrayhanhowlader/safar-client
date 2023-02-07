@@ -256,7 +256,7 @@ const SellerDashboard = () => {
                       <FaUser className="w-4 mx-2 h-4"></FaUser>
                     </span>
                     <span className="ml-2 text-black font-bold text-sm tracking-wide truncate">
-                      Users
+                      My Account
                     </span>
                   </p>
                   <div className={`${usersSubmenu ? "visible" : "hidden"}`}>
@@ -264,10 +264,10 @@ const SellerDashboard = () => {
                       <li>
                         <Link
                         to='/sellerdashboard/sellerprofile'
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
                         >
                           <span className="md:ml-4 text-black text-sm tracking-wide truncate">
-                            All Users
+                           My Profile
                           </span>
                         </Link>
                       </li>
