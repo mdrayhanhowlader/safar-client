@@ -29,6 +29,7 @@ import SellerDashboard from "../../Layout/SellerDashboard";
 import OfferPage from "../../pages/OfferPage/OfferPage";
 import SellerCampaign from "../../pages/Seller/Promotions/SellerCampaign";
 import SellerOffer from "../../pages/Seller/Promotions/SellerOffer";
+import OrganizersLogin from "../../pages/Shared/Footer/BecomeOrganizer/OrganizersLogin";
 import SellerProfile from "../../pages/Seller/SellerProfile/SellerProfile";
 export const router = createBrowserRouter([
   {
@@ -106,6 +107,10 @@ export const router = createBrowserRouter([
       {
         path: "/orgform",
         element: <OrganizerForm />,
+      },
+      {
+        path: "/orglogin",
+        element: <OrganizersLogin />
       },
       {
         path: "/*",
