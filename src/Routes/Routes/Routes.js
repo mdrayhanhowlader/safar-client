@@ -27,6 +27,7 @@ import AddSellerProduct from "../../pages/Seller/Products/AddSellerProduct/AddSe
 import ManageSellerProduct from "../../pages/Seller/Products/ManageSellerProduct/ManageSellerProduct";
 import SellerDashboard from "../../Layout/SellerDashboard";
 import OfferPage from "../../pages/OfferPage/OfferPage";
+import OrganizersLogin from "../../pages/Shared/Footer/BecomeOrganizer/OrganizersLogin";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -103,6 +104,10 @@ export const router = createBrowserRouter([
       {
         path: "/orgform",
         element: <OrganizerForm />,
+      },
+      {
+        path: "/orglogin",
+        element: <OrganizersLogin />
       },
       {
         path: "/*",
