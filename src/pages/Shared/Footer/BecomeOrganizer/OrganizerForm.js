@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AiOutlinePlusSquare } from 'react-icons/ai';
+import { Navigate } from 'react-router-dom';
+import { AuthContext } from '../../../../contexts/AuthProvider';
 
 const OrganizerForm = () => {
+    const { user } = useContext(AuthContext);
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -10,6 +13,8 @@ const OrganizerForm = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
+    // console.log(user.email)
+    // Multiple Image add
     const handleImageChange = async (event) => {
         const imageHostKey = process.env.REACT_APP_imagePostKey;
         const imageUrl = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
@@ -25,12 +30,12 @@ const OrganizerForm = () => {
                 body: formData,
             });
             const result = await response.json();
-            console.log(result);
+            // console.log(result);
             uploadedImages.push(...images, { url: result.data.url });
             console.log(uploadedImages);
         }
         setImages(uploadedImages);
-        console.log(images);
+        // console.log(images);
         setLoading(false);
     };
 
@@ -48,25 +53,25 @@ const OrganizerForm = () => {
         })
             .then(res => res.json())
             .then(imgData => {
-                console.log(imgData)
+                // console.log(imgData)
                 if (imgData?.success) {
                     console.log(imgData.data.url)
                     const organizer = {
-                        firstName: data.firstName,
-                        lastName: data.lastName,
+                        first_name: data.firstName,
+                        last_name: data.lastName,
+                        img: imgData.data.url,
                         mobile: data.mobile,
-                        nid: data.nid,
+                        nid_no: data.nid,
                         address: data.address,
                         country: data.country,
                         city: data.city,
-                        zipCode: data.zipCode,
-                        hotelName: data.hotelName,
-                        location: data.location,
-                        email: data.email
+                        zip_code: data.zipCode,
+                        hotel_name: data.hotelName,
+                        hotel_location: data.location,
                     }
-
-                    fetch(`https://safar-server-nasar06.vercel.app/users/seller-update?email=${organizer.email}`, {
-                        method: "POST",
+                    // update organizer info 
+                    fetch(`https://safar-server-nasar06.vercel.app/users/organizer-update?email=${user?.email}`, {
+                        method: "PUT",
                         headers: {
                             'content-type': 'application/json'
                         },
@@ -75,7 +80,8 @@ const OrganizerForm = () => {
                         .then(res => res.json())
                         .then(result => {
                             console.log(result)
-                            data.reset()
+                            Navigate('/sellerdashboard')
+                            // data.reset()
                         })
                 }
             })
@@ -89,8 +95,8 @@ const OrganizerForm = () => {
             <h1 className="sr-only">Checkout</h1>
 
             <div className="grid grid-cols-1 mx-auto max-w-screen-2xl md:grid-cols-2">
-                <div className="p-12 md:py-24">
-                    <img className='w-full h-full' src='https://3.imimg.com/data3/GX/KK/MY-9358851/foreign-tours-travel-500x500.png' alt='' />
+                <div className="flex justify-center items-center p-2">
+                    <img className='h-1/2' src='https://3.imimg.com/data3/GX/KK/MY-9358851/foreign-tours-travel-500x500.png' alt='' />
                 </div>
 
                 <div className="py-12 bg-white md:py-24">
@@ -231,7 +237,7 @@ const OrganizerForm = () => {
                             {/* <fieldset className="col-span-6 my-2">
                                 <div className="mt-1 bg-white rounded-md shadow-sm">
                                     <div className="flex"> */}
-                            <div className="col-span-3 my-4">
+                            {/* <div className="col-span-3 my-4">
                                 <label htmlFor="Hotel Image" className="block text-xs font-medium text-gray-700">
                                     Hotel Image
                                 </label>
@@ -242,7 +248,7 @@ const OrganizerForm = () => {
                                     id="Hotel Image"
                                     className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 />
-                            </div>
+                            </div> */}
 
                             <div className="col-span-3 my-4">
                                 <label htmlFor="Location" className="block text-xs font-medium text-gray-700">
@@ -253,18 +259,6 @@ const OrganizerForm = () => {
                                     {...register("location", { required: true })}
                                     type="text"
                                     id="Location"
-                                    className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
-                                />
-                            </div>
-                            <div className="col-span-6 mb-6">
-                                <label htmlFor="email" className="block text-xs font-medium text-gray-700">
-                                    Email
-                                </label>
-
-                                <input
-                                    {...register("email", { required: true })}
-                                    type="email"
-                                    id="email"
                                     className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 />
                             </div>
