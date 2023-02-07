@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useContext } from "react";
 import { FaBars, FaTimesCircle } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider";
 import Submenu from "./Submenu";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
 
   const [submenu, setSubmenu] = useState(false);
@@ -74,33 +77,28 @@ const Navbar = () => {
                 aria-label="show notifications"
               ></button>
 
-              <div className="relative">
-                {/* sub menu  */}
-                <div className={`${submenu ? "visible" : "hidden"}`}>
-                  <Submenu></Submenu>
+              {user?.uid && (
+                <div className="relative">
+                  {/* sub menu  */}
+                  <div className={`${submenu ? "visible" : "hidden"}`}>
+                    <Submenu></Submenu>
+                  </div>
+                  <button
+                    type="button"
+                    className="flex items-center focus:outline-none"
+                    aria-label="toggle profile dropdown"
+                  >
+                    {
+                      <div
+                        onClick={() => setSubmenu(!submenu)}
+                        className="w-10 h-10 overflow-hidden border-2 border-gray-400 rounded-full"
+                      >
+                        <FaUser className="text-2xl text-center mx-auto pt-2" />
+                      </div>
+                    }
+                  </button>
                 </div>
-                <button
-                  type="button"
-                  className="flex items-center focus:outline-none"
-                  aria-label="toggle profile dropdown"
-                >
-                  {
-                    <div
-                      onClick={() => setSubmenu(!submenu)}
-                      className="w-10 h-10 overflow-hidden border-2 border-gray-400 rounded-full"
-                    >
-                      <FaUser className="text-2xl text-center mx-auto pt-2" />
-                    </div>
-                  }
-                </button>
-              </div>
-
-              {/* {
-                    submenu ?
-                    <div className="visible"><Submenu></Submenu></div>
-                    :
-                    <div className="hidden"><Submenu></Submenu></div>
-                  } */}
+              )}
             </div>
           </div>
         </div>
