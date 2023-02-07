@@ -9,6 +9,7 @@ const LoginForm = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -36,6 +37,7 @@ const LoginForm = () => {
             console.err(err);
           });
         toast.success("login successfully done");
+        reset()
       });
       //  const user = await authUser;
 

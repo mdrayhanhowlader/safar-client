@@ -58,7 +58,7 @@ const Profile = () => {
             </button>
             {/* profile update form  */}
             <div className={`${editProfile ? "visible" : "hidden"}`}>
-              <ProfileUpdateForm editProfile={editProfile}></ProfileUpdateForm>
+              <ProfileUpdateForm editProfile={editProfile} setEditProfile={setEditProfile}></ProfileUpdateForm>
             </div>
           </div>
           {/* rating */}
