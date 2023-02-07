@@ -255,51 +255,21 @@ const SellerDashboard = () => {
                     <span className="inline-flex justify-center items-center ml-4">
                       <FaUser className="w-5 h-5"></FaUser>
                     </span>
-                    <span className="ml-2 text-sm tracking-wide truncate">
-                      Users
+                    <span className="ml-2 mt-2 text-sm tracking-wide truncate">
+                      My Account
                     </span>
                   </p>
                   <div className={`${usersSubmenu ? "visible" : "hidden"}`}>
                     <ul>
                       <li>
-                        <a
+                        <Link
+                        to='/sellerdashboard/sellerprofile'
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          href="/"
                         >
                           <span className="md:ml-4 text-sm tracking-wide truncate">
-                            All Users
+                           My Profile
                           </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          href="/"
-                        >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
-                            Active Users
-                          </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          href="/"
-                        >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
-                            Inactive Users
-                          </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          href="/"
-                        >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
-                            Make Admin
-                          </span>
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>

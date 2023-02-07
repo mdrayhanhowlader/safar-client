@@ -29,6 +29,7 @@ import SellerDashboard from "../../Layout/SellerDashboard";
 import OfferPage from "../../pages/OfferPage/OfferPage";
 import SellerCampaign from "../../pages/Seller/Promotions/SellerCampaign";
 import SellerOffer from "../../pages/Seller/Promotions/SellerOffer";
+import SellerProfile from "../../pages/Seller/SellerProfile/SellerProfile";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -178,6 +179,10 @@ export const router = createBrowserRouter([
         path: "/sellerdashboard/selleroffer",
         element: <SellerOffer></SellerOffer>,
       },
+      {
+        path: '/sellerdashboard/sellerprofile',
+        element: <SellerProfile></SellerProfile>
+      }
     ],
   },
 ]);
