@@ -24,20 +24,36 @@ const OrganizerForm = () => {
                 console.log(imgData)
                 if (imgData?.success) {
                     console.log(imgData.data.url)
+                    const organizer = {
+                        firstName: data.firstName,
+                        lastName: data.lastName,
+                        mobile: data.mobile,
+                        nid: data.nid,
+                        address: data.address,
+                        country: data.country,
+                        city: data.city,
+                        zipCode: data.zipCode,
+                        hotelName: data.hotelName,
+                        location: data.location,
+                    }
                 }
             })
             .catch(e => {
                 console.error(e.message);
             })
 
-        const firstName = data.firstName;
-        const lastName = data.lastName;
-        const mobile = data.mobile;
-        const nid = data.nid;
-        const hotelName = data.hotelName;
-        const hotelLocation = data.hotelLocation;
+        // const firstName = data.firstName;
+        // const lastName = data.lastName;
+        // const mobile = data.mobile;
+        // const nid = data.nid;
+        // const address = data.address;
+        // const country = data.country;
+        // const city = data.city;
+        // const zipCode = data.zipCode;
+        // const hotelName = data.hotelName;
+        // const location = data.location;
 
-        console.log(firstName, lastName, mobile, nid, hotelName, hotelLocation)
+        // console.log(firstName, lastName, mobile, nid, address, hotelName, country, city, zipCode, location)
     }
     return (
         <section>
@@ -83,8 +99,8 @@ const OrganizerForm = () => {
                                 />
                             </div>
 
-                            <div className="col-span-6">
-                                <label htmlFor="Profile" className="block text-xs my-2 font-medium text-gray-700">
+                            <div className="col-span-6 my-4">
+                                <label htmlFor="Profile" className="block text-xs font-medium text-gray-700">
                                     Profile Picture
                                 </label>
 
@@ -94,7 +110,7 @@ const OrganizerForm = () => {
                                     })}
                                     type="file"
                                     id="Profile Picture"
-                                    className="w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                    className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 />
                                 {errors.profilePicture && <p className='text-red-600'>{errors.profilePicture?.message}</p>}
                             </div>
@@ -122,6 +138,54 @@ const OrganizerForm = () => {
                                     className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 />
                             </div>
+                            <div className="col-span-6 my-4">
+                                <label htmlFor="Address" className="block text-xs font-medium text-gray-700">
+                                    Address
+                                </label>
+
+                                <input
+                                    {...register("address", { required: true })}
+                                    type="text"
+                                    id="Address"
+                                    className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                />
+                            </div>
+                            <div className="col-span-6 my-4">
+                                <label htmlFor="Country" className="block text-xs font-medium text-gray-700">
+                                    Country
+                                </label>
+
+                                <input
+                                    {...register("country", { required: true })}
+                                    type="text"
+                                    id="Country"
+                                    className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                />
+                            </div>
+                            <div className="col-span-3 my-4">
+                                <label htmlFor="City" className="block text-xs font-medium text-gray-700">
+                                    City
+                                </label>
+
+                                <input
+                                    {...register("city", { required: true })}
+                                    type="text"
+                                    id="City"
+                                    className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                />
+                            </div>
+                            <div className="col-span-3 my-4">
+                                <label htmlFor="ZipCode" className="block text-xs font-medium text-gray-700">
+                                    Zip Code
+                                </label>
+
+                                <input
+                                    {...register("zipCode", { required: true })}
+                                    type="text"
+                                    id="ZipCode"
+                                    className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                />
+                            </div>
                             <div className="col-span-6">
                                 <label htmlFor="Hotel Name" className="block text-xs font-medium text-gray-700">
                                     Hotel Name
@@ -135,38 +199,37 @@ const OrganizerForm = () => {
                                 />
                             </div>
 
-                            <fieldset className="col-span-6 my-2">
+                            {/* <fieldset className="col-span-6 my-2">
                                 <div className="mt-1 bg-white rounded-md shadow-sm">
-                                    <div className="flex">
-                                        <div className="flex-1">
-                                            <label htmlFor="Hotel Picture" className="sr-only"> Hotel Picture </label>
+                                    <div className="flex"> */}
+                            <div className="col-span-3 my-4">
+                                <label htmlFor="Hotel Image" className="block text-xs font-medium text-gray-700">
+                                    Hotel Image
+                                </label>
 
-                                            <input
-                                                {...register("h_image", {
-                                                    required: "Photo is required"
-                                                })}
-                                                type="file"
-                                                id="Hotel Picture"
-                                                placeholder="Hotel Picture"
-                                                className="h-full w-full my-2 border border-gray-300 rounded-md sm:text-sm"
-                                            />
-                                            {errors.hotelPicture && <p className='text-red-600'>{errors.hotelPicture?.message}</p>}
-                                        </div>
+                                <input
+                                    {...register("hImage", { required: true })}
+                                    type="file"
+                                    id="Hotel Image"
+                                    className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                />
+                            </div>
 
-                                        <div className="flex-1 mx-2">
-                                            <label htmlFor="Hotel Location" className="sr-only"> Hotel Location </label>
+                            <div className="col-span-3 my-4">
+                                <label htmlFor="Location" className="block text-xs font-medium text-gray-700">
+                                    Hotel Location
+                                </label>
 
-                                            <input
-                                                {...register("hotelLocation", { required: true })}
-                                                type="text"
-                                                id="Hotel Location"
-                                                placeholder="Hotel Location"
-                                                className="h-full w-full my-2 border border-gray-300 rounded-md  sm:text-sm"
-                                            />
-                                        </div>
-                                    </div>
+                                <input
+                                    {...register("location", { required: true })}
+                                    type="text"
+                                    id="Location"
+                                    className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                />
+                            </div>
+                            {/* </div>
                                 </div>
-                            </fieldset>
+                            </fieldset> */}
                             <div className="col-span-6">
                                 <button
                                     className="block w-full rounded-md bg-black p-2.5 text-sm text-white transition hover:shadow-lg"
