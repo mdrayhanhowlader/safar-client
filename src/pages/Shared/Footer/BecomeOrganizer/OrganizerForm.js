@@ -1,11 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { AiOutlinePlusSquare } from 'react-icons/ai';
 
 const OrganizerForm = () => {
+    const [images, setImages] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const imageHostKey = process.env.REACT_APP_imagePostKey;
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const handleImageChange = async (event) => {
+        const imageHostKey = process.env.REACT_APP_imagePostKey;
+        const imageUrl = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
+        setLoading(true);
+        const files = event.target.files;
+        const uploadedImages = [];
+        for (let i = 0; i < files.length; i++) {
+            const formData = new FormData();
+            formData.append("image", files[i]);
+            formData.append("key", imageHostKey);
+            const response = await fetch(imageUrl, {
+                method: "POST",
+                body: formData,
+            });
+            const result = await response.json();
+            console.log(result);
+            uploadedImages.push(...images, { url: result.data.url });
+            console.log(uploadedImages);
+        }
+        setImages(uploadedImages);
+        console.log(images);
+        setLoading(false);
+    };
 
     const onSubmit = (data) => {
 
@@ -35,25 +62,27 @@ const OrganizerForm = () => {
                         zipCode: data.zipCode,
                         hotelName: data.hotelName,
                         location: data.location,
+                        email: data.email
                     }
+
+                    fetch(`https://safar-server-nasar06.vercel.app/users/seller-update?email=${organizer.email}`, {
+                        method: "POST",
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(organizer)
+                    })
+                        .then(res => res.json())
+                        .then(result => {
+                            console.log(result)
+                            data.reset()
+                        })
                 }
             })
             .catch(e => {
                 console.error(e.message);
             })
 
-        // const firstName = data.firstName;
-        // const lastName = data.lastName;
-        // const mobile = data.mobile;
-        // const nid = data.nid;
-        // const address = data.address;
-        // const country = data.country;
-        // const city = data.city;
-        // const zipCode = data.zipCode;
-        // const hotelName = data.hotelName;
-        // const location = data.location;
-
-        // console.log(firstName, lastName, mobile, nid, address, hotelName, country, city, zipCode, location)
     }
     return (
         <section>
@@ -227,6 +256,18 @@ const OrganizerForm = () => {
                                     className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 />
                             </div>
+                            <div className="col-span-6 mb-6">
+                                <label htmlFor="email" className="block text-xs font-medium text-gray-700">
+                                    Email
+                                </label>
+
+                                <input
+                                    {...register("email", { required: true })}
+                                    type="email"
+                                    id="email"
+                                    className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                />
+                            </div>
                             {/* </div>
                                 </div>
                             </fieldset> */}
@@ -239,6 +280,30 @@ const OrganizerForm = () => {
                             </div>
                         </form>
                     </div>
+                </div>
+
+                {/* Multiple Image Add */}
+                <div className="flex flex-wrap items-center">
+                    <label htmlFor="pdImg">
+                        <AiOutlinePlusSquare className="text-8xl text-gray-400" />
+                    </label>
+                    <input
+                        className="hidden"
+                        type="file"
+                        id="pdImg"
+                        accept="image/*"
+                        multiple
+                        onChange={handleImageChange}
+                    />
+                    {loading ? "Uploading..." : null}
+                    {images?.map((image, idx) => (
+                        <img
+                            className="h-24 w-24 m-1 border border-slate-300 rounded-md"
+                            key={idx}
+                            src={image.url}
+                            alt="Uploaded"
+                        />
+                    ))}
                 </div>
             </div>
         </section>

@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../contexts/AuthProvider';
 
-const BecomeOrganizer = () => {
-    const { createUser } = useContext(AuthContext);
+const OrganizersLogin = () => {
+    const { emailSignIn } = useContext(AuthContext);
 
     const { register, handleSubmit, formState: { errors }, } = useForm();
     const navigate = useNavigate();
@@ -13,40 +13,13 @@ const BecomeOrganizer = () => {
     const onSubmit = (data) => {
         const email = data.email;
         const password = data.password;
-
-        createUser(email, password)
+        console.log(email, password)
+        emailSignIn(email, password)
             .then(organizer => {
-                // console.log(organizer)
-                const organizerData = {
-                    email: organizer.user.email,
-                    role: 'organizer'
-                }
-                saveOrganizer(organizerData)
-                navigate("/orgform")
+                console.log(organizer)
             })
             .catch(err => console.error(err))
-    }
-
-
-    // save organizers data
-    const saveOrganizer = (organizerData) => {
-        console.log(organizerData)
-
-        fetch(" https://safar-server-nasar06.vercel.app/users/seller-update", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(organizerData),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log("after storage", data);
-                localStorage.setItem("accessToken", data.token);
-                // if(data.acknowledged){
-                //   console.log('organizer save to database')
-                // }
-            });
+        navigate("/orgform")
     }
 
     return (
@@ -92,15 +65,15 @@ const BecomeOrganizer = () => {
 
                     <div className="flex items-center justify-between">
                         <p className="text-sm text-gray-500">
-                            Already have an account?
-                            <Link to="/orglogin" className="underline"> SignIn</Link>
+                            Haven't an account?
+                            <Link to="/organizer" className="underline"> SignUp</Link>
                         </p>
 
                         <button
                             type="submit"
                             className="ml-3 inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
                         >
-                            Next
+                            LogIn
                         </button>
                     </div>
                 </form>
@@ -118,4 +91,4 @@ const BecomeOrganizer = () => {
     );
 };
 
-export default BecomeOrganizer;
+export default OrganizersLogin;
