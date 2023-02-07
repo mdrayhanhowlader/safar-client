@@ -30,6 +30,7 @@ import OfferPage from "../../pages/OfferPage/OfferPage";
 import SellerCampaign from "../../pages/Seller/Promotions/SellerCampaign";
 import SellerOffer from "../../pages/Seller/Promotions/SellerOffer";
 import OrganizersLogin from "../../pages/Shared/Footer/BecomeOrganizer/OrganizersLogin";
+import SellerDashboardOverview from "../../pages/Seller/SellerDashboardOverview/SellerDashboardOverview";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -109,7 +110,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/orglogin",
-        element: <OrganizersLogin />
+        element: <OrganizersLogin />,
       },
       {
         path: "/*",
@@ -155,6 +156,10 @@ export const router = createBrowserRouter([
     path: "/sellerdashboard",
     element: <SellerDashboard></SellerDashboard>,
     children: [
+      {
+        path: "/sellerdashboard",
+        element: <SellerDashboardOverview></SellerDashboardOverview>,
+      },
       {
         path: "/sellerdashboard/addsellerproduct",
         element: <AddSellerProduct></AddSellerProduct>,
