@@ -19,7 +19,7 @@ const OrganizersLogin = () => {
                 console.log(organizer)
             })
             .catch(err => console.error(err))
-        navigate("/orgform")
+        navigate("/sellerdashboard")
     }
 
     return (

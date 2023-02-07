@@ -32,7 +32,7 @@ const BecomeOrganizer = () => {
     const saveOrganizer = (organizerData) => {
         console.log(organizerData)
 
-        fetch(" https://safar-server-nasar06.vercel.app/users/seller-update", {
+        fetch("https://safar-server-nasar06.vercel.app/users/organizer", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -103,6 +103,7 @@ const BecomeOrganizer = () => {
                             Next
                         </button>
                     </div>
+
                 </form>
             </div>
 
