@@ -30,6 +30,24 @@ import OfferPage from "../../pages/OfferPage/OfferPage";
 import SellerCampaign from "../../pages/Seller/Promotions/SellerCampaign";
 import SellerOffer from "../../pages/Seller/Promotions/SellerOffer";
 import OrganizersLogin from "../../pages/Shared/Footer/BecomeOrganizer/OrganizersLogin";
+import SellerProfile from "../../pages/Seller/SellerProfile/SellerProfile";
+import ManageHotels from "../../pages/Admin/Properties/Hotels/ManageHotels/ManageHotels";
+import PendingHotels from "../../pages/Admin/Properties/Hotels/PendingHotels/PendingHotels";
+import BlockedHotels from "../../pages/Admin/Properties/Hotels/BlockedHotels/BlockedHotels";
+import AllOrders from "../../pages/Admin/AdminOrders/AllOrders/AllOrders";
+import CompletedOrders from "../../pages/Admin/AdminOrders/CompletedOrders/CompletedOrders";
+import CanceledOrders from "../../pages/Admin/AdminOrders/CanceledOrders/CanceledOrders";
+import AllAdmin from "../../pages/Admin/ManageAccount/AllAdmin/AllAdmin";
+import Editors from "../../pages/Admin/ManageAccount/Editors/Editors";
+import Organizer from "../../pages/Admin/ManageAccount/Organizer/Organizer";
+import AllUsers from "../../pages/Admin/ManageAccount/AllUsers/AllUsers";
+import LiveChat from "../../pages/Admin/AdminMessage/LiveChat/LiveChat";
+import MessageToOrganizer from "../../pages/Admin/AdminMessage/MessageToOrganizer/MessageToOrganizer";
+import MessageToCustomer from "../../pages/Admin/AdminMessage/MessageToCustomer/MessageToCustomer";
+import MessageToSubscriber from "../../pages/Admin/AdminMessage/MessageToSubscriber/MessageToSubsciber";
+import PaymentsReceived from "../../pages/Admin/AdminFinance/PaymentsReceived/PaymentsReceived";
+import PayoutToOrganizer from "../../pages/Admin/AdminFinance/PayoutToOrganizer/PayoutToOrganizer";
+import RefundToCustomer from "../../pages/Admin/AdminFinance/RefundToCustomer/RefundToCustomer";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -149,6 +167,76 @@ export const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <AdminDashboard></AdminDashboard>,
+    children: [
+      {
+        path: '/dashboard/managehotel',
+        element: <ManageHotels></ManageHotels>
+      },
+      {
+        path: '/dashboard/pendingHotel',
+        element: <PendingHotels></PendingHotels>
+      },
+      {
+        path: '/dashboard/blockedhotel',
+        element: <BlockedHotels></BlockedHotels>
+      },
+      {
+        path:'/dashboard/allorders',
+        element:<AllOrders></AllOrders>
+      },
+      {
+        path:'/dashboard/completedorders',
+        element:<CompletedOrders></CompletedOrders>
+      },
+      {
+        path:'/dashboard/canceledorders',
+        element:<CanceledOrders></CanceledOrders>
+      },
+      {
+        path: '/dashboard/alladmin',
+        element: <AllAdmin></AllAdmin>
+      },
+      {
+        path: '/dashboard/editors',
+        element: <Editors></Editors>
+      },
+      {
+        path: '/dashboard/organizer',
+        element: <Organizer></Organizer>
+      },
+      {
+        path: '/dashboard/allusers',
+        element: <AllUsers></AllUsers>
+      },
+      {
+        path: '/dashboard/livechat',
+        element: <LiveChat></LiveChat>
+      },
+      {
+        path: '/dashboard/toOrganizer',
+        element: <MessageToOrganizer></MessageToOrganizer>
+      },
+      {
+        path: '/dashboard/tocustomer',
+        element: <MessageToCustomer></MessageToCustomer>
+      },
+      {
+        path: '/dashboard/tosubscriber',
+        element: <MessageToSubscriber></MessageToSubscriber>
+      },
+      {
+        path: '/dashboard/paymentreceived',
+        element: <PaymentsReceived></PaymentsReceived>
+      },
+      {
+        path: '/dashboard/payoutToOrganizer',
+        element: <PayoutToOrganizer></PayoutToOrganizer>
+      },
+      {
+        path: '/dashboard/refundtocustomer',
+        element:<RefundToCustomer></RefundToCustomer>
+      },
+    ]
   },
   // Seller Dashboard routes
   {
@@ -183,6 +271,10 @@ export const router = createBrowserRouter([
         path: "/sellerdashboard/selleroffer",
         element: <SellerOffer></SellerOffer>,
       },
+      {
+        path: '/sellerdashboard/sellerprofile',
+        element: <SellerProfile></SellerProfile>
+      }
     ],
   },
 ]);
