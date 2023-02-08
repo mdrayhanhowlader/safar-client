@@ -45,6 +45,9 @@ import LiveChat from "../../pages/Admin/AdminMessage/LiveChat/LiveChat";
 import MessageToOrganizer from "../../pages/Admin/AdminMessage/MessageToOrganizer/MessageToOrganizer";
 import MessageToCustomer from "../../pages/Admin/AdminMessage/MessageToCustomer/MessageToCustomer";
 import MessageToSubscriber from "../../pages/Admin/AdminMessage/MessageToSubscriber/MessageToSubsciber";
+import PaymentsReceived from "../../pages/Admin/AdminFinance/PaymentsReceived/PaymentsReceived";
+import PayoutToOrganizer from "../../pages/Admin/AdminFinance/PayoutToOrganizer/PayoutToOrganizer";
+import RefundToCustomer from "../../pages/Admin/AdminFinance/RefundToCustomer/RefundToCustomer";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -220,6 +223,18 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard/tosubscriber',
         element: <MessageToSubscriber></MessageToSubscriber>
+      },
+      {
+        path: '/dashboard/paymentreceived',
+        element: <PaymentsReceived></PaymentsReceived>
+      },
+      {
+        path: '/dashboard/payoutToOrganizer',
+        element: <PayoutToOrganizer></PayoutToOrganizer>
+      },
+      {
+        path: '/dashboard/refundtocustomer',
+        element:<RefundToCustomer></RefundToCustomer>
       },
     ]
   },
