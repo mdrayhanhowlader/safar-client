@@ -41,6 +41,10 @@ import AllAdmin from "../../pages/Admin/ManageAccount/AllAdmin/AllAdmin";
 import Editors from "../../pages/Admin/ManageAccount/Editors/Editors";
 import Organizer from "../../pages/Admin/ManageAccount/Organizer/Organizer";
 import AllUsers from "../../pages/Admin/ManageAccount/AllUsers/AllUsers";
+import LiveChat from "../../pages/Admin/AdminMessage/LiveChat/LiveChat";
+import MessageToOrganizer from "../../pages/Admin/AdminMessage/MessageToOrganizer/MessageToOrganizer";
+import MessageToCustomer from "../../pages/Admin/AdminMessage/MessageToCustomer/MessageToCustomer";
+import MessageToSubscriber from "../../pages/Admin/AdminMessage/MessageToSubscriber/MessageToSubsciber";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -200,6 +204,22 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard/allusers',
         element: <AllUsers></AllUsers>
+      },
+      {
+        path: '/dashboard/livechat',
+        element: <LiveChat></LiveChat>
+      },
+      {
+        path: '/dashboard/toOrganizer',
+        element: <MessageToOrganizer></MessageToOrganizer>
+      },
+      {
+        path: '/dashboard/tocustomer',
+        element: <MessageToCustomer></MessageToCustomer>
+      },
+      {
+        path: '/dashboard/tosubscriber',
+        element: <MessageToSubscriber></MessageToSubscriber>
       },
     ]
   },
