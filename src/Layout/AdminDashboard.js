@@ -7,7 +7,7 @@ import {
   FaUikit, 
 } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import DashboardNab from "../pages/Shared/Navbar/DashboardNab";
 import "./Dashboard.css";
 
@@ -34,7 +34,7 @@ const AdminDashboard = () => {
                     </div>
                   </div>
                 </li>
-                {/* // products  */}
+                {/* // Properties  */}
                 <li>
                   <p
                     onClick={() => setPropertiesSubmenu(!propertiesSubmenu)}
@@ -67,34 +67,37 @@ const AdminDashboard = () => {
                         >
                           <ul>
                             <li>
-                              <a
+                              <Link
+                              to='/dashboard/managehotel'
                                 className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-8"
                                 href="/"
                               >
                                 <span className="md:ml-4 text-sm tracking-wide truncate">
                                   Manage Hotels
                                 </span>
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a
+                              <Link
+                              to='/dashboard/pendingHotel'
                                 className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-8"
                                 href="/"
                               >
                                 <span className="md:ml-4 text-sm tracking-wide truncate">
                                   Pending Hotel
                                 </span>
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a
+                              <Link
+                              to='/dashboard/blockedhotel'
                                 className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-8"
                                 href="/"
                               >
                                 <span className="md:ml-4 text-sm tracking-wide truncate">
                                   Blocked Hotel
                                 </span>
-                              </a>
+                              </Link>
                             </li>
                           </ul>
                         </div>

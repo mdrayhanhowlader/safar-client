@@ -31,6 +31,9 @@ import SellerCampaign from "../../pages/Seller/Promotions/SellerCampaign";
 import SellerOffer from "../../pages/Seller/Promotions/SellerOffer";
 import OrganizersLogin from "../../pages/Shared/Footer/BecomeOrganizer/OrganizersLogin";
 import SellerProfile from "../../pages/Seller/SellerProfile/SellerProfile";
+import ManageHotels from "../../pages/Admin/Properties/Hotels/ManageHotels/ManageHotels";
+import PendingHotels from "../../pages/Admin/Properties/Hotels/PendingHotels/PendingHotels";
+import BlockedHotels from "../../pages/Admin/Properties/Hotels/BlockedHotels/BlockedHotels";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -150,6 +153,20 @@ export const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <AdminDashboard></AdminDashboard>,
+    children: [
+      {
+        path: '/dashboard/managehotel',
+        element: <ManageHotels></ManageHotels>
+      },
+      {
+        path: '/dashboard/pendingHotel',
+        element: <PendingHotels></PendingHotels>
+      },
+      {
+        path: '/dashboard/blockedhotel',
+        element: <BlockedHotels></BlockedHotels>
+      }
+    ]
   },
   // Seller Dashboard routes
   {
