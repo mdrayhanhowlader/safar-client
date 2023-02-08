@@ -1,17 +1,18 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AiOutlinePlusSquare } from 'react-icons/ai';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../contexts/AuthProvider';
 
 const OrganizerForm = () => {
     const { user } = useContext(AuthContext);
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const imageHostKey = process.env.REACT_APP_imagePostKey;
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     // console.log(user.email)
     // Multiple Image add
@@ -80,9 +81,15 @@ const OrganizerForm = () => {
                         .then(res => res.json())
                         .then(result => {
                             console.log(result)
-                            Navigate('/sellerdashboard')
+                            if (result.acknowledge === true) {
+                                reset()
+                            }
+                            navigate('/sellerdashboard')
                             // data.reset()
+
+
                         })
+                    // reset()
                 }
             })
             .catch(e => {
