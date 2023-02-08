@@ -5,9 +5,9 @@ import { RxDotFilled } from "react-icons/rx";
 import { BsSuitHeartFill } from "react-icons/bs";
 
 const Card = ({ data }) => {
-  const { hotel, images, review, original_price } = data;
+  const { hotel_name, images, regular_price } = data;
 
-  console.log(images[0].url);
+  // console.log(images[0].url);
   const slides = [
     {
       url: "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -92,32 +92,6 @@ const Card = ({ data }) => {
         </div>
         {/* dot filled */}
         <div className="flex top-48 left-0 right-0 justify-center absolute">
-          {/* {slides.length && slides.length < 3 ? (
-            slides.map((slide, slideIndex) => (
-              <div
-                key={slideIndex}
-                onClick={() => goToSlide(slideIndex)}
-                className={"text-2xl cursor-pointer text-white py-2"}
-              >
-                <RxDotFilled />
-              </div>
-            ))
-          ) : (
-            <>
-              <div
-                onClick={() => goToSlide(currentIndex - 1)}
-                className={"text-2xl cursor-pointer text-white py-2"}
-              >
-                <RxDotFilled />
-              </div>
-              <div
-                onClick={() => goToSlide(currentIndex + 1)}
-                className={"text-2xl cursor-pointer text-white py-2"}
-              >
-                <RxDotFilled />
-              </div>
-            </>
-          )} */}
           {dotSlide.map((slide, slideIndex) => (
             <div
               key={slideIndex}
@@ -138,13 +112,13 @@ const Card = ({ data }) => {
         {/* title and rating */}
         <div className="flex justify-between items-center">
           {/* title */}
-          <h4 className="text-md text-slate-700 font-semibold">{hotel}</h4>
+          <h4 className="text-md text-slate-700 font-semibold">{hotel_name}</h4>
           {/* rating */}
           <div className="flex justify-around items-center">
             <span>
               <AiFillStar />
             </span>
-            <span className="ml-1 text-md text-slate-700">{review}</span>
+            <span className="ml-1 text-md text-slate-700">4.5</span>
           </div>
         </div>
         {/* body price */}
@@ -153,7 +127,7 @@ const Card = ({ data }) => {
           {/* <h6 className=" text-slate-500">Feb 1-6</h6> */}
           <div>
             <h6 className="text-md text-slate-700">
-              $<span>{original_price}</span> Night
+              $<span>{regular_price}</span> Night
             </h6>
           </div>
         </div>

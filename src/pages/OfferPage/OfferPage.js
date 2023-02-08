@@ -15,8 +15,10 @@ const OfferPage = () => {
             <CityCard></CityCard>
             <CityCard></CityCard>
             <CityCard></CityCard>
-            <h2 className='text-xl my-2 mt-20'>Explore more Early 2023 Deals</h2>
-            <div className="grid lg:grid-cols-3 gap-6">
+            
+        </div>
+        <h2 className='text-xl my-2 mt-20 mx-4'>Explore more Early 2023 Deals</h2>
+            <div className="grid lg:grid-cols-3 gap-6 mx-4">
                 <CityCard></CityCard>
                 <CityCard></CityCard>
                 <CityCard></CityCard>
@@ -24,8 +26,6 @@ const OfferPage = () => {
                 <CityCard></CityCard>
                 <CityCard></CityCard>
             </div>
-            <Subscribe></Subscribe>
-        </div>
         </div>
     );
 };

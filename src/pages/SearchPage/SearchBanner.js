@@ -2,7 +2,6 @@ import React from "react";
 import bgImg from "../../assets/bgImgSearch.png";
 
 const SearchBanner = ({allHotels}) => {
-  console.log(allHotels);
   return (
     <div className="">
       <div

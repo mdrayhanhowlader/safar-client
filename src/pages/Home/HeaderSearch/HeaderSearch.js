@@ -6,8 +6,9 @@ import { format } from "date-fns";
 import SearchBannerImage from "../../../assets/bgImage.png";
 import { FaUser } from "react-icons/fa";
 import  './HeaderSearch.css';
-import { SearchContext } from "../../../contexts/SearchProvider";
+// import { SearchContext } from "../../../contexts/SearchProvider";
 import { useNavigate } from "react-router-dom";
+import { SearchContext } from "../../../contexts/SearchProvider";
 
 const HeaderSearch = () => {
   const [destination, setDestination] = useState("");
@@ -24,13 +25,21 @@ const HeaderSearch = () => {
     adult: 1, children: 0, room: 1
   })
 
+  const MILLISECONDS_PER_DAY= 1000 * 60 * 60* 24;
+    const dayDiff = (date1, date2) => {
+        const timeDiff = Math.abs(date2.getTime() - date1.getTime());
+        const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
+        return diffDays;
+    }
+    const days = dayDiff(dates[0].endDate, dates[0].startDate)
+
   const {dispatch} = useContext(SearchContext);
   const navigate = useNavigate();
 
   const handleSearch = () => {
-    // dispatch({type: 'NEW_SEARCH', payload: (destination, dates, options)});
     if(destination){
-      navigate("/searchpage", {state: {destination, dates, options}});
+      dispatch({ type: "NEW_SEARCH", payload: { destination, days, options } });
+      navigate("/searchpage", {state: {destination, days, options}});
     }
     else{
       navigate('/')
@@ -181,7 +190,7 @@ const HeaderSearch = () => {
                   </div>
                 )}
               </div>
-              <input type="submit" onClick={handleSearch} value="Search" className="px-2 md:px-4 rounded-sm bg-blue-700 text-white lg:text-lg py-2"/>
+              <input type="submit" onClick={() => handleSearch()} value="Search" className="px-2 md:px-4 rounded-sm bg-blue-700 text-white lg:text-lg py-2"/>
       </div>
     </div>
   );

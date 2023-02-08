@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { DateRange } from 'react-date-range';
 import { FaAngleDown, FaMinus, FaPlus, FaRegStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { SearchContext } from '../../../contexts/SearchProvider';
 import LeftSide from './LeftSide';
 import ReviewSection from './ReviewSection';
 
 
-const DetailSection = () => {
+const DetailSection = ({hotelData}) => {
+    const {hotel_name, description, location, regular_price, images, offer_price, facilities, } = hotelData;
 
+    
+    const { days, options} = useContext(SearchContext);
+    
     const [isHandleClick, setIsHandleClick] = useState(false);
     const [isClick, setIsClick] = useState(false);
     const [count, setCount] = useState(0);
@@ -19,7 +24,8 @@ const DetailSection = () => {
         }
     ]);
 
-    console.log(state)
+    const serviceFee = 100;
+
     const handleOpenCalender = () => {
         setIsHandleClick(true)
 
@@ -46,14 +52,14 @@ const DetailSection = () => {
         <div>
             <div className='flex p-4 w-full relative'>
                 <div style={{ width: "60%", padding: "2rem" }}>
-                    <LeftSide />
+                    <LeftSide hotelData={hotelData}/>
                 </div>
 
                 {/* right side / card */}
                 <div className='static' style={{ width: "40%", padding: "2rem" }}>
                     <div style={{ border: "1px solid grey", borderRadius: ".5rem", padding: "1rem" }}>
                         <div className='flex justify-between' >
-                            <h1>$458/night</h1>
+                            <h1>${regular_price}/night</h1>
                             <div className='flex'>
                                 <FaRegStar className='mt-1 mx-2' />
                                 <p > 5.0 - <Link to='/'>12 Reviews</Link></p>
@@ -61,7 +67,7 @@ const DetailSection = () => {
                         </div>
                         <div style={{ border: "1px solid grey", borderTopLeftRadius: ".5rem", borderTopRightRadius: ".5rem", padding: ".5rem", marginTop: "5vh" }}>
                             <div className='flex justify-around'>
-                                {
+                                {/* {
                                     isHandleClick === true ?
                                         <div onClick={handleCloseCalender} className='flex justify-center items-center hover:bg-slate-100' style={{ borderRadius: "2rem", width: "6rem" }}>
                                             <div>
@@ -76,8 +82,8 @@ const DetailSection = () => {
                                                 <p>01/02/03</p>
                                             </div>
                                         </div>
-                                }
-                                {
+                                } */}
+                                {/* {
                                     isHandleClick === true ?
                                         <div onClick={handleCloseCalender} className='flex justify-center items-center hover:bg-slate-100' style={{ borderRadius: "2rem", width: "6rem" }}>
                                             <div>
@@ -91,19 +97,19 @@ const DetailSection = () => {
                                                 <p>01/02/03</p>
                                             </div>
                                         </div>
-                                }
+                                } */}
                             </div>
-                            <div className={isHandleClick === true ? 'visible' : 'hidden'}>
+                            {/* <div className={isHandleClick === true ? 'visible' : 'hidden'}>
                                 <DateRange className='w-full'
                                     editableDateInputs={true}
                                     onChange={item => setState([item.selection])}
                                     moveRangeOnFirstSelection={false}
                                     ranges={state}
                                 />
-                            </div>
+                            </div> */}
                         </div>
 
-                        <div className='flex justify-between' style={{ border: "1px solid grey", borderBottomLeftRadius: ".5rem", borderBottomRightRadius: ".5rem", padding: ".5rem", marginTop: "-.2vh" }}>
+                        {/* <div className='flex justify-between' style={{ border: "1px solid grey", borderBottomLeftRadius: ".5rem", borderBottomRightRadius: ".5rem", padding: ".5rem", marginTop: "-.2vh" }}>
                             <div className='mx-2'>
                                 <h1><small>GUESTS</small></h1>
                                 <p>2 guests</p>
@@ -118,7 +124,7 @@ const DetailSection = () => {
                                         <FaAngleDown className='h-5 w-5' />
                                     </div>
                             }
-                        </div>
+                        </div> */}
                         <div className={isClick === true ? 'visible' : 'hidden'} style={{ width: "100%" }}>
                             <div>
                                 <div className='flex justify-between mx-4 my-6'>
@@ -151,12 +157,12 @@ const DetailSection = () => {
                                 <h1>You won't be charged yet ?</h1>
                             </div>
                             <div className='flex justify-between my-2'>
-                                <h1 className='text-green-800'><Link to='/'>$458 x 6 nights</Link></h1>
-                                <p>$2,746</p>
+                                <h1 className='text-green-800'>${regular_price} x {days} nights</h1>
+                                <p>${regular_price * days}</p>
                             </div>
                             <div className='flex justify-between my-2'>
-                                <h1 className='text-green-800'><Link to='/'>Service fee</Link></h1>
-                                <p>$388</p>
+                                <h1 className='text-green-800'>Service fee</h1>
+                                <p>${serviceFee}</p>
                             </div>
                         </div>
 
@@ -164,7 +170,7 @@ const DetailSection = () => {
 
                         <div className='flex justify-between mt-6'>
                             <h1 className='font-bold'>Total before taxes</h1>
-                            <p>$3,134</p>
+                            <p>${(regular_price * days) + serviceFee}</p>
                         </div>
                     </div>
                 </div>
