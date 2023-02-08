@@ -122,34 +122,36 @@ const AdminDashboard = () => {
                   <div className={`${ordersSubMenu ? "visible" : "hidden"}`}>
                     <ul>
                       <li>
-                        <a
+                        <Link
+                        to='/dashboard/allorders'
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          href="/"
                         >
                           <span className="md:ml-4 text-sm tracking-wide truncate">
                             All Orders
                           </span>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a
+                        <Link
+                        to='/dashboard/completedorders'
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          href="/"
+                         
                         >
                           <span className="md:ml-4 text-sm tracking-wide truncate">
                             completed Orders
                           </span>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a
+                        <Link
+                        to='/dashboard/canceledorders'
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          href="/"
+                         
                         >
                           <span className="md:ml-4 text-sm tracking-wide truncate">
                             Canceled Orders
                           </span>
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>

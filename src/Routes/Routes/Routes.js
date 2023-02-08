@@ -34,6 +34,9 @@ import SellerProfile from "../../pages/Seller/SellerProfile/SellerProfile";
 import ManageHotels from "../../pages/Admin/Properties/Hotels/ManageHotels/ManageHotels";
 import PendingHotels from "../../pages/Admin/Properties/Hotels/PendingHotels/PendingHotels";
 import BlockedHotels from "../../pages/Admin/Properties/Hotels/BlockedHotels/BlockedHotels";
+import AllOrders from "../../pages/Admin/AdminOrders/AllOrders/AllOrders";
+import CompletedOrders from "../../pages/Admin/AdminOrders/CompletedOrders/CompletedOrders";
+import CanceledOrders from "../../pages/Admin/AdminOrders/CanceledOrders/CanceledOrders";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -165,7 +168,19 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard/blockedhotel',
         element: <BlockedHotels></BlockedHotels>
-      }
+      },
+      {
+        path:'/dashboard/allorders',
+        element:<AllOrders></AllOrders>
+      },
+      {
+        path:'/dashboard/completedorders',
+        element:<CompletedOrders></CompletedOrders>
+      },
+      {
+        path:'/dashboard/canceledorders',
+        element:<CanceledOrders></CanceledOrders>
+      },
     ]
   },
   // Seller Dashboard routes
