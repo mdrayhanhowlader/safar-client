@@ -28,7 +28,7 @@ const SellerDashboard = () => {
             // style={{
             //   backgroundImage: `url('https://img.freepik.com/premium-photo/white-snow-hill-snow-mountain-background-with-cloudy-sky_31949-7.jpg?w=2000')`,
             // }}
-            className="fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 h-full text-[#A7F3D0] transition-all duration-300 border-none z-10 sidebar shadow-lg border-r-4"
+            className="fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 h-full text-[#8adfb7] transition-all duration-300 border-none z-10 sidebar shadow-lg border-r-4"
           >
             <div className="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow">
               <ul className="flex flex-col py-4 space-y-1">
@@ -157,16 +157,6 @@ const SellerDashboard = () => {
                         >
                           <span className="md:ml-4 text-sm tracking-wide truncate">
                             Campaign
-                          </span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          to="/sellerdashboard/selleroffer"
-                        >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
-                            Offer
                           </span>
                         </Link>
                       </li>
