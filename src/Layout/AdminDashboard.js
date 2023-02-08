@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  FaBell,
-  FaBox,
-  FaEnvelope,
-  FaPager,
-  FaUikit, 
-} from "react-icons/fa";
+import { FaBell, FaBox, FaEnvelope, FaPager, FaUikit } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { Link, Outlet } from "react-router-dom";
 import DashboardNab from "../pages/Shared/Navbar/DashboardNab";
@@ -68,7 +62,7 @@ const AdminDashboard = () => {
                           <ul>
                             <li>
                               <Link
-                              to='/dashboard/managehotel'
+                                to="/dashboard/managehotel"
                                 className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-8"
                                 href="/"
                               >
@@ -79,7 +73,7 @@ const AdminDashboard = () => {
                             </li>
                             <li>
                               <Link
-                              to='/dashboard/pendingHotel'
+                                to="/dashboard/pendingHotel"
                                 className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-8"
                                 href="/"
                               >
@@ -90,7 +84,7 @@ const AdminDashboard = () => {
                             </li>
                             <li>
                               <Link
-                              to='/dashboard/blockedhotel'
+                                to="/dashboard/blockedhotel"
                                 className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-8"
                                 href="/"
                               >
@@ -123,7 +117,7 @@ const AdminDashboard = () => {
                     <ul>
                       <li>
                         <Link
-                        to='/dashboard/allorders'
+                          to="/dashboard/allorders"
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
                         >
                           <span className="md:ml-4 text-sm tracking-wide truncate">
@@ -133,9 +127,8 @@ const AdminDashboard = () => {
                       </li>
                       <li>
                         <Link
-                        to='/dashboard/completedorders'
+                          to="/dashboard/completedorders"
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                         
                         >
                           <span className="md:ml-4 text-sm tracking-wide truncate">
                             completed Orders
@@ -144,9 +137,8 @@ const AdminDashboard = () => {
                       </li>
                       <li>
                         <Link
-                        to='/dashboard/canceledorders'
+                          to="/dashboard/canceledorders"
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                         
                         >
                           <span className="md:ml-4 text-sm tracking-wide truncate">
                             Canceled Orders
@@ -172,44 +164,44 @@ const AdminDashboard = () => {
                   <div className={`${accountSubmenu ? "visible" : "hidden"}`}>
                     <ul>
                       <li>
-                        <a
+                        <Link
+                          to="/dashboard/alladmin"
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          href="/"
                         >
                           <span className="md:ml-4 text-sm tracking-wide truncate">
                             All Admin
                           </span>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a
+                        <Link
+                          to="/dashboard/editors"
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          href="/"
                         >
                           <span className="md:ml-4 text-sm tracking-wide truncate">
                             Editors
                           </span>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a
+                        <Link
+                          to="/dashboard/organizer"
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          href="/"
                         >
                           <span className="md:ml-4 text-sm tracking-wide truncate">
                             All Organizer
                           </span>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a
+                        <Link
+                          to="/dashboard/allusers"
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          href="/"
                         >
                           <span className="md:ml-4 text-sm tracking-wide truncate">
                             All Users
                           </span>
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -235,7 +227,7 @@ const AdminDashboard = () => {
                           href="/"
                         >
                           <span className="md:ml-4 text-sm tracking-wide truncate">
-                          Payments Received
+                            Payments Received
                           </span>
                         </a>
                       </li>
@@ -245,7 +237,7 @@ const AdminDashboard = () => {
                           href="/"
                         >
                           <span className="md:ml-4 text-sm tracking-wide truncate">
-                          Payouts to organizer
+                            Payouts to organizer
                           </span>
                         </a>
                       </li>
@@ -255,7 +247,7 @@ const AdminDashboard = () => {
                           href="/"
                         >
                           <span className="md:ml-4 text-sm tracking-wide truncate">
-                          Refund to customer
+                            Refund to customer
                           </span>
                         </a>
                       </li>
@@ -284,7 +276,7 @@ const AdminDashboard = () => {
                           href="/"
                         >
                           <span className="md:ml-4 text-sm tracking-wide truncate">
-                          Live Chat
+                            Live Chat
                           </span>
                         </a>
                       </li>
@@ -294,7 +286,7 @@ const AdminDashboard = () => {
                           href="/"
                         >
                           <span className="md:ml-4 text-sm tracking-wide truncate">
-                           message to the organizer
+                            message to the organizer
                           </span>
                         </a>
                       </li>
@@ -304,7 +296,7 @@ const AdminDashboard = () => {
                           href="/"
                         >
                           <span className="md:ml-4 text-sm tracking-wide truncate">
-                          message to the customer
+                            message to the customer
                           </span>
                         </a>
                       </li>
@@ -314,7 +306,7 @@ const AdminDashboard = () => {
                           href="/"
                         >
                           <span className="md:ml-4 text-sm tracking-wide truncate">
-                          message to the subscribes
+                            message to the subscribes
                           </span>
                         </a>
                       </li>
@@ -322,7 +314,7 @@ const AdminDashboard = () => {
                   </div>
                 </li>
 
-                  {/* Notifications  */}
+                {/* Notifications  */}
                 <li>
                   <a
                     href="/"

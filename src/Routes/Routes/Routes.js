@@ -37,6 +37,10 @@ import BlockedHotels from "../../pages/Admin/Properties/Hotels/BlockedHotels/Blo
 import AllOrders from "../../pages/Admin/AdminOrders/AllOrders/AllOrders";
 import CompletedOrders from "../../pages/Admin/AdminOrders/CompletedOrders/CompletedOrders";
 import CanceledOrders from "../../pages/Admin/AdminOrders/CanceledOrders/CanceledOrders";
+import AllAdmin from "../../pages/Admin/ManageAccount/AllAdmin/AllAdmin";
+import Editors from "../../pages/Admin/ManageAccount/Editors/Editors";
+import Organizer from "../../pages/Admin/ManageAccount/Organizer/Organizer";
+import AllUsers from "../../pages/Admin/ManageAccount/AllUsers/AllUsers";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -180,6 +184,22 @@ export const router = createBrowserRouter([
       {
         path:'/dashboard/canceledorders',
         element:<CanceledOrders></CanceledOrders>
+      },
+      {
+        path: '/dashboard/alladmin',
+        element: <AllAdmin></AllAdmin>
+      },
+      {
+        path: '/dashboard/editors',
+        element: <Editors></Editors>
+      },
+      {
+        path: '/dashboard/organizer',
+        element: <Organizer></Organizer>
+      },
+      {
+        path: '/dashboard/allusers',
+        element: <AllUsers></AllUsers>
       },
     ]
   },
