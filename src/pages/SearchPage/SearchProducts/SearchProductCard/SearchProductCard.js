@@ -1,10 +1,10 @@
 import React from "react";
 import SingleProductCard from "./SingleProductCard";
 
-const SearchProductCard = () => {
+const SearchProductCard = ({hotelData, info}) => {
   return (
     <div>
-      <SingleProductCard />
+      <SingleProductCard hotelData={hotelData} />
     </div>
   );
 };
