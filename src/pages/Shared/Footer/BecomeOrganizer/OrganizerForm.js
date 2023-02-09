@@ -1,17 +1,19 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AiOutlinePlusSquare } from 'react-icons/ai';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../contexts/AuthProvider';
 
 const OrganizerForm = () => {
     const { user } = useContext(AuthContext);
     const [images, setImages] = useState([]);
+    const [image, setImage] = useState('');
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const imageHostKey = process.env.REACT_APP_imagePostKey;
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     // console.log(user.email)
     // Multiple Image add
@@ -56,38 +58,51 @@ const OrganizerForm = () => {
                 // console.log(imgData)
                 if (imgData?.success) {
                     console.log(imgData.data.url)
-                    const organizer = {
-                        first_name: data.firstName,
-                        last_name: data.lastName,
-                        img: imgData.data.url,
-                        mobile: data.mobile,
-                        nid_no: data.nid,
-                        address: data.address,
-                        country: data.country,
-                        city: data.city,
-                        zip_code: data.zipCode,
-                        hotel_name: data.hotelName,
-                        hotel_location: data.location,
-                    }
-                    // update organizer info 
-                    fetch(`https://safar-server-nasar06.vercel.app/users/organizer-update?email=${user?.email}`, {
-                        method: "PUT",
-                        headers: {
-                            'content-type': 'application/json'
-                        },
-                        body: JSON.stringify(organizer)
-                    })
-                        .then(res => res.json())
-                        .then(result => {
-                            console.log(result)
-                            Navigate('/sellerdashboard')
-                            // data.reset()
-                        })
+                    setImage(imgData.data.url)
+
+                    // reset()
                 }
             })
             .catch(e => {
                 console.error(e.message);
             })
+
+        const organizer = {
+            first_name: data.firstName,
+            last_name: data.lastName,
+            img: image,
+            mobile: data.mobile,
+            nid_no: data.nid,
+            address: data.address,
+            country: data.country,
+            city: data.city,
+            zip_code: data.zipCode,
+            hotel_name: data.hotelName,
+            hotel_location: data.location,
+            hotel_img: images
+        }
+        console.log(organizer)
+        // update organizer info 
+        fetch(`https://safar-server-nasar06.vercel.app/users/organizer-update?email=${user?.email}`, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(organizer)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result)
+                if (result.acknowledge === true) {
+                    reset()
+                }
+                navigate('/sellerdashboard')
+                // data.reset()
+
+
+            })
+            .catch(err => console.error(err))
+
 
     }
     return (
@@ -117,7 +132,6 @@ const OrganizerForm = () => {
                                     className="h-full w-full my-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 />
                             </div>
-
                             <div className="col-span-3">
                                 <label
                                     htmlFor="LastName"
@@ -133,7 +147,6 @@ const OrganizerForm = () => {
                                     className="h-full w-full my-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 />
                             </div>
-
                             <div className="col-span-6 my-4">
                                 <label htmlFor="Profile" className="block text-xs font-medium text-gray-700">
                                     Profile Picture
@@ -233,24 +246,36 @@ const OrganizerForm = () => {
                                     className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 />
                             </div>
-
-                            {/* <fieldset className="col-span-6 my-2">
-                                <div className="mt-1 bg-white rounded-md shadow-sm">
-                                    <div className="flex"> */}
-                            {/* <div className="col-span-3 my-4">
-                                <label htmlFor="Hotel Image" className="block text-xs font-medium text-gray-700">
-                                    Hotel Image
-                                </label>
-
-                                <input
-                                    {...register("hImage", { required: true })}
-                                    type="file"
-                                    id="Hotel Image"
-                                    className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
-                                />
-                            </div> */}
-
-                            <div className="col-span-3 my-4">
+                            {/* Hotel Images */}
+                            {/* Multiple Image Add */}
+                            <div className='col-span-6 mt-4'>
+                                <small className='font-semibold'>Hotel Images</small>
+                                <div className='col-span-6 border'>
+                                    <div className="flex items-center">
+                                        <label htmlFor="pdImg">
+                                            <AiOutlinePlusSquare className="text-4xl my-2 text-gray-400" />
+                                        </label>
+                                        <input
+                                            className="hidden"
+                                            type="file"
+                                            id="pdImg"
+                                            accept="image/*"
+                                            multiple
+                                            onChange={handleImageChange}
+                                        />
+                                        {loading ? "Uploading..." : null}
+                                        {images?.map((image, idx) => (
+                                            <img
+                                                className="h-12 w-12 m-1 border border-slate-300 rounded-md"
+                                                key={idx}
+                                                src={image.url}
+                                                alt="Uploaded"
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-span-6 mb-4">
                                 <label htmlFor="Location" className="block text-xs font-medium text-gray-700">
                                     Hotel Location
                                 </label>
@@ -262,9 +287,6 @@ const OrganizerForm = () => {
                                     className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 />
                             </div>
-                            {/* </div>
-                                </div>
-                            </fieldset> */}
                             <div className="col-span-6">
                                 <button
                                     className="block w-full rounded-md bg-black p-2.5 text-sm text-white transition hover:shadow-lg"
@@ -274,30 +296,6 @@ const OrganizerForm = () => {
                             </div>
                         </form>
                     </div>
-                </div>
-
-                {/* Multiple Image Add */}
-                <div className="flex flex-wrap items-center">
-                    <label htmlFor="pdImg">
-                        <AiOutlinePlusSquare className="text-8xl text-gray-400" />
-                    </label>
-                    <input
-                        className="hidden"
-                        type="file"
-                        id="pdImg"
-                        accept="image/*"
-                        multiple
-                        onChange={handleImageChange}
-                    />
-                    {loading ? "Uploading..." : null}
-                    {images?.map((image, idx) => (
-                        <img
-                            className="h-24 w-24 m-1 border border-slate-300 rounded-md"
-                            key={idx}
-                            src={image.url}
-                            alt="Uploaded"
-                        />
-                    ))}
                 </div>
             </div>
         </section>

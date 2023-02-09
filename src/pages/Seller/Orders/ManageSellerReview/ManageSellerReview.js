@@ -5,7 +5,7 @@ import { HiArrowTrendingUp, HiShoppingCart } from "react-icons/hi2";
 const ManageSellerReview = () => {
     return (
         <div>
-            <h2 className="text-xl font-bold text-center">Manage Seller Review</h2>
+            <h2 className="text-xl font-bold text-center my-2">Manage Seller Review</h2>
 
             <div className='p-2'>
                 {/* Manage header */}
