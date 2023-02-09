@@ -1,11 +1,45 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { AiOutlinePlusSquare } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../../contexts/AuthProvider';
 
 const OrganizerForm = () => {
+    const { user } = useContext(AuthContext);
+    const [images, setImages] = useState([]);
+    const [image, setImage] = useState('');
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const imageHostKey = process.env.REACT_APP_imagePostKey;
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+
+    // console.log(user.email)
+    // Multiple Image add
+    const handleImageChange = async (event) => {
+        const imageHostKey = process.env.REACT_APP_imagePostKey;
+        const imageUrl = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
+        setLoading(true);
+        const files = event.target.files;
+        const uploadedImages = [];
+        for (let i = 0; i < files.length; i++) {
+            const formData = new FormData();
+            formData.append("image", files[i]);
+            formData.append("key", imageHostKey);
+            const response = await fetch(imageUrl, {
+                method: "POST",
+                body: formData,
+            });
+            const result = await response.json();
+            // console.log(result);
+            uploadedImages.push(...images, { url: result.data.url });
+            console.log(uploadedImages);
+        }
+        setImages(uploadedImages);
+        // console.log(images);
+        setLoading(false);
+    };
 
     const onSubmit = (data) => {
 
@@ -21,31 +55,63 @@ const OrganizerForm = () => {
         })
             .then(res => res.json())
             .then(imgData => {
-                console.log(imgData)
+                // console.log(imgData)
                 if (imgData?.success) {
                     console.log(imgData.data.url)
+                    setImage(imgData.data.url)
+
+                    // reset()
                 }
             })
             .catch(e => {
                 console.error(e.message);
             })
 
-        const firstName = data.firstName;
-        const lastName = data.lastName;
-        const mobile = data.mobile;
-        const nid = data.nid;
-        const hotelName = data.hotelName;
-        const hotelLocation = data.hotelLocation;
+        const organizer = {
+            first_name: data.firstName,
+            last_name: data.lastName,
+            img: image,
+            mobile: data.mobile,
+            nid_no: data.nid,
+            address: data.address,
+            country: data.country,
+            city: data.city,
+            zip_code: data.zipCode,
+            hotel_name: data.hotelName,
+            hotel_location: data.location,
+            hotel_img: images
+        }
+        console.log(organizer)
+        // update organizer info 
+        fetch(`https://safar-server-nasar06.vercel.app/users/organizer-update?email=${user?.email}`, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(organizer)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result)
+                if (result.acknowledge === true) {
+                    reset()
+                }
+                navigate('/sellerdashboard')
+                // data.reset()
 
-        console.log(firstName, lastName, mobile, nid, hotelName, hotelLocation)
+
+            })
+            .catch(err => console.error(err))
+
+
     }
     return (
         <section>
             <h1 className="sr-only">Checkout</h1>
 
             <div className="grid grid-cols-1 mx-auto max-w-screen-2xl md:grid-cols-2">
-                <div className="p-12 md:py-24">
-                    <img className='w-full h-full' src='https://3.imimg.com/data3/GX/KK/MY-9358851/foreign-tours-travel-500x500.png' alt='' />
+                <div className="flex justify-center items-center p-2">
+                    <img className='h-1/2' src='https://3.imimg.com/data3/GX/KK/MY-9358851/foreign-tours-travel-500x500.png' alt='' />
                 </div>
 
                 <div className="py-12 bg-white md:py-24">
@@ -66,7 +132,6 @@ const OrganizerForm = () => {
                                     className="h-full w-full my-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 />
                             </div>
-
                             <div className="col-span-3">
                                 <label
                                     htmlFor="LastName"
@@ -82,9 +147,8 @@ const OrganizerForm = () => {
                                     className="h-full w-full my-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 />
                             </div>
-
-                            <div className="col-span-6">
-                                <label htmlFor="Profile" className="block text-xs my-2 font-medium text-gray-700">
+                            <div className="col-span-6 my-4">
+                                <label htmlFor="Profile" className="block text-xs font-medium text-gray-700">
                                     Profile Picture
                                 </label>
 
@@ -94,7 +158,7 @@ const OrganizerForm = () => {
                                     })}
                                     type="file"
                                     id="Profile Picture"
-                                    className="w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                    className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 />
                                 {errors.profilePicture && <p className='text-red-600'>{errors.profilePicture?.message}</p>}
                             </div>
@@ -122,6 +186,54 @@ const OrganizerForm = () => {
                                     className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 />
                             </div>
+                            <div className="col-span-6 my-4">
+                                <label htmlFor="Address" className="block text-xs font-medium text-gray-700">
+                                    Address
+                                </label>
+
+                                <input
+                                    {...register("address", { required: true })}
+                                    type="text"
+                                    id="Address"
+                                    className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                />
+                            </div>
+                            <div className="col-span-6 my-4">
+                                <label htmlFor="Country" className="block text-xs font-medium text-gray-700">
+                                    Country
+                                </label>
+
+                                <input
+                                    {...register("country", { required: true })}
+                                    type="text"
+                                    id="Country"
+                                    className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                />
+                            </div>
+                            <div className="col-span-3 my-4">
+                                <label htmlFor="City" className="block text-xs font-medium text-gray-700">
+                                    City
+                                </label>
+
+                                <input
+                                    {...register("city", { required: true })}
+                                    type="text"
+                                    id="City"
+                                    className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                />
+                            </div>
+                            <div className="col-span-3 my-4">
+                                <label htmlFor="ZipCode" className="block text-xs font-medium text-gray-700">
+                                    Zip Code
+                                </label>
+
+                                <input
+                                    {...register("zipCode", { required: true })}
+                                    type="text"
+                                    id="ZipCode"
+                                    className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                />
+                            </div>
                             <div className="col-span-6">
                                 <label htmlFor="Hotel Name" className="block text-xs font-medium text-gray-700">
                                     Hotel Name
@@ -134,39 +246,47 @@ const OrganizerForm = () => {
                                     className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 />
                             </div>
-
-                            <fieldset className="col-span-6 my-2">
-                                <div className="mt-1 bg-white rounded-md shadow-sm">
-                                    <div className="flex">
-                                        <div className="flex-1">
-                                            <label htmlFor="Hotel Picture" className="sr-only"> Hotel Picture </label>
-
-                                            <input
-                                                {...register("h_image", {
-                                                    required: "Photo is required"
-                                                })}
-                                                type="file"
-                                                id="Hotel Picture"
-                                                placeholder="Hotel Picture"
-                                                className="h-full w-full my-2 border border-gray-300 rounded-md sm:text-sm"
+                            {/* Hotel Images */}
+                            {/* Multiple Image Add */}
+                            <div className='col-span-6 mt-4'>
+                                <small className='font-semibold'>Hotel Images</small>
+                                <div className='col-span-6 border'>
+                                    <div className="flex items-center">
+                                        <label htmlFor="pdImg">
+                                            <AiOutlinePlusSquare className="text-4xl my-2 text-gray-400" />
+                                        </label>
+                                        <input
+                                            className="hidden"
+                                            type="file"
+                                            id="pdImg"
+                                            accept="image/*"
+                                            multiple
+                                            onChange={handleImageChange}
+                                        />
+                                        {loading ? "Uploading..." : null}
+                                        {images?.map((image, idx) => (
+                                            <img
+                                                className="h-12 w-12 m-1 border border-slate-300 rounded-md"
+                                                key={idx}
+                                                src={image.url}
+                                                alt="Uploaded"
                                             />
-                                            {errors.hotelPicture && <p className='text-red-600'>{errors.hotelPicture?.message}</p>}
-                                        </div>
-
-                                        <div className="flex-1 mx-2">
-                                            <label htmlFor="Hotel Location" className="sr-only"> Hotel Location </label>
-
-                                            <input
-                                                {...register("hotelLocation", { required: true })}
-                                                type="text"
-                                                id="Hotel Location"
-                                                placeholder="Hotel Location"
-                                                className="h-full w-full my-2 border border-gray-300 rounded-md  sm:text-sm"
-                                            />
-                                        </div>
+                                        ))}
                                     </div>
                                 </div>
-                            </fieldset>
+                            </div>
+                            <div className="col-span-6 mb-4">
+                                <label htmlFor="Location" className="block text-xs font-medium text-gray-700">
+                                    Hotel Location
+                                </label>
+
+                                <input
+                                    {...register("location", { required: true })}
+                                    type="text"
+                                    id="Location"
+                                    className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                />
+                            </div>
                             <div className="col-span-6">
                                 <button
                                     className="block w-full rounded-md bg-black p-2.5 text-sm text-white transition hover:shadow-lg"

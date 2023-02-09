@@ -58,7 +58,7 @@ const LeftSide = ({hotelData}) => {
                         <p>8 guests - 4 bedrooms - 5 beds - 5 baths</p>
                     </div>
                     <div className='mb-8'>
-                        <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" />
+                        <img className="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" />
                     </div>
                 </div>
                 <div style={{ borderBottom: "1px solid grey", marginTop: "5vh" }}>

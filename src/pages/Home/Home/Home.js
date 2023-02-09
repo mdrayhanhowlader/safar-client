@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Banner from "../Banner/Banner";
 import Destination from "../Destination/Destination";
 import HeaderSearch from "../HeaderSearch/HeaderSearch";
 import Offers from "../Offers/Offers";
@@ -6,7 +7,8 @@ import Offers from "../Offers/Offers";
 const Home = () => {
   return (
     <div>
-      <HeaderSearch ></HeaderSearch>
+      <Banner></Banner>
+      {/* <HeaderSearch></HeaderSearch> */}
       {/* <Properties state={state}></Properties> */}
       <Offers></Offers>
       <Destination></Destination>

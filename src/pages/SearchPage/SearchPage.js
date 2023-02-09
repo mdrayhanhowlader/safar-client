@@ -35,7 +35,7 @@ const SearchPage = () => {
   });
   const priceRangeResource = { refetch, setMin, setMax };
   // const info = {dates,options};
-  // console.log(info)
+  console.log(allHotels)
   return (
     <div className="w-full mx-auto">
       <div>

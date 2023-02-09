@@ -8,6 +8,7 @@ const RegisterForm = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -26,6 +27,7 @@ const RegisterForm = () => {
           console.log(data.user);
 
           saveUser({ email: data.user.email });
+          reset()
         })
         .catch((error) => {
           setError(error);

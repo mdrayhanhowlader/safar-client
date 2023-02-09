@@ -23,12 +23,12 @@ const SellerDashboard = () => {
       <DashboardNab></DashboardNab>
       <div className="grid grid-cols-5 gap-1">
         <div>
-          <div className="fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 bg-blue-900 h-full text-white transition-all duration-300 border-none z-10 sidebar">
+          <div style={{ backgroundImage: `url('https://img.freepik.com/premium-photo/white-snow-hill-snow-mountain-background-with-cloudy-sky_31949-7.jpg?w=2000')` }} className="fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 h-full text-white transition-all duration-300 border-none z-10 sidebar">
             <div className="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow">
               <ul className="flex flex-col py-4 space-y-1">
                 <li className="px-5 hidden md:block">
                   <div className="flex flex-row items-center h-8">
-                    <div className="text-sm font-light tracking-wide text-gray-400 uppercase">
+                    <div className="text-sm font-light tracking-wide text-black uppercase">
                       Main
                     </div>
                   </div>
@@ -37,12 +37,12 @@ const SellerDashboard = () => {
                 <li>
                   <p
                     onClick={() => setProductsSubmenu(!productsSubmenu)}
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
-                      <FaBox className="w-5 h-5"></FaBox>
+                      <FaBox className="w-4 mx-2 h-4"></FaBox>
                     </span>
-                    <span className="ml-2 text-sm tracking-wide truncate">
+                    <span className="ml-2 text-black font-bold text-sm tracking-wide truncate">
                       Products
                     </span>
                   </p>
@@ -51,9 +51,9 @@ const SellerDashboard = () => {
                       <li>
                         <Link
                           to="/sellerdashboard/managesellerproduct"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="md:ml-4 text-black text-sm tracking-wide truncate">
                             Manage Product
                           </span>
                         </Link>
@@ -61,9 +61,9 @@ const SellerDashboard = () => {
                       <li>
                         <Link
                           to="/sellerdashboard/addsellerproduct"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="md:ml-4 text-black text-sm tracking-wide truncate">
                             Add Product
                           </span>
                         </Link>
@@ -76,12 +76,12 @@ const SellerDashboard = () => {
                 <li>
                   <p
                     onClick={() => setOrdersSubmenu(!ordersSubMenu)}
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
-                      <HiOutlineShoppingCart className="w-5 h-5"></HiOutlineShoppingCart>
+                      <HiOutlineShoppingCart className="w-4 mx-2 h-4"></HiOutlineShoppingCart>
                     </span>
-                    <span className="ml-2 text-sm tracking-wide truncate">
+                    <span className="ml-2 text-black font-bold text-sm tracking-wide truncate">
                       Orders
                     </span>
                   </p>
@@ -90,9 +90,9 @@ const SellerDashboard = () => {
                       <li>
                         <Link
                           to="/sellerdashboard/managesellerorder"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="md:ml-4 text-black text-sm tracking-wide truncate">
                             Manage Orders
                           </span>
                         </Link>
@@ -100,9 +100,9 @@ const SellerDashboard = () => {
                       <li>
                         <Link
                           to="/sellerdashboard/managesellerreview"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="md:ml-4 text-black text-sm tracking-wide truncate">
                             Manage Review
                           </span>
                         </Link>
@@ -110,9 +110,9 @@ const SellerDashboard = () => {
                       <li>
                         <Link
                           to="/sellerdashboard/cancelsellerorder"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="md:ml-4 text-black text-sm tracking-wide truncate">
                             Cancel Orders
                           </span>
                         </Link>
@@ -124,26 +124,36 @@ const SellerDashboard = () => {
                 <li>
                   <p
                     onClick={() => setPromotionSubmenu(!promotionSubmenu)}
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
-                      <FaUikit className="w-5 h-5"></FaUikit>
+                      <FaUikit className="w-4 mx-2 h-4"></FaUikit>
                     </span>
-                    <span className="ml-2 text-sm tracking-wide truncate">
+                    <span className="ml-2 text-black font-bold text-sm tracking-wide truncate">
                       Promotions
                     </span>
                   </p>
                   <div className={`${promotionSubmenu ? "visible" : "hidden"}`}>
                     <ul>
                       <li>
-                        <a
+                        <Link
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          href="/"
+                          to="/sellerdashboard/sellercampaign"
                         >
                           <span className="md:ml-4 text-sm tracking-wide truncate">
-                            Create Promotion
+                            Campaign
                           </span>
-                        </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          to="/sellerdashboard/selleroffer"
+                        >
+                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                            Offer
+                          </span>
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -152,12 +162,12 @@ const SellerDashboard = () => {
                 <li>
                   <p
                     onClick={() => setFinanceSubmenu(!financeSubmenu)}
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
-                      <FaPager className="w-5 h-5"></FaPager>
+                      <FaPager className="w-4 mx-2 h-4"></FaPager>
                     </span>
-                    <span className="ml-2 text-sm tracking-wide truncate">
+                    <span className="ml-2 text-black font-bold text-sm tracking-wide truncate">
                       Finance
                     </span>
                   </p>
@@ -165,30 +175,30 @@ const SellerDashboard = () => {
                     <ul>
                       <li>
                         <a
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
                           href="/"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="md:ml-4 text-black text-sm tracking-wide truncate">
                             Account Statement
                           </span>
                         </a>
                       </li>
                       <li>
                         <a
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
                           href="/"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="md:ml-4 text-black text-sm tracking-wide truncate">
                             Order overview
                           </span>
                         </a>
                       </li>
                       <li>
                         <a
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
                           href="/"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="md:ml-4 text-black text-sm tracking-wide truncate">
                             Transition overview
                           </span>
                         </a>
@@ -200,12 +210,12 @@ const SellerDashboard = () => {
                 <li>
                   <a
                     href="/"
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
-                      <FaEnvelope className="w-5 h-5"></FaEnvelope>
+                      <FaEnvelope className="w-4 mx-2 h-4"></FaEnvelope>
                     </span>
-                    <span className="ml-2 text-sm tracking-wide truncate">
+                    <span className="ml-2 text-black font-bold text-sm tracking-wide truncate">
                       Messages
                     </span>
                   </a>
@@ -214,12 +224,12 @@ const SellerDashboard = () => {
                 <li>
                   <a
                     href="/"
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6"
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
-                      <FaBell className="w-5 h-5"></FaBell>
+                      <FaBell className="w-4 mx-2 h-4"></FaBell>
                     </span>
-                    <span className="ml-2 text-sm tracking-wide truncate">
+                    <span className="ml-2 text-black font-bold text-sm tracking-wide truncate">
                       Notifications
                     </span>
                     <span className="hidden md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-red-500 bg-red-50 rounded-full">
@@ -229,7 +239,7 @@ const SellerDashboard = () => {
                 </li>
                 {/* <li className="px-5 hidden md:block">
                       <div className="flex flex-row items-center mt-5 h-8">
-                        <div className="text-sm font-light tracking-wide text-gray-400 uppercase">
+                        <div className= text-black"text-sm font-light tracking-wide text-gray-400 uppercase">
                           Settings
                         </div>
                       </div>
@@ -240,56 +250,26 @@ const SellerDashboard = () => {
                   <p
                     onClick={() => setUsersSubmenu(!usersSubmenu)}
                     href="/"
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
-                      <FaUser className="w-5 h-5"></FaUser>
+                      <FaUser className="w-4 mx-2 h-4"></FaUser>
                     </span>
-                    <span className="ml-2 text-sm tracking-wide truncate">
-                      Users
+                    <span className="ml-2 text-black font-bold text-sm tracking-wide truncate">
+                      My Account
                     </span>
                   </p>
                   <div className={`${usersSubmenu ? "visible" : "hidden"}`}>
                     <ul>
                       <li>
-                        <a
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          href="/"
+                        <Link
+                        to='/sellerdashboard/sellerprofile'
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
-                            All Users
+                          <span className="md:ml-4 text-black text-sm tracking-wide truncate">
+                           My Profile
                           </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          href="/"
-                        >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
-                            Active Users
-                          </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          href="/"
-                        >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
-                            Inactive Users
-                          </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          href="/"
-                        >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
-                            Make Admin
-                          </span>
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -297,18 +277,18 @@ const SellerDashboard = () => {
                 <li>
                   <a
                     href="/"
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6"
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
-                      <FaRegSun className="w-5 h-5"></FaRegSun>
+                      <FaRegSun className="w-4 mx-2 h-4"></FaRegSun>
                     </span>
-                    <span className="ml-2 text-sm tracking-wide truncate">
+                    <span className="ml-2 text-black font-bold text-sm tracking-wide truncate">
                       Settings
                     </span>
                   </a>
                 </li>
               </ul>
-              <p className="mb-14 px-5 py-3 hidden md:block text-center text-xs">
+              <p className="mb-14 px-5 py-3 hidden md:block text-center text-xs text-black">
                 Copyright @2023
               </p>
             </div>
@@ -318,7 +298,7 @@ const SellerDashboard = () => {
           <Outlet></Outlet>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
