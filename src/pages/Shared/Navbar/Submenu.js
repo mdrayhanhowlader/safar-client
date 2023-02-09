@@ -13,8 +13,8 @@ const Submenu = () => {
   };
 
   return (
-    <div className="absolute top-full  md:right-0 bg-white p-4 w-56">
-      <ul className="text-gray-700  pt-1">
+    <div className="absolute top-full mt-6 md:mt-0 right-8  md:right-0 bg-white md:p-4 w-72 md:w-56">
+      <ul className="text-gray-700 pt-1">
         <li className="">
           <Link
           to='/myaccount'
