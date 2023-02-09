@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../../contexts/AuthProvider';
 
-const BecomeSeller = () => {
+const BecomeOrganizer = () => {
+    const { createUser } = useContext(AuthContext);
 
     const { register, handleSubmit, formState: { errors }, } = useForm();
     const navigate = useNavigate();
@@ -11,8 +13,34 @@ const BecomeSeller = () => {
     const onSubmit = (data) => {
         const email = data.email;
         const password = data.password;
-        console.log(email, password)
-        navigate("/orgform")
+
+        createUser(email, password)
+            .then(organizer => {
+                console.log(organizer.user.email)
+                const organizerData = {
+                    email: organizer.user.email,
+                    role: 'organizer'
+                }
+
+                fetch("https://safar-server-nasar06.vercel.app/users/organizer", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    body: JSON.stringify(organizerData),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log("after storage", data);
+                        // if(data.acknowledged){
+                        //   console.log('organizer save to database')
+                        // }
+                    })
+                    .catch(err => console.log("API didn't hit", err));
+                // saveOrganizer(organizerData)
+                // navigate("/orgform")
+            })
+            .catch(err => console.log(err))
     }
 
     return (
@@ -58,8 +86,8 @@ const BecomeSeller = () => {
 
                     <div className="flex items-center justify-between">
                         <p className="text-sm text-gray-500">
-                            No account?
-                            <Link to="/signup" className="underline">Sign up</Link>
+                            Already have an account?
+                            <Link to="/orglogin" className="underline"> SignIn</Link>
                         </p>
 
                         <button
@@ -69,6 +97,7 @@ const BecomeSeller = () => {
                             Next
                         </button>
                     </div>
+
                 </form>
             </div>
 
@@ -84,4 +113,4 @@ const BecomeSeller = () => {
     );
 };
 
-export default BecomeSeller;
+export default BecomeOrganizer;

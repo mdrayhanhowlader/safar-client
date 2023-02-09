@@ -1,63 +1,47 @@
-import React, { createContext, useReducer, useState } from "react";
+import React, { createContext, useEffect, useReducer, useState } from "react";
 import HeaderSearch from "../pages/Home/HeaderSearch/HeaderSearch";
 import OfferPage from "../pages/OfferPage/OfferPage";
 
 const InitialState = {
-  city: undefined,
-  date: [],
-  options: {
-    adult: undefined,
-    children: undefined,
-    room: undefined
-  }
-}
-
+  destination: JSON.parse(localStorage.getItem("destination")),
+  days: JSON.parse(localStorage.getItem("days")),
+  options: JSON.parse(localStorage.getItem("options")),
+};
 
 export const SearchContext = createContext(InitialState);
 
 const searchReducer = (state, action) => {
   switch (action.type) {
-    case 'NEW_SEARCH':
+    case "NEW_SEARCH":
       return action.payload;
-    case 'RESET_SEARCH':
+    case "RESET_SEARCH":
       return InitialState;
-  
+
     default:
       return state;
   }
-}
+};
 
-const SearchProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(searchReducer, InitialState)
-
-
-
-  // const [state, setState] = useState();
-  // const handleGetLocation = async (e) => {
-  //   e.preventDefault();
-  //   const name = e.target.name.value;
-  //   console.log(name);
-  //   const res = await fetch(
-  //     `https://safar-server-nasar06.vercel.app/search/location?location=${name}`
-  //   );
-  //   const data = await res.json();
-  //   setState(data);
-  //   console.log(data);
-  // };
-
-  const searchInfo = {
-    city: state.city,
-    dates: state.dates,
-    options: state.options,
-    dispatch
-  };
+export const SearchProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(searchReducer, InitialState);
+  useEffect(() => {
+    localStorage.setItem("destination", JSON.stringify(state.destination));
+    localStorage.setItem("days", JSON.stringify(state.days));
+    localStorage.setItem("options", JSON.stringify(state.options));
+  }, [state.destination,state.days,state.options]);
+  
   return (
     <>
-      <SearchContext.Provider value={searchInfo}>
+      <SearchContext.Provider
+        value={{
+          city: state.city,
+          days: state.days,
+          options: state.options,
+          dispatch,
+        }}
+      >
         {children}
       </SearchContext.Provider>
     </>
   );
 };
-
-export default SearchProvider;
