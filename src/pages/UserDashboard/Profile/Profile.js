@@ -1,11 +1,32 @@
 import React from "react";
 import { useState } from "react";
+
 import { FaCheck, FaStar } from "react-icons/fa";
 import { HiOutlineClipboardCheck } from "react-icons/hi";
 import ProfileUpdateForm from "./ProfileUpdateForm";
 
 const Profile = () => {
   const [editProfile, setEditProfile] = useState(false);
+  const [profilePicture, setProfilePicture] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const editProfileImage = async (e) => {
+    const editImage = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", editImage);
+    const imageHostKey = process.env.REACT_APP_imagePostKey;
+    const imageUrl = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
+
+    const response = await fetch(imageUrl, {
+      method: "POST",
+      body: formData,
+    });
+    const data = await response.json();
+    setProfilePicture(data.data.url);
+    setLoading(false);
+  };
+
+  console.log(profilePicture);
 
   return (
     <section className="container mx-auto p-8">
@@ -13,14 +34,30 @@ const Profile = () => {
         <div className="shadow-md border-2 border-sky-100 rounded-lg">
           {/* Profile picture  */}
           <div className="flex justify-center items-center flex-col">
-            <img
-              alt=""
-              className="w-32 h-32 border rounded-full mt-8"
-              src="https://source.unsplash.com/40x40/?portrait?1"
+            {profilePicture ? (
+              <img
+                className="w-32 h-32 border rounded-full mt-8"
+                src={profilePicture}
+                alt=""
+              />
+            ) : (
+              <img
+                alt=""
+                className="w-32 h-32 border rounded-full mt-8"
+                src="https://source.unsplash.com/40x40/?portrait?1"
+              />
+            )}
+            <label className="cursor-pointer underline" htmlFor="upload">
+              Upload Image
+            </label>
+            <input
+              className="hidden"
+              type="file"
+              name=""
+              id="upload"
+              accept="image/*"
+              onChange={editProfileImage}
             />
-            <a className="font-semi-bold text-md underline" href="/">
-              Update Profile
-            </a>
           </div>
 
           <div className="p-6">
