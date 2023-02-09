@@ -43,28 +43,6 @@ const BecomeOrganizer = () => {
             .catch(err => console.log(err))
     }
 
-
-    // save organizers data
-    // const saveOrganizer = (organizerData) => {
-    //     console.log(organizerData)
-
-    // fetch("https://safar-server-nasar06.vercel.app/users/organizer", {
-    //     method: "POST",
-    //     headers: {
-    //         "content-type": "application/json",
-    //     },
-    //     body: JSON.stringify(organizerData),
-    // })
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //         console.log("after storage", data);
-    //         // if(data.acknowledged){
-    //         //   console.log('organizer save to database')
-    //         // }
-    //     })
-    //     .catch(err => console.error(err));
-    // }
-
     return (
 
         <section className="relative flex flex-wrap lg:h-screen lg:items-center">
