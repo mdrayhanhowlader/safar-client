@@ -16,37 +16,31 @@ const BecomeOrganizer = () => {
 
         createUser(email, password)
             .then(organizer => {
-                // console.log(organizer)
+                console.log(organizer.user.email)
                 const organizerData = {
                     email: organizer.user.email,
                     role: 'organizer'
                 }
-                saveOrganizer(organizerData)
-                navigate("/orgform")
+
+                fetch("https://safar-server-nasar06.vercel.app/users/organizer", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    body: JSON.stringify(organizerData),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log("after storage", data);
+                        // if(data.acknowledged){
+                        //   console.log('organizer save to database')
+                        // }
+                    })
+                    .catch(err => console.log("API didn't hit", err));
+                // saveOrganizer(organizerData)
+                // navigate("/orgform")
             })
-            .catch(err => console.error(err))
-    }
-
-
-    // save organizers data
-    const saveOrganizer = (organizerData) => {
-        console.log(organizerData)
-
-        fetch(" https://safar-server-nasar06.vercel.app/users/seller-update", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(organizerData),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log("after storage", data);
-                localStorage.setItem("accessToken", data.token);
-                // if(data.acknowledged){
-                //   console.log('organizer save to database')
-                // }
-            });
+            .catch(err => console.log(err))
     }
 
     return (
@@ -103,6 +97,7 @@ const BecomeOrganizer = () => {
                             Next
                         </button>
                     </div>
+
                 </form>
             </div>
 
