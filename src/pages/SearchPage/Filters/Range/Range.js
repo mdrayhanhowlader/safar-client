@@ -10,7 +10,6 @@ const Range = ({priceRangeResource}) => {
         min={50}
         max={200}
         onChange={({ min, max }) => {
-          console.log(`min = ${min}, max = ${max}`)
           setMin(min);
           setMax(max);
           refetch()

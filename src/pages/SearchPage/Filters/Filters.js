@@ -14,8 +14,8 @@ const Filters = ({priceRangeResource}) => {
 
       <FiltersCollections></FiltersCollections>
       <FiltersPriceRange priceRangeResource={priceRangeResource}></FiltersPriceRange>
-      <FiltersEventTime></FiltersEventTime>
-      <FiltersDuration></FiltersDuration>
+      {/* <FiltersEventTime></FiltersEventTime> */}
+      {/* <FiltersDuration></FiltersDuration> */}
     </div>
   );
 };
