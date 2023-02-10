@@ -34,12 +34,12 @@ const SearchPage = () => {
     },
   });
   const priceRangeResource = { refetch, setMin, setMax };
-  console.log(allHotels, max, min);
-
+  // const info = {dates,options};
+  console.log(allHotels)
   return (
     <div className="w-full mx-auto">
       <div>
-        <SearchBanner></SearchBanner>
+        <SearchBanner allHotels={allHotels}></SearchBanner>
       </div>
       <div className="lg:flex">
         <Filters priceRangeResource={priceRangeResource}></Filters>
