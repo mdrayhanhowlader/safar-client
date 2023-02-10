@@ -65,9 +65,11 @@ const ManageSellerProduct = () => {
           </thead>
           <tbody className="divide-y divide-gray-100 border-t border-gray-100">
             {isLoading ? (
+              <tr>
               <td>
                 <span>Loading...</span>
               </td>
+              </tr>
             ) : (
               organizerRooms.map((room) => (
                 <tr key={room._id} className="hover:bg-gray-50">
