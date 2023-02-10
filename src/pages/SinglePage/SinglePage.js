@@ -11,8 +11,8 @@ const SinglePage = () => {
     console.log(hotelData);
     return (
         <div>
-            <div className='grid md:grid-cols-2 w-full'>
-                <div>
+            <div className='grid md:grid-cols-2 w-full p-2 border-2 border-gray-400 rounded-lg'>
+                <div className='md:mb-0 mb-4'>
                     <img className='w-full h-full md:px-4' src={images[0].url} alt='' />
                 </div>
                 <div>

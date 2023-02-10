@@ -52,7 +52,7 @@ const HeaderSearch = () => {
   return (
     <div>
 
-      <div className="w-full px-6 mx-auto md:h-8 rounded-lg bg-white flex justify-between sm:mx-4 md:justify-around items-center lg:py-16 relative md:mt-16 mt-56 mb-40">
+      <div className=" mx-auto px-6 md:h-8 rounded-lg bg-white flex justify-center sm:mx-4 md:justify-around items-center lg:py-16 relative md:mt-16 mt-56 mb-40">
         <div className="w-10/12 md:px-6 p-8 mx-auto md:h-8 rounded-lg bg-white md:flex justify-between sm:mx-4 md:justify-around items-center lg:py-16 absolute  border-2 shadow-xl shadow-blue-100 border-slate-200">
           <div className="flex items-center gap-2 md:mb-0 mb-4">
             <MdLocationPin className="text-3xl text-orange-500" />
@@ -171,7 +171,7 @@ const HeaderSearch = () => {
             type="submit"
             onClick={handleSearch}
             value="Search"
-            className="px-2 md:px-6 w-full md:w-auto bg-blue-400 hover:bg-blue-500 text-white lg:text-lg md:py-3 py-1 md:rounded-full rounded-lg"
+            className="px-2 md:px-6 w-full md:w-auto bg-blue-400 hover:bg-blue-500 text-white lg:text-lg md:py-2 py-1 md:rounded-full rounded-lg"
           />
         </div>
       </div>
