@@ -25,8 +25,6 @@ const ManageSellerProduct = () => {
     },
   });
 
-  console.log(organizerRooms);
-
   return (
     <section className="py-4">
       <h2 className="text-3xl">My Rooms</h2>
