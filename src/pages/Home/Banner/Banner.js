@@ -6,6 +6,7 @@ import logo from "../../../assets/3.png";
 import { FaUser } from "react-icons/fa";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import Submenu from "../../Shared/Navbar/Submenu";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   const [submenu, setSubmenu] = useState(false);

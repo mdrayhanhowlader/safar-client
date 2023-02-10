@@ -27,7 +27,7 @@ const RegisterForm = () => {
           console.log(data.user);
 
           saveUser({ email: data.user.email });
-          reset()
+          reset();
         })
         .catch((error) => {
           setError(error);
@@ -145,7 +145,7 @@ const RegisterForm = () => {
             <div>
               <button
                 type="submit"
-                className="group relative flex w-full justify-center rounded-md border border-transparent bg-teal-500 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="group relative flex w-full justify-center rounded-md border border-transparent bg-teal-500 py-2 px-4 text-sm font-medium text-white hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 SIGN UP
               </button>

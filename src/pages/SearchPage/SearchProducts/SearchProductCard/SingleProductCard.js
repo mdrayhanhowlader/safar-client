@@ -2,18 +2,15 @@ import React from "react";
 import { FaMapMarkerAlt, FaRegHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const SingleProductCard = ({hotelData, info}) => {
-  const {hotel_name,regular_price, offer_price, images, location, Hotel_id} = hotelData;
-  console.log(Hotel_id);
+const SingleProductCard = ({ hotelData, info }) => {
+  const { hotel_name, regular_price, offer_price, images, location, hotel_id } =
+    hotelData;
+  console.log(hotel_id);
   return (
     <div className="grid lg:grid-cols-3 border">
       {/*image section */}
       <div>
-        <img
-          className="h-full p-1 rounded-lg"
-          src={images[0].url}
-          alt=""
-        />
+        <img className="h-full p-1 rounded-lg" src={images[0].url} alt="" />
       </div>
 
       {/* details/middle section */}
@@ -68,7 +65,7 @@ const SingleProductCard = ({hotelData, info}) => {
               </div>
             </div>
             <div>
-              <Link to={`/singlePage/${Hotel_id}`}>
+              <Link to={`/singlePage/${hotel_id}`}>
                 <button className="bg-green-700 text-white rounded-lg h-8 w-28 mt-6">
                   View Details
                 </button>
