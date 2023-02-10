@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const LeftSide = ({hotelData}) => {
     const [readMore, setReadMore] = useState(false);
 
-    const {hotel_name, description, location, regular_price, images, offer_price, facilities } = hotelData;
+    const {hotel_name, description,room_type, location, regular_price, images, offer_price, facilities } = hotelData;
 
     const offersData = [
         {
@@ -55,7 +55,7 @@ const LeftSide = ({hotelData}) => {
                 <div className='flex justify-between' style={{ borderBottom: "1px solid grey" }}>
                     <div>
                         <h1 className='text-2xl font-bold mb-1'>{hotel_name}</h1>
-                        <p>8 guests - 4 bedrooms - 5 beds - 5 baths</p>
+                        <p>8 guests - {room_type.length} bedrooms - 5 beds - 5 baths</p>
                     </div>
                     <div className='mb-8'>
                         <img className="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" />

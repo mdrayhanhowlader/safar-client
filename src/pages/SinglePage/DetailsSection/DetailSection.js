@@ -149,7 +149,7 @@ const DetailSection = ({hotelData}) => {
 
                         {/* button */}
                         <div className='mt-4'>
-                            <Link to='/checkout'><button className='w-full h-8 bg-green-800 rounded-lg hover:bg-green-700 text-white'>Check Availability</button></Link>
+                            <Link to='/checkoutPage'><button className='w-full h-8 bg-green-800 rounded-lg hover:bg-green-700 text-white'>Check Availability</button></Link>
                         </div>
                         {/* you won't be charged yet */}
                         <div>
