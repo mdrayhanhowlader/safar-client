@@ -21,23 +21,28 @@ const LoginForm = () => {
 
   const onSubmit = useCallback(async (data) => {
     setIsSubmitting(true);
+    console.log(data, "form data");
+    if (data.rememberMe === true) {
+      localStorage.setItem("rememberMe", [data.email, data.password]);
+    }
+
     try {
       // make API call to register user
       emailSignIn(data.email, data.password).then((data) => {
         console.log(data.user);
         const userEmail = data.user.email;
+
         console.log(userEmail);
         fetch(`https://safar-server-nasar06.vercel.app/jwt?email=${userEmail}`)
           .then((res) => res.json())
           .then((data) => {
             console.log("after login", data);
-            localStorage.setItem("access-token", data.token);
           })
           .catch((err) => {
             console.err(err);
           });
         toast.success("login successfully done");
-        reset()
+        reset();
       });
       //  const user = await authUser;
 
@@ -52,6 +57,7 @@ const LoginForm = () => {
       console.log(err);
     }
   }, []);
+
   return (
     <div>
       {" "}
@@ -107,8 +113,9 @@ const LoginForm = () => {
             <div className="flex items-center justify-between">
               <div className="flex items-center">
                 <input
-                  id="remember-me"
-                  name="remember-me"
+                  {...register("rememberMe")}
+                  id="rememberMe"
+                  name="rememberMe"
                   type="checkbox"
                   className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                 />
@@ -133,7 +140,7 @@ const LoginForm = () => {
             <div>
               <button
                 type="submit"
-                className="group relative flex w-full justify-center rounded-md border border-transparent bg-teal-500 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="group relative flex w-full justify-center rounded-md border border-transparent bg-teal-500 py-2 px-4 text-sm font-medium text-white hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 SIGN IN
               </button>
