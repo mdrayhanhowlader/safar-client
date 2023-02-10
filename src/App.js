@@ -1,14 +1,13 @@
-
-import './App.css';
-import Home from './pages/Home/Home/Home';
+import { RouterProvider } from "react-router-dom";
+import {router} from './Routes/Routes/Routes'
+import "./App.css";
+import { Toaster } from "react-hot-toast";
 
 function App() {
-  return (
-    <div className="">
-      <Home></Home>
-      
-    </div>
-  );
+  return <div>
+    <RouterProvider router={router}></RouterProvider>
+    <Toaster />
+  </div>;
 }
 
 export default App;

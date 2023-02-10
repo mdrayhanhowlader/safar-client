@@ -1,22 +1,29 @@
 import React, { useState } from "react";
+import { useContext } from "react";
 import { FaBars, FaTimesCircle } from "react-icons/fa";
-
 import { FaUser } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider";
+import Submenu from "./Submenu";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
+
+  const [submenu, setSubmenu] = useState(false);
+
   return (
-    <nav x-data="{ isOpen: false }" className="relative bg-slate-50">
-      <div className="container px-6 py-4 mx-auto">
+    <nav x-data="{ isOpen: false }" className="relative bg-slate-50 ">
+      <div className="w-full px-6 py-4 mx-auto">
         <div className="lg:flex lg:items-center lg:justify-between">
           <div className="flex items-center justify-between">
             <div className="text-xl font-semibold text-gray-700">
-              <a
+              <Link
                 className="text-2xl font-bold transition-colors duration-300 transform lg:text-3xl hover:text-gray-700"
-                href="/"
+                to="/"
               >
                 SAFAR
-              </a>
+              </Link>
             </div>
 
             <div onClick={() => setOpen(!open)} className="flex lg:hidden">
@@ -42,33 +49,26 @@ const Navbar = () => {
             } `}
           >
             <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 hover:bg-gray-100"
               >
                 Home
-              </a>
+              </Link>
 
-              <a
-                href="/blogs"
+              <Link
+                to="/offers"
                 className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 hover:bg-gray-100"
               >
-                Blogs
-              </a>
+                Offers
+              </Link>
 
-              <a
-                href="/login"
+              <Link
+                to="/login"
                 className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 hover:bg-gray-100"
               >
                 Login
-              </a>
-              <a
-                href="/"
-                to="/signup"
-                className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 hover:bg-gray-100"
-              >
-                SignUp
-              </a>
+              </Link>
             </div>
 
             <div className="flex items-center mt-4 lg:mt-0">
@@ -77,21 +77,28 @@ const Navbar = () => {
                 aria-label="show notifications"
               ></button>
 
-              <button
-                type="button"
-                className="flex items-center focus:outline-none"
-                aria-label="toggle profile dropdown"
-              >
-                <div className="w-10 h-10 overflow-hidden border-2 border-gray-400 rounded-full">
-                  {/* {
-                                        user?.photoURL ? <img src={user?.photoURL} className="object-cover w-full h-full" alt="avatar" />
-                                            :
-                                            <FaUser className='text-2xl text-center mx-auto pt-2' />
-                                            // <img src={"https://i.pinimg.com/originals/7c/c7/a6/7cc7a630624d20f7797cb4c8e93c09c1.png"} className="object-cover w-full h-full" alt="avatar" />
-                                    } */}
-                  <FaUser className="text-2xl text-center mx-auto pt-2" />
+              {user?.uid && (
+                <div className="relative">
+                  {/* sub menu  */}
+                  <div className={`${submenu ? "visible" : "hidden"}`}>
+                    <Submenu></Submenu>
+                  </div>
+                  <button
+                    type="button"
+                    className="flex items-center focus:outline-none"
+                    aria-label="toggle profile dropdown"
+                  >
+                    {
+                      <div
+                        onClick={() => setSubmenu(!submenu)}
+                        className="w-10 h-10 overflow-hidden border-2 border-gray-400 rounded-full"
+                      >
+                        <FaUser className="text-2xl text-center mx-auto pt-2" />
+                      </div>
+                    }
+                  </button>
                 </div>
-              </button>
+              )}
             </div>
           </div>
         </div>
