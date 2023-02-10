@@ -22,7 +22,7 @@ const Banner = () => {
             <h1 className="text-2xl mt-5 font-serif">SAFAR</h1>
           </div>
           <div className="flex items-center mt-4 mx-4 lg:mt-0">
-            {user?.uid ? (
+            {user?.uid && (
               <div className="relative">
                 {/* sub menu  */}
                 <div className={`${submenu ? "visible" : "hidden"}`}>
@@ -43,8 +43,6 @@ const Banner = () => {
                   }
                 </button>
               </div>
-            ) : (
-              "login"
             )}
           </div>
         </div>

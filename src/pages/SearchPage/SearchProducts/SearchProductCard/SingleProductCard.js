@@ -5,12 +5,13 @@ import { Link } from "react-router-dom";
 const SingleProductCard = ({ hotelData, info }) => {
   const { hotel_name, regular_price, offer_price, images, location, hotel_id } =
     hotelData;
-  console.log(hotel_id);
+  // console.log(hotel_id);
+  // console.log(images);
   return (
     <div className="grid lg:grid-cols-3 border">
       {/*image section */}
       <div>
-        <img className="h-full p-1 rounded-lg" src={images[0].url} alt="" />
+        <img className="h-full p-1 rounded-lg" src={images[0]?.url} alt="" />
       </div>
 
       {/* details/middle section */}
