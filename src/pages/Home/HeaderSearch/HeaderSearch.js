@@ -51,8 +51,7 @@ const HeaderSearch = () => {
   // };
   return (
     <div>
-
-      <div className="w-full px-6 mx-auto md:h-8 rounded-lg bg-white flex justify-between sm:mx-4 md:justify-around items-center lg:py-16 relative md:mt-16 mt-56 mb-40">
+      <div className=" px-6 mx-auto md:h-8 rounded-lg bg-white flex justify-between sm:mx-4 md:justify-around items-center lg:py-16 relative md:mt-16 mt-56 mb-40">
         <div className="w-10/12 md:px-6 p-8 mx-auto md:h-8 rounded-lg bg-white md:flex justify-between sm:mx-4 md:justify-around items-center lg:py-16 absolute  border-2 shadow-xl shadow-blue-100 border-slate-200">
           <div className="flex items-center gap-2 md:mb-0 mb-4">
             <MdLocationPin className="text-3xl text-orange-500" />
@@ -64,7 +63,9 @@ const HeaderSearch = () => {
               onChange={(e) => setDestination(e.target.value)}
             />
           </div>
-          <h1 className="text-5xl text-blue-200 md:mb-0 mb-4 md:block hidden ">|</h1>
+          <h1 className="text-5xl text-blue-200 md:mb-0 mb-4 md:block hidden ">
+            |
+          </h1>
           <div className="md:mb-0 mb-4">
             <span>
               {openDate && (
@@ -90,7 +91,9 @@ const HeaderSearch = () => {
               )}`}
             </span>
           </span>
-          <h1 className="text-5xl text-blue-200 md:mb-0 mb-4 md:block hidden">|</h1>
+          <h1 className="text-5xl text-blue-200 md:mb-0 mb-4 md:block hidden">
+            |
+          </h1>
           <div className="headerSearchItem flex items-center gap-3 md:mb-0 mb-4">
             <FaRegUser className="text-2xl text-blue-500" />
             <span
@@ -166,7 +169,9 @@ const HeaderSearch = () => {
               </div>
             )}
           </div>
-          <h1 className="text-5xl text-blue-200 md:mb-0 mb-4 md:block hidden">|</h1>
+          <h1 className="text-5xl text-blue-200 md:mb-0 mb-4 md:block hidden">
+            |
+          </h1>
           <input
             type="submit"
             onClick={handleSearch}
