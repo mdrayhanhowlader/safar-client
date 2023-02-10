@@ -28,7 +28,9 @@ const Destination = () => {
     <section className="container mx-auto mb-8">
       {/* section title  */}
       <div className="py-8">
-        <h2 className="text-4xl font-bold text-center">Explore destinations</h2>
+        <h2 className="text-gray-700 text-4xl font-bold text-center">
+          Special Destinations
+        </h2>
         <p className="text-xl font-semi-bold text-center mt-3">
           These popular destinations have a lot to offer
         </p>

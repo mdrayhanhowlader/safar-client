@@ -50,13 +50,18 @@ const DetailSection = ({hotelData}) => {
 
     return (
         <div>
-            <div className='flex p-4 w-full relative'>
-                <div style={{ width: "60%", padding: "2rem" }}>
+            <div className='md:flex p-4 w-full relative'>
+                <div className='w-full md:w-3/5 p-8'
+                // style={{ width: "60%", padding: "2rem" }}
+                >
                     <LeftSide hotelData={hotelData}/>
                 </div>
 
                 {/* right side / card */}
-                <div className='static' style={{ width: "40%", padding: "2rem" }}>
+                <div className='static w-full md:w-2/5 p-8' 
+                // style={{ width: "40%", padding: "2rem" }}
+                
+                >
                     <div style={{ border: "1px solid grey", borderRadius: ".5rem", padding: "1rem" }}>
                         <div className='flex justify-between' >
                             <h1>${regular_price}/night</h1>
@@ -178,7 +183,9 @@ const DetailSection = ({hotelData}) => {
 
 
             {/* review section & host details*/}
-            <div style={{ padding: "2rem" }}>
+            <div className='p-8'
+            // style={{ padding: "2rem" }}
+            >
                 <ReviewSection />
             </div>
         </div>

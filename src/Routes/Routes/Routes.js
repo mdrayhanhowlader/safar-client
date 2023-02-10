@@ -69,8 +69,8 @@ export const router = createBrowserRouter([
         element: <Login></Login>,
       },
       {
-        path: '/offers',
-        element: <OfferPage></OfferPage>
+        path: "/offers",
+        element: <OfferPage></OfferPage>,
       },
       {
         path: "/searchpage",
@@ -102,7 +102,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/modal",
-        element: <Modals/>,
+        element: <Modals />,
       },
       {
         path: "/faq",
@@ -130,7 +130,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/orglogin",
-        element: <OrganizersLogin />
+        element: <OrganizersLogin />,
       },
       {
         path: "/*",
@@ -172,74 +172,74 @@ export const router = createBrowserRouter([
     element: <AdminDashboard></AdminDashboard>,
     children: [
       {
-        path: '/dashboard/managehotel',
-        element: <ManageHotels></ManageHotels>
+        path: "/dashboard/managehotel",
+        element: <ManageHotels></ManageHotels>,
       },
       {
-        path: '/dashboard/pendingHotel',
-        element: <PendingHotels></PendingHotels>
+        path: "/dashboard/pendingHotel",
+        element: <PendingHotels></PendingHotels>,
       },
       {
-        path: '/dashboard/blockedhotel',
-        element: <BlockedHotels></BlockedHotels>
+        path: "/dashboard/blockedhotel",
+        element: <BlockedHotels></BlockedHotels>,
       },
       {
-        path:'/dashboard/allorders',
-        element:<AllOrders></AllOrders>
+        path: "/dashboard/allorders",
+        element: <AllOrders></AllOrders>,
       },
       {
-        path:'/dashboard/completedorders',
-        element:<CompletedOrders></CompletedOrders>
+        path: "/dashboard/completedorders",
+        element: <CompletedOrders></CompletedOrders>,
       },
       {
-        path:'/dashboard/canceledorders',
-        element:<CanceledOrders></CanceledOrders>
+        path: "/dashboard/canceledorders",
+        element: <CanceledOrders></CanceledOrders>,
       },
       {
-        path: '/dashboard/alladmin',
-        element: <AllAdmin></AllAdmin>
+        path: "/dashboard/alladmin",
+        element: <AllAdmin></AllAdmin>,
       },
       {
-        path: '/dashboard/editors',
-        element: <Editors></Editors>
+        path: "/dashboard/editors",
+        element: <Editors></Editors>,
       },
       {
-        path: '/dashboard/organizer',
-        element: <Organizer></Organizer>
+        path: "/dashboard/organizer",
+        element: <Organizer></Organizer>,
       },
       {
-        path: '/dashboard/allusers',
-        element: <AllUsers></AllUsers>
+        path: "/dashboard/allusers",
+        element: <AllUsers></AllUsers>,
       },
       {
-        path: '/dashboard/livechat',
-        element: <LiveChat></LiveChat>
+        path: "/dashboard/livechat",
+        element: <LiveChat></LiveChat>,
       },
       {
-        path: '/dashboard/toOrganizer',
-        element: <MessageToOrganizer></MessageToOrganizer>
+        path: "/dashboard/toOrganizer",
+        element: <MessageToOrganizer></MessageToOrganizer>,
       },
       {
-        path: '/dashboard/tocustomer',
-        element: <MessageToCustomer></MessageToCustomer>
+        path: "/dashboard/tocustomer",
+        element: <MessageToCustomer></MessageToCustomer>,
       },
       {
-        path: '/dashboard/tosubscriber',
-        element: <MessageToSubscriber></MessageToSubscriber>
+        path: "/dashboard/tosubscriber",
+        element: <MessageToSubscriber></MessageToSubscriber>,
       },
       {
-        path: '/dashboard/paymentreceived',
-        element: <PaymentsReceived></PaymentsReceived>
+        path: "/dashboard/paymentreceived",
+        element: <PaymentsReceived></PaymentsReceived>,
       },
       {
-        path: '/dashboard/payoutToOrganizer',
-        element: <PayoutToOrganizer></PayoutToOrganizer>
+        path: "/dashboard/payoutToOrganizer",
+        element: <PayoutToOrganizer></PayoutToOrganizer>,
       },
       {
-        path: '/dashboard/refundtocustomer',
-        element:<RefundToCustomer></RefundToCustomer>
+        path: "/dashboard/refundtocustomer",
+        element: <RefundToCustomer></RefundToCustomer>,
       },
-    ]
+    ],
   },
   // Seller Dashboard routes
   {
@@ -275,9 +275,9 @@ export const router = createBrowserRouter([
         element: <SellerOffer></SellerOffer>,
       },
       {
-        path: '/sellerdashboard/sellerprofile',
-        element: <SellerProfile></SellerProfile>
-      }
+        path: "/sellerdashboard/sellerprofile",
+        element: <SellerProfile></SellerProfile>,
+      },
     ],
   },
 ]);

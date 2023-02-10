@@ -1,24 +1,66 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { GiCommercialAirplane } from 'react-icons/gi';
 import { CgEditUnmask } from 'react-icons/cg';
+import img from '../../../assets/safar logo/1.png'
+import logo from '../../../assets/3.png'
+import { FaUser } from 'react-icons/fa';
+import { AuthContext } from '../../../contexts/AuthProvider';
+import Submenu from '../../Shared/Navbar/Submenu';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
+  const [submenu, setSubmenu] = useState(false);
+  const { user } = useContext(AuthContext);
 
     return (
-        <div>
-            <div>
-                <div>navbar</div>
+        <div 
+        style={{backgroundImage: `url(${img})`}}
+        className="bg-cover"
+        >
+            <div className='m-1 p-1'>
+                <div className='flex items-center justify-between'>
+                    <div className='flex items-center '>
+                        <img className='w-16' src={logo} alt="" />
+                       
+                        <h1 className="text-2xl mt-5 font-serif">SAFAR</h1>
+                    </div>
+                    <div className="flex items-center mt-4 mx-4 lg:mt-0">
+
+              {user?.uid && (
+                <div className="relative">
+                  {/* sub menu  */}
+                  <div className={`${submenu ? "visible" : "hidden"}`}>
+                    <Submenu></Submenu>
+                  </div>
+                  <button
+                    type="button"
+                    className="flex items-center focus:outline-none"
+                    aria-label="toggle profile dropdown"
+                  >
+                    {
+                      <div
+                        onClick={() => setSubmenu(!submenu)}
+                        className="w-8 h-8 bg-blue-400 hover:bg-blue-500 overflow-hidden rounded-full"
+                      >
+                        <FaUser className="text-2xl text-white text-center mx-auto pt-2" />
+                      </div>
+                    }
+                  </button>
+                </div>
+              )}
+            </div>
+                </div>
                 <div className='flex items-center justify-center'>
                     <div className='w-full'>
                         <div className="flex justify-around ">
-                            <div>
-                                <h2 className="text-5xl font-bold">Where Ever You Go,</h2>
-                            <h2 className="text-5xl font-bold py-2">Go With All</h2>
-                            <h2 className="text-5xl font-bold">Your Heart.</h2>
+                            <div className='md:mt-0 mt-16'>
+                                <h2 className="text-3xl md:text-5xl font-semibold">Where Ever You Go,</h2>
+                            <h2 className="text-3xl md:text-5xl font-semibold py-2">Go With All</h2>
+                            <h2 className="text-3xl md:text-5xl font-semibold">Your Heart.</h2>
                             </div>
                         </div>
-                       <div className='w-11/12 ml-20 py-8 flex border justify-evenly rounded-lg shadow-lg mt-12 '>
-                       <div className='flex items-center gap-8'>
+                       <div className=' w-11/12 mx-auto md:ml-20 md:py-8 pb-20 pt-6 md:flex border justify-evenly rounded-lg shadow-lg bg-white mt-12 '>
+                       <div className='flex md:flex-row flex-col items-center justify-center md:gap-8 gap-24'>
                             <div className='relative'>
                             <div className='flex items-center gap-3'>
                                 <div>
@@ -50,7 +92,7 @@ const Banner = () => {
                         </div>
                        </div>
                     </div>
-                    <div className='w-full'>
+                    <div className='w-full hidden md:block'>
                         <div className='flex justify-center mb-6 '>
                             <img className="object-cover w-14 h-14 p-1 rounded-full bg-gray-300 shadow-2xl " src="https://media.istockphoto.com/id/1285301614/photo/young-man-arms-outstretched-by-the-sea-at-sunrise-enjoying-freedom-and-life-people-travel.jpg?s=612x612&w=0&k=20&c=0QW6GnkuFNYcPZhy26XVHuTc2avJTK8u6l_1iT0SlZk=" alt="" />
                         </div>

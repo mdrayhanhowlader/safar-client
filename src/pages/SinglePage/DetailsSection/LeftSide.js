@@ -101,7 +101,7 @@ const LeftSide = ({hotelData}) => {
                 {/* Where you will sleep & will be map */}
                 <div>
                     <h1 className='text-xl font-bold my-4'>Where you'll Sleep</h1>
-                    <div className='grid gap-4 grid-cols-3 p-4'>
+                    <div className='grid gap-4 grid-cols-1 md:grid-cols-3 p-4'>
                         <div style={{ border: "1px solid grey", borderRadius: ".5rem" }}>
                             <div className='p-4'>
                                 <FaBed className='h-12 w-12' />
@@ -135,7 +135,7 @@ const LeftSide = ({hotelData}) => {
                 {/* What this place offers */}
                 <div className='my-4'>
                     <h1 className='text-xl font-bold'>What this place offers</h1>
-                    <div className='grid grid-cols-2'>
+                    <div className='grid grid-cols-1 md:grid-cols-2'>
                         {
                             offersData.map(offers =>
                                 <div className='flex my-2'>
@@ -145,8 +145,10 @@ const LeftSide = ({hotelData}) => {
                             )
                         }
                     </div>
-                    <div className='flex justify-center my-4' style={{ border: "1px solid grey", borderRadius: ".5rem", width: "25%" }}>
-                        <h1 ><Link className='text-green-800 hover:text-green-600 font-bold my-6'>Show all amenities</Link></h1>
+                    <div className='flex justify-center my-4 border border-gray-400 rounded-lg' 
+                    // style={{ border: "1px solid grey", borderRadius: ".5rem", width: "25%" }}
+                    >
+                        <h1 ><Link className='text-green-800 hover:text-green-600 font-semibold my-6'>Show all amenities</Link></h1>
                     </div>
                 </div>
             </div>

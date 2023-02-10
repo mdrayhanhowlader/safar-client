@@ -9,6 +9,7 @@ import {
   FaUser,
 } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi";
+import { BiBasket } from "react-icons/bi";
 import { Link, Outlet } from "react-router-dom";
 import DashboardNab from "../pages/Shared/Navbar/DashboardNab";
 
@@ -23,15 +24,29 @@ const SellerDashboard = () => {
       <DashboardNab></DashboardNab>
       <div className="grid grid-cols-5 gap-1">
         <div>
-          <div style={{ backgroundImage: `url('https://img.freepik.com/premium-photo/white-snow-hill-snow-mountain-background-with-cloudy-sky_31949-7.jpg?w=2000')` }} className="fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 h-full text-white transition-all duration-300 border-none z-10 sidebar">
+          <div
+            // style={{
+            //   backgroundImage: `url('https://img.freepik.com/premium-photo/white-snow-hill-snow-mountain-background-with-cloudy-sky_31949-7.jpg?w=2000')`,
+            // }}
+            className="fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 h-full text-[#8adfb7] transition-all duration-300 border-none z-10 sidebar shadow-lg border-r-4"
+          >
             <div className="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow">
               <ul className="flex flex-col py-4 space-y-1">
                 <li className="px-5 hidden md:block">
                   <div className="flex flex-row items-center h-8">
-                    <div className="text-sm font-light tracking-wide text-black uppercase">
-                      Main
-                    </div>
+                    <div className="text-sm font-light tracking-wide text-black uppercase"></div>
                   </div>
+                </li>
+                {/* // Dashboard  */}
+                <li>
+                  <p className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer">
+                    <span className="inline-flex justify-center items-center ml-4">
+                      <FaBox className="w-4 mx-2 h-4"></FaBox>
+                    </span>
+                    <span className="ml-2 text-black font-bold text-sm tracking-wide truncate">
+                      Dashboard
+                    </span>
+                  </p>
                 </li>
                 {/* // products  */}
                 <li>
@@ -40,7 +55,7 @@ const SellerDashboard = () => {
                     className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
-                      <FaBox className="w-4 mx-2 h-4"></FaBox>
+                      <BiBasket className="w-4 mx-2 h-4"></BiBasket>
                     </span>
                     <span className="ml-2 text-black font-bold text-sm tracking-wide truncate">
                       Products
@@ -142,16 +157,6 @@ const SellerDashboard = () => {
                         >
                           <span className="md:ml-4 text-sm tracking-wide truncate">
                             Campaign
-                          </span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          to="/sellerdashboard/selleroffer"
-                        >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
-                            Offer
                           </span>
                         </Link>
                       </li>
@@ -298,7 +303,7 @@ const SellerDashboard = () => {
           <Outlet></Outlet>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 
