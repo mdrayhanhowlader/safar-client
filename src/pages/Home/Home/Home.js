@@ -1,4 +1,5 @@
 import React from 'react';
+import Grid from '../../../Grid';
 import Footer from '../../Shared/Footer/Footer';
 import Navbar from '../../Shared/Navbar/Navbar';
 import Banner from '../Banner/Banner';
@@ -16,6 +17,7 @@ const Home = () => {
             <Destination></Destination>
             <TopRated></TopRated>
             <Properties></Properties>
+            <Grid></Grid>
             <Footer></Footer>
         </div>
     );
