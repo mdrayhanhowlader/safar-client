@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { AiOutlinePlusSquare } from "react-icons/ai";
 // import { FaMinus, FaPlus } from "react-icons/fa";
 import { HiOutlineChevronDown, HiOutlineChevronUp } from "react-icons/hi";
+import { AuthContext } from "../../../../contexts/AuthProvider";
 
 const AddSellerProduct = () => {
+  const {user} = useContext(AuthContext)
   const [images, setImages] = useState([]);
   const [facilities, setFacilities] = useState([]);
   const [bathroomFacility, setBathroom] = useState([]);
@@ -96,7 +98,7 @@ const AddSellerProduct = () => {
       name: data.name,
       rooms_no: parseInt(data.roomnumber),
       price: parseInt(data.price),
-      hotel_id: parseInt(data.hotelId),
+      hotel_id:user?.uid,
       extra_facilities: extraFacilityData,
       room_facilities: facilities,
       view: data.view,
@@ -359,14 +361,16 @@ const AddSellerProduct = () => {
             <input
               className="border-2 p-2 rounded-md w-full border-blue-50"
               placeholder="Hotel id"
+              defaultValue={user?.uid}
+              readOnly
               type="text"
               name=""
               id=""
-              {...register("hotelId", { required: "hotel id is required" })}
+              // {...register("hotelId", { required: "hotel id is required" })}
             />
-            {errors.hotelId && (
+            {/* {errors.hotelId && (
               <p className="text-red-500">{errors.hotelId.message}</p>
-            )}
+            )} */}
           </div>
 
           <div>
