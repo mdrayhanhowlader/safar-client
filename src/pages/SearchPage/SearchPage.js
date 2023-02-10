@@ -11,9 +11,9 @@ const SearchPage = () => {
   // console.log(destination);
 
   const location = useLocation();
-  const [destination, setDestination] = useState(location.state.destination);
-  const [dates, setDates] = useState(location.state.dates);
-  const [options, setOptions] = useState(location.state.options);
+  const [destination, setDestination] = useState(location.state?.destination);
+  const [dates, setDates] = useState(location.state?.dates);
+  const [options, setOptions] = useState(location.state?.options);
 
   const [min, setMin] = useState(1);
   const [max, setMax] = useState(999);
@@ -34,12 +34,12 @@ const SearchPage = () => {
     },
   });
   const priceRangeResource = { refetch, setMin, setMax };
-  console.log(allHotels, max, min);
-
+  // const info = {dates,options};
+  console.log(allHotels)
   return (
     <div className="w-full mx-auto">
       <div>
-        <SearchBanner></SearchBanner>
+        <SearchBanner allHotels={allHotels}></SearchBanner>
       </div>
       <div className="lg:flex">
         <Filters priceRangeResource={priceRangeResource}></Filters>

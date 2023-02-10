@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaBed, FaCalendarTimes, FaCheckDouble, FaDigitalOcean, FaHotjar, FaSwimmingPool, FaUmbrellaBeach, FaWifi } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 
-const LeftSide = () => {
+const LeftSide = ({hotelData}) => {
+    const [readMore, setReadMore] = useState(false);
+
+    const {hotel_name, description, location, regular_price, images, offer_price, facilities } = hotelData;
 
     const offersData = [
         {
@@ -47,11 +50,11 @@ const LeftSide = () => {
         },
     ]
     return (
-        <div>
+        <>
             <div className='p-2'>
                 <div className='flex justify-between' style={{ borderBottom: "1px solid grey" }}>
                     <div>
-                        <h1 className='text-2xl font-bold mb-1'>Entire villa hosted by Xabir</h1>
+                        <h1 className='text-2xl font-bold mb-1'>{hotel_name}</h1>
                         <p>8 guests - 4 bedrooms - 5 beds - 5 baths</p>
                     </div>
                     <div className='mb-8'>
@@ -88,15 +91,17 @@ const LeftSide = () => {
                 </div>
 
                 <div style={{ borderBottom: "1px solid grey" }}>
-                    <p className='mt-8'>Shambhala Heritage Villa is located on the west coast of Koh Phangan, close to beautiful Hin Kong Bay and Srithanu.</p>
-                    <p className='my-3'>With Shambhala we offer you a comfortable tropical villa associated with the design and heritage of the Asian culture.</p>
-                    <h1 className='text-green-800 font-bold my-4'><Link to='/'>Show more..</Link></h1>
+                <h1 className='text-3xl font-bold text-green-800 mb-2'>Details</h1>
+                    <p>{readMore ? description : description.slice(0, 120)}</p>
+                    <button className="btn text-green-800 font-bold mb-6" onClick={() => setReadMore(!readMore)}>
+          {readMore ? "show less" : "  read more..."}
+        </button>
                 </div>
 
                 {/* Where you will sleep & will be map */}
                 <div>
                     <h1 className='text-xl font-bold my-4'>Where you'll Sleep</h1>
-                    <div className='grid gap-4 grid-cols-3 p-4'>
+                    <div className='grid gap-4 grid-cols-1 md:grid-cols-3 p-4'>
                         <div style={{ border: "1px solid grey", borderRadius: ".5rem" }}>
                             <div className='p-4'>
                                 <FaBed className='h-12 w-12' />
@@ -130,7 +135,7 @@ const LeftSide = () => {
                 {/* What this place offers */}
                 <div className='my-4'>
                     <h1 className='text-xl font-bold'>What this place offers</h1>
-                    <div className='grid grid-cols-2'>
+                    <div className='grid grid-cols-1 md:grid-cols-2'>
                         {
                             offersData.map(offers =>
                                 <div className='flex my-2'>
@@ -140,12 +145,14 @@ const LeftSide = () => {
                             )
                         }
                     </div>
-                    <div className='flex justify-center my-4' style={{ border: "1px solid grey", borderRadius: ".5rem", width: "25%" }}>
-                        <h1 ><Link className='text-green-800 hover:text-green-600 font-bold my-6'>Show all amenities</Link></h1>
+                    <div className='flex justify-center my-4 border border-gray-400 rounded-lg' 
+                    // style={{ border: "1px solid grey", borderRadius: ".5rem", width: "25%" }}
+                    >
+                        <h1 ><Link className='text-green-800 hover:text-green-600 font-semibold my-6'>Show all amenities</Link></h1>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
