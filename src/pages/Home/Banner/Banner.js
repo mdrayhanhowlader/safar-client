@@ -9,25 +9,24 @@ import Submenu from '../../Shared/Navbar/Submenu';
 import { Link } from 'react-router-dom';
 
 const Banner = () => {
-
-    const [submenu, setSubmenu] = useState(false);
-    const {user} = useContext(AuthContext);
+  const [submenu, setSubmenu] = useState(false);
+  const { user } = useContext(AuthContext);
 
     return (
         <div 
         style={{backgroundImage: `url(${img})`}}
-       className="bg-cover"
+        className="bg-cover"
         >
-            <div className=''>
-                <div className='w-11/12 pt-2 mx-auto flex items-center justify-between'>
+            <div className='m-1 p-1'>
+                <div className='flex items-center justify-between'>
                     <div className='flex items-center '>
-                        <img className='w-20' src={logo} alt="" />
+                        <img className='w-16' src={logo} alt="" />
                        
                         <h1 className="text-2xl mt-5 font-serif">SAFAR</h1>
                     </div>
                     <div className="flex items-center mt-4 mx-4 lg:mt-0">
 
-              {user?.uid ? 
+              {user?.uid && (
                 <div className="relative">
                   {/* sub menu  */}
                   <div className={`${submenu ? "visible" : "hidden"}`}>
@@ -48,11 +47,7 @@ const Banner = () => {
                     }
                   </button>
                 </div>
-                :
-                <Link to="/login">
-                <button className=' text-white py-1 px-3 rounded-2xl bg-blue-400 hover:bg-blue-500'>Login</button>
-                </Link>
-              }
+              )}
             </div>
                 </div>
                 <div className='flex items-center justify-center'>
@@ -64,7 +59,7 @@ const Banner = () => {
                             <h2 className="text-3xl md:text-5xl font-semibold">Your Heart.</h2>
                             </div>
                         </div>
-                       <div className=' w-11/12 mx-auto md:ml-20 md:py-8 pb-20 pt-6 md:flex border justify-evenly rounded-lg shadow-md shadow-blue-200 bg-white mt-12 '>
+                       <div className=' w-11/12 mx-auto md:ml-20 md:py-8 pb-20 pt-6 md:flex border justify-evenly rounded-lg shadow-lg bg-white mt-12 '>
                        <div className='flex md:flex-row flex-col items-center justify-center md:gap-8 gap-24'>
                             <div className='relative'>
                             <div className='flex items-center gap-3'>
