@@ -3,14 +3,14 @@ import Main from "../../Layout/Main";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/Login/SignIn/Login";
 import SearchPage from "../../pages/SearchPage/SearchPage";
-import SinglePage from "../../Test/SinglePage/SinglePage";
-import Modals from "../../Test/SinglePage/Modals/Modals";
 import ManageAccount from "../../pages/UserDashboard/MyAccount/ManageAccount/ManageAccount";
 import UserDashboard from "../../Layout/UserDashboard";
 import Profile from "../../pages/UserDashboard/Profile/Profile";
 import Trips from "../../pages/UserDashboard/Trips/Trips";
 import Notifications from "../../pages/UserDashboard/Notifications/Notifications";
 import Wishlists from "../../pages/UserDashboard/Wishlists/Wishlists";
+import SingleProductCard from "../../pages/SearchPage/SearchProducts/SearchProductCard/SingleProductCard";
+// import OfferPage from "../../pages/OfferPage/OfferPage";
 import Register from "../../pages/Login/Register/Register";
 import FAQ from "../../pages/Shared/Footer/FAQ";
 import ErrorPage from "../../pages/ErrorPage/ErrorPage";
@@ -19,6 +19,8 @@ import Checkout from "../../pages/Checkout/Checkout";
 import BecomeOrganizer from "../../pages/Shared/Footer/BecomeOrganizer/BecomeOrganizer";
 import OrganizerForm from "../../pages/Shared/Footer/BecomeOrganizer/OrganizerForm";
 import DestinationPage from "../../pages/Home/Destination/DestinationPage";
+import Modals from "../../pages/SinglePage/Modals/Modals";
+import SinglePage from "../../pages/SinglePage/SinglePage";
 import AdminDashboard from "../../Layout/AdminDashboard";
 import CancelSellerOrder from "../../pages/Seller/Orders/CancelSellerOrder/CancelSellerOrder";
 import ManageSellerOrder from "../../pages/Seller/Orders/ManageSellerOrder/ManageSellerOrder";
@@ -74,10 +76,6 @@ export const router = createBrowserRouter([
         element: <SearchPage></SearchPage>,
       },
       {
-        path: "/searchpage",
-        element: <SearchPage></SearchPage>,
-      },
-      {
         path: "/searchpage/:city",
         element: <SearchPage></SearchPage>,
         loader: async ({ params }) =>
@@ -127,7 +125,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/orglogin",
-        element: <OrganizersLogin />
+        element: <OrganizersLogin />,
       },
       {
         path: "/*",
@@ -169,74 +167,74 @@ export const router = createBrowserRouter([
     element: <AdminDashboard></AdminDashboard>,
     children: [
       {
-        path: '/dashboard/managehotel',
-        element: <ManageHotels></ManageHotels>
+        path: "/dashboard/managehotel",
+        element: <ManageHotels></ManageHotels>,
       },
       {
-        path: '/dashboard/pendingHotel',
-        element: <PendingHotels></PendingHotels>
+        path: "/dashboard/pendingHotel",
+        element: <PendingHotels></PendingHotels>,
       },
       {
-        path: '/dashboard/blockedhotel',
-        element: <BlockedHotels></BlockedHotels>
+        path: "/dashboard/blockedhotel",
+        element: <BlockedHotels></BlockedHotels>,
       },
       {
-        path:'/dashboard/allorders',
-        element:<AllOrders></AllOrders>
+        path: "/dashboard/allorders",
+        element: <AllOrders></AllOrders>,
       },
       {
-        path:'/dashboard/completedorders',
-        element:<CompletedOrders></CompletedOrders>
+        path: "/dashboard/completedorders",
+        element: <CompletedOrders></CompletedOrders>,
       },
       {
-        path:'/dashboard/canceledorders',
-        element:<CanceledOrders></CanceledOrders>
+        path: "/dashboard/canceledorders",
+        element: <CanceledOrders></CanceledOrders>,
       },
       {
-        path: '/dashboard/alladmin',
-        element: <AllAdmin></AllAdmin>
+        path: "/dashboard/alladmin",
+        element: <AllAdmin></AllAdmin>,
       },
       {
-        path: '/dashboard/editors',
-        element: <Editors></Editors>
+        path: "/dashboard/editors",
+        element: <Editors></Editors>,
       },
       {
-        path: '/dashboard/organizer',
-        element: <Organizer></Organizer>
+        path: "/dashboard/organizer",
+        element: <Organizer></Organizer>,
       },
       {
-        path: '/dashboard/allusers',
-        element: <AllUsers></AllUsers>
+        path: "/dashboard/allusers",
+        element: <AllUsers></AllUsers>,
       },
       {
-        path: '/dashboard/livechat',
-        element: <LiveChat></LiveChat>
+        path: "/dashboard/livechat",
+        element: <LiveChat></LiveChat>,
       },
       {
-        path: '/dashboard/toOrganizer',
-        element: <MessageToOrganizer></MessageToOrganizer>
+        path: "/dashboard/toOrganizer",
+        element: <MessageToOrganizer></MessageToOrganizer>,
       },
       {
-        path: '/dashboard/tocustomer',
-        element: <MessageToCustomer></MessageToCustomer>
+        path: "/dashboard/tocustomer",
+        element: <MessageToCustomer></MessageToCustomer>,
       },
       {
-        path: '/dashboard/tosubscriber',
-        element: <MessageToSubscriber></MessageToSubscriber>
+        path: "/dashboard/tosubscriber",
+        element: <MessageToSubscriber></MessageToSubscriber>,
       },
       {
-        path: '/dashboard/paymentreceived',
-        element: <PaymentsReceived></PaymentsReceived>
+        path: "/dashboard/paymentreceived",
+        element: <PaymentsReceived></PaymentsReceived>,
       },
       {
-        path: '/dashboard/payoutToOrganizer',
-        element: <PayoutToOrganizer></PayoutToOrganizer>
+        path: "/dashboard/payoutToOrganizer",
+        element: <PayoutToOrganizer></PayoutToOrganizer>,
       },
       {
-        path: '/dashboard/refundtocustomer',
-        element:<RefundToCustomer></RefundToCustomer>
+        path: "/dashboard/refundtocustomer",
+        element: <RefundToCustomer></RefundToCustomer>,
       },
-    ]
+    ],
   },
   // Seller Dashboard routes
   {
@@ -272,9 +270,9 @@ export const router = createBrowserRouter([
         element: <SellerOffer></SellerOffer>,
       },
       {
-        path: '/sellerdashboard/sellerprofile',
-        element: <SellerProfile></SellerProfile>
-      }
+        path: "/sellerdashboard/sellerprofile",
+        element: <SellerProfile></SellerProfile>,
+      },
     ],
   },
 ]);

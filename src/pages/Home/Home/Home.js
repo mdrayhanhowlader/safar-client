@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Banner from "../Banner/Banner";
 import Destination from "../Destination/Destination";
 import HeaderSearch from "../HeaderSearch/HeaderSearch";
 import Offers from "../Offers/Offers";
-import Properties from "../Properties/Properties";
+// import Properties from "../Properties/Properties";
 // import Subscribe from "../Subscibe/Subscribe";
-import TopRated from "../TopRated/TopRated";
+// import TopRated from "../TopRated/TopRated";
 
 const Home = () => {
-  const [state, setState] = useState();
+  // const [state, setState] = useState();
   // const handleSearch = async (e) => {
   //   e.preventDefault();
   //   const name = e.target.name.value;
@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      {/* <HeaderSearch></HeaderSearch> */}
+      <HeaderSearch></HeaderSearch>
       {/* <Properties state={state}></Properties> */}
       <Offers></Offers>
       <Destination></Destination>
