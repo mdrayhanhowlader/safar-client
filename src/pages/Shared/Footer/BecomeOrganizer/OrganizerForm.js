@@ -9,20 +9,18 @@ import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 const OrganizerForm = () => {
     const { user } = useContext(AuthContext);
     const [images, setImages] = useState([]);
-    const [image, setImage] = useState('');
     const [loading, setLoading] = useState(false);
     const [facilities, setFacilities] = useState([]);
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
     const [beds, setBeds] = useState([]);
     const [room, setRoom] = useState(false);
+    // const [addRoom, setAddRoom] = useState([]);
 
     const imageHostKey = process.env.REACT_APP_imagePostKey;
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
-    // console.log(user.email)
-    // Multiple Image add
     const handleImageChange = async (event) => {
         const imageHostKey = process.env.REACT_APP_imagePostKey;
         const imageUrl = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
@@ -38,18 +36,19 @@ const OrganizerForm = () => {
                 body: formData,
             });
             const result = await response.json();
-            // console.log(result);
             uploadedImages.push(...images, { url: result.data.url });
             console.log(uploadedImages);
         }
         setImages(uploadedImages);
-        // console.log(images);
         setLoading(false);
     };
 
     const handleAddText = (facility) => {
         setFacilities([...facilities, { name: facility }]);
     };
+    // const handleAddRoom = () => {
+    //     setAddRoom([])
+    // }
 
     const handleOpen = () => {
         setRoom(true)
@@ -59,30 +58,6 @@ const OrganizerForm = () => {
     }
 
     const onSubmit = (data) => {
-
-        // const proPicture = data?.image[0];
-        // const formData = new FormData();
-        // formData.append('image', proPicture);
-
-        // const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
-
-        // fetch(url, {
-        //     method: "POST",
-        //     body: formData
-        // })
-        // .then(res => res.json())
-        // .then(imgData => {
-        // console.log(imgData)
-        // if (imgData?.success) {
-        //     console.log(imgData.data.url)
-        //     setImage(imgData.data.url)
-
-        //     // reset()
-        // }
-        // })
-        // .catch(e => {
-        //     console.error(e.message);
-        // })
 
         const organizer = {
             hotel_name: data.hotelName,
@@ -102,7 +77,7 @@ const OrganizerForm = () => {
             room_type: [
                 {
                     name: data.room_name,
-                    rooms_no: parseInt(data.room_no),
+                    room_no: parseInt(data.room_no),
                     bed: beds,
                     sleep: parseInt(data.sleep)
                 },
@@ -129,7 +104,7 @@ const OrganizerForm = () => {
                 if (result.acknowledge === true) {
                     reset()
                 }
-                // navigate('/sellerdashboard')
+                navigate('/sellerdashboard')
                 // data.reset()
 
 
@@ -159,34 +134,37 @@ const OrganizerForm = () => {
                     <div className="max-w-lg px-4 mx-auto lg:px-8">
                         {/* facilities */}
                         <div className='col-span-6 mt-4'>
-                            <form
+                            <form className='grid grid-cols-6 gap-4'
                                 onSubmit={(e) => {
                                     e.preventDefault();
                                     handleAddText(e.target.elements.facility.value);
                                     e.target.elements.facility.value = "";
                                 }}
                             >
-                                <label className="font-bold" htmlFor="Facility">
-                                    <small>Room Facilities:</small>
-                                </label>
-                                <input
-                                    className="mx-4 border w-2/5 p-1 rounded-md"
-                                    placeholder="type your facility name"
-                                    type="text"
-                                    name="facility"
-                                />
-                                <button className="bg-blue-600 py-[6px] text-white px-4 rounded-md" type="submit">Add Facility</button>
+                                <div className='col-span-6'>
+                                    <label className="font-semibold" htmlFor="Facility">
+                                        <small>Room Facilities:</small>
+                                    </label>
+                                    <input
+                                        className="border w-full p-1 rounded-md"
+                                        placeholder="type your facility name"
+                                        type="text"
+                                        name="facility"
+                                    />
+                                </div>
+                                <button className="bg-black py-[6px] text-white px-4 rounded-md" type="submit"><small>Add</small></button>
                             </form>
 
                             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 my-3">
-                                {
-                                    facilities.map((textData, index) => <p className="font-bold " key={index}>{textData.name}</p>)
-                                }
+                                <small>
+                                    {
+                                        facilities.map((textData, index) => <p className="font-semibold " key={index}>{textData.name}</p>)
+                                    }
+                                </small>
 
                             </div>
                         </div>
-                        {/* bed data  */}
-                        {/* <div> */}
+                        {/* bed type  */}
                         <form className='grid grid-cols-6 gap-4'
                             onSubmit={(e) => {
                                 e.preventDefault();
@@ -212,14 +190,13 @@ const OrganizerForm = () => {
                                 <small> Add</small>
                             </button>
                         </form>
-                        <div className="grid grid-cols-2 md:grid-cols-10 lg:grid-cols-10 my-3">
+                        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 my-3">
                             {beds.map((bedData, index) => (
-                                <p className="font-bold" key={index}>
-                                    {bedData.size}
+                                <p className="font-semibold" key={index}>
+                                    <small>{bedData.size}</small>
                                 </p>
                             ))}
                         </div>
-                        {/* </div> */}
                         <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-6 gap-4">
                             <div className="col-span-6">
                                 <label htmlFor="Hotel Name" className="block text-xs font-medium text-gray-700">
@@ -341,11 +318,11 @@ const OrganizerForm = () => {
                                     />
                                 </div>
 
-
-
+                                {/* <button onClick={handleAddRoom} className="bg-black py-[6px] text-white px-4 rounded-md"
+                                    type="submit">
+                                    <small>Add Room</small>
+                                </button> */}
                             </div>
-
-
 
                             <div className="col-span-6">
                                 <label htmlFor="Mobile" className="block text-xs font-medium text-gray-700">
