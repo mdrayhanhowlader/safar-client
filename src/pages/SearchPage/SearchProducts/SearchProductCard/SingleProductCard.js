@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 
 const SingleProductCard = ({hotelData, info}) => {
   const {hotel_name,regular_price, offer_price, images, location, hotel_id} = hotelData;
-  console.log(hotel_id);
+  console.log('hotelData-------' ,hotelData);
+  
+  
   return (
     <div className="grid lg:grid-cols-3 border">
       {/*image section */}

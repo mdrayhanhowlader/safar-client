@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { AiOutlinePlusSquare } from "react-icons/ai";
 // import { FaMinus, FaPlus } from "react-icons/fa";
 import { HiOutlineChevronDown, HiOutlineChevronUp } from "react-icons/hi";
+import { AuthContext } from "../../../../contexts/AuthProvider";
+
+
 
 const AddSellerProduct = () => {
+  const {user} = useContext(AuthContext)
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [openFacility, setOpenFacility] = useState(false);
@@ -363,6 +367,9 @@ const AddSellerProduct = () => {
               className="border-2 p-2 rounded-md w-full border-blue-50"
               placeholder="Hotel id"
               type="text"
+              defaultValue={user?.uid}
+              readOnly
+              disabled
               name=""
               id=""
               {...register("hotelId", { required: "hotel id is required" })}
