@@ -514,10 +514,8 @@ const AddSellerProduct = () => {
         </div>
 
         <div className="grid grid-cols-2 gap-2">
-          {/* <div className="">
-            <label className="font-semibold" htmlFor="pet-select">
-              Choose Room Type
-            </label>
+          <div className="">
+            <label className="font-semibold" htmlFor="pet-select">Choose Room Type</label>
 
             <select
               className="border-2 p-2 rounded-md w-full border-blue-50"
@@ -543,7 +541,24 @@ const AddSellerProduct = () => {
             {errors.roomType && (
               <p className="text-red-500">{errors.roomType.message}</p>
             )}
-          </div> */}
+          </div>
+          <div>
+            <label className="font-semibold" htmlFor="">Hotel id</label>
+            <input
+              className="border-2 p-2 rounded-md w-full border-blue-50"
+              placeholder="Hotel id"
+              type="text"
+              defaultValue={user?.uid}
+              readOnly
+              disabled
+              name=""
+              id=""
+              {...register("hotelId", { required: "hotel id is required" })}
+            />
+            {errors.hotelId && (
+              <p className="text-red-500">{errors.hotelId.message}</p>
+            )}
+          </div>
         </div>
 
         <div>

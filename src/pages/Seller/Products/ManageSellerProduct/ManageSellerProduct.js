@@ -1,10 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { HiPencilAlt } from "react-icons/hi";
+import { AuthContext } from "../../../../contexts/AuthProvider";
 
 const ManageSellerProduct = () => {
   const [submenu, setSubmenu] = useState(false);
+  const {user} = useContext(AuthContext)
 
   const handleSubMenu = () => {
     setSubmenu(!submenu);

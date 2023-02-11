@@ -90,6 +90,7 @@ const OrganizerForm = () => {
             promoted: "",
         }
         console.log(organizer)
+        console.log(user)
         // update organizer info 
         fetch(`https://safar-server-nasar06.vercel.app/destination/post-all-destinations`, {
             method: "POST",
