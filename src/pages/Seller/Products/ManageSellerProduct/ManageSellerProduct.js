@@ -1,7 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
-import { FaTrashAlt } from "react-icons/fa";
-import { HiPencilAlt } from "react-icons/hi";
 import { AuthContext } from "../../../../contexts/AuthProvider";
 
 const ManageSellerProduct = () => {
