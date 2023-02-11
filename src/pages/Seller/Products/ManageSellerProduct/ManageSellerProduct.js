@@ -116,8 +116,8 @@ const ManageSellerProduct = () => {
                   </td>
 
                   <td className="px-6 py-4">
-                    {/* <div className="absolute">
-                  <p onClick={() => handleSubMenu(true)} className="font-xxl font-bold cursor-pointer ">More</p>
+                    <div className="absolute">
+                  <p onClick={() => handleSubMenu(!true)} className="font-xxl font-bold cursor-pointer ">More</p>
                   <div className={`${submenu ? 'visible' : 'hidden'} z-10 relative bg-white shadow-md `}>
                   <ul>
                   <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md"><a href="/">Edit</a></li>
@@ -127,16 +127,16 @@ const ManageSellerProduct = () => {
                   </ul>
                   </div>
  
-                </div>   */}
+                </div>  
 
-                    <div className="flex justify-end gap-4">
+                    {/* <div className="flex justify-end gap-4">
                       <a href="/">
                         <FaTrashAlt className="h-4 w-4"></FaTrashAlt>
                       </a>
                       <a href="/">
                         <HiPencilAlt className="h-4 w-4"></HiPencilAlt>
                       </a>
-                    </div>
+                    </div> */}
                   </td>
                 </tr>
               ))
