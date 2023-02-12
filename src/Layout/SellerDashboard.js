@@ -101,7 +101,7 @@ const SellerDashboard = () => {
                 <li>
                   <p
                     onClick={() => setOrdersSubmenu(!ordersSubMenu)}
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
                       <HiOutlineShoppingCart className="w-4 mx-2 h-4"></HiOutlineShoppingCart>
@@ -157,7 +157,7 @@ const SellerDashboard = () => {
                 <li>
                   <p
                     onClick={() => setPromotionSubmenu(!promotionSubmenu)}
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-black hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-green-300 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
                       <FaUikit className="w-4 mx-2 h-4"></FaUikit>
@@ -191,7 +191,7 @@ const SellerDashboard = () => {
                 <li>
                   <p
                     onClick={() => setFinanceSubmenu(!financeSubmenu)}
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-black hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-green-300 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
                       <FaPager className="w-4 mx-2 h-4"></FaPager>
