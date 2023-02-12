@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import {
   FaBell,
   FaBox,
+  FaCaretDown,
+  FaCaretRight,
   FaEnvelope,
   FaPager,
   FaRegSun,
@@ -52,13 +54,21 @@ const SellerDashboard = () => {
                 <li>
                   <p
                     onClick={() => setProductsSubmenu(!productsSubmenu)}
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
                       <BiBasket className="w-4 mx-2 h-4"></BiBasket>
                     </span>
                     <span className="ml-2 text-black font-bold text-sm tracking-wide truncate">
-                      Products
+                      My Rooms
+                    </span>
+                    <span>
+                      {
+                        productsSubmenu ?
+                        <FaCaretDown className="ml-5" />
+                        :
+                        <FaCaretRight className="ml-5" />
+                      }
                     </span>
                   </p>
                   <div className={`${productsSubmenu ? "visible" : "hidden"}`}>
@@ -69,7 +79,7 @@ const SellerDashboard = () => {
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
                         >
                           <span className="md:ml-4 text-black text-sm tracking-wide truncate">
-                            Manage Product
+                            Manage Rooms
                           </span>
                         </Link>
                       </li>
@@ -79,7 +89,7 @@ const SellerDashboard = () => {
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
                         >
                           <span className="md:ml-4 text-black text-sm tracking-wide truncate">
-                            Add Product
+                            Add Room
                           </span>
                         </Link>
                       </li>
@@ -91,13 +101,21 @@ const SellerDashboard = () => {
                 <li>
                   <p
                     onClick={() => setOrdersSubmenu(!ordersSubMenu)}
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
                       <HiOutlineShoppingCart className="w-4 mx-2 h-4"></HiOutlineShoppingCart>
                     </span>
                     <span className="ml-2 text-black font-bold text-sm tracking-wide truncate">
                       Orders
+                    </span>
+                    <span>
+                      {
+                        ordersSubMenu ?
+                        <FaCaretDown className="ml-5" />
+                        :
+                        <FaCaretRight className="ml-5" />
+                      }
                     </span>
                   </p>
                   <div className={`${ordersSubMenu ? "visible" : "hidden"}`}>
@@ -139,7 +157,7 @@ const SellerDashboard = () => {
                 <li>
                   <p
                     onClick={() => setPromotionSubmenu(!promotionSubmenu)}
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-black hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
                       <FaUikit className="w-4 mx-2 h-4"></FaUikit>
@@ -147,6 +165,12 @@ const SellerDashboard = () => {
                     <span className="ml-2 text-black font-bold text-sm tracking-wide truncate">
                       Promotions
                     </span>
+                    {
+                        promotionSubmenu ?
+                        <FaCaretDown className="ml-5" />
+                        :
+                        <FaCaretRight className="ml-5" />
+                      }
                   </p>
                   <div className={`${promotionSubmenu ? "visible" : "hidden"}`}>
                     <ul>
@@ -167,7 +191,7 @@ const SellerDashboard = () => {
                 <li>
                   <p
                     onClick={() => setFinanceSubmenu(!financeSubmenu)}
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-black hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
                       <FaPager className="w-4 mx-2 h-4"></FaPager>
@@ -175,6 +199,12 @@ const SellerDashboard = () => {
                     <span className="ml-2 text-black font-bold text-sm tracking-wide truncate">
                       Finance
                     </span>
+                    {
+                        financeSubmenu ?
+                        <FaCaretDown className="ml-5" />
+                        :
+                        <FaCaretRight className="ml-5" />
+                      }
                   </p>
                   <div className={`${financeSubmenu ? "visible" : "hidden"}`}>
                     <ul>
@@ -255,7 +285,7 @@ const SellerDashboard = () => {
                   <p
                     onClick={() => setUsersSubmenu(!usersSubmenu)}
                     href="/"
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 hover:text-black dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
                       <FaUser className="w-4 mx-2 h-4"></FaUser>
@@ -263,6 +293,12 @@ const SellerDashboard = () => {
                     <span className="ml-2 text-black font-bold text-sm tracking-wide truncate">
                       My Account
                     </span>
+                    {
+                        usersSubmenu ?
+                        <FaCaretDown className="ml-5" />
+                        :
+                        <FaCaretRight className="ml-5" />
+                      }
                   </p>
                   <div className={`${usersSubmenu ? "visible" : "hidden"}`}>
                     <ul>
