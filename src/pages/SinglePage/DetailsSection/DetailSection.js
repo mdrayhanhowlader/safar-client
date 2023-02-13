@@ -154,7 +154,7 @@ const DetailSection = ({hotelData}) => {
 
                         {/* button */}
                         <div className='mt-4'>
-                            <Link to='/checkout'><button className='w-full h-8 bg-green-800 rounded-lg hover:bg-green-700 text-white'>Check Availability</button></Link>
+                            <Link to='/checkout'><button className='w-full h-8 bg-blue-400 rounded-lg hover:bg-blue-500 text-white'>Check Availability</button></Link>
                         </div>
                         {/* you won't be charged yet */}
                         <div>
@@ -162,11 +162,11 @@ const DetailSection = ({hotelData}) => {
                                 <h1>You won't be charged yet ?</h1>
                             </div>
                             <div className='flex justify-between my-2'>
-                                <h1 className='text-green-800'>${regular_price} x {days} nights</h1>
+                                <h1 className='text-blue-600'>${regular_price} x {days} nights</h1>
                                 <p>${regular_price * days}</p>
                             </div>
                             <div className='flex justify-between my-2'>
-                                <h1 className='text-green-800'>Service fee</h1>
+                                <h1 className='text-blue-600'>Service fee</h1>
                                 <p>${serviceFee}</p>
                             </div>
                         </div>

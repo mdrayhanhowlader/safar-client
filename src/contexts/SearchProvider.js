@@ -5,9 +5,9 @@ import OfferPage from "../pages/OfferPage/OfferPage";
 
 
 const InitialState = {
-  destination: JSON.parse(localStorage.getItem("destination")),
-  days: JSON.parse(localStorage.getItem("days")),
-  options: JSON.parse(localStorage.getItem("options")),
+  // destination: JSON.parse(localStorage.getItem("destination")),
+  // days: JSON.parse(localStorage.getItem("days")),
+  // options: JSON.parse(localStorage.getItem("options")),
 };
 
 export const SearchContext = createContext(InitialState);
