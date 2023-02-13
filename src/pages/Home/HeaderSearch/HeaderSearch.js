@@ -64,9 +64,7 @@ const HeaderSearch = () => {
               onChange={(e) => setDestination(e.target.value)}
             />
           </div>
-          <h1 className="text-5xl text-blue-200 md:mb-0 mb-4 md:block hidden ">
-            |
-          </h1>
+          <h1 className="text-5xl text-blue-200 md:mb-0 mb-4 md:block hidden ">|</h1>
           <div className="md:mb-0 mb-4">
             <span>
               {openDate && (
@@ -92,9 +90,7 @@ const HeaderSearch = () => {
               )}`}
             </span>
           </span>
-          <h1 className="text-5xl text-blue-200 md:mb-0 mb-4 md:block hidden">
-            |
-          </h1>
+          <h1 className="text-5xl text-blue-200 md:mb-0 mb-4 md:block hidden">|</h1>
           <div className="headerSearchItem flex items-center gap-3 md:mb-0 mb-4">
             <FaRegUser className="text-2xl text-blue-500" />
             <span
@@ -170,9 +166,7 @@ const HeaderSearch = () => {
               </div>
             )}
           </div>
-          <h1 className="text-5xl text-blue-200 md:mb-0 mb-4 md:block hidden">
-            |
-          </h1>
+          <h1 className="text-5xl text-blue-200 md:mb-0 mb-4 md:block hidden">|</h1>
           <input
             type="submit"
             onClick={handleSearch}
