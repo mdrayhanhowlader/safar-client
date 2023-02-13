@@ -92,7 +92,7 @@ const LeftSide = ({hotelData}) => {
 
                 <div style={{ borderBottom: "1px solid grey" }}>
                 <h1 className='text-3xl font-bold text-green-800 mb-2'>Details</h1>
-                    <p>{readMore ? description : description.slice(0, 120)}</p>
+                    <p>{readMore ? description : description?.slice(0, 120)}</p>
                     <button className="btn text-green-800 font-bold mb-6" onClick={() => setReadMore(!readMore)}>
           {readMore ? "show less" : "  read more..."}
         </button>
