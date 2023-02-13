@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../contexts/AuthProvider';
+import loginImage from '../../../../assets/traveller_login.png'
 
 const OrganizersLogin = () => {
     const { emailSignIn } = useContext(AuthContext);
@@ -24,7 +25,7 @@ const OrganizersLogin = () => {
 
     return (
 
-        <section className="relative flex flex-wrap lg:h-screen lg:items-center">
+        <section className="relative flex flex-wrap lg:h-screen lg:items-center bg-sky-100">
             <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
                 <div className="mx-auto max-w-lg text-center">
                     <h1 className="text-2xl font-bold sm:text-3xl">Become an Organizer</h1>
@@ -82,7 +83,7 @@ const OrganizersLogin = () => {
             <div className="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
                 <img
                     alt="Welcome"
-                    src="https://pmtraveltech.com/wp-content/uploads/2016/08/montage_voyage2_down.jpg"
+                    src={loginImage}
                     className="absolute inset-0 h-full w-full object-cover"
                 />
             </div>

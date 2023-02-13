@@ -3,6 +3,7 @@ import { FaAngleDown, FaAngleUp, FaSignOutAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./DashboardNav.css";
 import SellerSubmenu from "./SellerSubMenu";
+import logo from '../../../assets/3.png'
 
 const DashboardNab = () => {
   const [sellerMenu, setSellerMenu] = useState(false);
@@ -24,8 +25,11 @@ const DashboardNab = () => {
           src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg"
           alt=""
         /> */}
-        <span className="hidden mx-20 font-semibold uppercase text-3xl text-teal-700 md:block">
-          <Link to="/">Safar</Link>
+        <span className="mx-10 font-semibold uppercase text-2xl md:block">
+          <div className="flex items-center">
+          <img style={{width: '60px'}} src={logo}></img>
+          <Link to="/" className="text-black">Safar</Link>
+          </div>
         </span>
       </div>
       <div className="flex justify-between items-center h-14 header-right">
