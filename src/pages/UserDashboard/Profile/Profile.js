@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 
 import { FaCheck, FaStar } from "react-icons/fa";
 import { HiOutlineClipboardCheck } from "react-icons/hi";
 import ProfileUpdateForm from "./ProfileUpdateForm";
 import userProfileImage from '../../../assets/profile.png'
+import { useQuery } from "@tanstack/react-query";
+import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Profile = () => {
+  const { user } = useContext(AuthContext)
   const [editProfile, setEditProfile] = useState(false);
   const [profilePicture, setProfilePicture] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [userInfo, setUserInfo] = useState(null);
 
   const editProfileImage = async (e) => {
     const editImage = e.target.files[0];
@@ -27,7 +31,18 @@ const Profile = () => {
     setLoading(false);
   };
 
-  console.log(profilePicture);
+  const { data: userData, refetch } = useQuery({
+    queryKey: ['userProfile'],
+    queryFn: async () => {
+      const res = await fetch(`https://safar-server-nasar06.vercel.app/users/get-single-user?email=${user?.email}`);
+      const data = await res.json();
+      // console.log(userData)
+      setUserInfo(userData)
+      return data;
+    }
+  })
+
+  // console.log(profilePicture);
 
   return (
     <section className="container mx-auto p-8">
@@ -35,10 +50,10 @@ const Profile = () => {
         <div className="shadow-md border-2 border-sky-100 rounded-lg">
           {/* Profile picture  */}
           <div className="flex justify-center items-center flex-col">
-            {profilePicture ? (
+            {userData?.profile_img ? (
               <img
                 className="w-32 h-32 border rounded-full mt-8"
-                src={profilePicture}
+                src={userData?.profile_img}
                 alt=""
               />
             ) : (
@@ -83,22 +98,27 @@ const Profile = () => {
         </div>
 
         <div className="col-span-2">
-          <h2 className="text-3xl">Hi, Nurul</h2>
+          <h2 className="text-3xl">Nurul</h2>
           <p className="py-2">Joined in 2023</p>
           {/* Edit Profile  */}
-          <div className="">
-            {/* edit profile button */}
-            <button
-              className="underline"
-              onClick={() => setEditProfile(!editProfile)}
-            >
-              Edit Profile
-            </button>
-            {/* profile update form  */}
-            <div className={`${editProfile ? "visible" : "hidden"}`}>
-              <ProfileUpdateForm editProfile={editProfile} setEditProfile={setEditProfile}></ProfileUpdateForm>
-            </div>
-          </div>
+          {
+            userInfo ?
+              <div className="">
+                {/* edit profile button */}
+                <button
+                  className="text-blue-500 font-semibold "
+                  onClick={() => setEditProfile(!editProfile)}
+                >
+                  Edit Profile
+                </button>
+                {/* profile update form  */}
+                <div className={`${editProfile ? "visible" : "hidden"}`}>
+                  <ProfileUpdateForm userInfo={userInfo} editProfile={editProfile} setEditProfile={setEditProfile} profilePicture={profilePicture} refetch={refetch}></ProfileUpdateForm>
+                </div>
+              </div>
+              :
+              <h1>You didn't update your profile, please provide your information! </h1>
+          }
           {/* rating */}
           <div className="flex items-center">
             <FaStar className="text-2xl"></FaStar>
