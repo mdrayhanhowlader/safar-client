@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaCheck, FaStar } from "react-icons/fa";
 import { HiOutlineClipboardCheck } from "react-icons/hi";
 import ProfileUpdateForm from "./ProfileUpdateForm";
+import userProfileImage from '../../../assets/profile.png'
 
 const Profile = () => {
   const [editProfile, setEditProfile] = useState(false);
@@ -44,7 +45,7 @@ const Profile = () => {
               <img
                 alt=""
                 className="w-32 h-32 border rounded-full mt-8"
-                src="https://source.unsplash.com/40x40/?portrait?1"
+                src={userProfileImage}
               />
             )}
             <label className="cursor-pointer underline" htmlFor="upload">
