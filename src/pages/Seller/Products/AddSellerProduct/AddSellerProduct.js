@@ -7,8 +7,6 @@ import { AiOutlinePlusSquare } from "react-icons/ai";
 import { HiOutlineChevronDown, HiOutlineChevronUp } from "react-icons/hi";
 import { AuthContext } from "../../../../contexts/AuthProvider";
 
-
-
 const AddSellerProduct = () => {
   const {user} = useContext(AuthContext)
   const [images, setImages] = useState([]);
@@ -332,53 +330,6 @@ const AddSellerProduct = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-2">
-          <div className="">
-            <label className="font-semibold" htmlFor="pet-select">Choose Room Type</label>
-
-            <select
-              className="border-2 p-2 rounded-md w-full border-blue-50"
-              id="pet-select"
-              {...register("roomType", { required: "Room Type is required" })}
-            >
-              <option value="">--Please choose an option--</option>
-              <option value="Deluxe King Room">Deluxe King Room</option>
-              <option value="Deluxe Room">Deluxe Room</option>
-              <option value="Deluxe Room">Deluxe Room</option>
-              <option value="Superior Double Room">Superior Double Room</option>
-              <option value="Deluxe Twin Room">Deluxe Twin Room</option>
-              <option value="Deluxe Double Room">Deluxe Double Room</option>
-              <option value="Family Room with Balcony">
-                Family Room with Balcony
-              </option>
-              <option value="Two-Bedroom Apartment">
-                Two-Bedroom Apartment
-              </option>
-              <option value="Standard Double Room">Standard Double Room</option>
-              <option value="Superior Queen Room">Superior Queen Room</option>
-            </select>
-            {errors.roomType && (
-              <p className="text-red-500">{errors.roomType.message}</p>
-            )}
-          </div>
-          <div>
-            <label className="font-semibold" htmlFor="">Hotel id</label>
-            <input
-              className="border-2 p-2 rounded-md w-full border-blue-50"
-              placeholder="Hotel id"
-              type="text"
-              defaultValue={user?.uid}
-              readOnly
-              disabled
-              name=""
-              id=""
-              {...register("hotelId", { required: "hotel id is required" })}
-            />
-            {errors.hotelId && (
-              <p className="text-red-500">{errors.hotelId.message}</p>
-            )}
-          </div>
-        </div>
 
         <div>
           <input
