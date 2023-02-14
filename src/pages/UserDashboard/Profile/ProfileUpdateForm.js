@@ -8,10 +8,7 @@ const ProfileUpdateForm = ({ editProfile, setEditProfile, profilePicture, userIn
   const { user } = useContext(AuthContext)
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-  console.log(user)
-
-  // get user 
-
+  // console.log(user)
 
   const handleProfileUpdate = data => {
     console.log(data)

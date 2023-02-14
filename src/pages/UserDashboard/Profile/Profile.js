@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { useState } from "react";
-
 import { FaCheck, FaStar } from "react-icons/fa";
 import { HiOutlineClipboardCheck } from "react-icons/hi";
 import ProfileUpdateForm from "./ProfileUpdateForm";
@@ -31,6 +30,8 @@ const Profile = () => {
     setLoading(false);
   };
 
+
+  // get user info 
   const { data: userData, refetch } = useQuery({
     queryKey: ['userProfile'],
     queryFn: async () => {
@@ -42,7 +43,6 @@ const Profile = () => {
     }
   })
 
-  // console.log(profilePicture);
 
   return (
     <section className="container mx-auto p-8">
@@ -50,21 +50,21 @@ const Profile = () => {
         <div className="shadow-md border-2 border-sky-100 rounded-lg">
           {/* Profile picture  */}
           <div className="flex justify-center items-center flex-col">
-            {userData?.profile_img ? (
+            {userData?.profile_img ?
               <img
                 className="w-32 h-32 border rounded-full mt-8"
                 src={userData?.profile_img}
                 alt=""
               />
-            ) : (
+              :
               <img
                 alt=""
                 className="w-32 h-32 border rounded-full mt-8"
                 src={userProfileImage}
               />
-            )}
-            <label className="cursor-pointer underline" htmlFor="upload">
-              Upload Image
+            }
+            <label className="underline cursor-pointer text-blue-600 hover:text-blue-800" htmlFor="upload">
+              Update Image
             </label>
             <input
               className="hidden"
@@ -88,25 +88,27 @@ const Profile = () => {
             </button>
 
             <hr className="my-6" />
-            <h2 className="text-3xl">Nurul confirmed</h2>
+            <h2 className="text-3xl text-blue-500">{user?.email ? 'User confirmed' : 'User not verified'}</h2>
 
             <div className="flex items-center">
               <FaCheck></FaCheck>
-              <h4 className="text-md py-4 ml-2">Email address</h4>
+              <h4 className="text-md py-4 ml-2">{user?.email ? user?.email : ''}</h4>
             </div>
           </div>
         </div>
 
         <div className="col-span-2">
-          <h2 className="text-3xl">Nurul</h2>
-          <p className="py-2">Joined in 2023</p>
+          <h2 className="text-2xl mb-4">{userData?.name ? 'Welcome.!  ' + userData?.name : ''}</h2>
+          {/* <p className="py-2">Joined in 2023</p> */}
+
+
           {/* Edit Profile  */}
           {
             userInfo ?
               <div className="">
                 {/* edit profile button */}
                 <button
-                  className="text-blue-500 font-semibold "
+                  className="text-blue-500 hover:text-blue-600 font-semibold "
                   onClick={() => setEditProfile(!editProfile)}
                 >
                   Edit Profile
@@ -117,17 +119,29 @@ const Profile = () => {
                 </div>
               </div>
               :
-              <h1>You didn't update your profile, please provide your information! </h1>
+              <>
+                <h1>You didn't update your profile, please provide your information! </h1>
+                {/* edit profile button */}
+                <button
+                  className="text-blue-500 hover:text-blue-600 font-semibold "
+                  onClick={() => setEditProfile(!editProfile)}
+                >
+                  Edit Profile
+                </button>
+                <div className={`${editProfile ? "visible" : "hidden"}`}>
+                  <ProfileUpdateForm userInfo={userInfo} editProfile={editProfile} setEditProfile={setEditProfile} profilePicture={profilePicture} refetch={refetch}></ProfileUpdateForm>
+                </div>
+              </>
           }
           {/* rating */}
           <div className="flex items-center">
-            <FaStar className="text-2xl"></FaStar>
+            <FaStar className="text-2xl text-blue-500"></FaStar>
             <p className="text-xl font-semibold ml-2">0 reviews</p>
           </div>
           <hr className="my-6" />
           {/* Review by You  */}
           <div>
-            <a className="underline" href="/">
+            <a className="underline text-blue-400 hover:text-blue-600" href="/">
               Reviews by you
             </a>
             <hr className="mt-6" />
