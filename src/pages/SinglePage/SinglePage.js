@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { FaIndent } from "react-icons/fa";
+import { PhotoProvider, PhotoView } from "react-photo-view";
 import { useLoaderData } from "react-router-dom";
 import { SearchContext } from "../../contexts/SearchProvider";
 import DetailSection from "./DetailsSection/DetailSection";
+import "react-photo-view/dist/react-photo-view.css";
 
 const SinglePage = () => {
   const data = useContext(SearchContext);
@@ -27,7 +29,16 @@ const SinglePage = () => {
         <div>
           <div className="grid gap-4 grid-cols-2 h-full">
             <div className="">
-              <img className="h-full w-full" src={images[1]?.url} alt="" />
+              {/* photo view start */}
+              <PhotoProvider>
+                <PhotoView src={images[1]?.url}>
+                  <img className="h-full w-full" src={images[1]?.url} alt="" />
+                </PhotoView>
+                <PhotoView src={images[2]?.url}>
+                  <img className="h-full w-full" src={images[2]?.url} alt="" />
+                </PhotoView>
+              </PhotoProvider>
+              {/* photo view end */}
             </div>
             <div className="">
               <img className="h-full w-full" src={images[2]?.url} alt="" />
