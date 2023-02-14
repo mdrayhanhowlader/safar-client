@@ -90,6 +90,7 @@ const OrganizerForm = () => {
             promoted: "",
         }
         console.log(organizer)
+        console.log(user)
         // update organizer info 
         fetch(`https://safar-server-nasar06.vercel.app/destination/post-all-destinations`, {
             method: "POST",
@@ -336,7 +337,7 @@ const OrganizerForm = () => {
                                     className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 />
                             </div>
-                            <div className="col-span-6 my-4">
+                            {/* <div className="col-span-6 my-4">
                                 <label htmlFor="NID" className="block text-xs font-medium text-gray-700">
                                     NID
                                 </label>
@@ -347,7 +348,7 @@ const OrganizerForm = () => {
                                     id="NID"
                                     className="h-full w-full mt-1 border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 />
-                            </div>
+                            </div> */}
                             <div className="col-span-6 my-4">
                                 <label htmlFor="Address" className="block text-xs font-medium text-gray-700">
                                     Address

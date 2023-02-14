@@ -1,11 +1,67 @@
-import React from "react";
+import { useQuery } from "@tanstack/react-query";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../../../contexts/AuthProvider";
 
 const SellerProfile = () => {
+  const { user } = useContext(AuthContext);
+  const [orgInfo, setOrgInfo] = useState('')
+  // console.log(user.email)
+
+  const { data: organizerInfo } = useQuery({
+    queryKey: ['organizerInfo'],
+    queryFn: async () => {
+      const res = await fetch(`https://safar-server-nasar06.vercel.app/destination/get-hotel-details?email=${user?.email}`);
+      const data = await res.json();
+      setOrgInfo(data)
+      return data;
+    }
+  })
+  // console.log(orgInfo)
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const full_name = form.full_name.value;
+    const bank_account = form.bank_account.value;
+    const nid_no = form.nid_no.value;
+
+    const organizerProfile = {
+      full_name: full_name,
+      contact: orgInfo?.contact,
+      email: user?.email,
+      bank_account: bank_account,
+      hotel_id: orgInfo?.hotel_id,
+      hotel_name: orgInfo?.hotel_name,
+      nid_no: nid_no
+
+    }
+
+    fetch(`https://safar-server-nasar06.vercel.app/users/organizer-update?email=${user?.email}`, {
+      method: "PUT",
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(organizerProfile)
+    })
+      .then(res => res.json())
+      .then(result => {
+        console.log(result)
+        if (result.acknowledged === true) {
+          form.reset()
+        }
+      })
+      .catch(err => console.error(err))
+
+  }
+
+
   return (
     <section className="px-2 py-6">
       <h3 className="text-2xl">Seller Account</h3>
       <h2 className="text-2xl py-4">Seller Id: 34546564543</h2>
-      <form action="">
+      {/* <h1>{organizerInfo.length}</h1> */}
+      <form onSubmit={handleSubmit} action="">
         <div className="w-4/6">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             <label htmlFor="" className="">
@@ -14,8 +70,8 @@ const SellerProfile = () => {
             <input
               className="border-2 border-slate-300 w-full p-2 rounded-md ml-4 col-span-3"
               type="text"
-              placeholder=""
-              defaultValue="Nurul Islam"
+              name="full_name"
+              placeholder="Full Name"
             />
           </div>
         </div>
@@ -28,8 +84,9 @@ const SellerProfile = () => {
             <input
               className="border-2 border-slate-300 w-full p-2 rounded-md ml-4 col-span-3"
               type="text"
-              placeholder=""
-              defaultValue="+8801634146292"
+              readOnly
+              disabled
+              defaultValue={organizerInfo?.contact}
             />
           </div>
         </div>
@@ -42,8 +99,9 @@ const SellerProfile = () => {
             <input
               className="border-2 border-slate-300 w-full p-2 rounded-md ml-4 col-span-3"
               type="text"
-              placeholder=""
-              defaultValue="amarbow@gmail.com"
+              readOnly
+              disabled
+              defaultValue={user?.email}
             />
           </div>
         </div>
@@ -56,8 +114,8 @@ const SellerProfile = () => {
             <input
               className="border-2 border-slate-300 w-full p-2 rounded-md ml-4 col-span-3"
               type="text"
-              placeholder=""
-              defaultValue="54545476878785652"
+              name="bank_account"
+              placeholder="Bank Account"
             />
           </div>
         </div>
@@ -70,8 +128,9 @@ const SellerProfile = () => {
             <input
               className="border-2 border-slate-300 w-full p-2 rounded-md ml-4 col-span-3"
               type="text"
-              placeholder=""
-              defaultValue="46888775654"
+              readOnly
+              disabled
+              defaultValue={organizerInfo?.hotel_id}
             />
           </div>
         </div>
@@ -83,43 +142,50 @@ const SellerProfile = () => {
             <input
               className="border-2 border-slate-300 w-full p-2 rounded-md ml-4 col-span-3"
               type="text"
-              placeholder=""
-              defaultValue="Bangladesh hotel and"
+              readOnly
+              disabled
+              defaultValue={organizerInfo?.hotel_name}
             />
           </div>
         </div>
-      </form>
-
-      {/* hotel images  */}
-      <div className="mt-8">
-        <h2 className="text-2xl my-4">Hotel Images</h2>
-        <div className="mr-4">
-          <div className="grid grid-cols-6 gap-4">
-            <div>
-              <img
-                className="w-full h-full"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB86_TcdTcs5lEHd_tuGyFx3h4a96WppjOIsY8cvDtladrk_3BqRHBbudr-eIQ93vmHdA&usqp=CAU"
-                alt=""
-              />
-            </div>
-            <div>
-              <img className="w-full h-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSycHOMPfIH3dh7SxqH9m7AQXU6SrCyM80r9A&usqp=CAU" alt="" />
-            </div>
-            <div>
-              <img className="w-full h-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPTFS8dxQ5lAAhoYGlrZUjwJR3sTmTvXLKdQ&usqp=CAU" alt="" />
-            </div>
-            <div>
-              <img className="w-full h-full" src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/392125509.jpg?k=f842539acdc7e790a63a95eaf6127af9b4daa48179beb4eae517f720a7eb9d5c&o=&hp=1" alt="" />
-            </div>
-            <div>
-              <img className="w-full h-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeH1eb5jU2aDj-VjIO-n9csO1zkexxitVLEA&usqp=CAU" alt="" />
-            </div>
-            <div>
-              <img className="w-full h-full" src="https://media.istockphoto.com/id/1300757575/photo/side-view-of-hotel-amenities-on-the-bed.jpg?s=612x612&w=0&k=20&c=NQK76wtCnGhNcvveUfs8FE4JGl9-A1zuqCsSS8vUmgI=" alt="" />
-            </div>
+        <div className="w-4/6 mt-4">
+          <div className="grid grid-cols-5 gap-4">
+            <label htmlFor="" className="">
+              NID:
+            </label>
+            <input
+              className="border-2 border-slate-300 w-full p-2 rounded-md ml-4 col-span-3"
+              type="text"
+              name="nid_no"
+              placeholder="NID"
+              defaultValue={organizerInfo?.nid}
+            />
           </div>
         </div>
-      </div>
+        <button
+          type="submit"
+          className="inline-block rounded-lg bg-sky-500 px-5 py-3 mt-4 text-sm font-medium text-white"
+        >
+          Save
+        </button>
+
+        {/* hotel images 
+        <div className="mt-8">
+          <h2 className="text-2xl my-4">Hotel Images</h2>
+          <div className="mr-4">
+            <div className="grid grid-cols-6 gap-4">
+              {
+                organizerInfo?.images?.map(image =>
+                  <div>
+                    <img className="w-full h-full" src={image?.url} alt="" />
+                  </div>
+                )
+              }
+            </div>
+          </div>
+        </div> */}
+
+      </form>
     </section>
   );
 };
