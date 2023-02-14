@@ -14,7 +14,7 @@ const CheckoutPage = () => {
             {/* <!--  ToastBar  --> */}
             {/* <div className="w-full bg-orange-200 text-yellow-900 px-4 py-2 flex items-center">
               {/* <img src="https://svgsilh.com/svg/151889.svg" className="w-10 block pr-2"/> */}
-              {/* <div className="text-sm">
+            {/* <div className="text-sm">
                 Congrats you're eligible for a <b>Coupon Code</b> in this order{" "}
               </div>
             </div>  */}
@@ -64,6 +64,7 @@ const CheckoutPage = () => {
                 <img
                   src="https://cdn11.bigcommerce.com/s-tboh32g/images/stencil/1280x1280/products/385314/492280/104C_BlackBlackHQ__07610.1557157866.jpg?c=2?imbypass=on"
                   className="w-12"
+                  alt=""
                 />
                 <div className="w-2/3">
                   <h3 className="text-lg font-medium">
@@ -130,9 +131,9 @@ const CheckoutPage = () => {
                   <div className="text-2xl text-orange-900 font-bold">$114</div>
                 </div>
                 <div className="my-6">
-                <Elements stripe={stripePromise}>
-                  <CheckoutForm />
-                </Elements>
+                  <Elements stripe={stripePromise}>
+                    <CheckoutForm />
+                  </Elements>
                 </div>
                 {/* <button className="px-4 py-4 bg-purple-700 text-white w-full mt-3 rounded shadow font-bold hover:bg-purple- 900">
                   {" "}

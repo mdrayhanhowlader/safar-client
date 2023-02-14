@@ -68,6 +68,7 @@ const SellerAllOrdersList = () => {
                   </div>
                 </td>
               </tr>
+
               <tr className="border-b my-6 border-gray-200 hover:bg-blue-500  hover:shadow-3xl hover:shadow-blue-400 hover:text-slate-50">
                 <td className="py-3 px-14 text-left whitespace-nowrap">
                   <div className="flex items-center">
