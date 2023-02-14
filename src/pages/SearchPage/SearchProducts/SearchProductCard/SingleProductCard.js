@@ -48,26 +48,26 @@ const SingleProductCard = ({ hotelData, info }) => {
       <div>
         <div style={{ height: "100%", padding: ".4rem" }}>
           <div
-            className="flex justify-between p-4"
+            className="flex justify-between p-4 bg-blue-100"
             style={{
               height: "60%",
-              backgroundColor: "#dcfce7",
+             
               borderRadius: ".5rem",
             }}
           >
             <div className="">
               <div>
-                <h1>
-                  <small>Renaissance</small>
+                <h1  className="font-semibold">
+                  Renaissance
                 </h1>
-                <h1 className="text-xl font-bold text-green-800 mt-4">
+                <h1 className="text-xl font-bold text-blue-500 mt-4">
                   <small>${regular_price}</small>
                 </h1>
               </div>
             </div>
             <div>
               <Link to={`/singlePage/${hotel_id}`}>
-                <button className="bg-green-700 text-white rounded-lg h-8 w-28 mt-6">
+                <button className="bg-blue-500 text-white rounded-lg h-8 w-28 mt-6">
                   View Details
                 </button>
               </Link>
@@ -78,31 +78,34 @@ const SingleProductCard = ({ hotelData, info }) => {
             className="flex"
             style={{ height: "40%", width: "100%", padding: ".1rem" }}
           >
-            <div
+            <div className="bg-blue-100"
               style={{
                 width: "40%",
-                backgroundColor: "#dcfce7",
+                // backgroundColor: "#dcfce7",
                 borderRadius: ".5rem",
                 marginRight: ".2rem",
               }}
             >
               <div className="p-2">
-                <small>Renaissance</small>
-                <h1 className="font-bold text-green-800">${offer_price}</h1>
+                {/* <small>Renaissance</small> */}
+                <h2 className="font-semibold">Renaissance</h2>
+                <h1 className="font-bold text-blue-500">${offer_price}</h1>
               </div>
             </div>
             <div
+            className="bg-blue-100"
               style={{
                 width: "60%",
-                backgroundColor: "#dcfce7",
+                // backgroundColor: "#dcfce7",
                 borderRadius: ".5rem",
                 padding: ".3rem",
               }}
             >
               <div className="flex justify-center items-center">
-                <div>
-                  <small>Lowest Price:</small>
-                  <small>${offer_price} Renaissance </small>
+                <div className="flex font-semibold">
+                  <p>Lowest Price:</p>
+                  <p>${offer_price} Renaissance </p>
+                  
                 </div>
               </div>
             </div>
