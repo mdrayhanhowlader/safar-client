@@ -42,7 +42,7 @@ const SearchPage = () => {
         <SearchBanner allHotels={allHotels}></SearchBanner>
       </div>
       <div className="lg:flex">
-        <Filters priceRangeResource={priceRangeResource}></Filters>
+        {/* <Filters priceRangeResource={priceRangeResource}></Filters> */}
         <SearchProducts
           allHotels={allHotels}
           isLoading={isLoading}

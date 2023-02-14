@@ -12,6 +12,7 @@ const DetailSection = ({hotelData}) => {
 
     
     const { days, options} = useContext(SearchContext);
+    console.log()
     
     const [isHandleClick, setIsHandleClick] = useState(false);
     const [isClick, setIsClick] = useState(false);
