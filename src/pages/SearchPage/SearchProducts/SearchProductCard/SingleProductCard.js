@@ -48,7 +48,7 @@ const SingleProductCard = ({ hotelData, info }) => {
       <div>
         <div style={{ height: "100%", padding: ".4rem" }}>
           <div
-            className="flex justify-between p-4 bg-blue-100"
+            className="flex justify-between p-4 bg-blue-50"
             style={{
               height: "60%",
              
@@ -78,10 +78,9 @@ const SingleProductCard = ({ hotelData, info }) => {
             className="flex"
             style={{ height: "40%", width: "100%", padding: ".1rem" }}
           >
-            <div className="bg-blue-100"
+            <div className="bg-blue-50"
               style={{
                 width: "40%",
-                // backgroundColor: "#dcfce7",
                 borderRadius: ".5rem",
                 marginRight: ".2rem",
               }}
@@ -93,10 +92,9 @@ const SingleProductCard = ({ hotelData, info }) => {
               </div>
             </div>
             <div
-            className="bg-blue-100"
+            className="bg-blue-50"
               style={{
                 width: "60%",
-                // backgroundColor: "#dcfce7",
                 borderRadius: ".5rem",
                 padding: ".3rem",
               }}
