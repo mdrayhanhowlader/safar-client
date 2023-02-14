@@ -19,7 +19,7 @@ const SinglePage = () => {
     offer_price,
     facilities,
   } = hotelData;
-  console.log(hotelData);
+  console.log(images);
   return (
     <div>
       <div className="grid md:grid-cols-2 w-full p-2 border-2 border-gray-400 rounded-lg">
@@ -33,10 +33,12 @@ const SinglePage = () => {
               <PhotoProvider>
                 <PhotoView src={images[1]?.url}>
                   <img className="h-full w-full" src={images[1]?.url} alt="" />
+                  {/* <img className="h-full w-full" src={images[1]?.url} alt="" />
+                  <img className="h-full w-full" src={images[1]?.url} alt="" /> */}
                 </PhotoView>
-                <PhotoView src={images[2]?.url}>
+                {/* <PhotoView src={images[2]?.url}>
                   <img className="h-full w-full" src={images[2]?.url} alt="" />
-                </PhotoView>
+                </PhotoView> */}
               </PhotoProvider>
               {/* photo view end */}
             </div>
@@ -49,12 +51,7 @@ const SinglePage = () => {
             </div>
             <div className="">
               <img className="h-full w-full" src={images[4]?.url} alt="" />
-              <div
-                className="flex absolute bg-white hover:bg-slate-200 
-                            m-2 mt-[-7vh] w-0.75rem px-2 py-1 
-                            "
-                // style={{ width: "12rem", marginTop: "-7vh", padding: ".4rem" }}
-              >
+              <div className="flex absolute bg-white hover:bg-slate-200 m-2 mt-[-7vh] w-0.75rem px-2 py-1">
                 <FaIndent className="mt-1 mr-1.5" />
                 <button>show all photos</button>
               </div>
