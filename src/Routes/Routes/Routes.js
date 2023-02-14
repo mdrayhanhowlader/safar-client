@@ -50,6 +50,7 @@ import MessageToSubscriber from "../../pages/Admin/AdminMessage/MessageToSubscri
 import PaymentsReceived from "../../pages/Admin/AdminFinance/PaymentsReceived/PaymentsReceived";
 import PayoutToOrganizer from "../../pages/Admin/AdminFinance/PayoutToOrganizer/PayoutToOrganizer";
 import RefundToCustomer from "../../pages/Admin/AdminFinance/RefundToCustomer/RefundToCustomer";
+import RegisterGuide from "../../pages/Guides/RegisterGuide";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -126,6 +127,10 @@ export const router = createBrowserRouter([
       {
         path: "/orglogin",
         element: <OrganizersLogin />,
+      },
+      {
+        path: "/registerguide",
+        element: <RegisterGuide/>
       },
       {
         path: "/*",
