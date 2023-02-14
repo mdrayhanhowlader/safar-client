@@ -5,83 +5,83 @@ const ManageSellerReview = () => {
         <div>
             <h2 className="text-xl font-bold text-center my-2">Manage Seller Review</h2>
 
-            <div class="overflow-x-auto">
-                <table class="min-w-full divide-y-2 divide-gray-200 text-sm">
+            <div className="overflow-x-auto">
+                <table className="min-w-full divide-y-2 divide-gray-200 text-sm">
                     <thead>
                         <tr>
                             <th
-                                class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
+                                className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
                             >
                                 User's name
                             </th>
                             <th
-                                class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
+                                className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
                             >
                                 Package Name
                             </th>
                             <th
-                                class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
+                                className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
                             >
                                 Package Details
                             </th>
                             <th
-                                class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
+                                className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
                             >
                                 Rating
                             </th>
                         </tr>
                     </thead>
 
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="odd:bg-gray-50">
-                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                    <tbody className="divide-y divide-gray-200">
+                        <tr className="odd:bg-gray-50">
+                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                                 Tusar Vai
                             </td>
-                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">Kichu ekta</td>
-                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">Summary of Packages</td>
-                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">3.5 </td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">Kichu ekta</td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">Summary of Packages</td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">3.5 </td>
                         </tr>
 
-                        <tr class="odd:bg-gray-50">
-                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                        <tr className="odd:bg-gray-50">
+                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                                 Nasar vai
                             </td>
-                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">Kichu ekta</td>
-                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">Something in details</td>
-                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">4 </td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">Kichu ekta</td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">Something in details</td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">4 </td>
                         </tr>
 
-                        <tr class="odd:bg-gray-50">
-                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                        <tr className="odd:bg-gray-50">
+                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                                 Nurul Vai
                             </td>
-                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">Kichu ekta</td>
-                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">Something in details</td>
-                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">5 </td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">Kichu ekta</td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">Something in details</td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">5 </td>
                         </tr>
-                        <tr class="odd:bg-gray-50">
-                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                        <tr className="odd:bg-gray-50">
+                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                                 Rayhan Vai
                             </td>
-                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">Kichu ekta</td>
-                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">Something in details</td>
-                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">4 </td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">Kichu ekta</td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">Something in details</td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">4 </td>
                         </tr>
-                        <tr class="odd:bg-gray-50">
-                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                        <tr className="odd:bg-gray-50">
+                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                                 Shimul Vai
                             </td>
-                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">Kichu ekta</td>
-                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">Something in details</td>
-                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">4.5</td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">Kichu ekta</td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">Something in details</td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">4.5</td>
                         </tr>
-                        <tr class="odd:bg-gray-50">
-                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                        <tr className="odd:bg-gray-50">
+                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                                 Jabir Vai
                             </td>
-                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">Kichu ekta</td>
-                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">Something in details</td>
-                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">4 </td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">Kichu ekta</td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">Something in details</td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">4 </td>
                         </tr>
                     </tbody>
                 </table>
@@ -222,7 +222,7 @@ export default ManageSellerReview;
 //                     <div className='flex justify-between bg-slate-50 p-2 rounded-lg'>
 //                         <div className='flex items-center p-2'>
 //                             <div className='flex'>
-//                                 <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+//                                 <img className="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
 //                             </div>
 //                             <div className='mx-6'>
 //                                 <h1 className='text-xl'>Howell Hand</h1>
@@ -268,7 +268,7 @@ export default ManageSellerReview;
 //                     <div className='flex justify-between bg-slate-50 p-2 rounded-lg'>
 //                         <div className='flex items-center p-2'>
 //                             <div className='flex'>
-//                                 <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+//                                 <img className="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
 //                             </div>
 //                             <div className='mx-6'>
 //                                 <h1 className='text-xl'>Howell Hand</h1>
