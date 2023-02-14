@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { AiOutlinePlusSquare } from "react-icons/ai";
 // import { FaMinus, FaPlus } from "react-icons/fa";
 import { HiOutlineChevronDown, HiOutlineChevronUp } from "react-icons/hi";
+import { AuthContext } from "../../../../contexts/AuthProvider";
 
 const AddSellerProduct = () => {
+  const {user} = useContext(AuthContext)
   const [images, setImages] = useState([]);
+  const [facilities, setFacilities] = useState([]);
+  const [bathroomFacility, setBathroom] = useState([]);
+  const [beds, setBeds] = useState([]);
   const [loading, setLoading] = useState(false);
   const [openFacility, setOpenFacility] = useState(false);
   const {
@@ -16,7 +21,6 @@ const AddSellerProduct = () => {
     reset,
     formState: { errors },
   } = useForm();
-
   const handleImageChange = async (event) => {
     const imageHostKey = process.env.REACT_APP_imagePostKey;
     const imageUrl = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
@@ -41,73 +45,93 @@ const AddSellerProduct = () => {
     setLoading(false);
   };
 
+  const handleAddText = (facility) => {
+    setFacilities([...facilities, { name: facility }]);
+  };
+
+  const handleBathroomFacility = (bathroomData) => {
+    setBathroom([...bathroomFacility, { name: bathroomData }]);
+  };
+
+  const handleBedType = (bed) => {
+    setBeds([...beds, { size: bed }]);
+  };
+
+  console.log(facilities);
+
   const handleAddProduct = (data) => {
+    const extraFacilityData = [];
+    data.wifi &&
+      extraFacilityData.push({
+        name: "Free Wifi",
+      });
+    data.hitter &&
+      extraFacilityData.push({
+        name: "Hitter",
+      });
+    data.geyser &&
+      extraFacilityData.push({
+        name: "Geyser",
+      });
+    data.breakfast &&
+      extraFacilityData.push({
+        name: "Breakfast",
+      });
+    data.breakfastLaunch &&
+      extraFacilityData.push({
+        name: "Breakfast and Launch",
+      });
+
+    data.drink &&
+      extraFacilityData.push({
+        name: "Drink",
+      });
+
+    data.parking &&
+      extraFacilityData.push({
+        name: "Parking",
+      });
+
+    // console.log(extraFacilityData)
+
     const productData = {
-      hotel_name: data.name,
-      description: data.description,
-
-      // location: {
-      //   country: data.country,
-      //   city: data.city.toUpperCase(),
-      //   address: data.address,
-      //   zip_code: data.postal,
-      // },
-
-      price: data.price,
-      offerPrice: data.offerPrice,
-      facility: [
-        data.wifi, data.hitter, data.geyser, data.breakfast, data.breakfastLaunch, data.drink, data.parking
-      ],
-
+      name: data.name,
+      rooms_no: parseInt(data.roomnumber),
+      price: parseInt(data.price),
+      hotel_id:user?.uid,
+      extra_facilities: extraFacilityData,
+      room_facilities: facilities,
+      view: data.view,
+      bathroom: bathroomFacility,
+      bed: beds,
+      sleep: parseInt(data.sleep),
       images: images,
-      // facilities: [{ name: data.facility }],
-      // Room_type: [
-      //   {
-      //     name: data.class,
-      //     bed: [
-      //       {
-      //         size: data.roomSize,
-      //       },
-      //     ],
-      //     sleep: 4,
-      //   },
-      // ],
-
-      // Yearly_deals: false,
-      // Monthly_deals: false,
-      // Contact: data.contact,
-      Hotel_id: data.hotelId,
-      // Promoted: "",
     };
     console.log(productData);
 
-      // send to db
-    // fetch(
-    //   "https://safar-server-nasar06.vercel.app/destination/post-all-destinations",
-    //   {
-    //     method: "POST",
-    //     headers: {
-    //       "content-type": "application/json",
-    //     },
-    //     body: JSON.stringify(productData),
-    //   }
-    // )
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data.acknowledge) {
-    //       setImages([]);
-    //       reset();
-    //       toast.success("hotel added");
-    //       console.log(data);
-    //     } else {
-    //       console.error("please try again");
-    //     }
-    //   });
-      
+    // send to db
+    fetch("https://safar-server-nasar06.vercel.app/rooms/post-room", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(productData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledge) {
+          setImages([]);
+          setFacilities([]);
+          setBathroom([]);
+          setBeds([]);
+          reset();
+          toast.success("hotel added");
+          console.log(data);
+        } else {
+          console.error("please try again");
+        }
+      });
   };
-
-
-
 
   return (
     <section className="py-4">
@@ -134,13 +158,118 @@ const AddSellerProduct = () => {
           />
         ))}
       </div>
+      <div className="grid md:grid-cols-2 gap-4">
+        {/* // add new facilities  */}
+        <div>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleAddText(e.target.elements.facility.value);
+              e.target.elements.facility.value = "";
+            }}
+          >
+            <label className="font-bold" htmlFor="">
+              Room Facilities:{" "}
+            </label>
+            <input
+              className="mx-4 border-2 border-blue-200 w-2/5 p-1 rounded-md"
+              placeholder="type your facility name"
+              type="text"
+              name="facility"
+            />
+            <button
+              className="bg-blue-600 py-[6px] text-white px-4 rounded-md"
+              type="submit"
+            >
+              Add Facility
+            </button>
+          </form>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 my-3">
+            {facilities.map((textData, index) => (
+              <p className="font-bold " key={index}>
+                {textData.name}
+              </p>
+            ))}
+          </div>
+        </div>
+        {/* bathroom data  */}
+        <div>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleBathroomFacility(e.target.elements.bathroom.value);
+              e.target.elements.bathroom.value = "";
+            }}
+          >
+            <label className="font-bold" htmlFor="">
+              Bathroom Facilities:{" "}
+            </label>
+            <input
+              className="mx-4 border-2 border-blue-200 w-2/5 p-1 rounded-md"
+              placeholder="Bathroom Facilities"
+              type="text"
+              name="bathroom"
+            />
+            <button
+              className="bg-blue-600 py-[6px] text-white px-4 rounded-md"
+              type="submit"
+            >
+              Add Facility
+            </button>
+          </form>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 my-3">
+            {bathroomFacility.map((textData, index) => (
+              <p className="font-bold " key={index}>
+                {textData.name}
+              </p>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* bed data  */}
+      <div>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleBedType(e.target.elements.bed.value);
+            e.target.elements.bed.value = "";
+          }}
+        >
+          <label className="font-bold" htmlFor="">
+            Bed Type:
+          </label>
+          <input
+            className="mx-4 border-2 border-blue-200 w-2/6 p-1 rounded-md"
+            placeholder="Bed Type"
+            type="text"
+            name="bed"
+          />
+          <button
+            className="bg-blue-600 py-[6px] text-white px-4 rounded-md"
+            type="submit"
+          >
+            Add Bed
+          </button>
+        </form>
+        <div className="grid grid-cols-2 md:grid-cols-10 lg:grid-cols-10 my-3">
+          {beds.map((bedData, index) => (
+            <p className="font-bold " key={index}>
+              {bedData.size}
+            </p>
+          ))}
+        </div>
+      </div>
+
       <form
         onSubmit={handleSubmit(handleAddProduct)}
         action=""
         className="container flex flex-col mx-auto space-y-4 ng-untouched ng-pristine ng-valid pr-4"
       >
         <div className="">
-          <label className="font-semibold" htmlFor="">Room name/Room type</label>
+          <label className="font-semibold" htmlFor="">
+            Room name/Room type
+          </label>
           <input
             className="border-2 p-2 rounded-md w-full border-blue-50"
             placeholder="Room Name or room type"
@@ -152,7 +281,9 @@ const AddSellerProduct = () => {
           )}
         </div>
         <div className="">
-          <label className="font-semibold" htmlFor="">Description</label>
+          <label className="font-semibold" htmlFor="">
+            Description
+          </label>
           <textarea
             className="border-2 p-2 rounded-md w-full border-blue-50"
             placeholder="Description"
@@ -166,25 +297,29 @@ const AddSellerProduct = () => {
             <p className="text-red-500">{errors.description.message}</p>
           )}
         </div>
-
-        <div className="grid md:grid-cols-3 gap-2">
+        <div className="grid md:grid-cols-2 gap-2">
           <div className="">
-            <label className="font-semibold" htmlFor="">Room Quantity</label>
+            <label className="font-semibold" htmlFor="">
+              Room Number
+            </label>
             <input
               className="border-2 p-2 rounded-md w-full border-blue-50"
-              placeholder="quantity"
-              defaultValue="0"
+              placeholder="Room Number"
               type="number"
               name=""
               id=""
-              {...register("quantity", { required: "quantity is required" })}
+              {...register("roomnumber", {
+                required: "room number is required",
+              })}
             />
-            {errors?.quantity && (
-              <p className="text-red-500">{errors?.price?.message}</p>
+            {errors?.roomnumber && (
+              <p className="text-red-500">{errors?.roomnumber?.message}</p>
             )}
           </div>
           <div>
-            <label className="font-semibold" htmlFor="">Price</label>
+            <label className="font-semibold" htmlFor="">
+              Price
+            </label>
             <input
               className="border-2 p-2 rounded-md w-full border-blue-50"
               placeholder="Price"
@@ -192,23 +327,64 @@ const AddSellerProduct = () => {
               name=""
               id=""
               {...register("price", {
-                required: "offer Price is required",
+                required: "Price is required",
               })}
             />
             {errors.price && (
               <p className="text-red-500">{errors.price.message}</p>
             )}
           </div>
-          <div>
-            <label className="font-semibold" htmlFor="">Offer Price</label>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-2">
+          <div className="">
+            <label className="font-semibold" htmlFor="">
+              Room View
+            </label>
             <input
               className="border-2 p-2 rounded-md w-full border-blue-50"
-              placeholder="offer Price"
+              placeholder="Room View"
               type="text"
               name=""
               id=""
-              {...register("offerPrice", {
-                required: "Offer Price is required",
+              {...register("view", { required: "view is required" })}
+            />
+            {errors?.quantity && (
+              <p className="text-red-500">{errors?.price?.message}</p>
+            )}
+          </div>
+
+          <div>
+            <label className="font-semibold" htmlFor="">
+              Hotel id
+            </label>
+            <input
+              className="border-2 p-2 rounded-md w-full border-blue-50"
+              placeholder="Hotel id"
+              defaultValue={user?.uid}
+              readOnly
+              type="text"
+              name=""
+              id=""
+              // {...register("hotelId", { required: "hotel id is required" })}
+            />
+            {/* {errors.hotelId && (
+              <p className="text-red-500">{errors.hotelId.message}</p>
+            )} */}
+          </div>
+
+          <div>
+            <label className="font-semibold" htmlFor="">
+              Sleep
+            </label>
+            <input
+              className="border-2 p-2 rounded-md w-full border-blue-50"
+              placeholder="number of people"
+              type="number"
+              name=""
+              id=""
+              {...register("sleep", {
+                required: "sleep Price is required",
               })}
             />
             {errors.offerPrice && (
@@ -218,15 +394,24 @@ const AddSellerProduct = () => {
         </div>
 
         <div>
-          <div onClick={() => setOpenFacility(!openFacility)} className="flex items-center">
-            <h2 className="text-xl mb-2 font-semibold">Please Add facilities</h2>
+          <div
+            onClick={() => setOpenFacility(!openFacility)}
+            className="flex items-center"
+          >
+            <h2 className="text-xl mb-2 font-semibold">
+              Please Add Extra facilities
+            </h2>
             {openFacility ? (
               <HiOutlineChevronUp className="ml-4 cursor-pointer font-3xl"></HiOutlineChevronUp>
             ) : (
               <HiOutlineChevronDown className="ml-4 cursor-pointer font-3xl"></HiOutlineChevronDown>
             )}
           </div>
-          <div className={`flex items-center justify-between px-4 ${openFacility ? "visible" : "hidden"}`}>
+          <div
+            className={`flex items-center justify-between px-4 ${
+              openFacility ? "visible" : "hidden"
+            }`}
+          >
             <div className="flex items-center">
               <input
                 className="bg-gray-200 hover:bg-gray-300 cursor-pointer 
@@ -328,50 +513,6 @@ const AddSellerProduct = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-2">
-          <div className="">
-            <label className="font-semibold" htmlFor="pet-select">Choose Room Type</label>
-
-            <select
-              className="border-2 p-2 rounded-md w-full border-blue-50"
-              id="pet-select"
-              {...register("roomType", { required: "Room Type is required" })}
-            >
-              <option value="">--Please choose an option--</option>
-              <option value="Deluxe King Room">Deluxe King Room</option>
-              <option value="Deluxe Room">Deluxe Room</option>
-              <option value="Deluxe Room">Deluxe Room</option>
-              <option value="Superior Double Room">Superior Double Room</option>
-              <option value="Deluxe Twin Room">Deluxe Twin Room</option>
-              <option value="Deluxe Double Room">Deluxe Double Room</option>
-              <option value="Family Room with Balcony">
-                Family Room with Balcony
-              </option>
-              <option value="Two-Bedroom Apartment">
-                Two-Bedroom Apartment
-              </option>
-              <option value="Standard Double Room">Standard Double Room</option>
-              <option value="Superior Queen Room">Superior Queen Room</option>
-            </select>
-            {errors.roomType && (
-              <p className="text-red-500">{errors.roomType.message}</p>
-            )}
-          </div>
-          <div>
-            <label className="font-semibold" htmlFor="">Hotel id</label>
-            <input
-              className="border-2 p-2 rounded-md w-full border-blue-50"
-              placeholder="Hotel id"
-              type="text"
-              name=""
-              id=""
-              {...register("hotelId", { required: "hotel id is required" })}
-            />
-            {errors.hotelId && (
-              <p className="text-red-500">{errors.hotelId.message}</p>
-            )}
-          </div>
-        </div>
 
         <div>
           <input
