@@ -5,8 +5,10 @@ const PaymentDetails = () => {
   return (
     <div className="bg-white rounded-md cursor-pointer p-4 border-2 border-blue-100">
       <div className="flex">
-        <div className="w-12 h-12 bg-gray-100 overflow-hidden border-2 border-gray-400 rounded-full flex justify-center items-center">
-          <FaMoneyCheckAlt className="text-2xl"></FaMoneyCheckAlt>
+        <div className="">
+          <span className="bg-gray-100 overflow-hidden border-2 border-gray-400 rounded-full flex justify-center items-center p-[8px]">
+            <FaMoneyCheckAlt className="text-2xl"></FaMoneyCheckAlt>
+          </span>
         </div>
 
         <div className="ml-1">
