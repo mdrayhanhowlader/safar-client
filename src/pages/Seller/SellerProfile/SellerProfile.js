@@ -60,7 +60,6 @@ const SellerProfile = () => {
     <section className="px-2 py-6">
       <h3 className="text-2xl">Seller Account</h3>
       <h2 className="text-2xl py-4">Seller Id: 34546564543</h2>
-      {/* <h1>{organizerInfo.length}</h1> */}
       <form onSubmit={handleSubmit} action="">
         <div className="w-4/6">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -75,7 +74,6 @@ const SellerProfile = () => {
             />
           </div>
         </div>
-
         <div className="w-4/6 mt-4">
           <div className="grid grid-cols-5 gap-4">
             <label htmlFor="" className="">
@@ -90,7 +88,6 @@ const SellerProfile = () => {
             />
           </div>
         </div>
-
         <div className="w-4/6 mt-4">
           <div className="grid grid-cols-5 gap-4">
             <label htmlFor="" className="">
@@ -105,7 +102,6 @@ const SellerProfile = () => {
             />
           </div>
         </div>
-
         <div className="w-4/6 mt-4">
           <div className="grid grid-cols-5 gap-4">
             <label htmlFor="" className="">
@@ -119,7 +115,6 @@ const SellerProfile = () => {
             />
           </div>
         </div>
-
         <div className="w-4/6 mt-4">
           <div className="grid grid-cols-5 gap-4">
             <label htmlFor="" className="">
