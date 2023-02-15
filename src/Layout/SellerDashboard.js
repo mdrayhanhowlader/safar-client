@@ -1,19 +1,23 @@
 import React, { useState } from "react";
 import {
+  FaBed,
   FaBell,
   FaBox,
   FaCaretDown,
   FaCaretRight,
   FaEnvelope,
   FaPager,
+  FaPlus,
   FaRegSun,
   FaUikit,
   FaUser,
 } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi";
+import { FcCancel } from "react-icons/fc";
 import { BiBasket } from "react-icons/bi";
 import { Link, Outlet } from "react-router-dom";
 import DashboardNab from "../pages/Shared/Navbar/DashboardNab";
+import { MdOutlineFreeCancellation, MdOutlineStarRate } from "react-icons/md";
 
 const SellerDashboard = () => {
   const [productsSubmenu, setProductsSubmenu] = useState(false);
@@ -65,9 +69,9 @@ const SellerDashboard = () => {
                     <span>
                       {
                         productsSubmenu ?
-                        <FaCaretDown className="ml-5" />
-                        :
-                        <FaCaretRight className="ml-5" />
+                          <FaCaretDown className="ml-5" />
+                          :
+                          <FaCaretRight className="ml-5" />
                       }
                     </span>
                   </p>
@@ -76,8 +80,11 @@ const SellerDashboard = () => {
                       <li>
                         <Link
                           to="/sellerdashboard/managesellerproduct"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
                         >
+                          <span className="inline-flex justify-center items-center ml-4">
+                            <FaBed className="w-4 mx-2 h-4"></FaBed>
+                          </span>
                           <span className="md:ml-4 text-black text-sm tracking-wide truncate">
                             Manage Rooms
                           </span>
@@ -86,8 +93,11 @@ const SellerDashboard = () => {
                       <li>
                         <Link
                           to="/sellerdashboard/addsellerproduct"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
                         >
+                          <span className="inline-flex justify-center items-center ml-4">
+                            <FaPlus className="w-4 mx-2 h-4"></FaPlus>
+                          </span>
                           <span className="md:ml-4 text-black text-sm tracking-wide truncate">
                             Add Room
                           </span>
@@ -112,9 +122,9 @@ const SellerDashboard = () => {
                     <span>
                       {
                         ordersSubMenu ?
-                        <FaCaretDown className="ml-5" />
-                        :
-                        <FaCaretRight className="ml-5" />
+                          <FaCaretDown className="ml-5" />
+                          :
+                          <FaCaretRight className="ml-5" />
                       }
                     </span>
                   </p>
@@ -125,6 +135,9 @@ const SellerDashboard = () => {
                           to="/sellerdashboard/managesellerorder"
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
                         >
+                          <span className="inline-flex justify-center items-center ml-4">
+                            <MdOutlineFreeCancellation className="w-4 mx-2 h-4"></MdOutlineFreeCancellation>
+                          </span>
                           <span className="md:ml-4 text-black text-sm tracking-wide truncate">
                             Manage Orders
                           </span>
@@ -135,6 +148,9 @@ const SellerDashboard = () => {
                           to="/sellerdashboard/managesellerreview"
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
                         >
+                          <span className="inline-flex justify-center items-center ml-4">
+                            <MdOutlineStarRate className="w-4 mx-2 h-4"></MdOutlineStarRate>
+                          </span>
                           <span className="md:ml-4 text-black text-sm tracking-wide truncate">
                             Manage Review
                           </span>
@@ -143,8 +159,11 @@ const SellerDashboard = () => {
                       <li>
                         <Link
                           to="/sellerdashboard/cancelsellerorder"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text- hover:text-white border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
                         >
+                          <span className="inline-flex justify-center items-center ml-4">
+                            <FcCancel className="w-4 mx-2 h-4"></FcCancel>
+                          </span>
                           <span className="md:ml-4 text-black text-sm tracking-wide truncate">
                             Cancel Orders
                           </span>
@@ -166,11 +185,11 @@ const SellerDashboard = () => {
                       Promotions
                     </span>
                     {
-                        promotionSubmenu ?
+                      promotionSubmenu ?
                         <FaCaretDown className="ml-5" />
                         :
                         <FaCaretRight className="ml-5" />
-                      }
+                    }
                   </p>
                   <div className={`${promotionSubmenu ? "visible" : "hidden"}`}>
                     <ul>
@@ -200,11 +219,11 @@ const SellerDashboard = () => {
                       Finance
                     </span>
                     {
-                        financeSubmenu ?
+                      financeSubmenu ?
                         <FaCaretDown className="ml-5" />
                         :
                         <FaCaretRight className="ml-5" />
-                      }
+                    }
                   </p>
                   <div className={`${financeSubmenu ? "visible" : "hidden"}`}>
                     <ul>
@@ -294,21 +313,21 @@ const SellerDashboard = () => {
                       My Account
                     </span>
                     {
-                        usersSubmenu ?
+                      usersSubmenu ?
                         <FaCaretDown className="ml-5" />
                         :
                         <FaCaretRight className="ml-5" />
-                      }
+                    }
                   </p>
                   <div className={`${usersSubmenu ? "visible" : "hidden"}`}>
                     <ul>
                       <li>
                         <Link
-                        to='/sellerdashboard/sellerprofile'
+                          to='/sellerdashboard/sellerprofile'
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
                         >
                           <span className="md:ml-4 text-black text-sm tracking-wide truncate">
-                           My Profile
+                            My Profile
                           </span>
                         </Link>
                       </li>
