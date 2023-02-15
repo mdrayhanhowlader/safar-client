@@ -9,14 +9,14 @@ const CheckoutPage = () => {
   return (
     <div>
       <div className="flex justify-center bg-gray-300">
-        <div className="grid gap-4 grid-cols-1 lg:grid-cols-2 container">
-          <div className="bg-white rounded shadow">
+        <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
+          <div className="bg-white h-96 rounded shadow">
 
             {/* <!-- Order Summary  --> */}
             <div>
-              <h3 className="text-xl mt-4 font-bold p-8">Order Summary</h3>
+              <h3 className="text-xl text-center mt-4 font-bold">Order Summary</h3>
               {/* <!--     BOX     --> */}
-              <div className="border w-full rounded mt-5 flex p-4 justify-between items-center flex-wrap">
+              <div className="border w-full rounded mt-5 p-4 flex justify-between items-center flex-wrap">
                 <div className="w-2/3">
                   <h3 className="text-lg font-medium">
                     APPAYAN GUEST HOUSE BARIDHARA
@@ -54,11 +54,6 @@ const CheckoutPage = () => {
                 </div>
               </div>
               <div className="border w-full rounded mt-5 flex p-4 justify-between items-center flex-wrap">
-                {/* <img
-                  src="https://cdn11.bigcommerce.com/s-tboh32g/images/stencil/1280x1280/products/385314/492280/104C_BlackBlackHQ__07610.1557157866.jpg?c=2?imbypass=on"
-                  className="w-12"
-                  alt=""
-                /> */}
                 <div className="w-2/3">
                   <h3 className="text-lg font-medium">
                     APPAYAN GUEST HOUSE BARIDHARA
@@ -96,9 +91,11 @@ const CheckoutPage = () => {
                 </div>
               </div>
             </div>
-            <button className="px-4 py-4 bg-blue-500 text-white w-full mt-3 rounded shadow font-bold hover:bg-blue-600">
-              PROCEED TO CHECKOUT SCREEN
-            </button>
+            <div className="w-1/2 mx-auto">
+              <button className="py-2 px-2 mx-4 bg-blue-500 text-white mt-3 rounded shadow font-bold hover:bg-blue-600">
+                PROCEED TO CHECKOUT
+              </button>
+            </div>
           </div>
           <div className="flex justify-between mt-8 flex-wrap">
             <div className="bg-white rounded shadow p-2 w-full">
