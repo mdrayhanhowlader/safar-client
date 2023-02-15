@@ -3,10 +3,8 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
-// import { useForm } from 'react-hook-form';
-// import { Link, useNavigate } from 'react-router-dom';
-// import { AuthContext } from '../../../../contexts/AuthProvider';
-// import tourism from '../../assets/tourism.jpg'
+import regGuide from '../../assets/safar logo/guide-gif.gif';
+import Navbar from '../Shared/Navbar/Navbar';
 
 const RegisterGuide = () => {
     const { createUser } = useContext(AuthContext);
@@ -85,15 +83,16 @@ const RegisterGuide = () => {
     }
 
     return (
-
-        <section className=" flex flex-wrap  lg:h-full lg:items-center">
+        <div>
+            <Navbar/>
+<section className=" flex flex-wrap  lg:h-full lg:items-center">
             <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
                 <div className="mx-auto max-w-lg text-center">
-                    <h1 className="text-2xl font-bold sm:text-3xl">Become a Guide</h1>
-                    <p className="mt-4 text-gray-500">
+                    <h1 className="text-3xl text-blue-500 font-semibold sm:text-3xl">Become a Guide</h1>
+                    {/* <p className="mt-4 text-gray-500">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero nulla
                         eaque error neque ipsa culpa autem, at itaque nostrum!
-                    </p>
+                    </p> */}
                 </div>
 
                 <div className='lg:p-0 p-6'>
@@ -222,14 +221,14 @@ const RegisterGuide = () => {
                         <div className="flex items-center justify-between">
                             <p className="text-sm text-gray-500">
                                 Already have an account?
-                                <Link to="#"> <u className='text-blue-500'>SignIn</u></Link>
+                                <Link to="/loginguide" className='text-blue-500 hover:text-blue-400 font-semibold'> Login</Link>
                             </p>
 
                             <button
                                 type="submit"
-                                className="ml-3 inline-block rounded-lg bg-blue-500 px-5 py-2 text-sm font-medium text-white"
+                                className="ml-3 inline-block rounded-lg bg-blue-500 hover:bg-blue-400 px-5 py-2 text-sm font-medium text-white"
                             >
-                                Next
+                                Register
                             </button>
                         </div>
 
@@ -237,14 +236,16 @@ const RegisterGuide = () => {
                 </div>
             </div>
 
-            <div className=" h-64 w-full lg:block hidden sm:h-96 lg:h-full lg:w-1/2">
+            <div className=" w-full lg:block hidden sm:h-96 lg:h-full lg:w-1/3">
                 <img
                     alt="Welcome"
-                    src='https://t3.ftcdn.net/jpg/03/23/86/96/360_F_323869611_T9hK8xy1XfO9LTYKAqq0EZHbOxEmGUFa.jpg'
+                    src={regGuide}
                     className=" inset-0 h-full w-full object-cover"
                 />
+                
             </div>
         </section>
+        </div>
 
     );
 };

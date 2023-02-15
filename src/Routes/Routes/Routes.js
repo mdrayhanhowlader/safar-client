@@ -51,6 +51,7 @@ import PaymentsReceived from "../../pages/Admin/AdminFinance/PaymentsReceived/Pa
 import PayoutToOrganizer from "../../pages/Admin/AdminFinance/PayoutToOrganizer/PayoutToOrganizer";
 import RefundToCustomer from "../../pages/Admin/AdminFinance/RefundToCustomer/RefundToCustomer";
 import RegisterGuide from "../../pages/Guides/RegisterGuide";
+import LoginGuide from "../../pages/Guides/LoginGuide";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -131,6 +132,10 @@ export const router = createBrowserRouter([
       {
         path: "/registerguide",
         element: <RegisterGuide/>
+      },
+      {
+        path: "/loginguide",
+        element: <LoginGuide/>
       },
       {
         path: "/*",
