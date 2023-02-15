@@ -6,8 +6,11 @@ const ManageSellerProduct = () => {
   const [submenu, setSubmenu] = useState(0);
   const { user } = useContext(AuthContext);
 
-  const handleSubMenu = () => {
-    setSubmenu(!submenu);
+  //handel edit product
+  const handleSubMenu = (id) => {
+    if(id === submenu){
+      setSubmenu(!submenu)
+    } 
   };
 
   const {
@@ -118,12 +121,13 @@ const ManageSellerProduct = () => {
                   <td className="px-6 py-4">
                     <div className="relative">
                       <p
-                        onClick={() => setSubmenu(room.rooms_no)}
+                       
+                        onClick={()=>setSubmenu(room?.rooms_no) & handleSubMenu(room?.rooms_no)}
                         className="font-xxl font-bold cursor-pointer "
                       >
                         More
                       </p>
-                      {submenu === room.rooms_no ? (
+                      {submenu === room?.rooms_no && (
                         <div
                           // className={`${
                           //   submenu === room.room_no ? "visible" : "hidden"
@@ -142,9 +146,7 @@ const ManageSellerProduct = () => {
                             </li>
                           </ul>
                         </div>
-                      ) : (
-                        () => setSubmenu(0)
-                      )}
+                      ) }
                     </div>
 
                     {/* <div className="flex justify-end gap-4">

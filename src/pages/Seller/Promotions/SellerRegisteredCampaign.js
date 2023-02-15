@@ -11,14 +11,14 @@ const SellerRegisteredCampaign = () => {
             alt=""
           />
           <div className="px-6 flex flex-col justify-start">
-            <h5 className="text-rose-900 text-xl font-medium mb-2">
+            <h5 className="text-blue-500 text-xl font-medium mb-2">
               Valentine Campaign
             </h5>
-            <p className="text-rose-700 text-base mb-2">
+            <p className="text-blue-500 text-base mb-2">
               15% off for all visitors.
             </p>
-            <p className="text-rose-600 text-xs mb-2">Feb 14th - Feb 15th</p>
-            <button className="bg-rose-600 text-slate-50 mt-1 py-2">
+            <p className="text-blue-500 text-xs mb-2">Feb 14th - Feb 15th</p>
+            <button className="bg-blue-500 text-slate-50 mt-1 py-2">
               Registered
             </button>
           </div>
@@ -32,14 +32,14 @@ const SellerRegisteredCampaign = () => {
             alt=""
           />
           <div className="px-6 flex flex-col justify-start">
-            <h5 className="text-rose-900 text-xl font-medium mb-2">
+            <h5 className="text-blue-500 text-xl font-medium mb-2">
               Valentine Campaign
             </h5>
-            <p className="text-rose-700 text-base mb-2">
+            <p className="text-blue-500 text-base mb-2">
               15% off for all visitors.
             </p>
-            <p className="text-rose-600 text-xs mb-2">Feb 14th - Feb 15th</p>
-            <button className="bg-rose-600 text-slate-50 mt-1 py-2">
+            <p className="text-blue-500 text-xs mb-2">Feb 14th - Feb 15th</p>
+            <button className="bg-blue-500 text-slate-50 mt-1 py-2">
               Registered
             </button>
           </div>
