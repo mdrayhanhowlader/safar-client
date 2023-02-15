@@ -8,22 +8,15 @@ const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 const CheckoutPage = () => {
   return (
     <div>
-      <div className="min-h-screen bg-gray-300">
-        <div className="container mx-auto p-10 max-w-screen-lg">
-          <div className="bg-white rounded shadow p-8">
-            {/* <!--  ToastBar  --> */}
-            {/* <div className="w-full bg-orange-200 text-yellow-900 px-4 py-2 flex items-center">
-              {/* <img src="https://svgsilh.com/svg/151889.svg" className="w-10 block pr-2"/> */}
-            {/* <div className="text-sm">
-                Congrats you're eligible for a <b>Coupon Code</b> in this order{" "}
-              </div>
-            </div>  */}
+      <div className="flex justify-center bg-gray-300">
+        <div className="grid gap-4 grid-cols-1 lg:grid-cols-2 container">
+          <div className="bg-white rounded shadow">
+
             {/* <!-- Order Summary  --> */}
             <div>
-              <h3 className="text-xl mt-4 font-bold">Order Summary</h3>
+              <h3 className="text-xl mt-4 font-bold p-8">Order Summary</h3>
               {/* <!--     BOX     --> */}
               <div className="border w-full rounded mt-5 flex p-4 justify-between items-center flex-wrap">
-                {/* <img src="https://images-na.ssl-images-amazon.com/images/I/41KufN65f8L.jpg" className="w-12"/> */}
                 <div className="w-2/3">
                   <h3 className="text-lg font-medium">
                     APPAYAN GUEST HOUSE BARIDHARA
@@ -37,12 +30,12 @@ const CheckoutPage = () => {
                 </div>
                 <div>
                   <h4 className="text-3xl font-medium">
-                    <sup className="text-lg text-purple-800">$</sup> 89
+                    <sup className="text-lg text-blue-500">$</sup> 89
                   </h4>
-                  <h5 className="text-sm font-bold text-purple-800">60% OFF</h5>
+                  <h5 className="text-sm font-bold text-blue-500">60% OFF</h5>
                 </div>
                 <div className="w-full flex justify-between mt-4">
-                  <button className="text-red-700 hover:bg-red-100 px-2">
+                  <button className="text-red-700 hover:bg-blue-100 px-2">
                     DELETE
                   </button>
                   <label
@@ -51,21 +44,21 @@ const CheckoutPage = () => {
                   >
                     QTY
                     <select
-                      className="ml-3 text-sm bg-purple-700 border border-purple-200 text-white p-2 rounded leading-tight"
+                      className="ml-3 h-8 border-none text-sm font-semibold bg-blue-500 text-white p-2 rounded"
                       id="grid-state"
                     >
-                      <option>1</option>
-                      <option>2</option>
+                      <option className="bg-white text-black border-none">1</option>
+                      <option className="bg-white text-black border-none">2</option>
                     </select>
                   </label>
                 </div>
               </div>
               <div className="border w-full rounded mt-5 flex p-4 justify-between items-center flex-wrap">
-                <img
+                {/* <img
                   src="https://cdn11.bigcommerce.com/s-tboh32g/images/stencil/1280x1280/products/385314/492280/104C_BlackBlackHQ__07610.1557157866.jpg?c=2?imbypass=on"
                   className="w-12"
                   alt=""
-                />
+                /> */}
                 <div className="w-2/3">
                   <h3 className="text-lg font-medium">
                     APPAYAN GUEST HOUSE BARIDHARA
@@ -79,9 +72,9 @@ const CheckoutPage = () => {
                 </div>
                 <div>
                   <h4 className="text-3xl font-medium">
-                    <sup className="text-lg text-purple-800">$</sup> 20
+                    <sup className="text-lg text-blue-500">$</sup> 20
                   </h4>
-                  <h5 className="text-sm font-bold text-purple-800">40% OFF</h5>
+                  <h5 className="text-sm font-bold text-blue-500">40% OFF</h5>
                 </div>
                 <div className="w-full flex justify-between mt-4">
                   <button className="text-red-700 hover:bg-red-100 px-2">
@@ -93,7 +86,7 @@ const CheckoutPage = () => {
                   >
                     QTY
                     <select
-                      className="ml-3 text-sm bg-purple-700 border border-purple-200 text-white p-2 rounded leading-tight"
+                      className="ml-3 text-sm bg-blue-500 border border-purple-200 text-white p-2 rounded leading-tight"
                       id="grid-state"
                     >
                       <option>1</option>
@@ -103,32 +96,32 @@ const CheckoutPage = () => {
                 </div>
               </div>
             </div>
-            <button className="px-4 py-4 bg-purple-700 text-white w-full mt-3 rounded shadow font-bold hover:bg-purple-900">
+            <button className="px-4 py-4 bg-blue-500 text-white w-full mt-3 rounded shadow font-bold hover:bg-blue-600">
               PROCEED TO CHECKOUT SCREEN
             </button>
           </div>
-          <div className="flex justify-between mt-8 flex-wrap lg:justify-center">
-            <div className="bg-white rounded shadow p-2 w-full lg:w-2/4">
-              <div className="w-full bg-orange-200 px-8 py-6">
+          <div className="flex justify-between mt-8 flex-wrap">
+            <div className="bg-white rounded shadow p-2 w-full">
+              <div className="w-full bg-blue-50 px-8 py-6">
                 <h3 className="text-2xl mt-4 font-bold">Price Breakdown</h3>
                 <div className="flex justify-between mt-3">
-                  <div className="text-xl text-orange-900 font-bold">
+                  <div className="text-xl text-black font-bold">
                     Amount
                   </div>
                   <div className="text-xl text-right font-bold ">$102</div>
                 </div>
                 <div className="flex justify-between mt-3">
-                  <div className="text-xl text-orange-900 font-bold">
+                  <div className="text-xl text-black font-bold">
                     VAT (15%)
                   </div>
                   <div className="text-xl text-right font-bold">$12</div>
                 </div>
                 <div className="bg-orange-300 h-1 w-full mt-3"></div>
                 <div className="flex justify-between mt-3">
-                  <div className="text-xl text-orange-900 font-bold">
+                  <div className="text-xl text-black font-bold">
                     Total Amount
                   </div>
-                  <div className="text-2xl text-orange-900 font-bold">$114</div>
+                  <div className="text-2xl text-black font-bold">$114</div>
                 </div>
                 <div className="my-6">
                   <Elements stripe={stripePromise}>
@@ -143,7 +136,7 @@ const CheckoutPage = () => {
             </div>
             <div className="bg-white rounded shadow px-10 py-6 w-full mt-4 flex flex-wrap justify-center lg:w-2/4 lg:ml-3">
               <div className="pr-8">
-                <h3 className="text-2xl mt-4 font-bold text-purple-900">
+                <h3 className="text-2xl mt-4 font-bold text-blue-500">
                   Thank You, Alex
                 </h3>
                 <h4 className="text-sm text-gray-600 font-bold">ORDER #5624</h4>
