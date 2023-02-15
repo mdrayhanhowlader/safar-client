@@ -8,9 +8,9 @@ const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 const CheckoutPage = () => {
   return (
     <div>
-      <div className="flex justify-center mt-6 bg-black">
-        <div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
-          <div className="bg-white rounded shadow">
+      <div className="flex justify-center mt-6 ">
+        <div className="grid gap-2 grid-cols-1 lg:grid-cols-12">
+          <div className="bg-white rounded  col-span-7">
             {/* <!-- Order Summary  --> */}
             <div>
               <h3 className="text-xl text-center mt-4 font-bold">Order Summary</h3>
@@ -100,24 +100,24 @@ const CheckoutPage = () => {
               </button>
             </div>
           </div>
-          <div className="flex justify-between flex-wrap">
-            <div className="bg-white rounded shadow p-2 w-full">
-              <div className="w-full bg-blue-50 px-8">
-                <h3 className="text-2xl mt-4 font-bold">Price Breakdown</h3>
+          <div className="flex justify-between flex-wrap col-span-5">
+            <div className="bg-white rounded  w-full">
+              <div className="w-full bg-white pt-32 pb-8 px-2 md:px-8">
+                <h3 className="text-2xl mt-4 font-semibold">Price Breakdown</h3>
                 <div className="flex justify-between mt-3">
-                  <div className="text-xl text-black font-bold">Amount</div>
-                  <div className="text-xl text-right font-bold ">$102</div>
+                  <div className="text-lg text-black font-medium">Total</div>
+                  <div className="text-lg text-right font-medium ">$102</div>
                 </div>
                 <div className="flex justify-between mt-3">
-                  <div className="text-xl text-black font-bold">VAT (15%)</div>
-                  <div className="text-xl text-right font-bold">$12</div>
+                  <div className="text-lg text-black font-medium">
+                    VAT (15%)
+                  </div>
+                  <div className="text-lg text-right font-medium">$12</div>
                 </div>
                 <div className="bg-orange-300 h-1 w-full mt-3"></div>
                 <div className="flex justify-between mt-3">
-                  <div className="text-xl text-black font-bold">
-                    Total Amount
-                  </div>
-                  <div className="text-2xl text-black font-bold">$114</div>
+                  <div className="text-lg text-black font-medium">Subtotal</div>
+                  <div className="text-lg text-black font-medium">$114</div>
                 </div>
                 <div className="my-6">
                   <Elements stripe={stripePromise}>
