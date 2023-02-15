@@ -223,6 +223,7 @@ const DetailSection = ({hotelData}) => {
                   <div className="flex items-center">
                     <div className="flex">
                       <button
+                      disabled={count<1}
                         onClick={() => setCount(count - 1)}
                         className="flex justify-center items-center hover:bg-slate-200"
                         style={{
