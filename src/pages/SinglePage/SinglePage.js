@@ -19,10 +19,6 @@ const SinglePage = () => {
     offer_price,
     facilities,
   } = hotelData;
-<<<<<<< HEAD
-  // console.log(hotelData);
-=======
->>>>>>> 9c92654566783a6ec17a4ddb97ac30b66b33a599
   console.log(images);
   return (
     <div>
@@ -37,16 +33,12 @@ const SinglePage = () => {
               <PhotoProvider>
                 <PhotoView src={images[1]?.url}>
                   <img className="h-full w-full" src={images[1]} alt="" />
-<<<<<<< HEAD
-                </PhotoView>
-=======
                   {/* <img className="h-full w-full" src={images[1]?.url} alt="" />
                   <img className="h-full w-full" src={images[1]?.url} alt="" /> */}
                 </PhotoView>
                 {/* <PhotoView src={images[2]?.url}>
                   <img className="h-full w-full" src={images[2]?.url} alt="" />
                 </PhotoView> */}
->>>>>>> 9c92654566783a6ec17a4ddb97ac30b66b33a599
               </PhotoProvider>
               {/* photo view end */}
             </div>
@@ -59,16 +51,7 @@ const SinglePage = () => {
             </div>
             <div className="">
               <img className="h-full w-full" src={images[4]} alt="" />
-<<<<<<< HEAD
-              <div
-                className="flex absolute bg-white hover:bg-slate-200 
-                            m-2 mt-[-7vh] w-0.75rem px-2 py-1 
-                            "
-                // style={{ width: "12rem", marginTop: "-7vh", padding: ".4rem" }}
-              >
-=======
               <div className="flex absolute bg-white hover:bg-slate-200 m-2 mt-[-7vh] w-0.75rem px-2 py-1">
->>>>>>> 9c92654566783a6ec17a4ddb97ac30b66b33a599
                 <FaIndent className="mt-1 mr-1.5" />
                 <button>show all photos</button>
               </div>
