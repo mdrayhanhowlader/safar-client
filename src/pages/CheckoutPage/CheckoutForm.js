@@ -4,34 +4,34 @@ import React, { useState } from "react";
 const CheckoutForm = () => {
   const [cardError, setCardError] = useState('');
 
-    const stripe = useStripe();
-    const elements = useElements();
+  const stripe = useStripe();
+  const elements = useElements();
 
-    const handleSubmit = async(event) => {
-        event.preventDefault();
-        if(!stripe){
-            return;
-        }
-
-        const card = elements.getElement(CardElement);
-        if (card == null) {
-          return;
-        }
-
-        const {error, paymentMethod} = await stripe.createPaymentMethod({
-          type: 'card',
-          card,
-        });
-
-        if (error) {
-          console.log('[error]', error);
-          setCardError(error.message)
-        } else {
-          console.log('[PaymentMethod]', paymentMethod);
-          setCardError('')
-        }
-
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (!stripe) {
+      return;
     }
+
+    const card = elements.getElement(CardElement);
+    if (card == null) {
+      return;
+    }
+
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: 'card',
+      card,
+    });
+
+    if (error) {
+      console.log('[error]', error);
+      setCardError(error.message)
+    } else {
+      console.log('[PaymentMethod]', paymentMethod);
+      setCardError('')
+    }
+
+  }
 
   return (
     <div>
@@ -53,7 +53,7 @@ const CheckoutForm = () => {
           }}
         />
         <p className="text-red-500 mt-4">{cardError}</p>
-        <button className="px-4 py-4 bg-purple-700 text-white w-full mt-3 rounded shadow font-bold hover:bg-purple- 900" type="submit" disabled={!stripe}>
+        <button className="px-4 py-4 bg-blue-400 text-black w-full mt-3 rounded shadow font-bold hover:bg-purple- 900" type="submit" disabled={!stripe}>
           PAY
         </button>
       </form>
