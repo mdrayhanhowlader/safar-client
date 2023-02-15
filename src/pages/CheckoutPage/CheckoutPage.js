@@ -20,7 +20,7 @@ const CheckoutPage = () => {
             </div>  */}
             {/* <!-- Order Summary  --> */}
             <div>
-              <h3 className="text-xl mt-4 font-bold">Order Summary</h3>
+              <h3 className="text-xl mt-4 font-bold">Booking Submission</h3>
               {/* <!--     BOX     --> */}
               <div className="border w-full rounded mt-5 flex p-4 justify-between items-center flex-wrap">
                 {/* <img src="https://images-na.ssl-images-amazon.com/images/I/41KufN65f8L.jpg" className="w-12"/> */}

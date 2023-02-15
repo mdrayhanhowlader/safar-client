@@ -10,8 +10,13 @@ const SingleProductCard = ({ hotelData, info }) => {
   return (
     <div className="grid lg:grid-cols-3 border">
       {/*image section */}
+<<<<<<< HEAD
+      <div>
+        <img className="h-full w-full p-1 rounded-lg" src={images[0]} alt="" />
+=======
       <div className="w-96 h-64">
         <img className="w-full h-full p-1 rounded-lg" src={images[0]} alt="" />
+>>>>>>> 9c92654566783a6ec17a4ddb97ac30b66b33a599
       </div>
 
       {/* details/middle section */}
