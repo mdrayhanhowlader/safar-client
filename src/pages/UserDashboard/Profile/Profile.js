@@ -38,7 +38,7 @@ const Profile = () => {
       const res = await fetch(`https://safar-server-nasar06.vercel.app/users/get-single-user?email=${user?.email}`);
       const data = await res.json();
       // console.log(userData)
-      setUserInfo(userData)
+      setUserInfo(data)
       return data;
     }
   })

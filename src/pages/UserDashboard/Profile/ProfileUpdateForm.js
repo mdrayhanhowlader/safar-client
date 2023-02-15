@@ -35,7 +35,6 @@ const ProfileUpdateForm = ({ editProfile, setEditProfile, profilePicture, userIn
         console.log(data)
         refetch()
       })
-    reset()
   }
 
   return (
