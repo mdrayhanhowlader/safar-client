@@ -8,9 +8,9 @@ const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 const CheckoutPage = () => {
   return (
     <div>
-      <div className="flex justify-center bg-gray-300">
+      <div className="flex justify-center">
         <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
-          <div className="bg-white h-96 rounded shadow">
+          <div className="bg-white rounded shadow">
 
             {/* <!-- Order Summary  --> */}
             <div>
