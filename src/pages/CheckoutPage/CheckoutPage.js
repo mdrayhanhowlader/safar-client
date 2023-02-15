@@ -8,10 +8,9 @@ const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 const CheckoutPage = () => {
   return (
     <div>
-      <div className="flex justify-center bg-gray-300">
-        <div className="grid gap-4 grid-cols-1 lg:grid-cols-2 container">
+      <div className="flex justify-center mt-6 bg-black">
+        <div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
           <div className="bg-white rounded shadow">
-
             {/* <!-- Order Summary  --> */}
             <div>
               <h3 className="text-xl mt-4 font-bold p-8">Order Summary</h3>
@@ -47,18 +46,17 @@ const CheckoutPage = () => {
                       className="ml-3 h-8 border-none text-sm font-semibold bg-blue-500 text-white p-2 rounded"
                       id="grid-state"
                     >
-                      <option className="bg-white text-black border-none">1</option>
-                      <option className="bg-white text-black border-none">2</option>
+                      <option className="bg-white text-black border-none">
+                        1
+                      </option>
+                      <option className="bg-white text-black border-none">
+                        2
+                      </option>
                     </select>
                   </label>
                 </div>
               </div>
               <div className="border w-full rounded mt-5 flex p-4 justify-between items-center flex-wrap">
-                {/* <img
-                  src="https://cdn11.bigcommerce.com/s-tboh32g/images/stencil/1280x1280/products/385314/492280/104C_BlackBlackHQ__07610.1557157866.jpg?c=2?imbypass=on"
-                  className="w-12"
-                  alt=""
-                /> */}
                 <div className="w-2/3">
                   <h3 className="text-lg font-medium">
                     APPAYAN GUEST HOUSE BARIDHARA
@@ -100,20 +98,16 @@ const CheckoutPage = () => {
               PROCEED TO CHECKOUT SCREEN
             </button>
           </div>
-          <div className="flex justify-between mt-8 flex-wrap">
+          <div className="flex justify-between flex-wrap">
             <div className="bg-white rounded shadow p-2 w-full">
-              <div className="w-full bg-blue-50 px-8 py-6">
+              <div className="w-full bg-blue-50 px-8">
                 <h3 className="text-2xl mt-4 font-bold">Price Breakdown</h3>
                 <div className="flex justify-between mt-3">
-                  <div className="text-xl text-black font-bold">
-                    Amount
-                  </div>
+                  <div className="text-xl text-black font-bold">Amount</div>
                   <div className="text-xl text-right font-bold ">$102</div>
                 </div>
                 <div className="flex justify-between mt-3">
-                  <div className="text-xl text-black font-bold">
-                    VAT (15%)
-                  </div>
+                  <div className="text-xl text-black font-bold">VAT (15%)</div>
                   <div className="text-xl text-right font-bold">$12</div>
                 </div>
                 <div className="bg-orange-300 h-1 w-full mt-3"></div>
@@ -128,13 +122,9 @@ const CheckoutPage = () => {
                     <CheckoutForm />
                   </Elements>
                 </div>
-                {/* <button className="px-4 py-4 bg-purple-700 text-white w-full mt-3 rounded shadow font-bold hover:bg-purple- 900">
-                  {" "}
-                  CHECKOUT
-                </button> */}
               </div>
             </div>
-            <div className="bg-white rounded shadow px-10 py-6 w-full mt-4 flex flex-wrap justify-center lg:w-2/4 lg:ml-3">
+            {/* <div className="bg-white rounded shadow px-10 py-6 w-full mt-4 flex flex-wrap justify-center lg:w-2/4 lg:ml-3">
               <div className="pr-8">
                 <h3 className="text-2xl mt-4 font-bold text-blue-500">
                   Thank You, Alex
@@ -146,7 +136,7 @@ const CheckoutPage = () => {
                 alt=""
                 className="w-24"
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
