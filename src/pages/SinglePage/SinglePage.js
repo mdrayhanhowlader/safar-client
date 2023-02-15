@@ -19,12 +19,13 @@ const SinglePage = () => {
     offer_price,
     facilities,
   } = hotelData;
-  console.log(hotelData);
+  // console.log(hotelData);
+  console.log(images);
   return (
     <div>
       <div className="grid md:grid-cols-2 w-full p-2 border-2 border-gray-400 rounded-lg">
         <div className="md:mb-0 mb-4">
-          <img className="w-full h-full md:px-4" src={images[0]?.url} alt="" />
+          <img className="w-full h-full md:px-4" src={images[0]} alt="" />
         </div>
         <div>
           <div className="grid gap-4 grid-cols-2 h-full">
@@ -32,23 +33,20 @@ const SinglePage = () => {
               {/* photo view start */}
               <PhotoProvider>
                 <PhotoView src={images[1]?.url}>
-                  <img className="h-full w-full" src={images[1]?.url} alt="" />
-                </PhotoView>
-                <PhotoView src={images[2]?.url}>
-                  <img className="h-full w-full" src={images[2]?.url} alt="" />
+                  <img className="h-full w-full" src={images[1]} alt="" />
                 </PhotoView>
               </PhotoProvider>
               {/* photo view end */}
             </div>
             <div className="">
-              <img className="h-full w-full" src={images[2]?.url} alt="" />
+              <img className="h-full w-full" src={images[2]} alt="" />
             </div>
 
             <div className="">
-              <img className="h-full w-full" src={images[3]?.url} alt="" />
+              <img className="h-full w-full" src={images[3]} alt="" />
             </div>
             <div className="">
-              <img className="h-full w-full" src={images[4]?.url} alt="" />
+              <img className="h-full w-full" src={images[4]} alt="" />
               <div
                 className="flex absolute bg-white hover:bg-slate-200 
                             m-2 mt-[-7vh] w-0.75rem px-2 py-1 
