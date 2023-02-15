@@ -3,10 +3,10 @@ import { FaBed, FaCalendarTimes, FaCheckDouble, FaDigitalOcean, FaHotjar, FaSwim
 import { Link } from 'react-router-dom';
 
 
-const LeftSide = ({hotelData}) => {
+const LeftSide = ({ hotelData }) => {
     const [readMore, setReadMore] = useState(false);
 
-    const {hotel_name, description,room_type, location, regular_price, images, offer_price, facilities } = hotelData;
+    const { hotel_name, description, room_type, location, regular_price, images, offer_price, facilities } = hotelData;
 
     const offersData = [
         {
@@ -91,11 +91,11 @@ const LeftSide = ({hotelData}) => {
                 </div>
 
                 <div style={{ borderBottom: "1px solid grey" }}>
-                <h1 className='text-3xl font-bold text-green-800 mb-2'>Details</h1>
+                    <h1 className='text-3xl font-bold text-green-800 mb-2'>Details</h1>
                     <p>{readMore ? description : description?.slice(0, 120)}</p>
                     <button className="btn text-green-800 font-bold mb-6" onClick={() => setReadMore(!readMore)}>
-          {readMore ? "show less" : "  read more..."}
-        </button>
+                        {readMore ? "show less" : "  read more..."}
+                    </button>
                 </div>
 
                 {/* Where you will sleep & will be map */}
@@ -137,15 +137,15 @@ const LeftSide = ({hotelData}) => {
                     <h1 className='text-xl font-bold'>What this place offers</h1>
                     <div className='grid grid-cols-1 md:grid-cols-2'>
                         {
-                            offersData.map(offers =>
-                                <div className='flex my-2'>
+                            offersData.map((offers, index) =>
+                                <div key={index} className='flex my-2'>
                                     <div className='mx-4 mt-1'>{offers.icon}</div>
                                     <p>{offers.title}</p>
                                 </div>
                             )
                         }
                     </div>
-                    <div className='flex justify-center my-4 border border-gray-400 rounded-lg' 
+                    <div className='flex justify-center my-4 border border-gray-400 rounded-lg'
                     // style={{ border: "1px solid grey", borderRadius: ".5rem", width: "25%" }}
                     >
                         <h1 ><Link className='text-green-800 hover:text-green-600 font-semibold my-6'>Show all amenities</Link></h1>

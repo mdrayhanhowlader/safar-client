@@ -276,7 +276,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/sellerdashboard/sellerprofile",
-        element: <SellerProfile></SellerProfile>
+        element: <SellerProfile></SellerProfile>,
       },
     ],
   },
