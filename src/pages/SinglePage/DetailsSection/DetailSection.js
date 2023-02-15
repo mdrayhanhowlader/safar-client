@@ -1,15 +1,24 @@
 import React, { useContext, useState } from 'react';
 import { DateRange } from 'react-date-range';
 import { FaAngleDown, FaMinus, FaPlus, FaRegStar } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider';
 import { SearchContext } from '../../../contexts/SearchProvider';
 import LeftSide from './LeftSide';
 import ReviewSection from './ReviewSection';
+import Rooms from './Rooms/Rooms';
 
 
 const DetailSection = ({hotelData}) => {
-    const {hotel_name, description, location, regular_price, images, offer_price, facilities } = hotelData;
 
+    const [openModal, setOpenModal] = useState(false);
+
+    const locations = useLocation();
+    console.log("locations", locations);
+
+    const {hotel_name, description, location,hotel_id, regular_price, images, offer_price, facilities } = hotelData;
+    const {user} = useContext(AuthContext);
+    const navigate = useNavigate();
     
     const { days, options} = useContext(SearchContext);
     console.log()
@@ -48,6 +57,15 @@ const DetailSection = ({hotelData}) => {
 
         }
     ]
+
+    const handleClick = () => {
+        if(user){
+            setOpenModal(true)
+        }
+        else{
+            navigate('/login')
+        }
+    }
 
     return (
         <div>
@@ -157,6 +175,9 @@ const DetailSection = ({hotelData}) => {
                         <div className='mt-4'>
                             <Link to='/checkoutPage'><button className='w-full h-8 bg-green-800 rounded-lg hover:bg-green-700 text-white'>Check Availability</button></Link>
                         </div>
+                        <div className='mt-4'>
+                            <button onClick={handleClick} className='w-full h-8 bg-green-800 rounded-lg hover:bg-green-700 text-white capitalize'>reserve your room</button>
+                        </div>
                         {/* you won't be charged yet */}
                         <div>
                             <div className='flex justify-center my-3'>
@@ -189,6 +210,8 @@ const DetailSection = ({hotelData}) => {
             >
                 <ReviewSection />
             </div>
+            {openModal && <Rooms setOpenModal={setOpenModal} hotel_id={hotel_id}></Rooms>}
+            {/* <Rooms setOpenModal={setOpenModal} hotel_id={hotel_id}></Rooms> */}
         </div>
     );
 };

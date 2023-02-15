@@ -4,6 +4,7 @@ import OfferPage from "../pages/OfferPage/OfferPage";
 
 const InitialState = {
   destination: JSON.parse(localStorage.getItem("destination")) ,
+  dates: JSON.parse(localStorage.getItem("dates")) ,
   days: JSON.parse(localStorage.getItem("days")),
   options: JSON.parse(localStorage.getItem("options"))
 };
@@ -26,12 +27,13 @@ const searchReducer = (state, action) => {
 export const SearchProvider = ({ children }) => {
   const [state, dispatch] = useReducer(searchReducer, InitialState);
   
-  
+  console.log(state.dates)
   return (
     <>
       <SearchContext.Provider
         value={{
           destination: state.city,
+          dates: state.dates,
           days: state.days,
           options: state.options,
           dispatch,
