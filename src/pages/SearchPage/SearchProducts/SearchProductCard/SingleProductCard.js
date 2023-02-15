@@ -10,8 +10,8 @@ const SingleProductCard = ({ hotelData, info }) => {
   return (
     <div className="grid lg:grid-cols-3 border">
       {/*image section */}
-      <div className="w-96 h-64">
-        <img className="w-full h-full p-1 rounded-lg" src={images[0]} alt="" />
+      <div>
+        <img className="h-full w-full p-1 rounded-lg" src={images[0]} alt="" />
       </div>
 
       {/* details/middle section */}
@@ -51,15 +51,13 @@ const SingleProductCard = ({ hotelData, info }) => {
             className="flex justify-between p-4 bg-blue-50"
             style={{
               height: "60%",
-             
+
               borderRadius: ".5rem",
             }}
           >
             <div className="">
               <div>
-                <h1  className="font-semibold">
-                  Renaissance
-                </h1>
+                <h1 className="font-semibold">Renaissance</h1>
                 <h1 className="text-xl font-bold text-blue-500 mt-4">
                   <small>${regular_price}</small>
                 </h1>
@@ -78,7 +76,8 @@ const SingleProductCard = ({ hotelData, info }) => {
             className="flex"
             style={{ height: "40%", width: "100%", padding: ".1rem" }}
           >
-            <div className="bg-blue-50"
+            <div
+              className="bg-blue-50"
               style={{
                 width: "40%",
                 borderRadius: ".5rem",
@@ -92,7 +91,7 @@ const SingleProductCard = ({ hotelData, info }) => {
               </div>
             </div>
             <div
-            className="bg-blue-50"
+              className="bg-blue-50"
               style={{
                 width: "60%",
                 borderRadius: ".5rem",
@@ -103,7 +102,6 @@ const SingleProductCard = ({ hotelData, info }) => {
                 <div className="flex font-semibold">
                   <p>Lowest Price:</p>
                   <p>${offer_price} Renaissance </p>
-                  
                 </div>
               </div>
             </div>

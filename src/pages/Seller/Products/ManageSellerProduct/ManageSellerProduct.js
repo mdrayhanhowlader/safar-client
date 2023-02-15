@@ -3,11 +3,14 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../../contexts/AuthProvider";
 
 const ManageSellerProduct = () => {
-  const [submenu, setSubmenu] = useState(false);
-  const {user} = useContext(AuthContext)
+  const [submenu, setSubmenu] = useState(0);
+  const { user } = useContext(AuthContext);
 
-  const handleSubMenu = () => {
-    setSubmenu(!submenu);
+  //handel edit product
+  const handleSubMenu = (id) => {
+    if(id === submenu){
+      setSubmenu(!submenu)
+    } 
   };
 
   const {
@@ -64,9 +67,9 @@ const ManageSellerProduct = () => {
           <tbody className="divide-y divide-gray-100 border-t border-gray-100">
             {isLoading ? (
               <tr>
-              <td>
-                <span>Loading...</span>
-              </td>
+                <td>
+                  <span>Loading...</span>
+                </td>
               </tr>
             ) : (
               organizerRooms.map((room) => (
@@ -116,18 +119,35 @@ const ManageSellerProduct = () => {
                   </td>
 
                   <td className="px-6 py-4">
-                    <div className="absolute">
-                  <p onClick={() => handleSubMenu(!true)} className="font-xxl font-bold cursor-pointer ">More</p>
-                  <div className={`${submenu ? 'visible' : 'hidden'} z-10 relative bg-white shadow-md `}>
-                  <ul>
-                  <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md"><a href="/">Edit</a></li>
-                  <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md"><a href="/">Active</a></li>
-                  <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md"><a href="/">Deactivate</a></li>
-                  <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md"><a href="/">Delete</a></li>
-                  </ul>
-                  </div>
- 
-                </div>  
+                    <div className="relative">
+                      <p
+                       
+                        onClick={()=>setSubmenu(room?.rooms_no) & handleSubMenu(room?.rooms_no)}
+                        className="font-xxl font-bold cursor-pointer "
+                      >
+                        More
+                      </p>
+                      {submenu === room?.rooms_no && (
+                        <div
+                          // className={`${
+                          //   submenu === room.room_no ? "visible" : "hidden"
+                          // } z-10 absolute right-0 bg-white shadow-md `}
+                          className="z-10 absolute right-0 bg-white shadow-md "
+                        >
+                          <ul>
+                            <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md">
+                              <a href="/">Active</a>
+                            </li>
+                            <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md">
+                              <a href="/">Deactivate</a>
+                            </li>
+                            <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md">
+                              <a href="/">Delete</a>
+                            </li>
+                          </ul>
+                        </div>
+                      ) }
+                    </div>
 
                     {/* <div className="flex justify-end gap-4">
                       <a href="/">
