@@ -163,7 +163,7 @@ const ReviewSection = () => {
             <div className='flex justify-center border border-gray-400 rounded-lg md:w-2/12 w-1/2 md:mx-0 mx-auto' 
             // style={{ border: "1px solid grey", borderRadius: ".5rem", width: "12%" }}
             >
-                <h1 ><Link className='text-green-800 hover:text-green-600 font-bold my-6'>Show all reviews</Link></h1>
+                <h1 ><Link className='text-blue-400 hover:text-blue-500 font-semibold my-6'>Show all reviews</Link></h1>
             </div>
         </div>
     );
