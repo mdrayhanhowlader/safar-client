@@ -36,7 +36,7 @@ const OrganizerForm = () => {
                 body: formData,
             });
             const result = await response.json();
-            uploadedImages.push(...images, { url: result.data.url });
+            uploadedImages.push(...images, result.data.url);
             console.log(uploadedImages);
         }
         setImages(uploadedImages);
@@ -104,7 +104,7 @@ const OrganizerForm = () => {
                 if (result.acknowledge === true) {
                     reset()
                 }
-                navigate('/sellerdashboard')
+                // navigate('/sellerdashboard')
             })
             .catch(err => console.error(err))
 
@@ -449,7 +449,7 @@ const OrganizerForm = () => {
                             </div>
                             <div className="col-span-6">
                                 <button
-                                    className="block w-full rounded-md bg-blue-500 p-2.5 text-sm text-white transition hover:shadow-lg"
+                                    className="block w-full rounded-md bg-blue-500 hover:bg-blue-600 p-2.5 text-sm text-white transition hover:shadow-lg"
                                 >
                                     Submit
                                 </button>

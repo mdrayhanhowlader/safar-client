@@ -91,7 +91,7 @@ const BecomeOrganizer = () => {
 
                         <button
                             type="submit"
-                            className="ml-3 inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+                            className="ml-3 inline-block rounded-lg bg-blue-500 hover:bg-blue-600 px-5 py-3 text-sm font-medium text-white"
                         >
                             Next
                         </button>

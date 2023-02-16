@@ -31,8 +31,8 @@ const OrganizersLogin = () => {
                     <h1 className="text-2xl font-bold sm:text-3xl">Login as an organizer</h1>
 
                     <p className="mt-4 text-gray-500">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero nulla
-                        eaque error neque ipsa culpa autem, at itaque nostrum!
+                        Please login with your email and password.
+                        If you don't have any account yet, click the following link provided below as "Signup"
                     </p>
                 </div>
 
@@ -72,7 +72,7 @@ const OrganizersLogin = () => {
 
                         <button
                             type="submit"
-                            className="ml-3 inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+                            className="ml-3 inline-block rounded-lg bg-blue-500 hover:bg-blue-600 px-5 py-3 text-sm font-medium text-white"
                         >
                             LogIn
                         </button>
