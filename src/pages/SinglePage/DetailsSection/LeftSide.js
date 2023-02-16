@@ -101,7 +101,7 @@ const LeftSide = ({ hotelData }) => {
                     <h1 className='text-3xl font-bold text-green-800 mb-2'>Details</h1>
                     <p>{readMore ? description : description?.slice(0, 120)}</p>
                     <button className="btn text-green-800 font-bold mb-6" onClick={() => setReadMore(!readMore)}>
-                        {readMore ? "show less" : "  read more..."}
+                        {readMore ? "show less" : <><button>read more...</button></>}
                     </button>
 >>>>>>> 3bb2a504158ce10bd05074255445d86e64dc63ae
                 </div>

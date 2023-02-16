@@ -11,6 +11,7 @@ const InitialState = {
   // options: JSON.parse(localStorage.getItem("options")),
 =======
   destination: JSON.parse(localStorage.getItem("destination")) ,
+  dates: JSON.parse(localStorage.getItem("dates")) ,
   days: JSON.parse(localStorage.getItem("days")),
   options: JSON.parse(localStorage.getItem("options"))
 >>>>>>> 3bb2a504158ce10bd05074255445d86e64dc63ae
@@ -34,12 +35,13 @@ const searchReducer = (state, action) => {
 export const SearchProvider = ({ children }) => {
   const [state, dispatch] = useReducer(searchReducer, InitialState);
   
-  
+  console.log(state.dates)
   return (
     <>
       <SearchContext.Provider
         value={{
           destination: state.city,
+          dates: state.dates,
           days: state.days,
           options: state.options,
           dispatch,
