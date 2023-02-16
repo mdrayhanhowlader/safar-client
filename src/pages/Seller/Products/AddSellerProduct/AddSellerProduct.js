@@ -533,7 +533,7 @@ const AddSellerProduct = () => {
 
         <div>
           <input
-            className="px-4 py-2 bg-blue-500 text-white rounded-md cursor-pointer"
+            className="px-4 py-2 bg-blue-400 hover:bg-orange-400 text-white rounded-md cursor-pointer"
             type="submit"
             value="Add Room"
           />
