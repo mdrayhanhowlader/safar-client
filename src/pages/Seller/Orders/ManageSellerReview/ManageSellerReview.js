@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../../../../hooks/useTitle';
 
 const ManageSellerReview = () => {
+    useTitle('Manage Seller Review')
     return (
         <div>
             <h2 className="text-xl font-bold text-center my-2">Manage Seller Review</h2>

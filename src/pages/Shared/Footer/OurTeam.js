@@ -1,5 +1,7 @@
 import React from 'react';
 import { FaFacebook, FaGithub, FaGlobe, FaLinkedin } from 'react-icons/fa';
+import useTitle from '../../../hooks/useTitle';
+import Navbar from '../Navbar/Navbar';
 
 const OurTeam = () => {
 
@@ -29,8 +31,10 @@ const OurTeam = () => {
             about: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
         }
     ]
+    useTitle('Team')
     return (
         <div>
+            <Navbar/>
             {/* <div>
                 <h1 className='text-2xl font-bold text-center my-2'>About Us</h1>
                 <div className='lg:w-1/2 lg:mx-auto mx-6 my-4 shadow-2xl p-6 rounded-3xl'>

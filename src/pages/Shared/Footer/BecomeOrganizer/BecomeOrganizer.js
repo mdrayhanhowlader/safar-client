@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../contexts/AuthProvider';
 import tourism from '../../../../assets/tourism.jpg'
+import Navbar from '../../Navbar/Navbar';
+import useTitle from '../../../../hooks/useTitle';
 
 const BecomeOrganizer = () => {
     const { createUser } = useContext(AuthContext);
@@ -43,10 +45,13 @@ const BecomeOrganizer = () => {
             })
             .catch(err => console.log(err))
     }
+    useTitle('Org-Reg');
 
     return (
 
-        <section className="relative flex flex-wrap bg-[#e9ebff] lg:h-screen lg:items-center">
+       <div>
+        <Navbar/>
+         <section className="relative flex flex-wrap bg-[#e9ebff] lg:h-screen lg:items-center">
             <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
                 <div className="mx-auto max-w-lg text-center">
                     <h1 className="text-2xl font-bold sm:text-3xl">Become an Organizer</h1>
@@ -109,6 +114,7 @@ const BecomeOrganizer = () => {
                 />
             </div>
         </section>
+       </div>
 
     );
 };

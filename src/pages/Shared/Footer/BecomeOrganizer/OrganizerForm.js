@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../contexts/AuthProvider';
 import tourism_form from '../../../../assets/tourism_form.png'
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
+import Navbar from '../../Navbar/Navbar';
+import useTitle from '../../../../hooks/useTitle';
 
 const OrganizerForm = () => {
     const { user } = useContext(AuthContext);
@@ -118,9 +120,12 @@ const OrganizerForm = () => {
         setBeds([...beds, { size: bed }]);
     };
 
+    useTitle('Org-Info')
 
     return (
-        <section className='w-full'>
+        <div>
+            <Navbar/>
+            <section className='w-full'>
             <div className="grid grid-cols-1 mx-auto max-w-screen-2xl md:grid-cols-2">
 
                 <div className="my-6 p-6">
@@ -487,6 +492,7 @@ const OrganizerForm = () => {
                 </div>
             </div>
         </section>
+        </div>
     );
 };
 

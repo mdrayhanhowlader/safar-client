@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import useTitle from "../../../../hooks/useTitle";
 
 const Organizer = () => {
+  useTitle('All Organizers');
   const [submenu, setSubmenu] = useState(false);
   const [submenu1, setSubmenu1] = useState(false);
   const [submenu2, setSubmenu2] = useState(false);

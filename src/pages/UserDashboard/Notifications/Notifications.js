@@ -1,7 +1,9 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa";
+import useTitle from "../../../hooks/useTitle";
 
 const Notifications = () => {
+  useTitle('Notification')
   return (
     <section className="container mx-auto p-8">
       <h2 className="text-2xl font-bold mt-8">Notifications</h2>

@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../../contexts/AuthProvider";
+import useTitle from "../../../../hooks/useTitle";
 import ManageSellerProductNav from "./ManageSellerProductNav";
 
 const ManageSellerProduct = () => {
+  useTitle('Manage Products')
   const [submenu, setSubmenu] = useState(0);
   const { user } = useContext(AuthContext);
 

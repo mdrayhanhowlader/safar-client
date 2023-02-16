@@ -6,8 +6,10 @@ import { AiOutlinePlusSquare } from "react-icons/ai";
 // import { FaMinus, FaPlus } from "react-icons/fa";
 import { HiOutlineChevronDown, HiOutlineChevronUp } from "react-icons/hi";
 import { AuthContext } from "../../../../contexts/AuthProvider";
+import useTitle from "../../../../hooks/useTitle";
 
 const AddSellerProduct = () => {
+  useTitle('Add Products');
   const {user} = useContext(AuthContext)
   const [images, setImages] = useState([]);
   const [facilities, setFacilities] = useState([]);

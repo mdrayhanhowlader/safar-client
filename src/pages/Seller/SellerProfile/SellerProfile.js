@@ -1,8 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider";
+import useTitle from "../../../hooks/useTitle";
 
 const SellerProfile = () => {
+  useTitle('Seller Profile');
   const { user } = useContext(AuthContext);
   const [orgInfo, setOrgInfo] = useState('')
   // console.log(user.email)
