@@ -28,8 +28,8 @@ const CheckoutPage = () => {
                   </h4>
                 </div>
                 <div>
-                  <h4 className="text-3xl font-medium">
-                    <sup className="text-lg text-blue-500">$</sup> 89
+                  <h4 className="text-xl font-medium">
+                    <sup className="text-blue-500">$</sup> 89
                   </h4>
                   <h5 className="text-sm font-bold text-blue-500">60% OFF</h5>
                 </div>
@@ -69,8 +69,8 @@ const CheckoutPage = () => {
                   </h4>
                 </div>
                 <div>
-                  <h4 className="text-3xl font-medium">
-                    <sup className="text-lg text-blue-500">$</sup> 20
+                  <h4 className="text-xl font-medium">
+                    <sup className="text-blue-500">$</sup> 20
                   </h4>
                   <h5 className="text-sm font-bold text-blue-500">40% OFF</h5>
                 </div>
