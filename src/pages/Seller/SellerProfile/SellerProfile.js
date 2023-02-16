@@ -1,14 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider";
+import useTitle from "../../../hooks/useTitle";
 
 const SellerProfile = () => {
+  useTitle('Seller Profile');
   const { user } = useContext(AuthContext);
   const [orgInfo, setOrgInfo] = useState('')
   // console.log(user.email)
 
   const { data: organizerInfo } = useQuery({
-    queryKey: ['organizerInfo'],
+    queryKey: ['organizerInfo', user?.email],
     queryFn: async () => {
       const res = await fetch(`https://safar-server-nasar06.vercel.app/destination/get-hotel-details?email=${user?.email}`);
       const data = await res.json();
@@ -16,7 +18,7 @@ const SellerProfile = () => {
       return data;
     }
   })
-  // console.log(orgInfo)
+  console.log(organizerInfo)
 
   const handleSubmit = (event) => {
     event.preventDefault();

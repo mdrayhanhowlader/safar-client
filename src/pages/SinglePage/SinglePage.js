@@ -5,11 +5,12 @@ import { useLoaderData } from "react-router-dom";
 import { SearchContext } from "../../contexts/SearchProvider";
 import DetailSection from "./DetailsSection/DetailSection";
 import "react-photo-view/dist/react-photo-view.css";
+import useTitle from "../../hooks/useTitle";
 
 const SinglePage = () => {
   const data = useContext(SearchContext);
   const hotelData = useLoaderData();
-
+  
   const {
     hotel_name,
     description,
@@ -20,6 +21,8 @@ const SinglePage = () => {
     facilities,
   } = hotelData;
   console.log(images);
+  useTitle(hotel_name);
+
   return (
     <div>
       <div className="grid md:grid-cols-2 w-full p-2 border-2 border-gray-400 rounded-lg">

@@ -1,8 +1,10 @@
 import React from "react";
+import useTitle from "../../../../hooks/useTitle";
 import SellerAllOrdersList from "./SellerAllOrdersList";
 import SellerOrderNav from "./SellerOrderNav";
 
 const ManageSellerOrder = () => {
+  useTitle('Manage Seller Orders')
   return (
     <div>
       <div className="w-full  py-4">
