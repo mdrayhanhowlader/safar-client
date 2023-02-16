@@ -9,8 +9,6 @@ const ActiveSellerProduct = ({
   organizerRooms,
 }) => {
   const handleDeactive = useCallback((id) => {
-    console.log("deactive");
-
     fetch(
       `https://safar-server-nasar06.vercel.app/rooms/deactivate-room/${id}`,
       {

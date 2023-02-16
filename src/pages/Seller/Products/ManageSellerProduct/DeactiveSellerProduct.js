@@ -10,26 +10,27 @@ const DeactiveSellerProduct = ({
   organizerRooms,
 }) => {
   // const { hotel_id } = organizerRooms[0];
+  console.log(organizerRooms);
   const { user } = useContext(AuthContext);
   const [reload, setReload] = useState();
-
+  const hotelId = organizerRooms?.hotel_id;
   const {
     data: deactiveRooms,
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["hotel_id"],
+    queryKey: [hotelId],
     queryFn: async () => {
       const res = await fetch(
-        `https://safar-server-nasar06.vercel.app/rooms/get-deactivate-room/${organizerRooms[0]?.hotel_id}`
+        `https://safar-server-nasar06.vercel.app/rooms/get-deactivate-room/${hotelId}`
       );
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
       return data;
     },
   });
 
-  console.log(deactiveRooms);
+  // console.log(deactiveRooms);
 
   const handleActiveProduct = useCallback((id) => {
     setReload(id);
