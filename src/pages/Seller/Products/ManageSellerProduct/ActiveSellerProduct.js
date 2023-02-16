@@ -8,7 +8,9 @@ const ActiveSellerProduct = ({
   setSubmenu,
   handleSubMenu,
   organizerRooms,
+  refetch
 }) => {
+  refetch()
   const handleDeactive = useCallback((id) => {
     fetch(
       `https://safar-server-nasar06.vercel.app/rooms/deactivate-room/${id}`,

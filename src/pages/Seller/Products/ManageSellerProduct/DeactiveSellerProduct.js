@@ -9,7 +9,9 @@ const DeactiveSellerProduct = ({
   setSubmenu,
   handleSubMenu,
   organizerRooms,
+  // refetch
 }) => {
+  // refetch()
   // const { hotel_id } = organizerRooms[0];
   console.log(organizerRooms);
   const { user } = useContext(AuthContext);
@@ -30,13 +32,13 @@ const DeactiveSellerProduct = ({
       return data;
     },
   });
-
+  refetch()
   // console.log(deactiveRooms);
 
   const handleActiveProduct = useCallback((id) => {
     setReload(id);
     fetch(
-      `https://safar-server-nasar06.vercel.app/rooms/deactivate-room/${id}`,
+      ` https://safar-server-nasar06.vercel.app/rooms/active-room/${id}`,
       {
         method: "PATCH",
         headers: {
