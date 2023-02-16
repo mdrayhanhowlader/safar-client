@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useCallback, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../contexts/AuthProvider";
+import { ThreeDots } from "react-loader-spinner";
 
 const DeactiveSellerProduct = ({
   submenu,
@@ -78,7 +79,18 @@ const DeactiveSellerProduct = ({
             {isLoading ? (
               <tr>
                 <td>
-                  <span>Loading...</span>
+                  <span>
+                    <ThreeDots
+                      height="80"
+                      width="80"
+                      radius="9"
+                      color="orange"
+                      ariaLabel="three-dots-loading"
+                      wrapperStyle={{}}
+                      wrapperClassName=""
+                      visible={true}
+                    />
+                  </span>
                 </td>
               </tr>
             ) : (
@@ -143,7 +155,7 @@ const DeactiveSellerProduct = ({
                               Active
                             </li>
                             <li className="py-2 px-4 text-center hover:bg-blue-500 hover:text-white rounded-md">
-                              <Link>Delete</Link>
+                              Delete
                             </li>
                           </ul>
                         </div>
