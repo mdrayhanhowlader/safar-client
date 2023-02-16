@@ -22,16 +22,17 @@ const DeleteSellerProduct = ({
     queryKey: [hotelId],
     queryFn: async () => {
       const res = await fetch(
-        `https://safar-server-nasar06.vercel.app/rooms/get-delete-room/zyqiNpZwkBetGeu2GpsVcsuoSib2/${user?.uid}`
+        `https://safar-server-nasar06.vercel.app/rooms/get-delete-room/${user?.uid}`
       );
       const data = await res.json();
       // console.log(data);
       return data;
     },
+    
   });
 
   // console.log(deactiveRooms);
-
+  refetch()
   return (
     <div>
       <div className="rounded-md border border-gray-50 mr-2 mt-5">
