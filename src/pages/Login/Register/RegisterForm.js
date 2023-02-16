@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const RegisterForm = () => {
@@ -13,6 +13,8 @@ const RegisterForm = () => {
   } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+
 
   // const handleRegister = useCallback(data) => {
   //   console.log("hello");
@@ -27,7 +29,9 @@ const RegisterForm = () => {
           console.log(data.user);
 
           saveUser({ email: data.user.email });
-          reset()
+          reset();
+          navigate('/myaccount/profile')
+
         })
         .catch((error) => {
           setError(error);
@@ -145,7 +149,7 @@ const RegisterForm = () => {
             <div>
               <button
                 type="submit"
-                className="group relative flex w-full justify-center rounded-md border border-transparent bg-teal-500 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="group relative flex w-full justify-center rounded-md border border-transparent bg-teal-500 py-2 px-4 text-sm font-medium text-white hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 SIGN UP
               </button>

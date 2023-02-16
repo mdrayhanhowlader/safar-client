@@ -3,10 +3,10 @@ import { FaBed, FaCalendarTimes, FaCheckDouble, FaDigitalOcean, FaHotjar, FaSwim
 import { Link } from 'react-router-dom';
 
 
-const LeftSide = ({hotelData}) => {
+const LeftSide = ({ hotelData }) => {
     const [readMore, setReadMore] = useState(false);
 
-    const {hotel_name, description, location, regular_price, images, offer_price, facilities } = hotelData;
+    const { hotel_name, description, room_type, location, regular_price, images, offer_price, facilities } = hotelData;
 
     const offersData = [
         {
@@ -55,7 +55,7 @@ const LeftSide = ({hotelData}) => {
                 <div className='flex justify-between' style={{ borderBottom: "1px solid grey" }}>
                     <div>
                         <h1 className='text-2xl font-bold mb-1'>{hotel_name}</h1>
-                        <p>8 guests - 4 bedrooms - 5 beds - 5 baths</p>
+                        <p>8 guests - {room_type.length} bedrooms - 5 beds - 5 baths</p>
                     </div>
                     <div className='mb-8'>
                         <img className="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" />
@@ -85,23 +85,31 @@ const LeftSide = ({hotelData}) => {
                 </div>
 
                 <div className='my-6' style={{ borderBottom: "1px solid grey" }}>
-                    <h1 className='text-3xl font-bold text-green-800'>SafarCover</h1>
+                    <h1 className='text-3xl font-semibold text-blue-600'>SafarCover</h1>
                     <p className='my-3'>Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</p>
-                    <Link to='/'><p className='text-green-800 font-bold mb-6'>Learn more..</p></Link>
+                    <Link to='/'><p className='text-blue-600 font-semibold mb-6'>Learn more..</p></Link>
                 </div>
 
                 <div style={{ borderBottom: "1px solid grey" }}>
-                <h1 className='text-3xl font-bold text-green-800 mb-2'>Details</h1>
-                    <p>{readMore ? description : description.slice(0, 120)}</p>
-                    <button className="btn text-green-800 font-bold mb-6" onClick={() => setReadMore(!readMore)}>
+<<<<<<< HEAD
+                <h1 className='text-3xl font-semibold text-blue-600 mb-2'>Details</h1>
+                    <p>{readMore ? description : description?.slice(0, 120)}</p>
+                    <button className="btn text-blue-600 font-semibold mb-6" onClick={() => setReadMore(!readMore)}>
           {readMore ? "show less" : "  read more..."}
         </button>
+=======
+                    <h1 className='text-3xl font-bold text-green-800 mb-2'>Details</h1>
+                    <p>{readMore ? description : description?.slice(0, 120)}</p>
+                    <button className="btn text-green-800 font-bold mb-6" onClick={() => setReadMore(!readMore)}>
+                        {readMore ? "show less" : <><button>read more...</button></>}
+                    </button>
+>>>>>>> 3bb2a504158ce10bd05074255445d86e64dc63ae
                 </div>
 
                 {/* Where you will sleep & will be map */}
                 <div>
                     <h1 className='text-xl font-bold my-4'>Where you'll Sleep</h1>
-                    <div className='grid gap-4 grid-cols-3 p-4'>
+                    <div className='grid gap-4 grid-cols-1 md:grid-cols-3 p-4'>
                         <div style={{ border: "1px solid grey", borderRadius: ".5rem" }}>
                             <div className='p-4'>
                                 <FaBed className='h-12 w-12' />
@@ -135,18 +143,24 @@ const LeftSide = ({hotelData}) => {
                 {/* What this place offers */}
                 <div className='my-4'>
                     <h1 className='text-xl font-bold'>What this place offers</h1>
-                    <div className='grid grid-cols-2'>
+                    <div className='grid grid-cols-1 md:grid-cols-2'>
                         {
-                            offersData.map(offers =>
-                                <div className='flex my-2'>
+                            offersData.map((offers, index) =>
+                                <div key={index} className='flex my-2'>
                                     <div className='mx-4 mt-1'>{offers.icon}</div>
                                     <p>{offers.title}</p>
                                 </div>
                             )
                         }
                     </div>
-                    <div className='flex justify-center my-4' style={{ border: "1px solid grey", borderRadius: ".5rem", width: "25%" }}>
-                        <h1 ><Link className='text-green-800 hover:text-green-600 font-bold my-6'>Show all amenities</Link></h1>
+<<<<<<< HEAD
+                    <div className='flex justify-center my-4 border border-gray-400 rounded-lg w-full md:w-1/4' 
+=======
+                    <div className='flex justify-center my-4 border border-gray-400 rounded-lg'
+>>>>>>> 3bb2a504158ce10bd05074255445d86e64dc63ae
+                    // style={{ border: "1px solid grey", borderRadius: ".5rem", width: "25%" }}
+                    >
+                        <h1 ><Link className='text-blue-400 hover:text-blue-500 font-semibold my-6'>Show all amenities</Link></h1>
                     </div>
                 </div>
             </div>

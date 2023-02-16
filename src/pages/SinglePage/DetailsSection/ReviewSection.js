@@ -5,7 +5,7 @@ const ReviewSection = () => {
     return (
         <div>
             <h1 className='text-2xl font-bold my-6'>5.0 · 15 reviews</h1>
-            <div className='grid lg:grid-cols-2'>
+            <div className='grid lg:grid-cols-2 '>
                 <div>
                     <div className='flex w-full justify-around my-6'>
                         <div className='' style={{ width: "60%" }}>
@@ -84,7 +84,7 @@ const ReviewSection = () => {
                 </div>
             </div>
 
-            <div className='grid grid-cols-2 my-4'>
+            <div className='grid md:grid-cols-2 my-4'>
                 <div className='my-3'>
                     <div className='flex'>
                         <div className='mx-4'>
@@ -160,8 +160,10 @@ const ReviewSection = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex justify-center' style={{ border: "1px solid grey", borderRadius: ".5rem", width: "12%" }}>
-                <h1 ><Link className='text-green-800 hover:text-green-600 font-bold my-6'>Show all reviews</Link></h1>
+            <div className='flex justify-center border border-gray-400 rounded-lg md:w-2/12 w-1/2 md:mx-0 mx-auto' 
+            // style={{ border: "1px solid grey", borderRadius: ".5rem", width: "12%" }}
+            >
+                <h1 ><Link className='text-blue-400 hover:text-blue-500 font-semibold my-6'>Show all reviews</Link></h1>
             </div>
         </div>
     );

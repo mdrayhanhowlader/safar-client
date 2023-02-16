@@ -1,18 +1,18 @@
 import React from "react";
 import MultiRangeSlider from "./multiRangeSlider/MultiRangeSlider";
 
-const Range = ({priceRangeResource}) => {
-  const {setMin, setMax, refetch} = priceRangeResource;
+const Range = ({ priceRangeResource }) => {
+  const { setMin, setMax, refetch } = priceRangeResource;
   return (
     <div>
       {" "}
       <MultiRangeSlider
         min={50}
         max={200}
-        onChange={({ min, max }) => {
+        onClick={({ min, max }) => {
           setMin(min);
           setMax(max);
-          refetch()
+          refetch();
         }}
       />
     </div>

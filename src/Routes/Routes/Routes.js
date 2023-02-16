@@ -50,6 +50,9 @@ import MessageToSubscriber from "../../pages/Admin/AdminMessage/MessageToSubscri
 import PaymentsReceived from "../../pages/Admin/AdminFinance/PaymentsReceived/PaymentsReceived";
 import PayoutToOrganizer from "../../pages/Admin/AdminFinance/PayoutToOrganizer/PayoutToOrganizer";
 import RefundToCustomer from "../../pages/Admin/AdminFinance/RefundToCustomer/RefundToCustomer";
+import CheckoutPage from "../../pages/CheckoutPage/CheckoutPage";
+import RegisterGuide from "../../pages/Guides/RegisterGuide";
+import LoginGuide from "../../pages/Guides/LoginGuide";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -68,8 +71,8 @@ export const router = createBrowserRouter([
         element: <Login></Login>,
       },
       {
-        path: '/offers',
-        element: <OfferPage></OfferPage>
+        path: "/offers",
+        element: <OfferPage></OfferPage>,
       },
       {
         path: "/searchpage",
@@ -101,7 +104,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/modal",
-        element: <Modals/>,
+        element: <Modals />,
       },
       {
         path: "/faq",
@@ -116,6 +119,10 @@ export const router = createBrowserRouter([
         element: <Checkout />,
       },
       {
+        path: "/checkoutPage",
+        element: <CheckoutPage />,
+      },
+      {
         path: "/organizer",
         element: <BecomeOrganizer />,
       },
@@ -125,7 +132,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/orglogin",
-        element: <OrganizersLogin />
+        element: <OrganizersLogin />,
+      },
+      {
+        path: "/registerguide",
+        element: <RegisterGuide/>
+      },
+      {
+        path: "/loginguide",
+        element: <LoginGuide/>
       },
       {
         path: "/*",
@@ -167,74 +182,74 @@ export const router = createBrowserRouter([
     element: <AdminDashboard></AdminDashboard>,
     children: [
       {
-        path: '/dashboard/managehotel',
-        element: <ManageHotels></ManageHotels>
+        path: "/dashboard/managehotel",
+        element: <ManageHotels></ManageHotels>,
       },
       {
-        path: '/dashboard/pendingHotel',
-        element: <PendingHotels></PendingHotels>
+        path: "/dashboard/pendingHotel",
+        element: <PendingHotels></PendingHotels>,
       },
       {
-        path: '/dashboard/blockedhotel',
-        element: <BlockedHotels></BlockedHotels>
+        path: "/dashboard/blockedhotel",
+        element: <BlockedHotels></BlockedHotels>,
       },
       {
-        path:'/dashboard/allorders',
-        element:<AllOrders></AllOrders>
+        path: "/dashboard/allorders",
+        element: <AllOrders></AllOrders>,
       },
       {
-        path:'/dashboard/completedorders',
-        element:<CompletedOrders></CompletedOrders>
+        path: "/dashboard/completedorders",
+        element: <CompletedOrders></CompletedOrders>,
       },
       {
-        path:'/dashboard/canceledorders',
-        element:<CanceledOrders></CanceledOrders>
+        path: "/dashboard/canceledorders",
+        element: <CanceledOrders></CanceledOrders>,
       },
       {
-        path: '/dashboard/alladmin',
-        element: <AllAdmin></AllAdmin>
+        path: "/dashboard/alladmin",
+        element: <AllAdmin></AllAdmin>,
       },
       {
-        path: '/dashboard/editors',
-        element: <Editors></Editors>
+        path: "/dashboard/editors",
+        element: <Editors></Editors>,
       },
       {
-        path: '/dashboard/organizer',
-        element: <Organizer></Organizer>
+        path: "/dashboard/organizer",
+        element: <Organizer></Organizer>,
       },
       {
-        path: '/dashboard/allusers',
-        element: <AllUsers></AllUsers>
+        path: "/dashboard/allusers",
+        element: <AllUsers></AllUsers>,
       },
       {
-        path: '/dashboard/livechat',
-        element: <LiveChat></LiveChat>
+        path: "/dashboard/livechat",
+        element: <LiveChat></LiveChat>,
       },
       {
-        path: '/dashboard/toOrganizer',
-        element: <MessageToOrganizer></MessageToOrganizer>
+        path: "/dashboard/toOrganizer",
+        element: <MessageToOrganizer></MessageToOrganizer>,
       },
       {
-        path: '/dashboard/tocustomer',
-        element: <MessageToCustomer></MessageToCustomer>
+        path: "/dashboard/tocustomer",
+        element: <MessageToCustomer></MessageToCustomer>,
       },
       {
-        path: '/dashboard/tosubscriber',
-        element: <MessageToSubscriber></MessageToSubscriber>
+        path: "/dashboard/tosubscriber",
+        element: <MessageToSubscriber></MessageToSubscriber>,
       },
       {
-        path: '/dashboard/paymentreceived',
-        element: <PaymentsReceived></PaymentsReceived>
+        path: "/dashboard/paymentreceived",
+        element: <PaymentsReceived></PaymentsReceived>,
       },
       {
-        path: '/dashboard/payoutToOrganizer',
-        element: <PayoutToOrganizer></PayoutToOrganizer>
+        path: "/dashboard/payoutToOrganizer",
+        element: <PayoutToOrganizer></PayoutToOrganizer>,
       },
       {
-        path: '/dashboard/refundtocustomer',
-        element:<RefundToCustomer></RefundToCustomer>
+        path: "/dashboard/refundtocustomer",
+        element: <RefundToCustomer></RefundToCustomer>,
       },
-    ]
+    ],
   },
   // Seller Dashboard routes
   {
@@ -270,9 +285,9 @@ export const router = createBrowserRouter([
         element: <SellerOffer></SellerOffer>,
       },
       {
-        path: '/sellerdashboard/sellerprofile',
-        element: <SellerProfile></SellerProfile>
-      }
+        path: "/sellerdashboard/sellerprofile",
+        element: <SellerProfile></SellerProfile>,
+      },
     ],
   },
 ]);

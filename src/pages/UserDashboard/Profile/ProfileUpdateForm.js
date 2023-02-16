@@ -1,95 +1,101 @@
-import React, { useContext, useEffect } from "react";
+// import { useQuery } from "@tanstack/react-query";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
-const ProfileUpdateForm = ({editProfile, setEditProfile }) => {
-  const {user} = useContext(AuthContext)
-  
-  const {register, handleSubmit, reset, formState: { errors },} = useForm();
+const ProfileUpdateForm = ({ editProfile, setEditProfile, profilePicture, userInfo, refetch }) => {
+  const { user } = useContext(AuthContext)
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-
-    // get user 
-  useEffect(() => {
-    fetch(`https://safar-server-nasar06.vercel.app/users/get-single-user?email=${user?.email}`)
-    .then(res => res.json())
-    .then(data => {
-      console.log(data)
-    })
-  }, [user?.email])
+  // console.log(user)
 
   const handleProfileUpdate = data => {
-      console.log(data)
-      const editProfileData = {
-        about: data.about,
-        // language: data.language,
-        location: data.location,
-        work: data.work
+    console.log(data)
+    const editProfileData = {
+      name: data.name,
+      about: data.about,
+      location: data.location,
+      language: data.language,
+      work: data.work,
+      profile_img: profilePicture
+    }
+    console.log(editProfileData)
+    fetch(`https://safar-server-nasar06.vercel.app/users/update-user?email=${user?.email}`, {
+      method: "PUT",
+      headers: {
+        'content-type': 'application/json',
 
-      }
-      fetch(`https://safar-server-nasar06.vercel.app/users/update-user?email=${user?.email}`, {
-        method: "POST",
-        headers: {
-         'content-type': 'application/json',
-         
-        },
-        body: JSON.stringify(editProfileData)
-      })
+      },
+      body: JSON.stringify(editProfileData)
+    })
       .then(res => res.json())
       .then(data => {
         toast.success('user updated')
+        console.log(data)
+        refetch()
       })
-      console.log(editProfile)
-      reset()
   }
 
   return (
     <>
       <>
         <form onSubmit={handleSubmit(handleProfileUpdate)} action="">
-          <div className="py-4">
-            <label htmlFor="">About</label>
-            <textarea
-              className="mt-2 w-full border-2 border-slate-200 rounded-md"
-              name=""
+          <div>
+            <label htmlFor=""><small className="font-semibold">Full Name</small></label>
+            <input
+              className="w-full border-2 border-slate-200 rounded-md py-2"
+              type="text"
+              defaultValue={userInfo?.name ? userInfo?.name : ''}
+              name="name"
               id=""
+              {...register("name")}
+            />
+          </div>
+          <div className="py-4">
+            <label htmlFor=""><small className="font-semibold">About</small></label>
+            <textarea
+              className="w-full border-2 border-slate-200 rounded-md"
+              name="about"
+              defaultValue={userInfo?.about ? userInfo?.about : ''}
               rows="4"
               {...register("about")}
             ></textarea>
           </div>
           <div className="py-8">
-            <label htmlFor="">Location</label>
+            <label htmlFor=""><small className="font-semibold">Location</small></label>
             <input
-              className="mt-2 w-full border-2 border-slate-200 rounded-md py-2"
+              className="w-full border-2 border-slate-200 rounded-md py-2"
               placeholder="Your Location"
               type="text"
-              name=""
+              name="location"
+              defaultValue={userInfo?.location ? userInfo?.location : ''}
               id=""
               {...register("location")}
             />
           </div>
           <div className="py-4">
-            <p>Languages speak</p>
+            <p><small className="font-semibold">Languages speak</small></p>
             {/* <a className="underline" href="/">
               Add more
             </a> */}
             <input
-              className="mt-2 w-full border-2 border-slate-200 rounded-md py-2"
+              className="w-full border-2 border-slate-200 rounded-md py-2"
               placeholder="Languages speak"
               type="text"
-              name=""
+              name="language"
+              defaultValue={userInfo?.language ? userInfo.language : ''}
               id=""
               {...register("language")}
             />
           </div>
           <div>
-            <label htmlFor="">Work</label>
+            <label htmlFor=""><small className="font-semibold">Work</small></label>
             <input
-              className="mt-2 w-full border-2 border-slate-200 rounded-md py-2"
+              className="w-full border-2 border-slate-200 rounded-md py-2"
               type="text"
-              defaultValue="web developer"
-              readOnly
-              name=""
+              defaultValue={userInfo?.work ? userInfo?.work : ''}
+              name="work"
               id=""
               {...register("work")}
             />
@@ -100,7 +106,7 @@ const ProfileUpdateForm = ({editProfile, setEditProfile }) => {
             </div>
             <div>
               <input
-                className="py-2 px-6 rounded-md bg-black text-white cursor-pointer"
+                className="py-2 px-6 rounded-md bg-blue-500 text-white cursor-pointer"
                 type="submit"
                 value="Save"
               />

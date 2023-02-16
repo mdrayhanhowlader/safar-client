@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -32,6 +33,7 @@ const Footer = () => {
       // setShow(true);
       setEmail("");
       console.log("Email sent");
+      toast.success("you have subscribed successfully.");
     }
   };
 
@@ -39,7 +41,7 @@ const Footer = () => {
     <footer aria-label="Site Footer" className="bg-white">
       <div className="mx-auto max-w-screen-xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-md">
-          <strong className="block text-center text-xl font-medium text-gray-900 sm:text-3xl">
+          <strong className="block text-center text-xl font-medium text-blue-500 sm:text-3xl">
             Want us to email you with the latest blockbuster news?
           </strong>
 
@@ -62,7 +64,7 @@ const Footer = () => {
 
               <button
                 onClick={sendEmail}
-                className="absolute top-1/2 right-1 -translate-y-1/2 rounded-full bg-blue-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-700"
+                className="absolute top-1/2 right-1 -translate-y-1/2 rounded-r-full bg-blue-500 px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-600"
                 type="submit"
               >
                 Subscribe
@@ -74,9 +76,8 @@ const Footer = () => {
         <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-32">
           <div className="mx-auto max-w-sm lg:max-w-none">
             <p className="mt-4 text-center text-gray-500 lg:text-left lg:text-lg">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Praesentium natus quod eveniet aut perferendis distinctio iusto
-              repudiandae, provident velit earum?
+              Discover the world with us, as we turn your travel dreams into
+              unforgettable memories.
             </p>
 
             <div className="mt-6 flex justify-center gap-4 lg:justify-start">
@@ -208,6 +209,7 @@ const Footer = () => {
                 >
                   Become an organizer
                 </a>
+                <Link to='/registerguide'>Become a Guide</Link>
                 <a
                   className="text-gray-700 transition hover:text-gray-700/75"
                   href="/"
@@ -275,13 +277,14 @@ const Footer = () => {
           <p className="text-center text-xs leading-relaxed text-gray-500">
             © Company 2023. All rights reserved.
             <br />
-            Created with
+            Created with <span> </span>
             <Link
               href=""
               className="text-gray-700 underline transition hover:text-gray-700/75"
             >
               Safar
-            </Link>
+            </Link>{" "}
+            <span> </span>
             and
             <Link
               href=""
