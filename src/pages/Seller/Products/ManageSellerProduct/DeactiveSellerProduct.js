@@ -22,7 +22,7 @@ const DeactiveSellerProduct = ({
     queryKey: [hotelId],
     queryFn: async () => {
       const res = await fetch(
-        `https://safar-server-nasar06.vercel.app/rooms/get-deactivate-room/${hotelId}`
+        `https://safar-server-nasar06.vercel.app/rooms/get-deactivate-room/${user?.uid}`
       );
       const data = await res.json();
       // console.log(data);
