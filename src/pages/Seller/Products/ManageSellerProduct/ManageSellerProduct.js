@@ -26,13 +26,13 @@ const ManageSellerProduct = () => {
     queryKey: ["organizerRooms"],
     queryFn: async () => {
       const res = await fetch(
-        "https://safar-server-nasar06.vercel.app/rooms/get-all-rooms/9062086"
+        "https://safar-server-nasar06.vercel.app/rooms/get-all-rooms/"
       );
       const data = await res.json();
       return data;
     },
   });
-  // console.log(organizerRooms);
+  console.log(organizerRooms);
 
   return (
     <section className="mt-16">
