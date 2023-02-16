@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const RegisterForm = () => {
@@ -13,6 +13,8 @@ const RegisterForm = () => {
   } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+
 
   // const handleRegister = useCallback(data) => {
   //   console.log("hello");
@@ -28,6 +30,8 @@ const RegisterForm = () => {
 
           saveUser({ email: data.user.email });
           reset();
+          navigate('/myaccount/profile')
+
         })
         .catch((error) => {
           setError(error);

@@ -17,8 +17,8 @@ const SellerAllOrdersList = () => {
                 <th className="py-3 px-14 text-center">Action</th>
               </tr>
             </thead>
-            <tbody className="text-slate-900 text-sm font-medium">
-              <tr className="border-b my-6 border-gray-200 hover:bg-blue-500  hover:shadow-3xl hover:shadow-blue-400 hover:text-slate-50">
+            <tbody className="text-slate-900 w-full border-2  text-sm font-medium">
+              <tr className="border-b     border-gray-200 hover:bg-blue-500  hover:shadow-3xl hover:shadow-blue-400 hover:text-slate-50">
                 <td className="py-3 px-14 text-left whitespace-nowrap">
                   <div className="flex items-center">
                     <div className="mr-2">
