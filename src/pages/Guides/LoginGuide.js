@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
-import loginImage from '../../assets/traveller_login.png'
+import loginImage from '../../assets/guide-reg_adobe_express.svg'
 import { AuthContext } from '../../contexts/AuthProvider';
 import Navbar from '../Shared/Navbar/Navbar';
 
@@ -39,7 +39,7 @@ const LoginGuide = () => {
 
        <div>
         <Navbar/>
-         <section className="flex flex-wrap lg:h-screen lg:items-center ">
+         <section className="flex flex-wrap lg:items-center ">
             <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
                 <div className="mx-auto max-w-lg text-center">
                     <h1 className="text-2xl font-bold sm:text-3xl">Login</h1>
@@ -62,7 +62,7 @@ const LoginGuide = () => {
 
                     <div>
                         <label htmlFor="password" className="sr-only">Password</label>
-                        <div className="relative">
+                        <div className="">
                             <input
                                 {...register("password", { required: true, minLength: 6 })}
                                 type="password"
@@ -97,7 +97,7 @@ const LoginGuide = () => {
                 <img
                     alt="Welcome"
                     src={loginImage}
-                    className=" inset-0 h-full w-full object-cover"
+                    className=" inset-0 w-full object-cover"
                 />
             </div>
         </section>
