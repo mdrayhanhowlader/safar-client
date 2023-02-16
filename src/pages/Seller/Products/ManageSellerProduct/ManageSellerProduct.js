@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../../contexts/AuthProvider";
 import ActiveSellerProduct from "./ActiveSellerProduct";
 import DeactiveSellerProduct from "./DeactiveSellerProduct";
+import DeleteSellerProduct from "./DeleteSellerProduct";
 import ManageSellerProductNav from "./ManageSellerProductNav";
 
 const ManageSellerProduct = () => {
@@ -63,6 +64,14 @@ const ManageSellerProduct = () => {
           handleSubMenu={handleSubMenu}
           organizerRooms={organizerRooms}
         ></DeactiveSellerProduct>
+      )}
+      {isActive === "delete" && (
+        <DeleteSellerProduct
+          submenu={submenu}
+          setSubmenu={setSubmenu}
+          handleSubMenu={handleSubMenu}
+          organizerRooms={organizerRooms}
+        ></DeleteSellerProduct>
       )}
     </section>
   );

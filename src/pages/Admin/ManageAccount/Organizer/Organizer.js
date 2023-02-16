@@ -1,7 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
+import useTitle from "../../../../hooks/useTitle";
 
 const Organizer = () => {
+  useTitle('All Organizers');
   const [submenu, setSubmenu] = useState(false);
 
   const {data: organizers, isLoading, refetch} = useQuery({

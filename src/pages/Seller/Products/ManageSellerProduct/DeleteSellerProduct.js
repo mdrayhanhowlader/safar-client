@@ -1,10 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useCallback, useContext, useState } from "react";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../contexts/AuthProvider";
 import { ThreeDots } from "react-loader-spinner";
 
-const DeactiveSellerProduct = ({
+const DeleteSellerProduct = ({
   submenu,
   setSubmenu,
   handleSubMenu,
@@ -23,7 +22,7 @@ const DeactiveSellerProduct = ({
     queryKey: [hotelId],
     queryFn: async () => {
       const res = await fetch(
-        `https://safar-server-nasar06.vercel.app/rooms/get-deactivate-room/${user?.uid}`
+        `https://safar-server-nasar06.vercel.app/rooms/get-delete-room/zyqiNpZwkBetGeu2GpsVcsuoSib2/${user?.uid}`
       );
       const data = await res.json();
       // console.log(data);
@@ -33,19 +32,6 @@ const DeactiveSellerProduct = ({
 
   // console.log(deactiveRooms);
 
-  const handleActiveProduct = useCallback((id) => {
-    setReload(id);
-    fetch(
-      `https://safar-server-nasar06.vercel.app/rooms/deactivate-room/${id}`,
-      {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-        },
-        // body: JSON.stringify({ status: "active" }),
-      }
-    );
-  }, []);
   return (
     <div>
       <div className="rounded-md border border-gray-50 mr-2 mt-5">
@@ -146,15 +132,7 @@ const DeactiveSellerProduct = ({
                       {submenu === room?.rooms_no && (
                         <div className="z-10 absolute right-0 shadow-md ">
                           <ul>
-                            <li
-                              className="py-2 px-4 text-center hover:bg-blue-500 hover:text-white rounded-md cursor-pointer"
-                              onClick={() =>
-                                handleActiveProduct(room?.rooms_no)
-                              }
-                            >
-                              Active
-                            </li>
-                            <li className="py-2 px-4 text-center hover:bg-blue-500 hover:text-white rounded-md">
+                            <li className="py-2 px-4 text-center hover:bg-blue-500 hover:text-white rounded-md cursor-pointer">
                               Delete
                             </li>
                           </ul>
@@ -172,4 +150,4 @@ const DeactiveSellerProduct = ({
   );
 };
 
-export default DeactiveSellerProduct;
+export default DeleteSellerProduct;

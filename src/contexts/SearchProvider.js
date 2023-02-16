@@ -2,8 +2,6 @@ import React, { createContext, useEffect, useReducer, useState } from "react";
 import HeaderSearch from "../pages/Home/HeaderSearch/HeaderSearch";
 import OfferPage from "../pages/OfferPage/OfferPage";
 
-
-
 const InitialState = {
   destination: JSON.parse(localStorage.getItem("destination")),
   dates: JSON.parse(localStorage.getItem("dates")),

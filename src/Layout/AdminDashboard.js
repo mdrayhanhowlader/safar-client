@@ -4,8 +4,9 @@ import {
   FaBox,
   FaCheck,
   FaDollarSign,
-  FaEnvelope,
   FaHandHoldingUsd,
+  FaHome,
+  FaHourglassHalf,
   FaPager,
   FaUikit,
 } from "react-icons/fa";
@@ -13,15 +14,15 @@ import {
   HiChat,
   HiChatAlt,
   HiChatAlt2,
-  HiCheck,
   HiOutlineCurrencyDollar,
+  HiOutlineHome,
   HiOutlineMail,
   HiOutlineShoppingBag,
   HiOutlineShoppingCart,
-  HiUserGroup,
+  HiUserGroup, 
 } from "react-icons/hi";
 import { Link, Outlet } from "react-router-dom";
-import { HiHomeModern, HiOutlineBuildingStorefront } from "react-icons/hi2";
+import useTitle from "../hooks/useTitle";
 import DashboardNab from "../pages/Shared/Navbar/DashboardNab";
 import "./Dashboard.css";
 import { FcCancel } from "react-icons/fc";
@@ -33,7 +34,7 @@ const AdminDashboard = () => {
   const [accountSubmenu, setAccountSubmenu] = useState(false);
   const [financeSubmenu, setFinanceSubmenu] = useState(false);
   const [messageSubmenu, setMessageSubmenu] = useState(false);
-
+ useTitle('Dashboard')
   return (
     <div>
       <DashboardNab></DashboardNab>
@@ -72,7 +73,7 @@ const AdminDashboard = () => {
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                         >
                           <span className="inline-flex justify-center items-center ml-8">
-                            <HiOutlineBuildingStorefront></HiOutlineBuildingStorefront>
+                           <FaHome></FaHome>
                           </span>
 
                           <span className="ml-2 text-black font-bold text-sm tracking-wide truncate ">
@@ -91,7 +92,8 @@ const AdminDashboard = () => {
                                 className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                               >
                                 <span className="inline-flex justify-center items-center ml-8">
-                                  <HiHomeModern></HiHomeModern>
+                                  
+                                  <HiOutlineHome></HiOutlineHome>
                                 </span>
                                 <span className="ml-2 text-sm tracking-wide truncate text-black font-bold">
                                   Manage Hotels
@@ -104,7 +106,7 @@ const AdminDashboard = () => {
                                 className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                               >
                                 <span className="inline-flex justify-center items-center ml-8">
-                                  <HiHomeModern></HiHomeModern>
+                                  <FaHourglassHalf></FaHourglassHalf>
                                 </span>
                                 <span className="ml-2 text-sm tracking-wide truncate text-black font-bold">
                                   Pending Hotel

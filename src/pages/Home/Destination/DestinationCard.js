@@ -1,10 +1,13 @@
 import React from "react";
 import { FaMapMarkerAlt, FaRegHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useTitle from "../../../hooks/useTitle";
 
 const DestinationCard = ({ data }) => {
   const { hotel_name, regular_price, offer_price, images, location, hotel_id } =
     data;
+    
+    useTitle(location[0]?.city)
   return (
     <div>
       <div className="grid lg:grid-cols-3 border">

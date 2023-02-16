@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import regGuide from '../../assets/safar logo/guide-gif.gif';
 import Navbar from '../Shared/Navbar/Navbar';
+import useTitle from '../../hooks/useTitle';
 
 const RegisterGuide = () => {
     const { createUser } = useContext(AuthContext);
@@ -55,7 +56,7 @@ const RegisterGuide = () => {
                     role: 'guide',
                 }
 
-                fetch("http://localhost:5000/users/guide", {
+                fetch("https://safar-server-nasar06.vercel.app/users/guide", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
@@ -81,6 +82,7 @@ const RegisterGuide = () => {
 
             })
     }
+    useTitle('Guide-Reg');
 
     return (
         <div>

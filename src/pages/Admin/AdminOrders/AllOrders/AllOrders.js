@@ -2,8 +2,10 @@ import React from "react";
 import { AiTwotoneSetting } from "react-icons/ai";
 
 
+import useTitle from '../../../../hooks/useTitle';
 
 const AllOrders = () => {
+    useTitle('All Orders');
     return (
         <div>
             <div className="w-full">

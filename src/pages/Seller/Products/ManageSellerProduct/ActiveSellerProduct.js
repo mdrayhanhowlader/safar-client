@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import { Link } from "react-router-dom";
+import { ThreeDots } from "react-loader-spinner";
 
 const ActiveSellerProduct = ({
   isLoading,
@@ -19,6 +20,17 @@ const ActiveSellerProduct = ({
         body: JSON.stringify({ status: "deactive" }),
       }
     );
+  }, []);
+
+  const handleDeleteProduct = useCallback((id) => {
+    // setReload(id);
+    fetch(` https://safar-server-nasar06.vercel.app/rooms/delete-room/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      // body: JSON.stringify({ status: "active" }),
+    });
   }, []);
   return (
     <div>
@@ -53,7 +65,18 @@ const ActiveSellerProduct = ({
             {isLoading ? (
               <tr>
                 <td>
-                  <span>Loading...</span>
+                  <span>
+                    <ThreeDots
+                      height="80"
+                      width="80"
+                      radius="9"
+                      color="orange"
+                      ariaLabel="three-dots-loading"
+                      wrapperStyle={{}}
+                      wrapperClassName=""
+                      visible={true}
+                    />
+                  </span>
                 </td>
               </tr>
             ) : (
@@ -118,7 +141,12 @@ const ActiveSellerProduct = ({
                             >
                               Deactive
                             </li>
-                            <li className="py-2 px-4 text-center text-red-700 hover:bg-blue-500 hover:text-white rounded-md cursor-pointer">
+                            <li
+                              className="py-2 px-4 text-center text-red-700 hover:bg-blue-500 hover:text-white rounded-md cursor-pointer"
+                              onClick={() =>
+                                handleDeleteProduct(room?.rooms_no)
+                              }
+                            >
                               Delete
                             </li>
                           </ul>

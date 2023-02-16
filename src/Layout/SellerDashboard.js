@@ -25,6 +25,7 @@ import DashboardNab from "../pages/Shared/Navbar/DashboardNab";
 import { MdOutlineFreeCancellation, MdOutlineStarRate } from "react-icons/md";
 
 const SellerDashboard = () => {
+  useState('Seller Dashboard');
   const [productsSubmenu, setProductsSubmenu] = useState(false);
   const [ordersSubMenu, setOrdersSubmenu] = useState(false);
   const [promotionSubmenu, setPromotionSubmenu] = useState(false);
