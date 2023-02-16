@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../contexts/AuthProvider';
-import tourism from '../../../../assets/tourism.jpg'
+import travel from '../../../../assets/travel.gif'
 
 const BecomeOrganizer = () => {
     const { createUser } = useContext(AuthContext);
@@ -46,13 +46,12 @@ const BecomeOrganizer = () => {
 
     return (
 
-        <section className="relative flex flex-wrap bg-[#e9ebff] lg:h-screen lg:items-center">
+        <section className="relative flex flex-wrap bg-blue-50 lg:h-screen lg:items-center">
             <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
                 <div className="mx-auto max-w-lg text-center">
                     <h1 className="text-2xl font-bold sm:text-3xl">Become an Organizer</h1>
                     <p className="mt-4 text-gray-500">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero nulla
-                        eaque error neque ipsa culpa autem, at itaque nostrum!
+                        Please signup for your contribution in our services. Provide a valid mail and a strong password.
                     </p>
                 </div>
 
@@ -85,9 +84,9 @@ const BecomeOrganizer = () => {
                     </div>
 
                     <div className="flex items-center justify-between">
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-blue-500">
                             Already have an account?
-                            <Link to="/orglogin" className="underline"> SignIn</Link>
+                            <Link to="/orglogin" className="font-semibold"> SignIn</Link>
                         </p>
 
                         <button
@@ -101,10 +100,10 @@ const BecomeOrganizer = () => {
                 </form>
             </div>
 
-            <div className="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
+            <div className="relative h-64 w-full sm:h-96 hidden lg:block md:block lg:h-full lg:w-1/2">
                 <img
                     alt="Welcome"
-                    src={tourism}
+                    src={travel}
                     className="absolute inset-0 h-full w-full object-cover"
                 />
             </div>

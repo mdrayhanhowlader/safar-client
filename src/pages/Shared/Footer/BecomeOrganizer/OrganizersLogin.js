@@ -25,10 +25,10 @@ const OrganizersLogin = () => {
 
     return (
 
-        <section className="relative flex flex-wrap lg:h-screen lg:items-center bg-sky-100">
+        <section className="relative flex flex-wrap lg:h-screen lg:items-center bg-sky-50">
             <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
                 <div className="mx-auto max-w-lg text-center">
-                    <h1 className="text-2xl font-bold sm:text-3xl">Become an Organizer</h1>
+                    <h1 className="text-2xl font-bold sm:text-3xl">Login as an organizer</h1>
 
                     <p className="mt-4 text-gray-500">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero nulla
@@ -65,9 +65,9 @@ const OrganizersLogin = () => {
                     </div>
 
                     <div className="flex items-center justify-between">
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-blue-500">
                             Haven't an account?
-                            <Link to="/organizer" className="underline"> SignUp</Link>
+                            <Link to="/organizer" className="font-semibold">   SignUp</Link>
                         </p>
 
                         <button

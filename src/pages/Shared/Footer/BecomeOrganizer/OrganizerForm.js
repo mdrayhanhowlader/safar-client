@@ -56,7 +56,6 @@ const OrganizerForm = () => {
     const handleClose = () => {
         setRoom(false)
     }
-
     const onSubmit = (data) => {
 
         const organizer = {
@@ -106,9 +105,6 @@ const OrganizerForm = () => {
                     reset()
                 }
                 navigate('/sellerdashboard')
-                // data.reset()
-
-
             })
             .catch(err => console.error(err))
 
@@ -153,7 +149,7 @@ const OrganizerForm = () => {
                                         name="facility"
                                     />
                                 </div>
-                                <button className="bg-black py-[6px] text-white px-4 rounded-md" type="submit"><small>Add</small></button>
+                                <button className="bg-blue-500 py-[6px] text-white px-4 rounded-md" type="submit"><small>Add</small></button>
                             </form>
 
                             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 my-3">
@@ -185,7 +181,7 @@ const OrganizerForm = () => {
                                 />
                             </div>
                             <button
-                                className="bg-black py-[6px] text-white px-4 rounded-md"
+                                className="bg-blue-500 py-[6px] text-white px-4 rounded-md"
                                 type="submit"
                             >
                                 <small> Add</small>
@@ -453,7 +449,7 @@ const OrganizerForm = () => {
                             </div>
                             <div className="col-span-6">
                                 <button
-                                    className="block w-full rounded-md bg-black p-2.5 text-sm text-white transition hover:shadow-lg"
+                                    className="block w-full rounded-md bg-blue-500 p-2.5 text-sm text-white transition hover:shadow-lg"
                                 >
                                     Submit
                                 </button>
