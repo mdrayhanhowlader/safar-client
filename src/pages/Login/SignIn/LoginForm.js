@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const LoginForm = () => {
@@ -14,6 +14,7 @@ const LoginForm = () => {
   } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   // const handleRegister = useCallback(data) => {
   //   console.log("hello");
@@ -42,7 +43,9 @@ const LoginForm = () => {
             console.err(err);
           });
         toast.success("login successfully done");
-        reset();
+        reset()
+        navigate('/')
+
       });
       //  const user = await authUser;
 

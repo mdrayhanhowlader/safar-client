@@ -52,6 +52,8 @@ import PayoutToOrganizer from "../../pages/Admin/AdminFinance/PayoutToOrganizer/
 import RefundToCustomer from "../../pages/Admin/AdminFinance/RefundToCustomer/RefundToCustomer";
 import CheckoutPage from "../../pages/CheckoutPage/CheckoutPage";
 import SellerChat from "../../pages/Seller/SellerChat/SellerChat";
+import RegisterGuide from "../../pages/Guides/RegisterGuide";
+import LoginGuide from "../../pages/Guides/LoginGuide";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -132,6 +134,14 @@ export const router = createBrowserRouter([
       {
         path: "/orglogin",
         element: <OrganizersLogin />,
+      },
+      {
+        path: "/registerguide",
+        element: <RegisterGuide/>
+      },
+      {
+        path: "/loginguide",
+        element: <LoginGuide/>
       },
       {
         path: "/*",

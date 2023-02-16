@@ -34,7 +34,7 @@ const FAQ = () => {
                     {
                         data.map(acc =>
                             <details
-                                className="group border-l-4 border-green-500 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden"
+                                className="group border-l-4 border-blue-500 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden"
                                 open
                             >
                                 <summary className="flex items-center justify-between cursor-pointer">

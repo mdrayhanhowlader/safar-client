@@ -1,16 +1,21 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../../contexts/AuthProvider";
+import ActiveSellerProduct from "./ActiveSellerProduct";
+import DeactiveSellerProduct from "./DeactiveSellerProduct";
+import ManageSellerProductNav from "./ManageSellerProductNav";
 
 const ManageSellerProduct = () => {
+  const [isActive, isSetActive] = useState("active");
+
   const [submenu, setSubmenu] = useState(0);
   const { user } = useContext(AuthContext);
 
   //handel edit product
   const handleSubMenu = (id) => {
-    if(id === submenu){
-      setSubmenu(!submenu)
-    } 
+    if (id === submenu) {
+      setSubmenu(!submenu);
+    }
   };
 
   const {
@@ -21,149 +26,44 @@ const ManageSellerProduct = () => {
     queryKey: ["organizerRooms"],
     queryFn: async () => {
       const res = await fetch(
-        "https://safar-server-nasar06.vercel.app/rooms/get-all-rooms/9062086"
+        "https://safar-server-nasar06.vercel.app/rooms/get-all-rooms/"
       );
       const data = await res.json();
       return data;
     },
   });
+  console.log(organizerRooms);
 
   return (
-    <section className="py-4">
-      <h2 className="text-3xl">My Rooms</h2>
-      {/* product table  */}
-      <div className="rounded-lg border border-gray-200 mr-2 mt-5">
-        <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
-          <thead className="bg-gray-50">
-            <tr>
-              <th className="px-6 py-4">
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
-              </th>
-              <th scope="col" className="px-6 py-4 font-medium text-gray-900">
-                Product
-              </th>
-              <th scope="col" className="px-6 py-4 font-medium text-gray-900">
-                Title
-              </th>
-              <th scope="col" className="px-6 py-4 font-medium text-gray-900">
-                Product/SKU
-              </th>
-              <th scope="col" className="px-6 py-4 font-medium text-gray-900">
-                Price
-              </th>
-              <th scope="col" className="px-6 py-4 font-medium text-gray-900">
-                Stock
-              </th>
-              <th scope="col" className="px-6 py-4 font-medium text-gray-900">
-                Date
-              </th>
-              <th scope="col" className="px-6 py-4 font-medium text-gray-900">
-                Actions
-              </th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-100 border-t border-gray-100">
-            {isLoading ? (
-              <tr>
-                <td>
-                  <span>Loading...</span>
-                </td>
-              </tr>
-            ) : (
-              organizerRooms.map((room) => (
-                <tr key={room._id} className="hover:bg-gray-50">
-                  <td className="px-6 py-4">
-                    <label>
-                      <input type="checkbox" className="checkbox" />
-                    </label>
-                  </td>
-                  <th className="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                    <div className="relative h-12 w-12">
-                      <img
-                        className="h-full w-full rounded-md object-cover object-center"
-                        src={room.images[0].url}
-                        alt=""
-                      />
-                      <span className="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                    </div>
-                    <div className="text-sm">
-                      <div className="text-gray-400">Product live link</div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">
-                    <span className="inline-flex items-center gap-1   px-2 py-1 text-sm font-semibold">
-                      {room.name}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4">
-                    <span className="inline-flex items-center gap-1   px-2 py-1 text-sm font-semibold">
-                      {room.room_no}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4">
-                    <span className="inline-flex items-center gap-1   px-2 py-1 text-sm font-semibold">
-                      {room.price}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4">
-                    <span className="inline-flex items-center gap-1   px-2 py-1 text-sm font-semibold">
-                      {room.sleep}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4">
-                    <span className="inline-flex items-center gap-1   px-2 py-1 text-sm font-semibold">
-                      10-02-2023
-                    </span>
-                  </td>
-
-                  <td className="px-6 py-4">
-                    <div className="relative">
-                      <p
-                       
-                        onClick={()=>setSubmenu(room?.rooms_no) & handleSubMenu(room?.rooms_no)}
-                        className="font-xxl font-bold cursor-pointer "
-                      >
-                        More
-                      </p>
-                      {submenu === room?.rooms_no && (
-                        <div
-                          // className={`${
-                          //   submenu === room.room_no ? "visible" : "hidden"
-                          // } z-10 absolute right-0 bg-white shadow-md `}
-                          className="z-10 absolute right-0 bg-white shadow-md "
-                        >
-                          <ul>
-                            <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md">
-                              <a href="/">Active</a>
-                            </li>
-                            <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md">
-                              <a href="/">Deactivate</a>
-                            </li>
-                            <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md">
-                              <a href="/">Delete</a>
-                            </li>
-                          </ul>
-                        </div>
-                      ) }
-                    </div>
-
-                    {/* <div className="flex justify-end gap-4">
-                      <a href="/">
-                        <FaTrashAlt className="h-4 w-4"></FaTrashAlt>
-                      </a>
-                      <a href="/">
-                        <HiPencilAlt className="h-4 w-4"></HiPencilAlt>
-                      </a>
-                    </div> */}
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+    <section className="mt-16">
+      <h2 className="w-11/12 mx-auto text-xl font-semibold">Rooms</h2>
+      <div className="w-11/12 mx-auto mt-8">
+        <ManageSellerProductNav
+          isActive={isActive}
+          isSetActive={isSetActive}
+        ></ManageSellerProductNav>
       </div>
+      {/* product table  */}
+      {isActive === "active" && (
+        <div>
+          <ActiveSellerProduct
+            isLoading={isLoading}
+            submenu={submenu}
+            setSubmenu={setSubmenu}
+            handleSubMenu={handleSubMenu}
+            organizerRooms={organizerRooms}
+          ></ActiveSellerProduct>
+        </div>
+      )}
+
+      {isActive === "deactive" && (
+        <DeactiveSellerProduct
+          submenu={submenu}
+          setSubmenu={setSubmenu}
+          handleSubMenu={handleSubMenu}
+          organizerRooms={organizerRooms}
+        ></DeactiveSellerProduct>
+      )}
     </section>
   );
 };

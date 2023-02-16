@@ -22,7 +22,7 @@ const Banner = () => {
             <h1 className="text-2xl mt-5 font-serif">SAFAR</h1>
           </div>
           <div className="flex items-center mt-4 mx-4 lg:mt-0">
-            {user?.uid && (
+            {user?.uid ?
               <div className="relative">
                 {/* sub menu  */}
                 <div className={`${submenu ? "visible" : "hidden"}`}>
@@ -43,7 +43,11 @@ const Banner = () => {
                   }
                 </button>
               </div>
-            )}
+              :
+              <Link to="/login">
+              <button className="text-white bg-blue-400 hover:bg-blue-500 px-3 py-1 rounded-lg">Login</button>
+              </Link>
+              }
           </div>
         </div>
         <div className="flex items-center justify-center">
