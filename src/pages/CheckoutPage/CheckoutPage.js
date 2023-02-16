@@ -13,9 +13,9 @@ const CheckoutPage = () => {
           <div className="bg-white rounded  col-span-7">
             {/* <!-- Order Summary  --> */}
             <div>
-              <h3 className="text-xl mt-4 font-bold p-8">Order Summary</h3>
+              <h3 className="text-xl text-center mt-4 font-bold">Order Summary</h3>
               {/* <!--     BOX     --> */}
-              <div className="border w-full rounded mt-5 flex p-4 justify-between items-center flex-wrap">
+              <div className="border w-full rounded mt-5 p-4 flex justify-between items-center flex-wrap">
                 <div className="w-2/3">
                   <h3 className="text-lg font-medium">
                     APPAYAN GUEST HOUSE BARIDHARA
@@ -28,8 +28,8 @@ const CheckoutPage = () => {
                   </h4>
                 </div>
                 <div>
-                  <h4 className="text-3xl font-medium">
-                    <sup className="text-lg text-blue-500">$</sup> 89
+                  <h4 className="text-xl font-medium">
+                    <sup className="text-blue-500">$</sup> 89
                   </h4>
                   <h5 className="text-sm font-bold text-blue-500">60% OFF</h5>
                 </div>
@@ -69,8 +69,8 @@ const CheckoutPage = () => {
                   </h4>
                 </div>
                 <div>
-                  <h4 className="text-3xl font-medium">
-                    <sup className="text-lg text-blue-500">$</sup> 20
+                  <h4 className="text-xl font-medium">
+                    <sup className="text-blue-500">$</sup> 20
                   </h4>
                   <h5 className="text-sm font-bold text-blue-500">40% OFF</h5>
                 </div>
@@ -94,9 +94,11 @@ const CheckoutPage = () => {
                 </div>
               </div>
             </div>
-            <button className="px-4 py-4 bg-blue-500 text-white w-full mt-3 rounded shadow font-bold hover:bg-blue-600">
-              PROCEED TO CHECKOUT SCREEN
-            </button>
+            <div className="w-1/2 mx-auto">
+              <button className="py-2 px-2 mx-4 bg-blue-500 text-white mt-3 rounded shadow font-bold hover:bg-blue-600">
+                PROCEED TO CHECKOUT
+              </button>
+            </div>
           </div>
           <div className="flex justify-between flex-wrap col-span-5">
             <div className="bg-white rounded  w-full">
