@@ -14,7 +14,8 @@ import {
   FaBullhorn,
   FaClipboardList,
   FaBoxOpen,
-  FaFileInvoiceDollar
+  FaFileInvoiceDollar,
+  FaUserEdit
 } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { FcCancel } from "react-icons/fc";
@@ -341,6 +342,9 @@ const SellerDashboard = () => {
                           to='/sellerdashboard/sellerprofile'
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-black hover:text-white border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
                         >
+                          <span className="inline-flex justify-center items-center ml-4">
+                            <FaUserEdit className="w-4 mx-2 h-4"></FaUserEdit>
+                          </span>
                           <span className="md:ml-4 text-sm tracking-wide truncate">
                             My Profile
                           </span>

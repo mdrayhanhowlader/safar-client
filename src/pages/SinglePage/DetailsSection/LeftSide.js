@@ -91,19 +91,11 @@ const LeftSide = ({ hotelData }) => {
                 </div>
 
                 <div style={{ borderBottom: "1px solid grey" }}>
-<<<<<<< HEAD
-                <h1 className='text-3xl font-semibold text-blue-600 mb-2'>Details</h1>
-                    <p>{readMore ? description : description?.slice(0, 120)}</p>
-                    <button className="btn text-blue-600 font-semibold mb-6" onClick={() => setReadMore(!readMore)}>
-          {readMore ? "show less" : "  read more..."}
-        </button>
-=======
                     <h1 className='text-3xl font-bold text-green-800 mb-2'>Details</h1>
                     <p>{readMore ? description : description?.slice(0, 120)}</p>
                     <button className="btn text-green-800 font-bold mb-6" onClick={() => setReadMore(!readMore)}>
                         {readMore ? "show less" : <><button>read more...</button></>}
                     </button>
->>>>>>> 3bb2a504158ce10bd05074255445d86e64dc63ae
                 </div>
 
                 {/* Where you will sleep & will be map */}
@@ -153,11 +145,7 @@ const LeftSide = ({ hotelData }) => {
                             )
                         }
                     </div>
-<<<<<<< HEAD
-                    <div className='flex justify-center my-4 border border-gray-400 rounded-lg w-full md:w-1/4' 
-=======
                     <div className='flex justify-center my-4 border border-gray-400 rounded-lg'
->>>>>>> 3bb2a504158ce10bd05074255445d86e64dc63ae
                     // style={{ border: "1px solid grey", borderRadius: ".5rem", width: "25%" }}
                     >
                         <h1 ><Link className='text-blue-400 hover:text-blue-500 font-semibold my-6'>Show all amenities</Link></h1>

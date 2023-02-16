@@ -8,7 +8,7 @@ const SellerProfile = () => {
   // console.log(user.email)
 
   const { data: organizerInfo } = useQuery({
-    queryKey: ['organizerInfo'],
+    queryKey: ['organizerInfo', user?.email],
     queryFn: async () => {
       const res = await fetch(`https://safar-server-nasar06.vercel.app/destination/get-hotel-details?email=${user?.email}`);
       const data = await res.json();
@@ -16,7 +16,7 @@ const SellerProfile = () => {
       return data;
     }
   })
-  // console.log(orgInfo)
+  console.log(organizerInfo)
 
   const handleSubmit = (event) => {
     event.preventDefault();
