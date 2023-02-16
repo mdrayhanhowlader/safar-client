@@ -51,6 +51,7 @@ import PaymentsReceived from "../../pages/Admin/AdminFinance/PaymentsReceived/Pa
 import PayoutToOrganizer from "../../pages/Admin/AdminFinance/PayoutToOrganizer/PayoutToOrganizer";
 import RefundToCustomer from "../../pages/Admin/AdminFinance/RefundToCustomer/RefundToCustomer";
 import CheckoutPage from "../../pages/CheckoutPage/CheckoutPage";
+import SellerChat from "../../pages/Seller/SellerChat/SellerChat";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -278,6 +279,10 @@ export const router = createBrowserRouter([
         path: "/sellerdashboard/sellerprofile",
         element: <SellerProfile></SellerProfile>,
       },
+      {
+        path: "/sellerdashboard/sellerchat",
+        element: <SellerChat></SellerChat>
+      }
     ],
   },
 ]);
