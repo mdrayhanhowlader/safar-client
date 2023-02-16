@@ -9,7 +9,7 @@ import Security from "./Security";
 
 const ManageAccount = () => {
   return (
-    <section className="container mx-auto">
+    <section className="container mx-auto p-4">
       {/* section title  */}
       <div className="py-8">
         <h2 className="text-4xl font-bold">Account settings</h2>

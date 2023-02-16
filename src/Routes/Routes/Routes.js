@@ -50,6 +50,7 @@ import MessageToSubscriber from "../../pages/Admin/AdminMessage/MessageToSubscri
 import PaymentsReceived from "../../pages/Admin/AdminFinance/PaymentsReceived/PaymentsReceived";
 import PayoutToOrganizer from "../../pages/Admin/AdminFinance/PayoutToOrganizer/PayoutToOrganizer";
 import RefundToCustomer from "../../pages/Admin/AdminFinance/RefundToCustomer/RefundToCustomer";
+import CheckoutPage from "../../pages/CheckoutPage/CheckoutPage";
 import RegisterGuide from "../../pages/Guides/RegisterGuide";
 import LoginGuide from "../../pages/Guides/LoginGuide";
 export const router = createBrowserRouter([
@@ -116,6 +117,10 @@ export const router = createBrowserRouter([
       {
         path: "/checkout",
         element: <Checkout />,
+      },
+      {
+        path: "/checkoutPage",
+        element: <CheckoutPage />,
       },
       {
         path: "/organizer",
@@ -281,7 +286,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/sellerdashboard/sellerprofile",
-        element: <SellerProfile></SellerProfile>
+        element: <SellerProfile></SellerProfile>,
       },
     ],
   },

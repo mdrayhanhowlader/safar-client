@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
@@ -7,7 +7,7 @@ import { MdLocationPin } from "react-icons/md";
 import { BsCalendar3 } from "react-icons/bs";
 import { FaRegUser } from "react-icons/fa";
 import "./HeaderSearch.css";
-// import { SearchContext } from "../../../contexts/SearchProvider";
+import { SearchContext } from "../../../contexts/SearchProvider";
 import { useNavigate } from "react-router-dom";
 
 const HeaderSearch = () => {
@@ -27,11 +27,24 @@ const HeaderSearch = () => {
     room: 1,
   });
 
-  // const { dispatch } = useContext(SearchContext);
+  const { dispatch } = useContext(SearchContext);
   const navigate = useNavigate();
+  const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
+  function dayDifference(date1, date2) {
+    const timeDiff = Math.abs(date2.getTime() - date1.getTime());
+    const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
+    return diffDays;
+  }
+
+  const days = dayDifference(dates[0].endDate, dates[0].startDate);
+
 
   const handleSearch = () => {
-    // dispatch({type: 'NEW_SEARCH', payload: (destination, dates, options)});
+    
+    localStorage.setItem("destination", JSON.stringify(destination));
+    localStorage.setItem("days", JSON.stringify(days));
+    localStorage.setItem("options", JSON.stringify(options));
+    dispatch({type: 'NEW_SEARCH', payload: (destination, days, options)});
     navigate("/searchpage", { state: { destination, dates, options } });
   };
 

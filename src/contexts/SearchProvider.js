@@ -5,10 +5,17 @@ import OfferPage from "../pages/OfferPage/OfferPage";
 
 
 const InitialState = {
+<<<<<<< HEAD
   // destination: JSON.parse(localStorage.getItem("destination")),
   // days: JSON.parse(localStorage.getItem("days")),
   // options: JSON.parse(localStorage.getItem("options")),
+=======
+  destination: JSON.parse(localStorage.getItem("destination")) ,
+  days: JSON.parse(localStorage.getItem("days")),
+  options: JSON.parse(localStorage.getItem("options"))
+>>>>>>> 3bb2a504158ce10bd05074255445d86e64dc63ae
 };
+console.log("InitialStateI", InitialState)
 
 export const SearchContext = createContext(InitialState);
 
@@ -26,17 +33,13 @@ const searchReducer = (state, action) => {
 
 export const SearchProvider = ({ children }) => {
   const [state, dispatch] = useReducer(searchReducer, InitialState);
-  useEffect(() => {
-    localStorage.setItem("destination", JSON.stringify(state.destination));
-    localStorage.setItem("days", JSON.stringify(state.days));
-    localStorage.setItem("options", JSON.stringify(state.options));
-  }, [state.destination,state.days,state.options]);
+  
   
   return (
     <>
       <SearchContext.Provider
         value={{
-          city: state.city,
+          destination: state.city,
           days: state.days,
           options: state.options,
           dispatch,
