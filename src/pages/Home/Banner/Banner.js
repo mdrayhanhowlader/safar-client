@@ -45,7 +45,7 @@ const Banner = () => {
               </div>
               :
               <Link to="/login">
-              <button className="text-white bg-blue-400 hover:bg-blue-500 px-3 py-1 rounded-lg">Login</button>
+              <button className="text-white bg-blue-500 hover:bg-blue-400 px-3 py-1 rounded-lg">Login</button>
               </Link>
               }
           </div>

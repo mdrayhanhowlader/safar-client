@@ -4,6 +4,7 @@ import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import loginImage from '../../assets/guide-reg_adobe_express.svg'
 import { AuthContext } from '../../contexts/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 import Navbar from '../Shared/Navbar/Navbar';
 
 const LoginGuide = () => {
@@ -34,7 +35,7 @@ const LoginGuide = () => {
             })
        
     }
-
+useTitle('Guide-Login')
     return (
 
        <div>

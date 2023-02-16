@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../../../hooks/useTitle';
 import WishListCard from "./WishListCard";
 const Wishlists = () => {
+    useTitle('Wishlist');
     return (
         <div className="container mx-auto">
             <h2 className="text-2xl my-8">Wishlists page</h2>

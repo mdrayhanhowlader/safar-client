@@ -4,12 +4,14 @@ import SearchNav from "../../SearchPage/SearchProducts/SearchNav";
 import Card from "./../Properties/Card";
 import DestinationCard from "./DestinationCard";
 import Dbanner from "../../../assets/dbanner.png";
+import Navbar from "../../Shared/Navbar/Navbar";
 
 const DestinationPage = () => {
   const destination = useLoaderData([]);
   console.log(destination);
   return (
     <div>
+      <Navbar/>
       <div
         className="w-11/12 mx-auto h-48 md:h-76 mt-16 flex justify-center items-center"
         style={{

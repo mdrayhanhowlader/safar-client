@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaBell, FaBox, FaEnvelope, FaPager, FaUikit } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { Link, Outlet } from "react-router-dom";
+import useTitle from "../hooks/useTitle";
 import DashboardNab from "../pages/Shared/Navbar/DashboardNab";
 import "./Dashboard.css";
 
@@ -12,7 +13,7 @@ const AdminDashboard = () => {
   const [accountSubmenu, setAccountSubmenu] = useState(false);
   const [financeSubmenu, setFinanceSubmenu] = useState(false);
   const [messageSubmenu, setMessageSubmenu] = useState(false);
-
+ useTitle('Dashboard')
   return (
     <div>
       <DashboardNab></DashboardNab>

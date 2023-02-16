@@ -6,6 +6,7 @@ import ProfileUpdateForm from "./ProfileUpdateForm";
 import userProfileImage from '../../../assets/profile.png'
 import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../../contexts/AuthProvider";
+import useTitle from "../../../hooks/useTitle";
 
 const Profile = () => {
   const { user } = useContext(AuthContext)
@@ -42,7 +43,7 @@ const Profile = () => {
       return data;
     }
   })
-
+useTitle('Profile')
 
   return (
     <section className="container mx-auto p-8">

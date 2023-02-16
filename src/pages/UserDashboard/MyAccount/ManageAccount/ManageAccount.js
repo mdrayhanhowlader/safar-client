@@ -1,4 +1,5 @@
 import React from "react";
+import useTitle from "../../../../hooks/useTitle";
 
 import EmailNotify from "./EmailNotify";
 import OtherTravelers from "./OtherTravelers";
@@ -8,6 +9,7 @@ import Preferences from "./Preferences";
 import Security from "./Security";
 
 const ManageAccount = () => {
+  useTitle('Manage-Account');
   return (
     <section className="container mx-auto p-4">
       {/* section title  */}
