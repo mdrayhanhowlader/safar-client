@@ -1,9 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../../contexts/AuthProvider";
+import ActiveSellerProduct from "./ActiveSellerProduct";
+import DeactiveSellerProduct from "./DeactiveSellerProduct";
 import ManageSellerProductNav from "./ManageSellerProductNav";
 
 const ManageSellerProduct = () => {
+  const [isActive, isSetActive] = useState("active");
+
   const [submenu, setSubmenu] = useState(0);
   const { user } = useContext(AuthContext);
 
@@ -22,7 +26,7 @@ const ManageSellerProduct = () => {
     queryKey: ["organizerRooms"],
     queryFn: async () => {
       const res = await fetch(
-        "https://safar-server-nasar06.vercel.app/rooms/get-all-rooms/9062086"
+        "https://safar-server-nasar06.vercel.app/rooms/get-all-rooms/"
       );
       const data = await res.json();
       return data;
@@ -34,133 +38,32 @@ const ManageSellerProduct = () => {
     <section className="mt-16">
       <h2 className="w-11/12 mx-auto text-xl font-semibold">Rooms</h2>
       <div className="w-11/12 mx-auto mt-8">
-        <ManageSellerProductNav></ManageSellerProductNav>
+        <ManageSellerProductNav
+          isActive={isActive}
+          isSetActive={isSetActive}
+        ></ManageSellerProductNav>
       </div>
       {/* product table  */}
-      <div className="rounded-md border border-gray-50 mr-2 mt-5">
-        <table className="w-11/12 mx-auto border-collapse bg-white text-left text-sm text-gray-500">
-          <thead className="bg-gray-50">
-            <tr>
-              <th scope="col" className="px-6 py-4 font-semibold text-gray-900">
-                Room
-              </th>
-              <th scope="col" className="px-6 py-4 font-semibold text-gray-900">
-                Room Type
-              </th>
-              <th scope="col" className="px-6 py-4 font-semibold text-gray-900">
-                Room/SKU
-              </th>
-              <th scope="col" className="px-6 py-4 font-semibold text-gray-900">
-                Price
-              </th>
-              <th scope="col" className="px-6 py-4 font-semibold text-gray-900">
-                Rooms Quantity
-              </th>
-              <th scope="col" className="px-6 py-4 font-semibold text-gray-900">
-                Date
-              </th>
-              <th scope="col" className="px-6 py-4 font-semibold text-gray-900">
-                Actions
-              </th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-100 border-t border-gray-100">
-            {isLoading ? (
-              <tr>
-                <td>
-                  <span>Loading...</span>
-                </td>
-              </tr>
-            ) : (
-              organizerRooms.map((room) => (
-                <tr key={room._id} className="hover:bg-gray-50">
-                  <th className="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                    <div className="relative h-12 w-12">
-                      <img
-                        className="h-full w-full rounded-md object-cover object-center"
-                        src={room.images[0].url}
-                        alt=""
-                      />
-                      <span className="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring ring-white"></span>
-                    </div>
-                    {/* <div className="text-sm">
-                      <div className="text-gray-400">Product live link</div>
-                    </div> */}
-                  </th>
-                  <td className="px-6 py-4">
-                    <span className="inline-flex items-center gap-1   px-2 py-1 text-sm font-semibold">
-                      {room.name}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4">
-                    <span className="inline-flex items-center gap-1   px-2 py-1 text-sm font-semibold">
-                      #{room.rooms_no}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4">
-                    <span className="inline-flex items-center gap-1   px-2 py-1 text-sm font-semibold">
-                      {room.price}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4">
-                    <span className="inline-flex items-center gap-1   px-2 py-1 text-sm font-semibold">
-                      {room.sleep}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4">
-                    <span className="inline-flex items-center gap-1   px-2 py-1 text-sm font-semibold">
-                      10-02-2023
-                    </span>
-                  </td>
+      {isActive === "active" && (
+        <div>
+          <ActiveSellerProduct
+            isLoading={isLoading}
+            submenu={submenu}
+            setSubmenu={setSubmenu}
+            handleSubMenu={handleSubMenu}
+            organizerRooms={organizerRooms}
+          ></ActiveSellerProduct>
+        </div>
+      )}
 
-                  <td className="px-6 py-4">
-                    <div className="relative">
-                      <p
-                        onClick={() =>
-                          setSubmenu(room?.rooms_no) &
-                          handleSubMenu(room?.rooms_no)
-                        }
-                        className="font-xxl font-bold cursor-pointer "
-                      >
-                        More
-                      </p>
-                      {submenu === room?.rooms_no && (
-                        <div
-                          // className={`${
-                          //   submenu === room.room_no ? "visible" : "hidden"
-                          // } z-10 absolute right-0 bg-white shadow-md `}
-                          className="z-10 absolute right-0 bg-white shadow-md "
-                        >
-                          <ul>
-                            <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md">
-                              <a href="/">Active</a>
-                            </li>
-                            <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md">
-                              <a href="/">Deactive</a>
-                            </li>
-                            <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md">
-                              <a href="/">Delete</a>
-                            </li>
-                          </ul>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* <div className="flex justify-end gap-4">
-                      <a href="/">
-                        <FaTrashAlt className="h-4 w-4"></FaTrashAlt>
-                      </a>
-                      <a href="/">
-                        <HiPencilAlt className="h-4 w-4"></HiPencilAlt>
-                      </a>
-                    </div> */}
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
-      </div>
+      {isActive === "deactive" && (
+        <DeactiveSellerProduct
+          submenu={submenu}
+          setSubmenu={setSubmenu}
+          handleSubMenu={handleSubMenu}
+          organizerRooms={organizerRooms}
+        ></DeactiveSellerProduct>
+      )}
     </section>
   );
 };
