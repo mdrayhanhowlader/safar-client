@@ -24,8 +24,6 @@ const ManageHotels = () => {
     },
   });
 
-  console.log(hotels);
-
   return (
     <section className="m-4">
       <h2 className="text-2xl font-bold">All Hotels </h2>
