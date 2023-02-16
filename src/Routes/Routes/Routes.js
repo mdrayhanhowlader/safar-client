@@ -53,6 +53,7 @@ import RefundToCustomer from "../../pages/Admin/AdminFinance/RefundToCustomer/Re
 import CheckoutPage from "../../pages/CheckoutPage/CheckoutPage";
 import RegisterGuide from "../../pages/Guides/RegisterGuide";
 import LoginGuide from "../../pages/Guides/LoginGuide";
+import AllGuides from "../../pages/Guides/AllGuides";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -141,6 +142,10 @@ export const router = createBrowserRouter([
       {
         path: "/loginguide",
         element: <LoginGuide/>
+      },
+      {
+        path: "/allguides",
+        element: <AllGuides/>
       },
       {
         path: "/*",
