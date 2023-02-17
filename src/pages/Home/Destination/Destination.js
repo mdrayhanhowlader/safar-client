@@ -42,7 +42,7 @@ const Destination = () => {
             to={`/destinationPage/${destination.city}`}
           >
             <div className="group relative cursor-pointer items-center justify-center overflow-hidden rounded-md">
-              <div className="w-[415px] h-[250px]">
+              <div className="w-full h-[250px]">
                 <img
                   className="h-full w-full object-cover transition-transform duration-500"
                   src={destination.img}
