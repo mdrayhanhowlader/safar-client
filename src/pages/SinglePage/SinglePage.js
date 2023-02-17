@@ -24,13 +24,13 @@ const SinglePage = () => {
 
   return (
     <div>
-      <div className="grid md:grid-cols-2 w-full p-2 border-2 border-gray-400 rounded-lg">
-        <div className="md:mb-0 mb-4">
-          <img className="w-full h-full md:px-4" src={images[0]} alt="" />
+      <div className="md:flex w-full md:gap-3 p-2 border-2 border-gray-400 rounded-lg">
+        <div className="md:mb-0 md:w-4/5  mb-4">
+          <img className="w-full h-full " src={images[0]} alt="" />
         </div>
         <div>
-          <div className="grid gap-4 grid-cols-2 h-full">
-            <div className="">
+          <div className="grid gap-2 grid-cols-2 h-full">
+            <div className="md:h-[380px]">
               {/* photo view start */}
               <PhotoProvider>
                 <PhotoView src={images[1]?.url}>
