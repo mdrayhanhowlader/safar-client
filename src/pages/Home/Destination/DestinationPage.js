@@ -1,25 +1,17 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
-import SearchNav from "../../SearchPage/SearchProducts/SearchNav";
-import Card from "./../Properties/Card";
 import DestinationCard from "./DestinationCard";
-import destinationbackground from "../../../assets/destinationbackground.png";
 import Navbar from "../../Shared/Navbar/Navbar";
+import img from "../../../assets/fullbg.png";
 
 const DestinationPage = () => {
   const destination = useLoaderData([]);
   return (
-    <div>
-      <div
-        className="h-screen"
-        style={{
-          backgroundImage: `url(${destinationbackground})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPositionY: "center",
-          // backgroundPositionX: "center",
-        }}
-      >
+    <div
+      style={{ backgroundImage: `url(${img})` }}
+      className="bg-cover bg-no-repeat pb-8 "
+    >
+      <div>
         <Navbar />
 
         {/* <h2 className="text-5xl font-semibold text-orange-600 py-2">
