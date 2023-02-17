@@ -10,7 +10,7 @@ import useTitle from "../../hooks/useTitle";
 const SinglePage = () => {
   const data = useContext(SearchContext);
   const hotelData = useLoaderData();
-  
+
   const {
     hotel_name,
     description,
@@ -20,7 +20,6 @@ const SinglePage = () => {
     offer_price,
     facilities,
   } = hotelData;
-  console.log(images);
   useTitle(hotel_name);
 
   return (

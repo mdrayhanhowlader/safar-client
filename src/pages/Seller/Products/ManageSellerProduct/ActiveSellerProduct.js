@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import { Link } from "react-router-dom";
+import { ThreeDots } from "react-loader-spinner";
 
 const ActiveSellerProduct = ({
   isLoading,
@@ -7,7 +8,9 @@ const ActiveSellerProduct = ({
   setSubmenu,
   handleSubMenu,
   organizerRooms,
+  refetch,
 }) => {
+  // refetch();
   const handleDeactive = useCallback((id) => {
     fetch(
       `https://safar-server-nasar06.vercel.app/rooms/deactivate-room/${id}`,
@@ -18,8 +21,23 @@ const ActiveSellerProduct = ({
         },
         body: JSON.stringify({ status: "deactive" }),
       }
-    );
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        refetch();
+      });
   }, []);
+
+  const handleDeleteProduct = async (id) => {
+    await fetch(
+      `https://safar-server-nasar06.vercel.app/rooms/delete-room/${id}`,
+      {
+        method: "DELETE",
+      }
+    ).catch((err) => console.log(err));
+    refetch();
+  };
+
   return (
     <div>
       <div className="rounded-md border border-gray-50 mr-2 mt-5">
@@ -53,11 +71,22 @@ const ActiveSellerProduct = ({
             {isLoading ? (
               <tr>
                 <td>
-                  <span>Loading...</span>
+                  <span>
+                    <ThreeDots
+                      height="80"
+                      width="80"
+                      radius="9"
+                      color="orange"
+                      ariaLabel="three-dots-loading"
+                      wrapperStyle={{}}
+                      wrapperClassName=""
+                      visible={true}
+                    />
+                  </span>
                 </td>
               </tr>
             ) : (
-              organizerRooms.map((room) => (
+              organizerRooms?.map((room) => (
                 <tr key={room._id} className="hover:bg-gray-50">
                   <th className="flex gap-3 px-6 py-4 font-normal text-gray-900">
                     <div className="relative h-12 w-12">
@@ -118,7 +147,12 @@ const ActiveSellerProduct = ({
                             >
                               Deactive
                             </li>
-                            <li className="py-2 px-4 text-center text-red-700 hover:bg-blue-500 hover:text-white rounded-md cursor-pointer">
+                            <li
+                              className="py-2 px-4 text-center text-red-700 hover:bg-blue-500 hover:text-white rounded-md cursor-pointer"
+                              onClick={() =>
+                                handleDeleteProduct(room?.rooms_no)
+                              }
+                            >
                               Delete
                             </li>
                           </ul>
