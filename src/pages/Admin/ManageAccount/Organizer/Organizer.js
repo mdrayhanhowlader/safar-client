@@ -8,15 +8,12 @@ const Organizer = () => {
   const [submenu, setSubmenu] = useState(0);
   //handel edit product
   const handleSubMenu = (id) => {
-      if (id === submenu) {
-        setSubmenu(!submenu);
-      }
-    };
+    if (id === submenu) {
+      setSubmenu(!submenu);
+    }
+  };
 
-  const {
-    data: organizers,
-    isLoading,
-  } = useQuery({
+  const { data: organizers, isLoading } = useQuery({
     queryKey: ["all-organizers"],
     queryFn: async () => {
       const res = await fetch(
@@ -27,11 +24,11 @@ const Organizer = () => {
     },
   });
 
-
-
   return (
     <section className="p-4">
-      <h2 className="text-2xl">All Organizers {organizers?.length}</h2>
+      <h2 className="text-2xl font-bold">
+        All Organizers {organizers?.length}
+      </h2>
       {/* table all organizer  */}
       <div>
         <div className="rounded-md border border-gray-50 mr-2 mt-5">
@@ -134,31 +131,27 @@ const Organizer = () => {
                     <td className="px-6 py-4">
                       <div className="relative">
                         <p
-                            onClick={() =>
-                              setSubmenu(organizer?._id) &
-                              handleSubMenu(organizer?._id)
-                            }
+                          onClick={() =>
+                            setSubmenu(organizer?._id) &
+                            handleSubMenu(organizer?._id)
+                          }
                           className="font-xxl font-bold cursor-pointer "
                         >
                           More
                         </p>
 
-                    {
-                      submenu === organizer?._id &&
-                          <div
-                          className="z-10 absolute right-0 bg-white  shadow-md"
-                        >
-                          <ul>
-                            <li className="py-2 px-4 text-center hover:bg-blue-500 hover:text-white rounded-md cursor-pointer">
-                              Deactive
-                            </li>
-                            <li className="py-2 px-4 text-center text-red-700 hover:bg-blue-500 hover:text-white rounded-md cursor-pointer">
-                              Delete
-                            </li>
-                          </ul>
-                        </div>
-                    }
-
+                        {submenu === organizer?._id && (
+                          <div className="z-10 absolute right-0 bg-white  shadow-md">
+                            <ul>
+                              <li className="py-2 px-4 text-center hover:bg-blue-500 hover:text-white rounded-md cursor-pointer">
+                                Deactive
+                              </li>
+                              <li className="py-2 px-4 text-center text-red-700 hover:bg-blue-500 hover:text-white rounded-md cursor-pointer">
+                                Delete
+                              </li>
+                            </ul>
+                          </div>
+                        )}
                       </div>
                     </td>
                   </tr>
