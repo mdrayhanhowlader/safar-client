@@ -9,7 +9,7 @@ const DestinationPage = () => {
   return (
     <div
       style={{ backgroundImage: `url(${img})` }}
-      className="bg-cover bg-no-repeat pb-8 "
+      className="bg-cover bg-no-repeat pb-8 contrast-200"
     >
       <div>
         <Navbar />
