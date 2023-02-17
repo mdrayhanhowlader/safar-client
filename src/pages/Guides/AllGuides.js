@@ -27,7 +27,7 @@ const AllGuides = () => {
         {/* <div className='lg:w-full lg:mx-auto mx-6 my-4 shadow-2xl p-6 rounded-3xl'>
                 
             </div> */}
-        <div className="flex items-center mt-24 ml-16 pb-24">
+        <div className="flex items-center mt-24 ml-10 md:ml-16 pb-16 md:pb-24">
           <h1 className="text-5xl text-indigo-900 font-semibold">
             Find Your Guide
             <span className="text-orange-600"> To Ease</span>
