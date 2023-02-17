@@ -85,9 +85,9 @@ const LeftSide = ({ hotelData }) => {
                 </div>
 
                 <div className='my-6' style={{ borderBottom: "1px solid grey" }}>
-                    <h1 className='text-3xl font-semibold text-blue-600'>SafarCover</h1>
+                    <h1 className='text-3xl font-bold text-green-800'>SafarCover</h1>
                     <p className='my-3'>Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</p>
-                    <Link to='/'><p className='text-blue-600 font-semibold mb-6'>Learn more..</p></Link>
+                    <Link to='/'><p className='text-green-800 font-bold mb-6'>Learn more..</p></Link>
                 </div>
 
                 <div style={{ borderBottom: "1px solid grey" }}>
@@ -148,7 +148,7 @@ const LeftSide = ({ hotelData }) => {
                     <div className='flex justify-center my-4 border border-gray-400 rounded-lg'
                     // style={{ border: "1px solid grey", borderRadius: ".5rem", width: "25%" }}
                     >
-                        <h1 ><Link className='text-blue-400 hover:text-blue-500 font-semibold my-6'>Show all amenities</Link></h1>
+                        <h1 ><Link className='text-green-800 hover:text-green-600 font-semibold my-6'>Show all amenities</Link></h1>
                     </div>
                 </div>
             </div>

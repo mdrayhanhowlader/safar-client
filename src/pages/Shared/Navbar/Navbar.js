@@ -14,13 +14,15 @@ const Navbar = () => {
   const [submenu, setSubmenu] = useState(false);
 
   return (
-   <div className="m-1 p-1">
+   <div className="mx-2 p-2">
      <div className="flex items-center justify-between">
-          <div className="flex items-center ">
+         <Link to="/">
+         <div className="flex items-center ">
             <img className="w-16" src={logo} alt="" />
 
             <h1 className="text-2xl mt-5 font-serif">SAFAR</h1>
           </div>
+         </Link>
           <div className="flex items-center mt-4 mx-4 lg:mt-0">
             {user?.uid  ?
               <div className="relative">
@@ -45,7 +47,7 @@ const Navbar = () => {
               </div>
               :
               <Link to="/login">
-              <button className="text-white bg-blue-400 hover:bg-blue-500 px-3 py-1 rounded-lg">Login</button>
+              <button className="text-white bg-blue-500 hover:bg-blue-400 px-3 py-1 rounded-lg">Login</button>
               </Link>
             }
           </div>

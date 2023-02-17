@@ -6,8 +6,10 @@ import { AiOutlinePlusSquare } from "react-icons/ai";
 // import { FaMinus, FaPlus } from "react-icons/fa";
 import { HiOutlineChevronDown, HiOutlineChevronUp } from "react-icons/hi";
 import { AuthContext } from "../../../../contexts/AuthProvider";
+import useTitle from "../../../../hooks/useTitle";
 
 const AddSellerProduct = () => {
+  useTitle('Add Products');
   const { user } = useContext(AuthContext);
   const [images, setImages] = useState([]);
   const [facilities, setFacilities] = useState([]);
@@ -533,7 +535,7 @@ const AddSellerProduct = () => {
 
         <div>
           <input
-            className="px-4 py-2 bg-blue-500 text-white rounded-md cursor-pointer"
+            className="px-4 py-2 bg-blue-400 hover:bg-orange-400 text-white rounded-md cursor-pointer"
             type="submit"
             value="Add Room"
           />

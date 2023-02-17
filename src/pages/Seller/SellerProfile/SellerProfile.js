@@ -2,8 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../contexts/AuthProvider";
+import useTitle from "../../../hooks/useTitle";
 
 const SellerProfile = () => {
+  useTitle('Seller Profile');
   const { user } = useContext(AuthContext);
   const [orgInfo, setOrgInfo] = useState('')
   const { register, handleSubmit, reset, formState: { errors }, } = useForm();

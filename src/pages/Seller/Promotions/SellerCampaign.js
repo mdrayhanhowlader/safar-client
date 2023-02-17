@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import useTitle from "../../../hooks/useTitle";
 import SellerAvailableCampaign from "./SellerAvailableCampaign";
 import SellerRegisteredCampaign from "./SellerRegisteredCampaign";
 
 const SellerCampaign = () => {
+  useTitle('Campaign');
   const [show, setShow] = useState("available-campaign");
   return (
     <div>

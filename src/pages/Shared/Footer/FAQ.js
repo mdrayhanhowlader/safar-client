@@ -1,4 +1,6 @@
 import React from 'react'
+import useTitle from '../../../hooks/useTitle'
+import Navbar from '../Navbar/Navbar'
 import ContactUs from './ContactUs'
 
 
@@ -22,9 +24,12 @@ const FAQ = () => {
             answer: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in, recusandae laboriosam neque aliquid libero nesciuntvoluptate dicta quo officiis explicabo consequuntur distinctio corporisearum similique!"
         }
     ]
+    useTitle('FAQ');
 
     return (
-        <div className='grid grid-cols-1 lg:grid-cols-4 lg:w-full p-4'>
+        <div>
+            <Navbar/>
+            <div className='grid grid-cols-1 lg:grid-cols-4 lg:w-full p-4'>
             <div className='col-span-1'>
                 <ContactUs />
             </div>
@@ -68,6 +73,7 @@ const FAQ = () => {
                     }
                 </div>
             </div>
+        </div>
         </div>
 
     )
