@@ -8,7 +8,9 @@ const ActiveSellerProduct = ({
   setSubmenu,
   handleSubMenu,
   organizerRooms,
+  refetch
 }) => {
+  refetch()
   const handleDeactive = useCallback((id) => {
     fetch(
       `https://safar-server-nasar06.vercel.app/rooms/deactivate-room/${id}`,
@@ -20,18 +22,22 @@ const ActiveSellerProduct = ({
         body: JSON.stringify({ status: "deactive" }),
       }
     );
+
   }, []);
 
   const handleDeleteProduct = useCallback((id) => {
     // setReload(id);
-    fetch(` https://safar-server-nasar06.vercel.app/rooms/delete-room/${id}`, {
+    fetch(`https://safar-server-nasar06.vercel.app/rooms/delete-room/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
       // body: JSON.stringify({ status: "active" }),
     });
+    
   }, []);
+  refetch()
+
   return (
     <div>
       <div className="rounded-md border border-gray-50 mr-2 mt-5">

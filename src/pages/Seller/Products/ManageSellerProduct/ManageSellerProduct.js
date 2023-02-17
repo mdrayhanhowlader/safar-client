@@ -53,6 +53,7 @@ const ManageSellerProduct = () => {
             setSubmenu={setSubmenu}
             handleSubMenu={handleSubMenu}
             organizerRooms={organizerRooms}
+            refetch={refetch}
           ></ActiveSellerProduct>
         </div>
       )}
@@ -63,6 +64,7 @@ const ManageSellerProduct = () => {
           setSubmenu={setSubmenu}
           handleSubMenu={handleSubMenu}
           organizerRooms={organizerRooms}
+          refetch={refetch}
         ></DeactiveSellerProduct>
       )}
       {isActive === "delete" && (
