@@ -1,27 +1,32 @@
 import React, { useContext, useState } from "react";
 import { DateRange } from "react-date-range";
 import { FaAngleDown, FaMinus, FaPlus, FaRegStar } from "react-icons/fa";
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../../contexts/AuthProvider';
-import { SearchContext } from '../../../contexts/SearchProvider';
-import LeftSide from './LeftSide';
-import ReviewSection from './ReviewSection';
-import Rooms from './Rooms/Rooms';
-
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider";
+import { SearchContext } from "../../../contexts/SearchProvider";
+import LeftSide from "./LeftSide";
+import ReviewSection from "./ReviewSection";
+import Rooms from "./Rooms/Rooms";
 
 const DetailSection = ({ hotelData }) => {
-
   const [openModal, setOpenModal] = useState(false);
 
   const locations = useLocation();
-  console.log("locations", locations);
 
-  const { hotel_name, description, location, hotel_id, regular_price, images, offer_price, facilities } = hotelData;
+  const {
+    hotel_name,
+    description,
+    location,
+    hotel_id,
+    regular_price,
+    images,
+    offer_price,
+    facilities,
+  } = hotelData;
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const { days, options } = useContext(SearchContext);
-  console.log()
 
   const [isHandleClick, setIsHandleClick] = useState(false);
   const [isClick, setIsClick] = useState(false);
@@ -30,8 +35,8 @@ const DetailSection = ({ hotelData }) => {
     {
       startDate: new Date(),
       endDate: new Date(),
-      key: 'selection'
-    }
+      key: "selection",
+    },
   ]);
 
   const serviceFee = 100;
@@ -51,27 +56,22 @@ const DetailSection = ({ hotelData }) => {
     setIsClick(false);
   };
 
-  const countData = [
-    {
-
-    }
-  ]
+  const countData = [{}];
 
   const handleClick = () => {
     if (user) {
-      setOpenModal(true)
+      setOpenModal(true);
+    } else {
+      navigate("/login");
     }
-    else {
-      navigate('/login')
-    }
-  }
+  };
 
   return (
     <div>
       <div className="md:flex p-4 w-full relative">
         <div
           className="w-full md:w-3/5 p-8"
-        // style={{ width: "60%", padding: "2rem" }}
+          // style={{ width: "60%", padding: "2rem" }}
         >
           <LeftSide hotelData={hotelData} />
         </div>
@@ -79,7 +79,7 @@ const DetailSection = ({ hotelData }) => {
         {/* right side / card */}
         <div
           className="static w-full md:w-2/5 p-8"
-        // style={{ width: "40%", padding: "2rem" }}
+          // style={{ width: "40%", padding: "2rem" }}
         >
           <div
             style={{
@@ -255,23 +255,34 @@ const DetailSection = ({ hotelData }) => {
             </div>
 
             {/* button */}
-            <div className='mt-4'>
-              <Link to='/checkoutPage'><button className='w-full h-8 bg-green-800 rounded-lg hover:bg-green-700 text-white'>Check Availability</button></Link>
+            <div className="mt-4">
+              <Link to="/checkoutPage">
+                <button className="w-full h-8 bg-green-800 rounded-lg hover:bg-green-700 text-white">
+                  Check Availability
+                </button>
+              </Link>
             </div>
-            <div className='mt-4'>
-              <button onClick={handleClick} className='w-full h-8 bg-green-800 rounded-lg hover:bg-green-700 text-white capitalize'>reserve your room</button>
+            <div className="mt-4">
+              <button
+                onClick={handleClick}
+                className="w-full h-8 bg-green-800 rounded-lg hover:bg-green-700 text-white capitalize"
+              >
+                reserve your room
+              </button>
             </div>
             {/* you won't be charged yet */}
             <div>
-              <div className='flex justify-center my-3'>
+              <div className="flex justify-center my-3">
                 <h1>You won't be charged yet ?</h1>
               </div>
-              <div className='flex justify-between my-2'>
-                <h1 className='text-green-800'>${regular_price} x {days} nights</h1>
+              <div className="flex justify-between my-2">
+                <h1 className="text-green-800">
+                  ${regular_price} x {days} nights
+                </h1>
                 <p>${regular_price * days}</p>
               </div>
-              <div className='flex justify-between my-2'>
-                <h1 className='text-green-800'>Service fee</h1>
+              <div className="flex justify-between my-2">
+                <h1 className="text-green-800">Service fee</h1>
                 <p>${serviceFee}</p>
               </div>
             </div>
@@ -287,12 +298,15 @@ const DetailSection = ({ hotelData }) => {
       </div>
 
       {/* review section & host details*/}
-      <div className='p-8'
-      // style={{ padding: "2rem" }}
+      <div
+        className="p-8"
+        // style={{ padding: "2rem" }}
       >
         <ReviewSection />
       </div>
-      {openModal && <Rooms setOpenModal={setOpenModal} hotel_id={hotel_id}></Rooms>}
+      {openModal && (
+        <Rooms setOpenModal={setOpenModal} hotel_id={hotel_id}></Rooms>
+      )}
       {/* <Rooms setOpenModal={setOpenModal} hotel_id={hotel_id}></Rooms> */}
     </div>
   );

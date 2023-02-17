@@ -8,8 +8,6 @@ import { Link } from "react-router-dom";
 const Card = ({ data }) => {
   const { hotel_id, hotel_name, images, regular_price } = data;
 
-  console.log(data);
-  // console.log(images[0].url);
   const slides = [
     {
       url: "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -34,7 +32,6 @@ const Card = ({ data }) => {
   const dotSlide = images.slice(0, 3);
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  // const [changeColor, setChangeColor] = useState(false)
   const [like, setLike] = useState(true);
 
   const prevSlide = () => {
@@ -50,7 +47,6 @@ const Card = ({ data }) => {
 
   const goToSlide = (slideIndex) => {
     setCurrentIndex(slideIndex);
-    // setChangeColor(true)
   };
 
   const handleLike = () => {
