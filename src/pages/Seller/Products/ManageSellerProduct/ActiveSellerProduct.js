@@ -86,7 +86,7 @@ const ActiveSellerProduct = ({
                 </td>
               </tr>
             ) : (
-              organizerRooms.map((room) => (
+              organizerRooms?.map((room) => (
                 <tr key={room._id} className="hover:bg-gray-50">
                   <th className="flex gap-3 px-6 py-4 font-normal text-gray-900">
                     <div className="relative h-12 w-12">
