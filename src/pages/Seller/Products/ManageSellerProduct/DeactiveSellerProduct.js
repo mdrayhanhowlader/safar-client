@@ -9,7 +9,9 @@ const DeactiveSellerProduct = ({
   setSubmenu,
   handleSubMenu,
   organizerRooms,
+  // refetch
 }) => {
+  // refetch()
   // const { hotel_id } = organizerRooms[0];
   console.log(organizerRooms);
   const { user } = useContext(AuthContext);
@@ -30,22 +32,29 @@ const DeactiveSellerProduct = ({
       return data;
     },
   });
-
+  refetch();
   // console.log(deactiveRooms);
 
   const handleActiveProduct = useCallback((id) => {
     setReload(id);
-    fetch(
-      `https://safar-server-nasar06.vercel.app/rooms/deactivate-room/${id}`,
-      {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-        },
-        // body: JSON.stringify({ status: "active" }),
-      }
-    );
+    fetch(` https://safar-server-nasar06.vercel.app/rooms/active-room/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      // body: JSON.stringify({ status: "active" }),
+    });
   }, []);
+
+  const handleDeleteProduct = async (id) => {
+    await fetch(
+      `https://safar-server-nasar06.vercel.app/rooms/delete-room/${id}`,
+      {
+        method: "DELETE",
+      }
+    ).catch((err) => console.log(err));
+    refetch();
+  };
   return (
     <div>
       <div className="rounded-md border border-gray-50 mr-2 mt-5">
@@ -154,7 +163,12 @@ const DeactiveSellerProduct = ({
                             >
                               Active
                             </li>
-                            <li className="py-2 px-4 text-center hover:bg-blue-500 hover:text-white rounded-md">
+                            <li
+                              className="cursor-pointer py-2 px-4 text-center hover:bg-blue-500 hover:text-white rounded-md"
+                              onClick={() =>
+                                handleDeleteProduct(room?.rooms_no)
+                              }
+                            >
                               Delete
                             </li>
                           </ul>
