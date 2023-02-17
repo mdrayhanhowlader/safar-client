@@ -106,7 +106,7 @@ const OrganizerForm = () => {
                 if (result.acknowledge === true) {
                     reset()
                 }
-                // navigate('/sellerdashboard')
+                navigate('/sellerdashboard')
             })
             .catch(err => console.error(err))
 
