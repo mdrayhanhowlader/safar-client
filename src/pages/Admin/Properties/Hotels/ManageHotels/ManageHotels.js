@@ -27,7 +27,7 @@ const ManageHotels = () => {
   return (
     <section className="m-4">
       <h2 className="text-2xl font-bold">All Hotels </h2>
-      {/* table all users  */}
+      {/* table all hotels  */}
       <div>
         <div className="rounded-md border border-gray-50 mr-2 mt-5">
           <table className="w-11/12 mx-auto border-collapse bg-white text-left text-sm text-gray-500">
