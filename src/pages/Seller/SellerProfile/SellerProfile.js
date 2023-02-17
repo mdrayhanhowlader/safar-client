@@ -78,8 +78,8 @@ const SellerProfile = () => {
 
   return (
     <section className="px-2 py-6">
-      <h3 className="text-2xl">Seller Account</h3>
-      <h2 className="text-2xl py-4">Seller Id: 34546564543</h2>
+      <h3 className="text-2xl">Organizer Account</h3>
+      <h2 className="text-2xl py-4">Organizer Id: 34546564543</h2>
       <form onSubmit={handleSubmit(handleUpdate)}>
         <div className="w-4/6">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -91,6 +91,7 @@ const SellerProfile = () => {
               className="border-2 border-slate-300 w-full p-2 rounded-md ml-4 col-span-3"
               type="text"
               placeholder="Full Name"
+              defaultValue={organizerInfo?.full_name}
             />
           </div>
         </div>
@@ -146,6 +147,7 @@ const SellerProfile = () => {
               className="border-2 border-slate-300 w-full p-2 rounded-md ml-4 col-span-3"
               type="text"
               placeholder="Bank Account"
+              defaultValue={organizerInfo?.bank_account}
             />
           </div>
         </div>
