@@ -23,7 +23,6 @@ const Destination = () => {
   if (error)
     return "An error has occurred on destinations route: " + error.message;
 
-  // console.log(destinations);
   return (
     <section className="container mx-auto mb-8">
       {/* section title  */}
