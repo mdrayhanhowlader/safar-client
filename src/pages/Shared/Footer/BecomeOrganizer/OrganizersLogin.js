@@ -24,21 +24,21 @@ const OrganizersLogin = () => {
             .catch(err => console.error(err))
         navigate("/sellerdashboard")
     }
-useTitle('Org-Login');
+    useTitle('Org-Login');
     return (
         <div>
-            <Navbar/>
+            <Navbar />
 
-        <section className=" flex flex-wrap  lg:items-center  md:p-0 p-6">
-            <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
-                <div className="mx-auto max-w-lg text-center">
-                    <h1 className="text-2xl font-bold sm:text-3xl">Login as an organizer</h1>
+            <section className=" flex flex-wrap  lg:items-center  md:p-0 p-6">
+                <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
+                    <div className="mx-auto max-w-lg text-center">
+                        <h1 className="text-2xl font-bold sm:text-3xl">Login as an organizer</h1>
 
-                    <p className="mt-4 text-gray-500">
-                        Please login with your email and password.
-                        If you don't have any account yet, click the following link provided below as "Signup"
-                    </p>
-                </div>
+                        <p className="mt-4 text-gray-500">
+                            Please login with your email and password.
+                            If you don't have any account yet, click the following link provided below as "Signup"
+                        </p>
+                    </div>
 
                     <form onSubmit={handleSubmit(onSubmit)} action="" className="mx-auto mt-8 mb-0 max-w-md space-y-4">
                         <div>
@@ -68,21 +68,21 @@ useTitle('Org-Login');
                             </div>
                         </div>
 
-                    <div className="flex items-center justify-between">
-                        <p className="text-sm text-blue-500">
-                            Haven't an account?
-                            <Link to="/organizer" className="font-semibold">   SignUp</Link>
-                        </p>
+                        <div className="flex items-center justify-between">
+                            <p className="text-sm text-blue-500">
+                                Haven't an account?
+                                <Link to="/organizer" className="font-semibold">   SignUp</Link>
+                            </p>
 
-                        <button
-                            type="submit"
-                            className="ml-3 inline-block rounded-lg bg-blue-500 hover:bg-blue-600 px-5 py-2 text-sm font-medium text-white"
-                        >
-                            LogIn
-                        </button>
-                    </div>
-                </form>
-            </div>
+                            <button
+                                type="submit"
+                                className="ml-3 inline-block rounded-lg bg-blue-500 hover:bg-blue-600 px-5 py-2 text-sm font-medium text-white"
+                            >
+                                LogIn
+                            </button>
+                        </div>
+                    </form>
+                </div>
 
                 <div className=" h-64 w-full md:block hidden sm:h-96 lg:h-full lg:w-2/5">
                     <img
