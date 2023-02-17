@@ -33,7 +33,7 @@ const ManageSellerProduct = () => {
       return data;
     },
   });
-  console.log(organizerRooms);
+  // console.log(organizerRooms);
 
   return (
     <section className="mt-16">

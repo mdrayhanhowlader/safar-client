@@ -3,20 +3,23 @@ import React, { useState } from "react";
 import useTitle from "../../../../hooks/useTitle";
 
 const Organizer = () => {
-  useTitle('All Organizers');
+  useTitle("All Organizers");
   const [submenu, setSubmenu] = useState(false);
 
-  const {data: organizers, isLoading, refetch} = useQuery({
-    queryKey: ['organizers'],
+  const {
+    data: organizers,
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["organizers"],
     queryFn: async () => {
-      const res = await fetch("https://safar-server-nasar06.vercel.app/users/all-organizers");
+      const res = await fetch(
+        "https://safar-server-nasar06.vercel.app/users/all-organizers"
+      );
       const data = await res.json();
       return data;
-    }
-  })
-
-  // console.log(organizers)
-  // organizers.map(organizer => console.log(organizer))
+    },
+  });
 
   return (
     <section className="p-4">
@@ -98,27 +101,30 @@ const Organizer = () => {
                   10-02-2023
                 </span>
               </td>
-              <td className="px-4 py-8 absolute" onClick={() => setSubmenu(!submenu)}>
+              <td
+                className="px-4 py-8 absolute"
+                onClick={() => setSubmenu(!submenu)}
+              >
                 <span className="inline-flex items-center gap-1 px-2 py-1 text-sm font-semibold cursor-pointer">
                   Edit
                 </span>
-                  <div
-                    className={`${
-                      submenu ? "visible" : "hidden"
-                    } z-10 relative bg-white shadow-md `}
-                  >
-                    <ul>
-                      <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md">
-                        <a href="/">Active</a>
-                      </li>
-                      <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md">
-                        <a href="/">Deactivate</a>
-                      </li>
-                      <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md">
-                        <a href="/">Remove</a>
-                      </li>
-                    </ul>
-                  </div>
+                <div
+                  className={`${
+                    submenu ? "visible" : "hidden"
+                  } z-10 relative bg-white shadow-md `}
+                >
+                  <ul>
+                    <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md">
+                      <a href="/">Active</a>
+                    </li>
+                    <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md">
+                      <a href="/">Deactivate</a>
+                    </li>
+                    <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md">
+                      <a href="/">Remove</a>
+                    </li>
+                  </ul>
+                </div>
               </td>
             </tr>
           </tbody>

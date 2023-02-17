@@ -8,9 +8,9 @@ const ActiveSellerProduct = ({
   setSubmenu,
   handleSubMenu,
   organizerRooms,
-  refetch
+  refetch,
 }) => {
-  refetch()
+  // refetch();
   const handleDeactive = useCallback((id) => {
     fetch(
       `https://safar-server-nasar06.vercel.app/rooms/deactivate-room/${id}`,
@@ -21,22 +21,22 @@ const ActiveSellerProduct = ({
         },
         body: JSON.stringify({ status: "deactive" }),
       }
-    );
-
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        refetch();
+      });
   }, []);
 
-  const handleDeleteProduct = useCallback((id) => {
-    // setReload(id);
-    fetch(`https://safar-server-nasar06.vercel.app/rooms/delete-room/${id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      // body: JSON.stringify({ status: "active" }),
-    });
-    
-  }, []);
-  refetch()
+  const handleDeleteProduct = async (id) => {
+    await fetch(
+      `https://safar-server-nasar06.vercel.app/rooms/delete-room/${id}`,
+      {
+        method: "DELETE",
+      }
+    ).catch((err) => console.log(err));
+    refetch();
+  };
 
   return (
     <div>
