@@ -82,7 +82,7 @@ const Banner = () => {
                     </div>
                   </div>
                   <div className="left-20 mt-4 absolute">
-                    <button className="bg-blue-400 hover:bg-blue-500 text-white rounded-xl px-5 py-1">
+                    <button className="bg-blue-500 hover:bg-blue-400 text-white rounded-xl px-5 py-1">
                       details
                     </button>
                   </div>
@@ -94,17 +94,17 @@ const Banner = () => {
                     </div>
                     <div>
                       <h1 className="text-xl font-semibold">
-                        International flights
+                        Find Your Guide
                       </h1>
                       <p className="text-xs text-blue-500 ">
-                        Lorem ipsum dolor sit amet.
+                        To ease your journey.
                       </p>
                     </div>
                   </div>
                   <div className="left-20 mt-4 absolute">
-                    <button className="bg-orange-400 hover:bg-orange-600 text-white rounded-xl px-5 py-1">
+                    <Link to="/allguides"><button className="bg-orange-600 hover:bg-orange-400 text-white rounded-xl px-5 py-1">
                       details
-                    </button>
+                    </button></Link>
                   </div>
                 </div>
               </div>
