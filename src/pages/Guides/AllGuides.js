@@ -39,7 +39,7 @@ const AllGuides = () => {
       <div>
         <div className="grid gap-6 grid-cols-1 lg:grid-cols-2 p-6">
           {guides?.map((guide) => (
-            <div className="w-full border-2 shadow-lg shadow-blue-300 border-gray-400 bg-slate-50 rounded-lg p-4 sm:flex sm:space-x-6 ">
+            <div className="w-full border shadow-lg shadow-blue-300 border-gray-400 bg-slate-50 rounded-lg p-4 sm:flex sm:space-x-6 ">
               <div className="flex-shrink-0 w-full mb-6 h-56 sm:h-44 sm:w-44 sm:mb-0">
                 <img
                   src={guide?.photo}
