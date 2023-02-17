@@ -1,10 +1,31 @@
 import React, { useState } from "react";
-import { FaBell, FaBox, FaEnvelope, FaPager, FaUikit } from "react-icons/fa";
-import { HiOutlineShoppingCart } from "react-icons/hi";
+import {
+  FaBell,
+  FaBox,
+  FaCheck,
+  FaDollarSign,
+  FaHandHoldingUsd,
+  FaHome,
+  FaHourglassHalf,
+  FaPager,
+  FaUikit,
+} from "react-icons/fa";
+import {
+  HiChat,
+  HiChatAlt,
+  HiChatAlt2,
+  HiOutlineCurrencyDollar,
+  HiOutlineHome,
+  HiOutlineMail,
+  HiOutlineShoppingBag,
+  HiOutlineShoppingCart,
+  HiUserGroup, 
+} from "react-icons/hi";
 import { Link, Outlet } from "react-router-dom";
 import useTitle from "../hooks/useTitle";
 import DashboardNab from "../pages/Shared/Navbar/DashboardNab";
 import "./Dashboard.css";
+import { FcCancel } from "react-icons/fc";
 
 const AdminDashboard = () => {
   const [propertiesSubmenu, setPropertiesSubmenu] = useState(false);
@@ -19,12 +40,12 @@ const AdminDashboard = () => {
       <DashboardNab></DashboardNab>
       <div className="grid grid-cols-5 gap-1">
         <div>
-          <div className="fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 bg-blue-900 h-full text-white transition-all duration-300 border-none z-10">
+          <div className="fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 h-full transition-all duration-300 border-none z-10 text-[#8adfb7] shadow-lg border-r-4">
             <div className="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow">
               <ul className="flex flex-col py-4 space-y-1">
                 <li className="px-5 hidden md:block">
                   <div className="flex flex-row items-center h-8">
-                    <div className="text-sm font-light tracking-wide text-gray-400 uppercase">
+                    <div className="text-sm font-bold tracking-wide text-gray-400 uppercase">
                       Dashboard
                     </div>
                   </div>
@@ -33,12 +54,12 @@ const AdminDashboard = () => {
                 <li>
                   <p
                     onClick={() => setPropertiesSubmenu(!propertiesSubmenu)}
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
                       <FaBox className="w-5 h-5"></FaBox>
                     </span>
-                    <span className="ml-2 text-sm tracking-wide truncate">
+                    <span className="ml-2 text-black font-bold text-sm tracking-wide truncate">
                       Properties
                     </span>
                   </p>
@@ -49,9 +70,13 @@ const AdminDashboard = () => {
                       <li>
                         <p
                           onClick={() => setHotelsSubmenu(!hotelsSubmenu)}
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4 cursor-pointer"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="inline-flex justify-center items-center ml-8">
+                           <FaHome></FaHome>
+                          </span>
+
+                          <span className="ml-2 text-black font-bold text-sm tracking-wide truncate ">
                             Hotels
                           </span>
                         </p>
@@ -64,10 +89,13 @@ const AdminDashboard = () => {
                             <li>
                               <Link
                                 to="/dashboard/managehotel"
-                                className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-8"
-                                href="/"
+                                className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                               >
-                                <span className="md:ml-4 text-sm tracking-wide truncate">
+                                <span className="inline-flex justify-center items-center ml-8">
+                                  
+                                  <HiOutlineHome></HiOutlineHome>
+                                </span>
+                                <span className="ml-2 text-sm tracking-wide truncate text-black font-bold">
                                   Manage Hotels
                                 </span>
                               </Link>
@@ -75,10 +103,12 @@ const AdminDashboard = () => {
                             <li>
                               <Link
                                 to="/dashboard/pendingHotel"
-                                className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-8"
-                                href="/"
+                                className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                               >
-                                <span className="md:ml-4 text-sm tracking-wide truncate">
+                                <span className="inline-flex justify-center items-center ml-8">
+                                  <FaHourglassHalf></FaHourglassHalf>
+                                </span>
+                                <span className="ml-2 text-sm tracking-wide truncate text-black font-bold">
                                   Pending Hotel
                                 </span>
                               </Link>
@@ -86,10 +116,13 @@ const AdminDashboard = () => {
                             <li>
                               <Link
                                 to="/dashboard/blockedhotel"
-                                className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-8"
-                                href="/"
+                                className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                               >
-                                <span className="md:ml-4 text-sm tracking-wide truncate">
+                                <span className="inline-flex justify-center items-center ml-8">
+                                  <FcCancel className="w-4 h-4"></FcCancel>
+                                </span>
+
+                                <span className="ml-2 text-sm tracking-wide truncate text-black font-bold">
                                   Blocked Hotel
                                 </span>
                               </Link>
@@ -105,12 +138,12 @@ const AdminDashboard = () => {
                 <li>
                   <p
                     onClick={() => setOrdersSubmenu(!ordersSubMenu)}
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
                       <HiOutlineShoppingCart className="w-5 h-5"></HiOutlineShoppingCart>
                     </span>
-                    <span className="ml-2 text-sm tracking-wide truncate">
+                    <span className="ml-2 text-sm tracking-wide truncate text-black font-bold">
                       Orders
                     </span>
                   </p>
@@ -119,9 +152,12 @@ const AdminDashboard = () => {
                       <li>
                         <Link
                           to="/dashboard/allorders"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="inline-flex justify-center items-center ml-8">
+                            <HiOutlineShoppingBag className="text-xl"></HiOutlineShoppingBag>
+                          </span>
+                          <span className="ml-2 text-sm tracking-wide truncate text-black font-bold">
                             All Orders
                           </span>
                         </Link>
@@ -129,19 +165,26 @@ const AdminDashboard = () => {
                       <li>
                         <Link
                           to="/dashboard/completedorders"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
-                            completed Orders
+                          <span className="inline-flex justify-center items-center ml-8">
+                            <FaCheck></FaCheck>
+                          </span>
+                          <span className="ml-2 text-sm tracking-wide truncate font-bold text-black">
+                            Completed Orders
                           </span>
                         </Link>
                       </li>
                       <li>
                         <Link
                           to="/dashboard/canceledorders"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="inline-flex justify-center items-center ml-8">
+                            <FcCancel className="w-4 h-4"></FcCancel>
+                          </span>
+
+                          <span className="ml-2 text-sm tracking-wide truncate font-bold text-black">
                             Canceled Orders
                           </span>
                         </Link>
@@ -153,12 +196,12 @@ const AdminDashboard = () => {
                 <li>
                   <p
                     onClick={() => setAccountSubmenu(!accountSubmenu)}
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
                       <FaUikit className="w-5 h-5"></FaUikit>
                     </span>
-                    <span className="ml-2 text-sm tracking-wide truncate">
+                    <span className="ml-2 text-sm tracking-wide truncate font-bold text-black">
                       Manage Account
                     </span>
                   </p>
@@ -167,9 +210,12 @@ const AdminDashboard = () => {
                       <li>
                         <Link
                           to="/dashboard/alladmin"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="inline-flex justify-center items-center ml-8">
+                            <HiUserGroup className="font-bold"></HiUserGroup>
+                          </span>
+                          <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             All Admin
                           </span>
                         </Link>
@@ -177,9 +223,12 @@ const AdminDashboard = () => {
                       <li>
                         <Link
                           to="/dashboard/editors"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="inline-flex justify-center items-center ml-8">
+                            <HiUserGroup className="font-bold"></HiUserGroup>
+                          </span>
+                          <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             Editors
                           </span>
                         </Link>
@@ -187,9 +236,12 @@ const AdminDashboard = () => {
                       <li>
                         <Link
                           to="/dashboard/organizer"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="inline-flex justify-center items-center ml-8">
+                            <HiUserGroup className="font-bold"></HiUserGroup>
+                          </span>
+                          <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             All Organizer
                           </span>
                         </Link>
@@ -197,9 +249,12 @@ const AdminDashboard = () => {
                       <li>
                         <Link
                           to="/dashboard/allusers"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="inline-flex justify-center items-center ml-8">
+                            <HiUserGroup className="font-bold"></HiUserGroup>
+                          </span>
+                          <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             All Users
                           </span>
                         </Link>
@@ -211,12 +266,12 @@ const AdminDashboard = () => {
                 <li>
                   <p
                     onClick={() => setFinanceSubmenu(!financeSubmenu)}
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
                       <FaPager className="w-5 h-5"></FaPager>
                     </span>
-                    <span className="ml-2 text-sm tracking-wide truncate">
+                    <span className="ml-2 text-sm tracking-wide truncate font-bold text-black">
                       Finance
                     </span>
                   </p>
@@ -224,30 +279,40 @@ const AdminDashboard = () => {
                     <ul>
                       <li>
                         <Link
-                        to='/dashboard/paymentreceived'
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          to="/dashboard/paymentreceived"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="inline-flex justify-center items-center ml-8">
+                            <HiOutlineCurrencyDollar className="text-xl"></HiOutlineCurrencyDollar>
+                          </span>
+
+                          <span className="ml-2 text-sm tracking-wide truncate font-bold text-black">
                             Payments Received
                           </span>
                         </Link>
                       </li>
                       <li>
                         <Link
-                        to='/dashboard/payoutToOrganizer'
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          to="/dashboard/payoutToOrganizer"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="inline-flex justify-center items-center ml-8">
+                            <FaDollarSign className=""></FaDollarSign>
+                          </span>
+                          <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             Payouts to organizer
                           </span>
                         </Link>
                       </li>
                       <li>
                         <Link
-                        to='/dashboard/refundtocustomer'
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          to="/dashboard/refundtocustomer"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="inline-flex justify-center items-center ml-8">
+                            <FaHandHoldingUsd className="text-xl"></FaHandHoldingUsd>
+                          </span>
+                          <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             Refund to customer
                           </span>
                         </Link>
@@ -259,55 +324,67 @@ const AdminDashboard = () => {
                 <li>
                   <p
                     onClick={() => setMessageSubmenu(!messageSubmenu)}
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6 cursor-pointer"
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
-                      <FaEnvelope className="w-5 h-5"></FaEnvelope>
+                      <HiOutlineMail className="w-5 h-5"></HiOutlineMail>
                     </span>
-                    <span className="ml-2 text-sm tracking-wide truncate">
+                    <span className="ml-2 text-sm tracking-wide truncate font-bold text-black">
                       Messages
                     </span>
                   </p>
 
-                  <div className={`${messageSubmenu ? "visible" : "hidden"}`}>
+                  <div className={`${messageSubmenu ? "visible" : "hidden"} ml-2`}>
                     <ul>
                       <li>
                         <Link
-                        to='/dashboard/livechat'
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          to="/dashboard/livechat"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="inline-flex justify-center items-center ml-4">
+                            <HiChatAlt2 className="w-5 h-5"></HiChatAlt2>
+                          </span>
+                          <span className="ml-2 text-sm tracking-wide truncate font-bold text-black">
                             Live Chat
                           </span>
                         </Link>
                       </li>
                       <li>
                         <Link
-                        to='/dashboard/toOrganizer'
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          to="/dashboard/toOrganizer"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
-                            message to the organizer
+                          <span className="inline-flex justify-center items-center ml-4">
+                            <HiChatAlt className="w-5 h-5"></HiChatAlt>
+                          </span>
+                          <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
+                            message to organizer
                           </span>
                         </Link>
                       </li>
                       <li>
                         <Link
-                        to='/dashboard/tocustomer'
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          to="/dashboard/tocustomer"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
-                            message to the customer
+                           <span className="inline-flex justify-center items-center ml-4">
+                            <HiChat className="w-5 h-5"></HiChat>
+                          </span>
+                          <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
+                            message to customer
                           </span>
                         </Link>
                       </li>
                       <li>
                         <Link
-                        to='/dashboard/tosubscriber'
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          to="/dashboard/tosubscriber"
+                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                         >
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
-                            message to the subscribes
+                          <span className="inline-flex justify-center items-center ml-4">
+                            <HiChat className="w-5 h-5"></HiChat>
+                          </span>
+                          <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
+                            message to subscribes
                           </span>
                         </Link>
                       </li>
@@ -317,20 +394,17 @@ const AdminDashboard = () => {
 
                 {/* Notifications  */}
                 <li>
-                  <a
-                    href="/"
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 pr-6"
-                  >
+                  <p className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer">
                     <span className="inline-flex justify-center items-center ml-4">
                       <FaBell className="w-5 h-5"></FaBell>
                     </span>
-                    <span className="ml-2 text-sm tracking-wide truncate">
+                    <span className="ml-2 text-sm tracking-wide truncate font-bold text-black">
                       Notifications
                     </span>
                     <span className="hidden md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-red-500 bg-red-50 rounded-full">
                       1.2k
                     </span>
-                  </a>
+                  </p>
                 </li>
                 {/* <li className="px-5 hidden md:block">
                   <div className="flex flex-row items-center mt-5 h-8">
