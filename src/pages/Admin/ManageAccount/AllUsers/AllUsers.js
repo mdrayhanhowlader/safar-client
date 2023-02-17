@@ -119,7 +119,7 @@ const AllUsers = () => {
                     <td className="px-6 py-4">
                       <span className="inline-flex items-center gap-1   px-2 py-1 text-sm font-semibold">
                         {user?.location
-                          ? user?.location.slice(0, 15)
+                          ? user?.location
                           : "Unknown"}
                       </span>
                     </td>
