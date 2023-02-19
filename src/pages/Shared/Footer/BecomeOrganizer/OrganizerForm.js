@@ -82,7 +82,7 @@ const OrganizerForm = () => {
       room_type: [
         {
           name: data.room_name,
-          room_no: parseInt(data.room_no),
+          rooms_no: parseInt(data.room_no),
           bed: beds,
           sleep: parseInt(data.sleep),
         },
@@ -93,6 +93,7 @@ const OrganizerForm = () => {
       hotel_id: user?.uid,
       // promoted: "",
     };
+    console.log(organizer)
     // update organizer info
     fetch(
       `https://safar-server-nasar06.vercel.app/destination/post-all-destinations`,
