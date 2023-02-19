@@ -1,11 +1,27 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import React from "react";
+import React, { useEffect } from "react";
 import CheckoutForm from "./CheckoutForm";
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
+const stripePromise = loadStripe(process.env.REACT_APP_PAYMENT_STRIPE_PK);
 
-const CheckoutPage = () => {
+
+const CheckoutPage = ({price}) => {
+
+     
+
+  useEffect( ()=>{
+    fetch(' https://safar-server-nasar06.vercel.app/payment/paymentIntent',{
+      method: "POST",
+      headers:{
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({price})
+    })
+  }, [])
+
+
+
   return (
     <div>
       <div className="flex justify-center mt-6 ">
