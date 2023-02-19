@@ -38,14 +38,15 @@ const HeaderSearch = () => {
 
   const days = dayDifference(dates[0].endDate, dates[0].startDate);
 
-
   const handleSearch = () => {
-    
     window.localStorage.setItem("destination", JSON.stringify(destination));
     window.localStorage.setItem("days", JSON.stringify(days));
     window.localStorage.setItem("options", JSON.stringify(options));
     window.localStorage.setItem("dates", JSON.stringify(dates));
-    dispatch({type: 'NEW_SEARCH', payload: (destination,dates, days, options)});
+    dispatch({
+      type: "NEW_SEARCH",
+      payload: (destination, dates, days, options),
+    });
     navigate("/searchpage", { state: { destination, dates, options } });
   };
 
@@ -58,14 +59,8 @@ const HeaderSearch = () => {
     });
   };
 
-  // search location
-  // const handleSearch = (e) => {
-  //   const location = e.target.value;
-  //   console.log(location, date[0].startDate, date[0].endDate);
-  // };
   return (
     <div>
-
       <div className=" mx-auto px-6 md:h-8 rounded-lg bg-white flex justify-center sm:mx-4 md:justify-around items-center lg:py-16 relative md:mt-16 mt-56 mb-40">
         <div className="w-10/12 md:px-6 p-8 mx-auto md:h-8 rounded-lg bg-white md:flex justify-between sm:mx-4 md:justify-around items-center lg:py-16 absolute  border-2 shadow-xl shadow-blue-100 border-slate-200">
           <div className="flex items-center gap-2 md:mb-0 mb-4">
@@ -78,7 +73,9 @@ const HeaderSearch = () => {
               onChange={(e) => setDestination(e.target.value)}
             />
           </div>
-          <h1 className="text-5xl text-blue-200 md:mb-0 mb-4 md:block hidden ">|</h1>
+          <h1 className="text-5xl text-blue-200 md:mb-0 mb-4 md:block hidden ">
+            |
+          </h1>
           <div className="md:mb-0 mb-4">
             <span>
               {openDate && (
@@ -104,7 +101,9 @@ const HeaderSearch = () => {
               )}`}
             </span>
           </span>
-          <h1 className="text-5xl text-blue-200 md:mb-0 mb-4 md:block hidden">|</h1>
+          <h1 className="text-5xl text-blue-200 md:mb-0 mb-4 md:block hidden">
+            |
+          </h1>
           <div className="headerSearchItem flex items-center gap-3 md:mb-0 mb-4">
             <FaRegUser className="text-2xl text-blue-500" />
             <span
@@ -180,7 +179,9 @@ const HeaderSearch = () => {
               </div>
             )}
           </div>
-          <h1 className="text-5xl text-blue-200 md:mb-0 mb-4 md:block hidden">|</h1>
+          <h1 className="text-5xl text-blue-200 md:mb-0 mb-4 md:block hidden">
+            |
+          </h1>
           <input
             type="submit"
             onClick={handleSearch}

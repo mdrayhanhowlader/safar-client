@@ -23,7 +23,6 @@ const Destination = () => {
   if (error)
     return "An error has occurred on destinations route: " + error.message;
 
-  // console.log(destinations);
   return (
     <section className="container mx-auto mb-8">
       {/* section title  */}
@@ -42,17 +41,17 @@ const Destination = () => {
             key={destination._id}
             to={`/destinationPage/${destination.city}`}
           >
-            <div class="group relative cursor-pointer items-center justify-center overflow-hidden rounded-md">
-              <div class="w-[415px] h-[250px]">
+            <div className="group relative cursor-pointer items-center justify-center overflow-hidden rounded-md">
+              <div className="w-full h-[250px]">
                 <img
-                  class="h-full w-full object-cover transition-transform duration-500"
+                  className="h-full w-full object-cover transition-transform duration-500"
                   src={destination.img}
                   alt="Destination-img"
                 />
               </div>
-              <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/30 group-hover:via-black/20 group-hover:to-black/30"></div>
-              <div class="absolute inset-0 flex translate-y-0 flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 visible group-hover:visible">
-                <h1 class="font-dmserif text-3xl font-semibold uppercase text-white mb-8">
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/30 group-hover:via-black/20 group-hover:to-black/30"></div>
+              <div className="absolute inset-0 flex translate-y-0 flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 visible group-hover:visible">
+                <h1 className="font-dmserif text-3xl font-semibold uppercase text-white mb-8">
                   {destination.city}
                 </h1>
               </div>

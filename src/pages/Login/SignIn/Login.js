@@ -1,10 +1,14 @@
 import React from "react";
+import useTitle from "../../../hooks/useTitle";
+import Navbar from "../../Shared/Navbar/Navbar";
 import LoginForm from "./LoginForm";
 import Welcome from "./Welcome";
 
 const Login = () => {
+  useTitle("Login");
   return (
     <div>
+      <Navbar/>
       <div className="w-4/5 mx-auto my-20 shadow-2xl grid md:grid-cols-3">
       <div className="md:col-span-2">
           <LoginForm/>

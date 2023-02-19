@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../../hooks/useTitle';
 
 const ErrorPage = () => {
+    useTitle('Error-404')
     return (
 
         <div className="grid h-screen px-4 bg-white place-content-center">

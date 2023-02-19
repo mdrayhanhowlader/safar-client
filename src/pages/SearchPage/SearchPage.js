@@ -2,9 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useState } from "react";
 import { useLoaderData, useLocation } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
+import Navbar from "../Shared/Navbar/Navbar";
 import Filters from "./Filters/Filters";
 import SearchBanner from "./SearchBanner";
 import SearchProducts from "./SearchProducts/SearchProducts";
+import guide from '../../assets/safar logo/1.png'
 
 const SearchPage = () => {
   // const destination = useLoaderData();
@@ -17,6 +20,7 @@ const SearchPage = () => {
 
   const [min, setMin] = useState(1);
   const [max, setMax] = useState(999);
+  useTitle(destination + "'s" + " "+ "Hotels")
 
   const {
     data: allHotels,
@@ -37,9 +41,11 @@ const SearchPage = () => {
   // const info = {dates,options};
   console.log(allHotels)
   return (
-    <div className="w-full mx-auto">
+    <div style={{ backgroundImage: `url(${guide})` }} className="bg-cover">
+      <Navbar/>
+      <div className="w-full mx-auto">
       <div>
-        <SearchBanner allHotels={allHotels}></SearchBanner>
+        {/* <SearchBanner allHotels={allHotels}></SearchBanner> */}
       </div>
       <div className="lg:flex">
         {/* <Filters priceRangeResource={priceRangeResource}></Filters> */}
@@ -48,6 +54,7 @@ const SearchPage = () => {
           isLoading={isLoading}
         ></SearchProducts>
       </div>
+    </div>
     </div>
   );
 };

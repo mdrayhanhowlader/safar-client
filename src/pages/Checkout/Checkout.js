@@ -1,8 +1,13 @@
 import React from "react";
+import useTitle from "../../hooks/useTitle";
+import Navbar from "../Shared/Navbar/Navbar";
 
 const Checkout = () => {
+  useTitle('Checkout')
   return (
-    <section>
+   <div>
+    <Navbar/>
+     <section>
       <h1 className="sr-only">Checkout</h1>
 
       <div className="grid grid-cols-1 mx-auto max-w-screen-2xl md:grid-cols-2">
@@ -171,6 +176,7 @@ const Checkout = () => {
         </div>
       </div>
     </section>
+   </div>
   );
 };
 

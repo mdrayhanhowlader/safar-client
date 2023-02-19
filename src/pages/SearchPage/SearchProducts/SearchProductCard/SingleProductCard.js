@@ -8,7 +8,7 @@ const SingleProductCard = ({ hotelData, info }) => {
   // console.log(hotel_id);
   // console.log(images);
   return (
-    <div className="grid lg:grid-cols-3 border">
+    <div className="grid lg:grid-cols-3 border bg-white">
       {/*image section */}
       <div>
         <img className="h-full w-full p-1 rounded-lg" src={images[0]} alt="" />

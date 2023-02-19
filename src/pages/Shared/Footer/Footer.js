@@ -38,7 +38,7 @@ const Footer = () => {
   };
 
   return (
-    <footer aria-label="Site Footer" className="bg-white">
+    <footer aria-label="Site Footer" className="">
       <div className="mx-auto max-w-screen-xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-md">
           <strong className="block text-center text-xl font-medium text-blue-500 sm:text-3xl">
@@ -209,7 +209,7 @@ const Footer = () => {
                 >
                   Become an organizer
                 </a>
-                <Link to='/registerguide'>Become a Guide</Link>
+                <Link to="/registerguide">Become a Guide</Link>
                 <a
                   className="text-gray-700 transition hover:text-gray-700/75"
                   href="/"
