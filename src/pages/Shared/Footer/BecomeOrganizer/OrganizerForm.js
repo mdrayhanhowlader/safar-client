@@ -19,7 +19,7 @@ const OrganizerForm = () => {
   const [room, setRoom] = useState(false);
   // const [addRoom, setAddRoom] = useState([]);
 
-  const imageHostKey = process.env.REACT_APP_imagePostKey;
+  // const imageHostKey = process.env.REACT_APP_imagePostKey;
 
   const {
     register,
@@ -87,11 +87,11 @@ const OrganizerForm = () => {
           sleep: parseInt(data.sleep),
         },
       ],
-      yearly_deals: true,
-      monthly_deals: true,
+      // yearly_deals: true,
+      // monthly_deals: true,
       contact: data.mobile,
       hotel_id: user?.uid,
-      promoted: "",
+      // promoted: "",
     };
     // update organizer info
     fetch(
@@ -123,9 +123,9 @@ const OrganizerForm = () => {
   return (
     <div>
       <Navbar />
-      <section className="w-full">
+      <section className="w-full -mt-16">
         <div className="grid grid-cols-1 mx-auto max-w-screen-2xl md:grid-cols-2">
-          <div className="my-6 p-6">
+          <div className="my-4 p-6">
             <h1 className="text-5xl text-blue-400 text-center font-bold mt-16">
               Please fill and support us to publish you!
             </h1>
