@@ -27,10 +27,11 @@ const DetailSection = ({ hotelData }) => {
   const navigate = useNavigate();
 
   const { days, options } = useContext(SearchContext);
+  console.log(typeof days);
 
   const [isHandleClick, setIsHandleClick] = useState(false);
   const [isClick, setIsClick] = useState(false);
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const [state, setState] = useState([
     {
       startDate: new Date(),
@@ -65,6 +66,8 @@ const DetailSection = ({ hotelData }) => {
       navigate("/login");
     }
   };
+
+  console.log(state);
 
   return (
     <div>
@@ -191,7 +194,7 @@ const DetailSection = ({ hotelData }) => {
                   <h1>
                     <small>GUESTS</small>
                   </h1>
-                  <p>2 guests</p>
+                  <p>{count} guests</p>
                 </div>
                 {isClick === true ? (
                   <div
@@ -255,13 +258,13 @@ const DetailSection = ({ hotelData }) => {
             </div>
 
             {/* button */}
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <Link to="/checkoutPage">
                 <button className="w-full h-8 bg-green-800 rounded-lg hover:bg-green-700 text-white">
                   Check Availability
                 </button>
               </Link>
-            </div>
+            </div> */}
             <div className="mt-4">
               <button
                 onClick={handleClick}
@@ -276,9 +279,7 @@ const DetailSection = ({ hotelData }) => {
                 <h1>You won't be charged yet ?</h1>
               </div>
               <div className="flex justify-between my-2">
-                <h1 className="text-green-800">
-                  ${regular_price} x {days} nights
-                </h1>
+                <h1 className="text-green-800">{days} Nights</h1>
                 <p>${regular_price * days}</p>
               </div>
               <div className="flex justify-between my-2">
@@ -291,6 +292,7 @@ const DetailSection = ({ hotelData }) => {
 
             <div className="flex justify-between mt-6">
               <h1 className="font-bold">Total before taxes</h1>
+
               <p>${regular_price * days + serviceFee}</p>
             </div>
           </div>

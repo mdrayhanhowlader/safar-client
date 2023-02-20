@@ -75,7 +75,7 @@ const Rooms = ({ setOpenModal, hotel_id, state }) => {
           {state.map((item, index) => (
             <div key={index}>
               Start date: {item.startDate.toString().slice(0, 15)} <br />
-              End date: {item.endDate.toString().slice(0, 15)}
+              End date: {item.endDate.toString().slice(0, 15)} <br />
             </div>
           ))}
         </div>
