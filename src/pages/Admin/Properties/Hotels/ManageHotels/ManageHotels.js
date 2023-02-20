@@ -24,6 +24,7 @@ const ManageHotels = () => {
     },
   });
 
+  console.log(hotels);
   return (
     <section className="m-4">
       <h2 className="text-2xl font-bold">All Hotels </h2>
@@ -93,22 +94,22 @@ const ManageHotels = () => {
                     </th>
                     <td className="px-6 py-4">
                       <span className="inline-flex items-center gap-1   px-2 py-1 text-sm font-semibold">
-                        {hotel.hotel_name}
+                        {hotel?.hotel_name}
                       </span>
                     </td>
                     <td className="px-6 py-4">
                       <span className="inline-flex items-center gap-1   px-2 py-1 text-sm font-semibold">
-                        {hotel.hotel_id}
+                        {hotel?.hotel_id}
                       </span>
                     </td>
                     <td className="px-6 py-4">
                       <span className="inline-flex items-center gap-1   px-2 py-1 text-sm font-semibold">
-                       {hotel.location[0].country}
+                       {hotel.location[0]?.country}
                       </span>
                     </td>
                     <td className="px-6 py-4">
                       <span className="inline-flex items-center gap-1   px-2 py-1 text-sm font-semibold">
-                      {hotel.location[0].city}
+                      {hotel.location[0]?.city}
                       </span>
                     </td>
 
