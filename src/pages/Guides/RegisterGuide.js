@@ -68,12 +68,11 @@ const RegisterGuide = () => {
           .then((data) => {
             if (data.email === guideData.email) {
               toast.success("Guide info added");
+              reset();
+              navigate("");
             }
           })
           .catch((err) => console.log("API didn't hit", err));
-
-        reset();
-        navigate("");
       })
       .catch((err) => {
         console.log(err);
