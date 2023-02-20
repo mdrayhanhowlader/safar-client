@@ -4,9 +4,11 @@ import { ImCross } from "react-icons/im";
 import { SearchContext } from "../../../../contexts/SearchProvider";
 import "./Rooms.css";
 
-const Rooms = ({ setOpenModal, hotel_id }) => {
+const Rooms = ({ setOpenModal, hotel_id, state }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { dates } = useContext(SearchContext);
+  const [getSize, setGetSize] = useState(false);
+  const [getData, setGetData] = useState([]);
 
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["sellers"],
@@ -19,15 +21,21 @@ const Rooms = ({ setOpenModal, hotel_id }) => {
       return data;
     },
   });
-  const handleSelect = (e) => {
-    const checked = e.target.checked;
-    const value = e.target.value;
-    setSelectedRooms(
-      checked
-        ? [...selectedRooms, value]
-        : selectedRooms.filter((item) => item !== value)
-    );
+
+  const handleSelect = (size) => {
+    const rPacks = [size];
+
+    if (!getSize) {
+      setGetSize(true);
+      setGetData([...getData, rPacks]);
+      console.log(rPacks);
+      setGetSize(false);
+    }
   };
+
+  console.log(getData);
+
+  const handleReserve = () => {};
 
   return (
     <div className=" w-[100vw] h-[100vh] bg-[#0000006b] fixed flex top-0 left-0 items-center justify-center">
@@ -55,7 +63,7 @@ const Rooms = ({ setOpenModal, hotel_id }) => {
                   <input
                     type="checkbox"
                     value={singleBed._id}
-                    onChange={handleSelect}
+                    onClick={() => handleSelect(singleBed.size)}
                     // disabled={!isAvailable(singleBed)}
                   />
                 </div>
@@ -63,7 +71,17 @@ const Rooms = ({ setOpenModal, hotel_id }) => {
             </div>
           </div>
         ))}
-        <button className="rButton">Reserve Now!</button>
+        <div>
+          {state.map((item, index) => (
+            <div key={index}>
+              Start date: {item.startDate.toString().slice(0, 15)} <br />
+              End date: {item.endDate.toString().slice(0, 15)}
+            </div>
+          ))}
+        </div>
+        <button className="rButton" onClick={() => handleReserve}>
+          Reserve Now!
+        </button>
       </div>
     </div>
   );

@@ -82,7 +82,7 @@ const OrganizerForm = () => {
       room_type: [
         {
           name: data.room_name,
-          room_no: parseInt(data.room_no),
+          rooms_no: parseInt(data.room_no),
           bed: beds,
           sleep: parseInt(data.sleep),
         },

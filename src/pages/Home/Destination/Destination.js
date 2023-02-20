@@ -50,7 +50,7 @@ const Destination = () => {
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/30 group-hover:via-black/20 group-hover:to-black/30"></div>
-              <div className="absolute inset-0 flex translate-y-0 flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0 visible group-hover:visible">
+              <div className="absolute inset-0 flex translate-y-0 flex-col items-center justify-center text-center transition-all duration-500 group-hover:translate-y-0 visible group-hover:visible">
                 <h1 className="font-dmserif text-3xl font-semibold uppercase text-white mb-8">
                   {destination.city}
                 </h1>

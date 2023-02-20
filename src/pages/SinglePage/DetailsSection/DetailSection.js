@@ -118,7 +118,7 @@ const DetailSection = ({ hotelData }) => {
                       <h1>
                         <small>Check-In</small>
                       </h1>
-                      <p>01/02/03</p>
+                      {/* <p>01/02/03</p> */}
                     </div>
                   </div>
                 ) : (
@@ -131,7 +131,7 @@ const DetailSection = ({ hotelData }) => {
                       <h1>
                         <small>Check-In</small>
                       </h1>
-                      <p>01/02/03</p>
+                      {/* <p>01/02/03</p> */}
                     </div>
                   </div>
                 )}
@@ -145,7 +145,7 @@ const DetailSection = ({ hotelData }) => {
                       <h1>
                         <small>Check-Out</small>
                       </h1>
-                      <p>01/02/03</p>
+                      {/* <p>01/02/03</p> */}
                     </div>
                   </div>
                 ) : (
@@ -158,7 +158,7 @@ const DetailSection = ({ hotelData }) => {
                       <h1>
                         <small>Check-Out</small>
                       </h1>
-                      <p>01/02/03</p>
+                      {/* <p>01/02/03</p> */}
                     </div>
                   </div>
                 )}
@@ -305,7 +305,11 @@ const DetailSection = ({ hotelData }) => {
         <ReviewSection />
       </div>
       {openModal && (
-        <Rooms setOpenModal={setOpenModal} hotel_id={hotel_id}></Rooms>
+        <Rooms
+          state={state}
+          setOpenModal={setOpenModal}
+          hotel_id={hotel_id}
+        ></Rooms>
       )}
       {/* <Rooms setOpenModal={setOpenModal} hotel_id={hotel_id}></Rooms> */}
     </div>
