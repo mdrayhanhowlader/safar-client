@@ -5,16 +5,9 @@ import OfferPage from "../pages/OfferPage/OfferPage";
 
 
 const InitialState = {
-<<<<<<< HEAD
   // destination: JSON.parse(localStorage.getItem("destination")),
   // days: JSON.parse(localStorage.getItem("days")),
   // options: JSON.parse(localStorage.getItem("options")),
-=======
-  destination: JSON.parse(localStorage.getItem("destination")) ,
-  dates: JSON.parse(localStorage.getItem("dates")) ,
-  days: JSON.parse(localStorage.getItem("days")),
-  options: JSON.parse(localStorage.getItem("options"))
->>>>>>> 3bb2a504158ce10bd05074255445d86e64dc63ae
 };
 console.log("InitialStateI", InitialState)
 
