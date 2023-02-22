@@ -10,8 +10,13 @@ import Rooms from "./Rooms/Rooms";
 
 const DetailSection = ({ hotelData }) => {
   const [openModal, setOpenModal] = useState(false);
+<<<<<<< HEAD
   const [getSize, setGetSize] = useState(false);
   const [getData, setGetData] = useState([]);
+=======
+  const [day, setDay] = useState(0);
+
+>>>>>>> 2b879ecec28de35ba27f27e86d81ea5661b11f84
   const locations = useLocation();
 
   const { hotel_id, regular_price } = hotelData;
@@ -23,13 +28,20 @@ const DetailSection = ({ hotelData }) => {
   const [isHandleClick, setIsHandleClick] = useState(false);
   const [isClick, setIsClick] = useState(false);
   const [count, setCount] = useState(1);
-  const [state, setState] = useState([
+  const [date, setDate] = useState([
     {
       startDate: new Date(),
       endDate: new Date(),
       key: "selection",
     },
   ]);
+
+  const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
+  function dayDifference(date1, date2) {
+    const timeDiff = Math.abs(date2.getTime() - date1.getTime());
+    const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
+    return diffDays;
+  }
 
   const serviceFee = 100;
 
@@ -38,6 +50,8 @@ const DetailSection = ({ hotelData }) => {
   };
   const handleCloseCalender = () => {
     setIsHandleClick(false);
+    const Sdays = dayDifference(date[0].endDate, date[0].startDate);
+  setDay(Sdays);
   };
 
   const handleClickOpen = () => {
@@ -58,9 +72,12 @@ const DetailSection = ({ hotelData }) => {
     }
   };
 
+<<<<<<< HEAD
   // console.log(state);
 
   console.log(getData);
+=======
+>>>>>>> 2b879ecec28de35ba27f27e86d81ea5661b11f84
 
   return (
     <div>
@@ -164,9 +181,9 @@ const DetailSection = ({ hotelData }) => {
                   <DateRange
                     className="w-full"
                     editableDateInputs={true}
-                    onChange={(item) => setState([item.selection])}
+                    onChange={(item) => setDate([item.selection])}
                     moveRangeOnFirstSelection={false}
-                    ranges={state}
+                    ranges={date}
                   />
                 </div>
               }
@@ -272,8 +289,8 @@ const DetailSection = ({ hotelData }) => {
                 <h1>You won't be charged yet ?</h1>
               </div>
               <div className="flex justify-between my-2">
-                <h1 className="text-green-800">{days} Nights</h1>
-                <p>${regular_price * days}</p>
+                <h1 className="text-green-800">{day} * Nights</h1>
+                <p>${regular_price * day}</p>
               </div>
               <div className="flex justify-between my-2">
                 <h1 className="text-green-800">Service fee</h1>
@@ -286,7 +303,7 @@ const DetailSection = ({ hotelData }) => {
             <div className="flex justify-between mt-6">
               <h1 className="font-bold">Total before taxes</h1>
 
-              <p>${regular_price * days + serviceFee}</p>
+              <p>${regular_price * day + serviceFee}</p>
             </div>
             {getData?.map((item) => (
               <>
@@ -308,7 +325,7 @@ const DetailSection = ({ hotelData }) => {
       </div>
       {openModal && (
         <Rooms
-          state={state}
+          state={date}
           setOpenModal={setOpenModal}
           hotel_id={hotel_id}
           hotelData={hotelData}
