@@ -4,11 +4,18 @@ import { ImCross } from "react-icons/im";
 import { SearchContext } from "../../../../contexts/SearchProvider";
 import "./Rooms.css";
 
-const Rooms = ({ setOpenModal, hotel_id, state }) => {
+const Rooms = ({
+  setOpenModal,
+  hotel_id,
+  state,
+  getSize,
+  setGetSize,
+  getData,
+  setGetData,
+  hotelData,
+}) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { dates } = useContext(SearchContext);
-  const [getSize, setGetSize] = useState(false);
-  const [getData, setGetData] = useState([]);
 
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["sellers"],
@@ -22,18 +29,24 @@ const Rooms = ({ setOpenModal, hotel_id, state }) => {
     },
   });
 
-  const handleSelect = (size) => {
-    const rPacks = [size];
+  const handleSelect = (rSize, rPrice, rSleep) => {
+    const s = rSize;
+    const p = rPrice;
+    const slp = rSleep;
+
+    const rPacks = { size: s, price: p, sleep: slp };
+
+    // console.log(rPacks);
 
     if (!getSize) {
       setGetSize(true);
       setGetData([...getData, rPacks]);
-      console.log(rPacks);
+      // console.log(rPacks);
       setGetSize(false);
     }
   };
 
-  console.log(getData);
+  // console.log(getData);
 
   const handleReserve = () => {};
 
@@ -63,9 +76,13 @@ const Rooms = ({ setOpenModal, hotel_id, state }) => {
                   <input
                     type="checkbox"
                     value={singleBed._id}
-                    onClick={() => handleSelect(singleBed.size)}
+                    onClick={() =>
+                      handleSelect(singleBed.size, item.price, item.sleep)
+                    }
                     // disabled={!isAvailable(singleBed)}
                   />
+                  <p>{item.price}</p>
+                  <p>{item.sleep}</p>
                 </div>
               ))}
             </div>

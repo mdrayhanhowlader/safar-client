@@ -10,24 +10,15 @@ import Rooms from "./Rooms/Rooms";
 
 const DetailSection = ({ hotelData }) => {
   const [openModal, setOpenModal] = useState(false);
-
+  const [getSize, setGetSize] = useState(false);
+  const [getData, setGetData] = useState([]);
   const locations = useLocation();
 
-  const {
-    hotel_name,
-    description,
-    location,
-    hotel_id,
-    regular_price,
-    images,
-    offer_price,
-    facilities,
-  } = hotelData;
+  const { hotel_id, regular_price } = hotelData;
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const { days, options } = useContext(SearchContext);
-  console.log(typeof days);
 
   const [isHandleClick, setIsHandleClick] = useState(false);
   const [isClick, setIsClick] = useState(false);
@@ -67,7 +58,9 @@ const DetailSection = ({ hotelData }) => {
     }
   };
 
-  console.log(state);
+  // console.log(state);
+
+  console.log(getData);
 
   return (
     <div>
@@ -295,6 +288,13 @@ const DetailSection = ({ hotelData }) => {
 
               <p>${regular_price * days + serviceFee}</p>
             </div>
+            {getData?.map((item) => (
+              <>
+                <p>{item.size}</p>
+                <p>{item.price}</p>
+                <p>{item.sleep}</p>
+              </>
+            ))}
           </div>
         </div>
       </div>
@@ -311,6 +311,11 @@ const DetailSection = ({ hotelData }) => {
           state={state}
           setOpenModal={setOpenModal}
           hotel_id={hotel_id}
+          hotelData={hotelData}
+          getSize={getSize}
+          setGetSize={setGetSize}
+          getData={getData}
+          setGetData={setGetData}
         ></Rooms>
       )}
       {/* <Rooms setOpenModal={setOpenModal} hotel_id={hotel_id}></Rooms> */}
