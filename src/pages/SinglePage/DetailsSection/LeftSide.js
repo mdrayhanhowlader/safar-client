@@ -102,7 +102,7 @@ const LeftSide = ({ hotelData }) => {
               <h1 className="text-xl font-bold">Great check-in experience</h1>
               <p>
                 Superhosts are experienced, highly rated hosts who are committed
-                to providing great stays for guests.
+                to providing great stays for guests. providing great stays for guests.
               </p>
             </div>
           </div>
