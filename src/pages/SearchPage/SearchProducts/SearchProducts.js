@@ -5,11 +5,11 @@ import SearchProductCard from "./SearchProductCard/SearchProductCard";
 const SearchProducts = ({ allHotels, isLoading }) => {
   // const { stays } = destination;
   return (
-    <div className="w-5/5 m-4 px-3 ">
+    <div className="w-5/5 m-4 px-3">
       <div className="mb-12 md:flex md:justify-end">
         <SearchNav></SearchNav>
       </div>
-      <div className="grid lg:grid-cols-1 gap-2">
+      <div className="grid lg:grid-cols-1 gap-2 ">
         {isLoading
           ? (<><section className="bg-white-900 relative place-items-center grid h-screen w-screen gap-4">
 

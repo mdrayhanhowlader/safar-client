@@ -51,8 +51,10 @@ import PaymentsReceived from "../../pages/Admin/AdminFinance/PaymentsReceived/Pa
 import PayoutToOrganizer from "../../pages/Admin/AdminFinance/PayoutToOrganizer/PayoutToOrganizer";
 import RefundToCustomer from "../../pages/Admin/AdminFinance/RefundToCustomer/RefundToCustomer";
 import CheckoutPage from "../../pages/CheckoutPage/CheckoutPage";
+import SellerChat from "../../pages/Seller/SellerChat/SellerChat";
 import RegisterGuide from "../../pages/Guides/RegisterGuide";
 import LoginGuide from "../../pages/Guides/LoginGuide";
+import AllGuides from "../../pages/Guides/AllGuides";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -119,8 +121,12 @@ export const router = createBrowserRouter([
         element: <Checkout />,
       },
       {
-        path: "/checkoutPage",
+        path: "/checkoutPage/:id",
         element: <CheckoutPage />,
+        loader: async ({ params }) =>
+          fetch(
+            `https://safar-server-nasar06.vercel.app/destination/get-hotel-details/${params.id}`
+          ),
       },
       {
         path: "/organizer",
@@ -136,11 +142,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/registerguide",
-        element: <RegisterGuide/>
+        element: <RegisterGuide />,
       },
       {
         path: "/loginguide",
-        element: <LoginGuide/>
+        element: <LoginGuide />,
+      },
+      {
+        path: "/allguides",
+        element: <AllGuides />,
       },
       {
         path: "/*",
@@ -287,6 +297,10 @@ export const router = createBrowserRouter([
       {
         path: "/sellerdashboard/sellerprofile",
         element: <SellerProfile></SellerProfile>,
+      },
+      {
+        path: "/sellerdashboard/sellerchat",
+        element: <SellerChat></SellerChat>,
       },
     ],
   },

@@ -33,13 +33,18 @@
 
 
 import React from 'react';
+import useTitle from '../../hooks/useTitle';
 import HeaderSearch from '../Home/HeaderSearch/HeaderSearch';
 import Subscribe from '../Home/Subscibe/Subscribe';
+import Navbar from '../Shared/Navbar/Navbar';
 import CityCard from './CityCard/CityCard';
 
 const OfferPage = () => {
+    useTitle("Offer")
     return (
-        <div className='w-[100%] mx-auto'>
+        <div>
+            <Navbar/>
+            <div className='w-[100%] mx-auto'>
             <HeaderSearch></HeaderSearch>
             <h2 className='text-xl my-2 mt-20 mx-4'>Explore more Early 2023 Deals</h2>
             <div className="grid lg:grid-cols-3 gap-6 mx-4">
@@ -60,6 +65,7 @@ const OfferPage = () => {
                 <CityCard></CityCard>
                 <CityCard></CityCard>
             </div>
+        </div>
         </div>
     );
 };

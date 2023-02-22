@@ -1,10 +1,14 @@
 import React from "react";
+import useTitle from "../../../hooks/useTitle";
+import Navbar from "../../Shared/Navbar/Navbar";
 import RegisterForm from "./RegisterForm";
 import RegisterWelcome from "./RegisterWelcome";
 
 const Register = () => {
+  useTitle("Register");
   return (
     <div>
+      <Navbar/>
       <div className="w-4/5 mx-auto my-20 shadow-3xl border border-blue-50 shadow-blue-500 grid md:grid-cols-3">
         <div
           style={{

@@ -2,10 +2,13 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import React from "react";
 import CheckoutForm from "./CheckoutForm";
+import { useLoaderData } from "react-router-dom";
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 
 const CheckoutPage = () => {
+  const hotelData = useLoaderData();
+  const { hotel_name } = hotelData;
   return (
     <div>
       <div className="flex justify-center mt-6 ">
@@ -13,7 +16,9 @@ const CheckoutPage = () => {
           <div className="bg-white rounded  col-span-7">
             {/* <!-- Order Summary  --> */}
             <div>
-              <h3 className="text-xl text-center mt-4 font-bold">Order Summary</h3>
+              <h3 className="text-xl text-center mt-4 font-bold">
+                Order Summary
+              </h3>
               {/* <!--     BOX     --> */}
               <div className="border w-full rounded mt-5 p-4 flex justify-between items-center flex-wrap">
                 <div className="w-2/3">

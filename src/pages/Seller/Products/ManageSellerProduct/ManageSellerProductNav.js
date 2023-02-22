@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-const ManageSellerProductNav = () => {
-  const [isActive, isSetActive] = useState("allOrders");
-
+const ManageSellerProductNav = ({ isActive, isSetActive }) => {
   return (
     <div>
       <div>
@@ -11,9 +9,9 @@ const ManageSellerProductNav = () => {
         <div className="flex justify-start gap-2 md:gap-8">
           <div>
             <Link
-              onClick={() => isSetActive("allOrders")}
+              onClick={() => isSetActive("active")}
               className={
-                isActive === "allOrders"
+                isActive === "active"
                   ? "text-md text-slate-900 font-semibold pb-1 border-b-2 border-blue-600"
                   : "text-md text-slate-400 font-semibold"
               }
@@ -23,9 +21,9 @@ const ManageSellerProductNav = () => {
           </div>
           <div>
             <Link
-              onClick={() => isSetActive("dispatch")}
+              onClick={() => isSetActive("deactive")}
               className={
-                isActive === "dispatch"
+                isActive === "deactive"
                   ? "text-md text-slate-900 font-semibold pb-1 border-b-2 border-blue-600"
                   : "text-md text-slate-400 font-semibold"
               }
@@ -35,9 +33,9 @@ const ManageSellerProductNav = () => {
           </div>
           <div>
             <Link
-              onClick={() => isSetActive("pending")}
+              onClick={() => isSetActive("delete")}
               className={
-                isActive === "pending"
+                isActive === "delete"
                   ? "text-md text-slate-900 font-semibold pb-1 border-b-2 border-blue-600"
                   : "text-md text-slate-400 font-semibold"
               }
