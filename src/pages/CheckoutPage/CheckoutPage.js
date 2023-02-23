@@ -2,25 +2,24 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import React, { useEffect } from "react";
 import CheckoutForm from "./CheckoutForm";
+import { useLoaderData } from "react-router-dom";
 
 const stripePromise = loadStripe(process.env.REACT_APP_PAYMENT_STRIPE_PK);
 
 
-const CheckoutPage = ({price}) => {
+const CheckoutPage = ({ price }) => {
 
-     
 
-  useEffect( ()=>{
-    fetch(' https://safar-server-nasar06.vercel.app/payment/paymentIntent',{
+
+  useEffect(() => {
+    fetch(' https://safar-server-nasar06.vercel.app/payment/paymentIntent', {
       method: "POST",
-      headers:{
+      headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({price})
+      body: JSON.stringify({ price })
     })
   }, [])
-
-
 
   return (
     <div>
@@ -29,7 +28,9 @@ const CheckoutPage = ({price}) => {
           <div className="bg-white rounded  col-span-7">
             {/* <!-- Order Summary  --> */}
             <div>
-              <h3 className="text-xl text-center mt-4 font-bold">Order Summary</h3>
+              <h3 className="text-xl text-center mt-4 font-bold">
+                Order Summary
+              </h3>
               {/* <!--     BOX     --> */}
               <div className="border w-full rounded mt-5 p-4 flex justify-between items-center flex-wrap">
                 <div className="w-2/3">
