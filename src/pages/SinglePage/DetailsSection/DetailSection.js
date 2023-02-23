@@ -10,13 +10,10 @@ import Rooms from "./Rooms/Rooms";
 
 const DetailSection = ({ hotelData }) => {
   const [openModal, setOpenModal] = useState(false);
-<<<<<<< HEAD
-  const [getSize, setGetSize] = useState(false);
-  const [getData, setGetData] = useState([]);
-=======
   const [day, setDay] = useState(0);
+  const [allData, setAllData] = useState();
+  const [roomPrice, setRoomPrice] = useState(0);
 
->>>>>>> 2b879ecec28de35ba27f27e86d81ea5661b11f84
   const locations = useLocation();
 
   const { hotel_id, regular_price } = hotelData;
@@ -51,7 +48,7 @@ const DetailSection = ({ hotelData }) => {
   const handleCloseCalender = () => {
     setIsHandleClick(false);
     const Sdays = dayDifference(date[0].endDate, date[0].startDate);
-  setDay(Sdays);
+    setDay(Sdays);
   };
 
   const handleClickOpen = () => {
@@ -72,28 +69,27 @@ const DetailSection = ({ hotelData }) => {
     }
   };
 
-<<<<<<< HEAD
-  // console.log(state);
+  const handleReserve = (getData) => {
+    // console.log(getData);
+    setAllData(getData);
+    setOpenModal(false);
+  };
 
-  console.log(getData);
-=======
->>>>>>> 2b879ecec28de35ba27f27e86d81ea5661b11f84
+  // const totalRoomPrice = [0];
+  // const roomData = allData?.map((dt) =>
+  //   setRoomPrice(...(roomPrice + dt.price))
+  // );
+  // console.log(roomPrice, roomData);
 
   return (
     <div>
       <div className="md:flex p-4 w-full relative">
-        <div
-          className="w-full md:w-3/5 p-8"
-          // style={{ width: "60%", padding: "2rem" }}
-        >
+        <div className="w-full md:w-3/5 p-8">
           <LeftSide hotelData={hotelData} />
         </div>
 
         {/* right side / card */}
-        <div
-          className="static w-full md:w-2/5 p-8"
-          // style={{ width: "40%", padding: "2rem" }}
-        >
+        <div className="static w-full md:w-2/5 p-8">
           <div
             style={{
               border: "1px solid grey",
@@ -288,13 +284,13 @@ const DetailSection = ({ hotelData }) => {
               <div className="flex justify-center my-3">
                 <h1>You won't be charged yet ?</h1>
               </div>
-              <div className="flex justify-between my-2">
-                <h1 className="text-green-800">{day} * Nights</h1>
-                <p>${regular_price * day}</p>
-              </div>
-              <div className="flex justify-between my-2">
-                <h1 className="text-green-800">Service fee</h1>
-                <p>${serviceFee}</p>
+              <div>
+                {allData?.map((info) => (
+                  <div className="flex justify-between" key={info.price}>
+                    <p>{info.size}</p>
+                    <p>${info.price * day}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -305,22 +301,19 @@ const DetailSection = ({ hotelData }) => {
 
               <p>${regular_price * day + serviceFee}</p>
             </div>
-            {getData?.map((item) => (
+            {/* {getData?.map((item) => (
               <>
                 <p>{item.size}</p>
                 <p>{item.price}</p>
                 <p>{item.sleep}</p>
               </>
-            ))}
+            ))} */}
           </div>
         </div>
       </div>
 
       {/* review section & host details*/}
-      <div
-        className="p-8"
-        // style={{ padding: "2rem" }}
-      >
+      <div className="p-8">
         <ReviewSection />
       </div>
       {openModal && (
@@ -329,10 +322,11 @@ const DetailSection = ({ hotelData }) => {
           setOpenModal={setOpenModal}
           hotel_id={hotel_id}
           hotelData={hotelData}
-          getSize={getSize}
-          setGetSize={setGetSize}
-          getData={getData}
-          setGetData={setGetData}
+          // getSize={getSize}
+          // setGetSize={setGetSize}
+          // getData={getData}
+          // setGetData={setGetData}
+          handleReserve={handleReserve}
         ></Rooms>
       )}
       {/* <Rooms setOpenModal={setOpenModal} hotel_id={hotel_id}></Rooms> */}

@@ -4,25 +4,17 @@ import { ImCross } from "react-icons/im";
 import { SearchContext } from "../../../../contexts/SearchProvider";
 import "./Rooms.css";
 
-const Rooms = ({
-  setOpenModal,
-  hotel_id,
-  state,
-  getSize,
-  setGetSize,
-  getData,
-  setGetData,
-  hotelData,
-}) => {
+const Rooms = ({ setOpenModal, hotel_id, state, hotelData, handleReserve }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { dates } = useContext(SearchContext);
+  const [getSize, setGetSize] = useState();
+  const [getData, setGetData] = useState([]);
 
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["sellers"],
     queryFn: async () => {
       const res = await fetch(
-        `https://safar-server-nasar06.vercel.app/rooms/get-all-rooms/${hotel_id}`,
-        {}
+        `https://safar-server-nasar06.vercel.app/rooms/get-all-rooms/${hotel_id}`
       );
       const data = await res.json();
       return data;
@@ -48,10 +40,8 @@ const Rooms = ({
 
   // console.log(getData);
 
-  const handleReserve = () => {};
-
   return (
-    <div className=" w-[100vw] h-[100vh] bg-[#0000006b] fixed flex top-0 left-0 items-center justify-center">
+    <div className=" w-[100vw] h-[100vh] z-10 bg-[#0000006b] fixed flex top-0 left-0 right-0 bottom-0 items-center justify-center">
       <div className="relative bg-white p-5 rounded-lg">
         <ImCross
           //   icon={faCircleXmark}
@@ -60,9 +50,12 @@ const Rooms = ({
         />
         <span className="font-bold text-2xl">Select your rooms:</span>
         {data?.map((item) => (
-          <div className="flex items-center gap-14 p-5" key={item._id}>
+          <div
+            className="flex items-center justify-between gap-14 p-5"
+            key={item._id}
+          >
             <div className="rItemInfo">
-              <div className="font-semibold text-xl">
+              <div className="font-semibold text-lg">
                 <b>{item.name}</b>
               </div>
               <div className="rDesc">{}</div>
@@ -79,24 +72,23 @@ const Rooms = ({
                     onClick={() =>
                       handleSelect(singleBed.size, item.price, item.sleep)
                     }
-                    // disabled={!isAvailable(singleBed)}
                   />
-                  <p>{item.price}</p>
-                  <p>{item.sleep}</p>
+                  <p className="text-sm font-bold">{item.price}</p>
+                  <p className="text-sm font-bold">{item.sleep}</p>
                 </div>
               ))}
             </div>
           </div>
         ))}
-        <div>
+        {/* <div className="pb-10">
           {state.map((item, index) => (
             <div key={index}>
               Start date: {item.startDate.toString().slice(0, 15)} <br />
               End date: {item.endDate.toString().slice(0, 15)} <br />
             </div>
           ))}
-        </div>
-        <button className="rButton" onClick={() => handleReserve}>
+        </div> */}
+        <button className="rButton" onClick={() => handleReserve(getData)}>
           Reserve Now!
         </button>
       </div>
@@ -105,7 +97,6 @@ const Rooms = ({
 };
 
 export default Rooms;
-
 
 // import { useQuery } from "@tanstack/react-query";
 // import React, { useContext, useState } from "react";
