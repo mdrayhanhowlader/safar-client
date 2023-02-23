@@ -19,7 +19,7 @@ const Banner = () => {
           <div className="flex items-center ">
             <img className="w-16" src={logo} alt="" />
 
-            <h1 className="text-2xl mt-5 font-serif">SAFAR</h1>
+            <h1 className="text-2xl mt-5 font-semibold">SAFAR</h1>
           </div>
           <div className="flex items-center mt-4 mx-4 lg:mt-0">
             {user?.uid ?

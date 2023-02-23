@@ -6,13 +6,14 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import Submenu from "./Submenu";
 import logo from "../../../assets/3.png";
+import useTitle from "../../../hooks/useTitle";
 
 const Navbar = () => {
   const { user } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
 
   const [submenu, setSubmenu] = useState(false);
-
+useTitle('All Guides')
   return (
    <div className="mx-2 p-2">
      <div className="flex items-center justify-between">
@@ -20,7 +21,7 @@ const Navbar = () => {
          <div className="flex items-center ">
             <img className="w-16" src={logo} alt="" />
 
-            <h1 className="text-2xl mt-5 font-serif">SAFAR</h1>
+            <h1 className="text-2xl mt-5 font-semibold">SAFAR</h1>
           </div>
          </Link>
           <div className="flex items-center mt-4 mx-4 lg:mt-0">
