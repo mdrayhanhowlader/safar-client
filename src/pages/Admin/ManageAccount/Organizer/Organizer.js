@@ -20,6 +20,7 @@ const Organizer = () => {
       return data;
     },
   });
+  console.log(organizers)
 
   return (
     <section className="p-4">
@@ -109,9 +110,8 @@ const Organizer = () => {
                   Edit
                 </span>
                 <div
-                  className={`${
-                    submenu ? "visible" : "hidden"
-                  } z-10 relative bg-white shadow-md `}
+                  className={`${submenu ? "visible" : "hidden"
+                    } z-10 relative bg-white shadow-md `}
                 >
                   <ul>
                     <li className="py-2 px-4 hover:bg-blue-500 hover:text-white rounded-md">

@@ -20,14 +20,20 @@ const Rooms = ({ setOpenModal, hotel_id }) => {
     },
   });
   const handleSelect = (e) => {
-    const checked = e.target.checked;
-    const value = e.target.value;
-    setSelectedRooms(
-      checked
-        ? [...selectedRooms, value]
-        : selectedRooms.filter((item) => item !== value)
-    );
+    // const checked = e.target.checked;
+    // const value = e.target.value;
+    console.log(e)
+    // setSelectedRooms(
+    //   checked
+    //     ? [...selectedRooms, e]
+    //     : selectedRooms.filter((item) => item !== e)
+    // );
+    setSelectedRooms(e)
   };
+
+  // console.log(selectedRooms)
+
+
 
   return (
     <div className=" w-[100vw] h-[100vh] bg-[#0000006b] fixed flex top-0 left-0 items-center justify-center">
@@ -44,7 +50,7 @@ const Rooms = ({ setOpenModal, hotel_id }) => {
               <div className="font-semibold text-xl">
                 <b>{item.name}</b>
               </div>
-              <div className="rDesc">{}</div>
+              <div className="rDesc">{ }</div>
               <div className="rMax">{/* Max people: <b>2</b> */}</div>
               <div className="font-semibold">Price: ${item.price}</div>
             </div>
@@ -55,8 +61,8 @@ const Rooms = ({ setOpenModal, hotel_id }) => {
                   <input
                     type="checkbox"
                     value={singleBed._id}
-                    onChange={handleSelect}
-                    // disabled={!isAvailable(singleBed)}
+                    onClick={() => handleSelect(singleBed)}
+                  // disabled={!isAvailable(singleBed)}
                   />
                 </div>
               ))}

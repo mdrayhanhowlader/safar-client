@@ -21,6 +21,7 @@ const OrganizerForm = () => {
 
   // const imageHostKey = process.env.REACT_APP_imagePostKey;
 
+  console.log(user?.uid)
   const {
     register,
     handleSubmit,
