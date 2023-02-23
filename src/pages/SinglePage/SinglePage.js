@@ -24,13 +24,13 @@ const SinglePage = () => {
 
   return (
     <div>
-      <div className="md:flex w-full md:gap-3 p-2 border-2 border-gray-400 rounded-lg h-[650px]">
-        <div className="md:mb-0 md:w-4/5  mb-4 h-full">
-          <img className="w-full h-full" src={images[0]} alt="" />
+      <div className="md:flex w-full md:gap-3 p-2 border-2 border-gray-400 rounded-md">
+        <div className="md:mb-0 md:w-4/5  mb-4">
+          <img className="w-full h-full " src={images[0]} alt="" />
         </div>
         <div>
           <div className="grid gap-2 grid-cols-2 h-full">
-            <div className="h-full">
+            <div className="md:h-[380px]">
               {/* photo view start */}
               <PhotoProvider>
                 <PhotoView src={images[1]?.url}>
@@ -39,16 +39,16 @@ const SinglePage = () => {
               </PhotoProvider>
               {/* photo view end */}
             </div>
-            <div className="h-full">
+            <div className="">
               <img className="h-full w-full" src={images[2]} alt="" />
             </div>
 
-            <div className="h-full">
+            <div className="">
               <img className="h-full w-full" src={images[3]} alt="" />
             </div>
-            <div className="h-full">
+            <div className="">
               <img className="h-full w-full" src={images[4]} alt="" />
-              <div className="flex absolute bg-white hover:bg-slate-200 m-2 mt-[-7vh] w-0.75rem px-2 ">
+              <div className="flex absolute bg-white hover:bg-slate-200 m-2 mt-[-7vh] w-0.75rem px-2 py-1">
                 <FaIndent className="mt-1 mr-1.5" />
                 <button>show all photos</button>
               </div>

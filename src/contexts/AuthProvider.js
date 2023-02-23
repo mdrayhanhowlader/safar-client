@@ -50,6 +50,7 @@ const AuthProvider = ({ children }) => {
     });
     return () => unSubscribe();
   }, []);
+  console.log(user?.uid);
 
   const authInfo = {
     createUser,
