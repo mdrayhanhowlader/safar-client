@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { DateRange } from "react-date-range";
 import { FaAngleDown, FaMinus, FaPlus, FaRegStar } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -13,10 +13,11 @@ const DetailSection = ({ hotelData }) => {
   const [day, setDay] = useState(0);
   const [allData, setAllData] = useState();
   const [roomPrice, setRoomPrice] = useState(0);
+  const [roomName, setRoomName] = useState();
 
   const locations = useLocation();
 
-  const { hotel_id, regular_price } = hotelData;
+  const { hotel_id, regular_price, hotel_name } = hotelData;
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -75,11 +76,41 @@ const DetailSection = ({ hotelData }) => {
     setOpenModal(false);
   };
 
-  // const totalRoomPrice = [0];
-  // const roomData = allData?.map((dt) =>
-  //   setRoomPrice(...(roomPrice + dt.price))
-  // );
-  // console.log(roomPrice, roomData);
+  const rmName = allData?.map((rm) => rm.name);
+  const rmNo = allData?.map((rm) => rm.rooms_no);
+  const rmBed = allData?.map((rm) => rm.size);
+  const totalPrice = allData?.map((dt) => dt.price);
+  const sum = totalPrice?.reduce((total, number) => {
+    console.log(total);
+    console.log(number);
+    return total + number;
+  }, 0);
+  // console.log(sum);
+
+  const handleBook = () => {
+    const totalPrice = sum * day * serviceFee;
+    const orderInfo = {
+      customer_email: user?.email,
+      hotel_name,
+      hotel_id,
+      room_type_name: rmName,
+      rooms_no: rmNo,
+      bed: rmBed,
+      total_price: totalPrice,
+      checkIn_date: date[0].startDate,
+      checkout_date: date[0].endDate,
+    };
+    console.log(orderInfo);
+    fetch(`https://safar-server-nasar06.vercel.app/orders/add-order`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(orderInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
 
   return (
     <div>
@@ -288,7 +319,9 @@ const DetailSection = ({ hotelData }) => {
                 {allData?.map((info) => (
                   <div className="flex justify-between" key={info.price}>
                     <p>{info.size}</p>
-                    <p>${info.price * day}</p>
+                    <p>
+                      ${info.price * day} x {day}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -297,9 +330,14 @@ const DetailSection = ({ hotelData }) => {
             {/* total price */}
 
             <div className="flex justify-between mt-6">
-              <h1 className="font-bold">Total before taxes</h1>
+              <h1 className="font-bold">Service Fee</h1>
 
-              <p>${regular_price * day + serviceFee}</p>
+              <p>${serviceFee}</p>
+            </div>
+            <div className="flex justify-between mt-6">
+              <h1 className="font-bold">Total</h1>
+
+              <p>${sum * day + serviceFee}</p>
             </div>
             {/* {getData?.map((item) => (
               <>
@@ -308,6 +346,14 @@ const DetailSection = ({ hotelData }) => {
                 <p>{item.sleep}</p>
               </>
             ))} */}
+            <div className="mt-4">
+              <button
+                onClick={handleBook}
+                className="w-full h-8 bg-green-800 rounded-lg hover:bg-green-700 text-white capitalize"
+              >
+                Book Now
+              </button>
+            </div>
           </div>
         </div>
       </div>

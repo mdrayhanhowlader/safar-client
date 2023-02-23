@@ -21,12 +21,13 @@ const Rooms = ({ setOpenModal, hotel_id, state, hotelData, handleReserve }) => {
     },
   });
 
-  const handleSelect = (rSize, rPrice, rSleep) => {
+  const handleSelect = (rSize, rPrice, rSleep, rName, rNo) => {
     const s = rSize;
     const p = rPrice;
     const slp = rSleep;
+    const rnm = rName;
 
-    const rPacks = { size: s, price: p, sleep: slp };
+    const rPacks = { size: s, price: p, sleep: slp, name: rnm, rooms_no: rNo };
 
     // console.log(rPacks);
 
@@ -70,7 +71,13 @@ const Rooms = ({ setOpenModal, hotel_id, state, hotelData, handleReserve }) => {
                     type="checkbox"
                     value={singleBed._id}
                     onClick={() =>
-                      handleSelect(singleBed.size, item.price, item.sleep)
+                      handleSelect(
+                        singleBed.size,
+                        item.price,
+                        item.sleep,
+                        item.name,
+                        item.rooms_no
+                      )
                     }
                   />
                   <p className="text-sm font-bold">{item.price}</p>
