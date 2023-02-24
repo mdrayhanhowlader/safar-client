@@ -48,7 +48,7 @@ const DetailSection = ({ hotelData }) => {
   };
   const handleCloseCalender = () => {
     // setIsHandleClick(false);
-    const Sdays = dayDifference(date[0]?.endDate, date[0]?.startDate);
+    const Sdays = dayDifference(date[0]?.endDate, date[0].startDate);
     setDay(Sdays);
   };
 
