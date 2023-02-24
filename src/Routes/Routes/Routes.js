@@ -121,7 +121,7 @@ export const router = createBrowserRouter([
         element: <Checkout />,
       },
       {
-        path: "/checkoutPage/:id",
+        path: "/checkoutPage",
         element: <CheckoutPage />,
         loader: async ({ params }) =>
           fetch(
