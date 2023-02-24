@@ -2,7 +2,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import React, { useContext } from "react";
 import CheckoutForm from "./CheckoutForm";
-import { useLoaderData } from "react-router-dom";
+import { Navigate, useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../contexts/AuthProvider";
 import CheckoutCard from "./CheckoutCard";
@@ -14,6 +14,8 @@ const CheckoutPage = () => {
   const { user } = useContext(AuthContext);
   const { hotel_name } = hotelData;
 
+const location = useLocation()
+
   const { data: orders } = useQuery({
     queryKey: ["get-order"],
     queryFn: async () => {
@@ -21,16 +23,22 @@ const CheckoutPage = () => {
         `https://safar-server-nasar06.vercel.app/orders/get-order-byEmail?email=${user?.email}`
       );
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
       return data;
     },
   });
 
+  if(user?.displayName === null){
+    console.log(user);
+    return <Navigate to='/myaccount/profile' state={{ from: location }} replace />
+  }
+  
+  
   const orderPrice = orders?.map((or) => or?.total_price);
 
   const sum = orderPrice?.reduce((total, number) => {
-    console.log(total);
-    console.log(number);
+    // console.log(total);
+    // console.log(number);
     return total + number;
   }, 0);
 
@@ -86,11 +94,11 @@ const CheckoutPage = () => {
                 </div>
               </div> */}
             </div>
-            <div className="w-1/2 mx-auto">
+            {/* <div className="w-1/2 mx-auto">
               <button className="py-2 px-2 mx-4 bg-blue-500 text-white mt-3 rounded shadow font-bold hover:bg-blue-600">
                 PROCEED TO CHECKOUT
               </button>
-            </div>
+            </div> */}
           </div>
           <div className="flex justify-between flex-wrap col-span-5">
             <div className="bg-white rounded  w-full">
