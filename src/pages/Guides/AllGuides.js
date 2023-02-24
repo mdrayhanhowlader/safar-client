@@ -68,7 +68,7 @@ const AllGuides = () => {
                                             <span className="text-gray-500">{guide?.location}</span>
                                         </span>
                                         <Link to={`/guideprofile/${guide?._id}`}>
-                                        <button className='bg-blue-500 px-2 rounded-lg py-0.5 my-1 text-white text-xs hover:bg-blue-400'>Select</button>
+                                        <button className='bg-blue-500 px-2 rounded-lg py-0.5 my-1 text-white text-xs hover:bg-blue-400'>Details</button>
                                         </Link> 
                                         
                                     </div>

@@ -151,6 +151,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/guideprofile/:id",
+        loader: ({params}) => fetch(`https://safar-server-nasar06.vercel.app/users/single-guide/${params?.id}`),
         element: <GuideProfile/>
       },
       {
