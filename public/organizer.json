@@ -1,0 +1,44 @@
+[
+    {
+        "email": "nirvana@inn.com",
+        "role": "organizer",
+        "hotel_name": "Nirvana Inn",
+        "contact": "877500044",
+        "hotel_id": "H1Ims0tgCkfUYksLXo9tDbM5Qzx1"
+    },
+    {
+        "email": "omni@residency.com",
+        "role": "organizer",
+        "hotel_name": "Hotel Omni Residency Dhaka",
+        "contact": "877555044",
+        "hotel_id": "zyKEzRP0YlY8swnRX6iLQ1Ly9vD2"
+    },
+    {
+        "email": "golden@inn.com",
+        "role": "organizer",
+        "hotel_name": "Golden Inn Chattagram Ltd",
+        "contact": "877505554",
+        "hotel_id": "OLLzCY0Ezdfucnq36TKnWfBpkW32"
+    },
+    {
+        "email": "city@inn.com",
+        "role": "organizer",
+        "hotel_name": "City Inn",
+        "contact": "877508854",
+        "hotel_id": "SwwrPqemBdh00j1IULFYXh70C9q1"
+    },
+    {
+        "email": "penin@sula.com",
+        "role": "organizer",
+        "hotel_name": "The Peninsula Chittagong Limited",
+        "contact": "877333854",
+        "hotel_id": "ltx6MwDT6iesF6xiKEvTSNDiLl23"
+    },
+    {
+        "email": "grand@surma.com",
+        "role": "organizer",
+        "hotel_name": "Grand Surma Hotel",
+        "contact": "877331114",
+        "hotel_id": "dUAGJfv5tPdZY38ZOjVYxzliWH22"
+    }
+]

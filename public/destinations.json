@@ -1,0 +1,588 @@
+[
+    {
+        "hotel_name": "Nirvana Inn",
+        "description": "Offering a barbecue and terrace, Nirvana Inn is set in Sylhet City Center. Guests can enjoy the on-site restaurant. Free private parking is available on site.A flat-screen TV with satellite channels is provided. Certain units have a seating area where you can relax. For your comfort, you will find slippers and a hairdryer. Nirvana Inn Hotel features free WiFi throughout the property.There is a 24-hour front desk and hairdresser's at the property.You can play table tennis at this hotel, and bike hire and car hire are available.",
+        "organizer_email": "nirvana@inn.com",
+        "offer": false,
+        "location": {
+            "country": "bangladesh",
+            "city": "Sylhet",
+            "address": "Mirzajangal Road, 3100 Sylhet, Bangladesh",
+            "zip_code": ""
+        },
+        "images": [
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/55628117.jpg?k=a623423903004624cb744cdfbc08c8173e994031336ede49041b6cf83ea6f57e&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/190361508.jpg?k=e93b53e52e384f7a43c9e8939d74f03031b77ee26f7fd7e1f3ffe59609d57507&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/53203636.jpg?k=cf3582304ffa4c2d917092adf97e4f1bb6695f2287335de31d9ff553073b88b5&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/53203654.jpg?k=e8476fa73f9fe3589b53889a21c250d9b131148307fc4b547df7248daddb79a5&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/297008262.jpg?k=c9f636c1bf29a6d62fe2d45a69313cf44d884c8258bd23b23187266828f0cf2b&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/55628197.jpg?k=58ffeffbf34bae75f203eb95e5570d768f2943823c7d534e00c213507c475d7a&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/70359453.jpg?k=ce6007a4a037bcc954ba5c384f6c873ad2660b9306624ad8b357c4d470156796&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/55628120.jpg?k=20f6d91715b8f402693a2d56fd06da18bd4be0669f129f4539617e672d8141ef&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/55628226.jpg?k=d01bba9beafcf3a4203c1349aea30ce1e1dfa21bb4f27377a05b0f82176c5506&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/53203621.jpg?k=bb7be058bae0cf1df6e565efd8cee4ef4baa787264a3d9bc7da8a84015d699a3&o=&hp=1"
+        ],
+        "facilities": [
+            {
+                "name": "Indoor swimming pool"
+            },
+            {
+                "name": "Free WiFi"
+            },
+            {
+                "name": "Free parking"
+            },
+            {
+                "name": "Room service"
+            },
+            {
+                "name": "Family rooms"
+            },
+            {
+                "name": "Airport shuttle"
+            },
+            {
+                "name": "Fitness center"
+            },
+            {
+                "name": "Non-smoking rooms"
+            },
+            {
+                "name": "Restaurant"
+            },
+            {
+                "name": "Breakfast"
+            }
+        ],
+        "room_type": [
+            {
+                "name": "Deluxe Single Room",
+                "rooms_no": 700001,
+                "bed": [
+                    {
+                        "size": "1 twin bed"
+                    }
+                ],
+                "sleep": 2,
+                "price": 99
+            },
+            {
+                "name": "Deluxe Double Room",
+                "rooms_no": 700002,
+                "bed": [
+                    {
+                        "size": "1 full bed"
+                    }
+                ],
+                "sleep": 2,
+                "price": 89
+            },
+            {
+                "name": "Deluxe Double Room (2 Adults + 1 Child)",
+                "rooms_no": 700003,
+                "bed": [
+                    {
+                        "size": "1 king bed"
+                    }
+                ],
+                "sleep": 3,
+                "price": 102
+            },
+            {
+                "name": "Deluxe Queen Suite",
+                "rooms_no": 700004,
+                "bed": [
+                    {
+                        "size": "2 full beds"
+                    }
+                ],
+                "sleep": 5,
+                "price": 107
+            }
+        ],
+        "yearly_deals": false,
+        "monthly_deals": false,
+        "contact": "877500044",
+        "hotel_id": "H1Ims0tgCkfUYksLXo9tDbM5Qzx1",
+        "promoted": ""
+    },
+    {
+        "hotel_name": "Hotel Omni Residency Dhaka",
+        "description": "Located in Dhaka, a 4-minute walk from Primeasia University, Hotel Omni Residency Dhaka has accommodations with a fitness center, free private parking and a shared lounge. This 4-star hotel offers a concierge service and a tour desk. The property provides a 24-hour front desk, airport transportation, room service and free WiFi.The hotel will provide guests with air-conditioned rooms offering a desk, an electric tea pot, a minibar, a safety deposit box, a flat-screen TV and a private bathroom with a shower. At Hotel Omni Residency Dhaka rooms are equipped with bed linen and towels.A buffet, à la carte or continental breakfast is available each morning at the property. At the accommodation you'll find a restaurant serving African, American and Argentinian cuisine. Vegetarian, vegan and gluten-free options can also be requested.",
+        "organizer_email": "omni@residency.com",
+        "offer": false,
+        "location": {
+            "country": "bangladesh",
+            "city": "Dhaka",
+            "address": "House No 42, Road No 15, Block - D, Banani, Dhaka, Gulshan, 1213 Dhaka, Bangladesh ",
+            "zip_code": ""
+        },
+        "images": [
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/249889843.jpg?k=141acbb547b115c5630dfe7527a96af4baf9ef449b5aff94f206c553a3d5df45&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/249572013.jpg?k=cde4bd9561a6da61f4ae0324165532602fa152ffb78d4aa1dc784db1a386d481&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/249834180.jpg?k=1a6f4c64e669ec49cf8141e5138932d6daa5ecf44c34390c58a5221867dea865&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/249578537.jpg?k=6bc7ae892362c8392cc28fb3db64dc93ab2de1c00631ac2f0fead74106ffbfff&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/249828043.jpg?k=f828daba1ef365a3517b74ab5f74e2bc74f345ad1a61c831a8f2cf8262ef9670&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/55628197.jpg?k=58ffeffbf34bae75f203eb95e5570d768f2943823c7d534e00c213507c475d7a&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/249576724.jpg?k=104a4921f485a56b7b696d41660a5e4671fb89694c2119f103e6bd4aba35eb0b&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/249582176.jpg?k=38d68e9185836528f0f8656741eb9c6f461dff48639d5e5ac739092e446d2d06&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/249893504.jpg?k=2fd4ea6cfa5e9cdfdd5883cad4940a9dc0459b5f9df26e20f361a93ec2bc1329&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/249573285.jpg?k=5a98c2832fe9a95bfe16f032bc91ec5885aa6557210e4fcb738d4af22bd5ae11&o=&hp=1"
+        ],
+        "facilities": [
+            {
+                "name": "Free WiFi"
+            },
+            {
+                "name": "Airport shuttle"
+            },
+            {
+                "name": "Free parking"
+            },
+            {
+                "name": "Spa"
+            },
+            {
+                "name": "Fitness center"
+            },
+            {
+                "name": "Restaurant"
+            },
+            {
+                "name": "Room service"
+            },
+            {
+                "name": "Non-smoking rooms"
+            },
+            {
+                "name": "Tea/Coffee Maker in All Rooms"
+            },
+            {
+                "name": "Very Good Breakfast"
+            }
+        ],
+        "room_type": [
+            {
+                "name": "Deluxe Room",
+                "rooms_no": 700005,
+                "bed": [
+                    {
+                        "size": "1 full bed"
+                    }
+                ],
+                "sleep": 2,
+                "price": 98
+            },
+            {
+                "name": "Deluxe King Room",
+                "rooms_no": 700006,
+                "bed": [
+                    {
+                        "size": "1 king bed"
+                    }
+                ],
+                "sleep": 2,
+                "price": 90
+            },
+            {
+                "name": "Deluxe Twin Room",
+                "rooms_no": 700007,
+                "bed": [
+                    {
+                        "size": "2 twin beds"
+                    }
+                ],
+                "sleep": 2,
+                "price": 102
+            }
+        ],
+        "yearly_deals": false,
+        "monthly_deals": false,
+        "contact": "877599044",
+        "hotel_id": "zyKEzRP0YlY8swnRX6iLQ1Ly9vD2",
+        "promoted": ""
+    },
+    {
+        "hotel_name": "Golden Inn Chattagram Ltd",
+        "description": "Featuring free WiFi throughout the property, Golden Inn Chattagram Ltd offers accommodations in Chittagong. Guests can enjoy the on-site restaurant. It is 100 m from the Chittagong Railway Station.Rooms include a flat screen TV and a seating area to relax in after a busy day. Each room is fitted with a private bathroom.There is a 24-hour front desk and a concierge desk at the property. Services like laundry and dry cleaning are provided.",
+        "organizer_email": "golden@inn.com",
+        "offer": false,
+        "location": {
+            "country": "bangladesh",
+            "city": "Chittagong",
+            "address": "336 Station Road, 4100 Chittagong, Bangladesh ",
+            "zip_code": ""
+        },
+        "images": [
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/68654885.jpg?k=304217d08940fec0155a366ebc304a882c5734e2677e2fe59ccbeafd46507526&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/46592464.jpg?k=6b4949c7f724fabbc30354a513dc9d58e2e5d4db926584dbc40ee21a65fff8c4&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/68655384.jpg?k=8e57b4d83d5347d8cea8c3949cf8dbad3348ef2b8074881c4524f4ee6f3e37c9&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/68654910.jpg?k=ad8f97bdbec347811cacd09c46af3b3dbe2ca27dc0681b4913acd7a79ee720e6&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/46592457.jpg?k=5014dcd96295fe5bda84b07d2d28f4614ddd038f99a73a2cbcc50f0031554e64&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/46592458.jpg?k=e1d600478b4e04dd86242e231b72dcffcc854185557b86b6fed14478caa6b9bd&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/46592461.jpg?k=e912224b3f4a103dd95b1de78af4cdb8f82adb4758d7e06511b57156e3b3b166&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/46592473.jpg?k=65156180f1ec5fb90f1290e226587df7d885c9c7faa40858e8a5c65578e562f8&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/46592477.jpg?k=996eb6cd3746361794c85114b4758924487248a033c821d9bbcba6f0990d5188&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/46592478.jpg?k=e40d399e1d21b5c815d33b848a207ffc96d5b9849c2de6551812e5cf11c23042&o=&hp=1"
+        ],
+        "facilities": [
+            {
+                "name": "Airport shuttle"
+            },
+            {
+                "name": "Free WiFi"
+            },
+            {
+                "name": "Free parking"
+            },
+            {
+                "name": "Room service"
+            },
+            {
+                "name": "Free parking"
+            },
+            {
+                "name": "Family rooms"
+            }
+        ],
+        "room_type": [
+            {
+                "name": "Deluxe Double Room",
+                "rooms_no": 700008,
+                "bed": [
+                    {
+                        "size": "1 full bed"
+                    }
+                ],
+                "sleep": 2,
+                "price": 77
+            },
+            {
+                "name": "Deluxe Twin Room",
+                "rooms_no": 700009,
+                "bed": [
+                    {
+                        "size": "2 twin beds"
+                    }
+                ],
+                "sleep": 2,
+                "price": 80
+            },
+            {
+                "name": "Deluxe Triple Room",
+                "rooms_no": 700010,
+                "bed": [
+                    {
+                        "size": "2 twin beds"
+                    }
+                ],
+                "sleep": 3,
+                "price": 97
+            },
+            {
+                "name": "Deluxe Single Room",
+                "rooms_no": 700011,
+                "bed": [
+                    {
+                        "size": "1 twin bed"
+                    }
+                ],
+                "sleep": 1,
+                "price": 97
+            }
+        ],
+        "yearly_deals": false,
+        "monthly_deals": false,
+        "contact": "877505554",
+        "hotel_id": "OLLzCY0Ezdfucnq36TKnWfBpkW32",
+        "promoted": ""
+    },
+    {
+        "hotel_name": "City Inn",
+        "description": "City Inn is located in Chittagong. The hotel also provides free WiFi and free private parking.Guests at the hotel can enjoy a continental breakfast.Staff at City Inn are always available to provide information at the reception.The nearest airport is Shah Amanat International Airport, 10 km from the accommodation.",
+        "organizer_email": "city@inn.com",
+        "offer": false,
+        "location": {
+            "country": "bangladesh",
+            "city": "Chittagong",
+            "address": " Daar-E-Shahidi Building 69,, 4100 Chittagong, Bangladesh",
+            "zip_code": ""
+        },
+        "images": [
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/85700466.jpg?k=23dc60805dbc3bfe7e20ff11876a99ad3b98ccc5714d5325ce509aa2a882e1cb&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/85700464.jpg?k=2bf8ceeebe7a39f9d1febfa03725feb4639bebb144b23c04f20b4c52dd1bdba3&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/85700482.jpg?k=eebae5395d13d3f11bebc2bb6a3898e9fb329b66b1f3dc60d6b36fbf3dc23584&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/85700459.jpg?k=9144ab21849e9e68f3922906d12fa9a52fb3fa07212ba12f2d1165eeeb4b28c7&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/85700472.jpg?k=16c0c3b244b515b2fe6c0a81fa7b46b0852ef4a86b37da51adb7ea86f3354058&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/85700480.jpg?k=8f3d19d0924ef4c4893c5d46209a1f56ad3f1a6da6149cf488d278092a35fa19&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/85700461.jpg?k=d7dcbaa2be61ee75566baa5a1d795dc0277d6cdfb3e096517b84e5987c91235f&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/85700462.jpg?k=b253f7fb045895cf73f15e678d74ebfd8f2ff467dd93660e824644fcbe6dc5fc&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/85700467.jpg?k=62bc8f7bb870e0d87e51aedd74730fa73014907be989b986145e9b7dddbd3d0f&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/85700468.jpg?k=8f8a6d0f6a5e1a16ffa99721c6a615eed5607920dbb61394fe1dd217f771e0ff&o=&hp=1"
+        ],
+        "facilities": [
+            {
+                "name": "Non-smoking rooms"
+            },
+            {
+                "name": "Free WiFi"
+            },
+            {
+                "name": "Free parking"
+            },
+            {
+                "name": "Room service"
+            }
+        ],
+        "room_type": [
+            {
+                "name": "Deluxe Double Room",
+                "rooms_no": 7000012,
+                "bed": [
+                    {
+                        "size": "1 full bed"
+                    }
+                ],
+                "sleep": 2,
+                "price": 77
+            },
+            {
+                "name": "Deluxe Twin Room",
+                "rooms_no": 700013,
+                "bed": [
+                    {
+                        "size": "2 twin beds"
+                    }
+                ],
+                "sleep": 2,
+                "price": 80
+            },
+            {
+                "name": "Deluxe Suite",
+                "rooms_no": 700014,
+                "bed": [
+                    {
+                        "size": "1 queen bed"
+                    }
+                ],
+                "sleep": 2,
+                "price": 97
+            },
+            {
+                "name": "Deluxe Single Room",
+                "rooms_no": 700015,
+                "bed": [
+                    {
+                        "size": "1 twin bed"
+                    }
+                ],
+                "sleep": 1,
+                "price": 98
+            }
+        ],
+        "yearly_deals": false,
+        "monthly_deals": false,
+        "contact": "877508854",
+        "hotel_id": "SwwrPqemBdh00j1IULFYXh70C9q1",
+        "promoted": ""
+    },
+    {
+        "hotel_name": "The Peninsula Chittagong Limited",
+        "description": "The Peninsula Chittagong Limited is a 4-star property in Port City's upscale GEC Circle, a short 5-minute walk from Central Plaza shopping area. An outdoor pool, pampering spa treatments and a well-equipped fitness center are available. There is also a 24-hour front desk and free parking.The air-conditioned guestrooms all come with a flat-screen TV, mini-bar and personal safe. Separate smoking and nonsmoking floors are available. Private bathrooms are equipped with a shower The Peninsula Chittagong Limited is a 20-minute drive from Chittagong Railway Station. Chittagong International Airport is a 45-minute drive away.",
+        "organizer_email": "penin@sula.com",
+        "offer": false,
+        "location": {
+            "country": "bangladesh",
+            "city": "Chittagong",
+            "address": "Bulbul Centre, 486/B, O.R.Nizam Road, CDA Avenue, 4000 Chittagong, Bangladesh",
+            "zip_code": ""
+        },
+        "images": [
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/48044439.jpg?k=5980921871c346c53eb49b00fd0fb0b9cfbed02402f29853e07b73c3cb21b5dc&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/295997543.jpg?k=492651025d91ef049a697e4bbc6260f37936f97ae38aa9fae2a40e1a093f6fe9&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/296004899.jpg?k=d70a9fa211ea913e6075b813bfebac8abe2cfb1b8e116ad18e2e88a02e5ab9da&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/48044297.jpg?k=198c0fcef95d1cb0606897be4c31badfcaeb8c7cc655ace92143015f4148c2db&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/258463274.jpg?k=710fc1d9a0b4cd160bf458938e71456c2403b36251b846685c00955eab1ddf48&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/48044342.jpg?k=579190166d8aa54dd5b1a4bf8a4b0bf20c304c1287391e20c20a6c555233f964&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/295997364.jpg?k=7c54027cd77c124eff67a7a9f7b09ab523fe55e34d45394a253752490b1e7f0c&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/48045138.jpg?k=65e83959cb96088b905362839a8874c22f4ddf844c3a922f286aa844c8c1ee40&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/295997370.jpg?k=58800e391d9eb5511b3ced8cc2072d96193fb680fab9e7d0f19c3b3835148449&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/295997555.jpg?k=2770f50f70229874ac0f7da3153c4d1650f27576fc675ac9c45b80c227e25575&o=&hp=1"
+        ],
+        "facilities": [
+            {
+                "name": "Outdoor swimming pool"
+            },
+            {
+                "name": "Airport shuttle"
+            },
+            {
+                "name": "Fitness center"
+            },
+            {
+                "name": "Free WiFi"
+            },
+            {
+                "name": "Restaurant"
+            },
+            {
+                "name": "Non-smoking rooms"
+            },
+            {
+                "name": "Spa"
+            },
+            {
+                "name": "Room service"
+            },
+            {
+                "name": "Free parking"
+            },
+            {
+                "name": "Bar"
+            }
+        ],
+        "room_type": [
+            {
+                "name": "Executive Twin Room",
+                "rooms_no": 7000016,
+                "bed": [
+                    {
+                        "size": "2 twin beds"
+                    }
+                ],
+                "sleep": 2,
+                "price": 87
+            },
+            {
+                "name": "Superior Deluxe Double Room",
+                "rooms_no": 700017,
+                "bed": [
+                    {
+                        "size": "1 king bed"
+                    }
+                ],
+                "sleep": 2,
+                "price": 92
+            },
+            {
+                "name": "Executive Twin Room",
+                "rooms_no": 700018,
+                "bed": [
+                    {
+                        "size": "2 twin beds "
+                    }
+                ],
+                "sleep": 2,
+                "price": 92
+            },
+            {
+                "name": "Executive Suite",
+                "rooms_no": 700019,
+                "bed": [
+                    {
+                        "size": "1 king bed"
+                    }
+                ],
+                "sleep": 2,
+                "price": 130
+            }
+        ],
+        "yearly_deals": false,
+        "monthly_deals": false,
+        "contact": "877333854",
+        "hotel_id": "ltx6MwDT6iesF6xiKEvTSNDiLl23",
+        "promoted": ""
+    },
+    {
+        "hotel_name": "Grand Surma Hotel",
+        "description": "Grand Surma Hotel is a 4-star property located in Sylhet. With a restaurant, the 4-star hotel has air-conditioned rooms with free WiFi, each with a private bathroom. Guests can enjoy city views.All guest rooms at the hotel are equipped with a seating area and a flat-screen TV with satellite channels. The rooms include a desk. Grand Surma Hotel offers a buffet or Asian breakfast.Languages spoken at the reception include Bengali and English, and guests are invited to request guidance on the area when needed.",
+        "organizer_email": "grand@surma.com",
+        "offer": false,
+        "location": {
+            "country": "bangladesh",
+            "city": "Sylhet",
+            "address": "Gazi Burhan Uddin Road Mendibag, 3100 Sylhet, Bangladesh",
+            "zip_code": ""
+        },
+        "images": [
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/241617669.jpg?k=a22192d36a6d9f3b0e4634717e2bf80d3d2ab884aa41823e8459cfa5e6e44af7&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/270915202.jpg?k=c932f1bf11a5827eeaf7701ead11334a9ecc404853eb66d11fba70d9c2f9686d&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/270914409.jpg?k=7d4ee34a10d60ba07ceb95c459dc684c530597f6c0976143ea12d10c84baf987&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/237460544.jpg?k=e4e76912ae3572df67e123c6e958ee2e51f2c25eb2b91fc785a88d357409aff8&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/330364233.jpg?k=40de4a5622d41818ec3f23e43043bcf61a792d797f1e5fa58845697128e5db7b&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/233634061.jpg?k=a9b68cb6306b858c04324847286c1080ce0016a92925d3c01a8a9cb9ebbcbef5&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/330363459.jpg?k=c93a929d6467f6bc0161da441e0929025998d876dc168c90d92d89a16412ba09&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/240960734.jpg?k=9cb7041147abde5e7d8f566b719b26509b4c78934a694c6242d7bbab25fd8d1b&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/330365239.jpg?k=9896415b8bd4e4e60c3421cfe32197ae547d3e6317f9dbaf4f7424750c40f059&o=&hp=1",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/330365953.jpg?k=ac7ab3bbc515f87de7fabb365b24ea732870616dd6844b8217c148b926cf5759&o=&hp=1"
+        ],
+        "facilities": [
+            {
+                "name": "Free WiFi"
+            },
+            {
+                "name": "Non-smoking rooms"
+            },
+            {
+                "name": "Room service"
+            },
+            {
+                "name": "Free parking"
+            },
+            {
+                "name": "Family Rooms"
+            }
+        ],
+        "room_type": [
+            {
+                "name": "Deluxe Double Room",
+                "rooms_no": 7000020,
+                "bed": [
+                    {
+                        "size": "1 king bed"
+                    }
+                ],
+                "sleep": 3,
+                "price": 89
+            },
+            {
+                "name": "Executive Suite",
+                "rooms_no": 700021,
+                "bed": [
+                    {
+                        "size": "1 king bed"
+                    }
+                ],
+                "sleep": 1,
+                "price": 91
+            },
+            {
+                "name": "Deluxe Twin Room",
+                "rooms_no": 700022,
+                "bed": [
+                    {
+                        "size": "2 twin beds "
+                    }
+                ],
+                "sleep": 2,
+                "price": 92
+            },
+            {
+                "name": "Deluxe Triple Room",
+                "rooms_no": 700023,
+                "bed": [
+                    {
+                        "size": "1 full bed"
+                    }
+                ],
+                "sleep": 3,
+                "price": 125
+            }
+        ],
+        "yearly_deals": false,
+        "monthly_deals": false,
+        "contact": "877333854",
+        "hotel_id": "dUAGJfv5tPdZY38ZOjVYxzliWH22",
+        "promoted": ""
+    }
+]
