@@ -80,6 +80,7 @@ const DetailSection = ({ hotelData }) => {
   const rmNo = allData?.map((rm) => rm.rooms_no);
   const rmBed = allData?.map((rm) => rm.size);
   const totalPrice = allData?.map((dt) => dt.price);
+
   const sum = totalPrice?.reduce((total, number) => {
     console.log(total);
     console.log(number);
@@ -109,7 +110,10 @@ const DetailSection = ({ hotelData }) => {
       body: JSON.stringify(orderInfo),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data);
+        navigate("/checkoutPage");
+      });
   };
 
   return (
