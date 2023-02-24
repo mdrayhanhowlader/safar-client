@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 
 const ManageHotels = () => {
   const [submenu, setSubmenu] = useState(0);
@@ -13,6 +13,7 @@ const ManageHotels = () => {
   const {
     data: hotels,
     isLoading,
+    refetch
   } = useQuery({
     queryKey: ["organizers"],
     queryFn: async () => {
@@ -23,6 +24,29 @@ const ManageHotels = () => {
       return data;
     },
   });
+
+  // handle deactive hotel data 
+  const handleDeactiveHotel = useCallback((id) => {
+    fetch(``, {
+      method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ status: "deactive" }),
+    })
+
+  },[]);
+
+  // handle hotel data 
+  const handleDeleteHotel = async (id) => {
+    await fetch(
+      `https://safar-server-nasar06.vercel.app/rooms/delete-room/${id}`,
+      {
+        method: "DELETE",
+      }
+    ).catch((err) => console.log(err));
+    refetch();
+  }
 
   console.log(hotels);
   return (
