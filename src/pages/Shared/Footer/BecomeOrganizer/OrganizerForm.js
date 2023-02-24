@@ -93,6 +93,7 @@ const OrganizerForm = () => {
       hotel_id: user?.uid,
       promoted: "",
     };
+    console.log(organizer)
     // update organizer info
     fetch(
       `https://safar-server-nasar06.vercel.app/destination/post-all-destinations`,
@@ -120,6 +121,7 @@ const OrganizerForm = () => {
 
   useTitle("Org-Info");
 
+  console.log(user)
   return (
     <div>
       <Navbar />

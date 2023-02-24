@@ -26,7 +26,7 @@ const CheckoutPage = () => {
     },
   });
 
-  const orderPrice = orders.map((or) => or.total_price);
+  const orderPrice = orders?.map((or) => or?.total_price);
 
   const sum = orderPrice?.reduce((total, number) => {
     console.log(total);

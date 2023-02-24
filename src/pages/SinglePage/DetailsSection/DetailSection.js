@@ -47,8 +47,8 @@ const DetailSection = ({ hotelData }) => {
     setIsHandleClick(true);
   };
   const handleCloseCalender = () => {
-    setIsHandleClick(false);
-    const Sdays = dayDifference(date[0].endDate, date[0].startDate);
+    // setIsHandleClick(false);
+    const Sdays = dayDifference(date[0]?.endDate, date[0]?.startDate);
     setDay(Sdays);
   };
 
@@ -212,7 +212,11 @@ const DetailSection = ({ hotelData }) => {
                   <DateRange
                     className="w-full"
                     editableDateInputs={true}
-                    onChange={(item) => setDate([item.selection])}
+                    onChange={(item) => {
+                      setDate([item.selection])
+                      setIsHandleClick(false)
+                      handleCloseCalender()
+                    }}
                     moveRangeOnFirstSelection={false}
                     ranges={date}
                   />
