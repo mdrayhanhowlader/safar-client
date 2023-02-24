@@ -44,7 +44,7 @@ const DashboardNab = () => {
         /> */}
         <span className="mx-10 font-semibold uppercase text-2xl md:block">
           <div className="flex items-center">
-            <img style={{ width: "60px" }} src={logo}></img>
+            <img style={{ width: "60px" }} src={logo} alt=""></img>
             <Link to="/" className="text-black">
               Safar
             </Link>
