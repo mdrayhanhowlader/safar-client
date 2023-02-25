@@ -59,7 +59,7 @@ const Rooms = ({ setOpenModal, hotel_id, state, hotelData, handleReserve }) => {
               <div className="font-semibold text-lg">
                 <b>{item.name}</b>
               </div>
-              <div className="rDesc">{}</div>
+              <div className="rDesc">{ }</div>
               <div className="rMax">{/* Max people: <b>2</b> */}</div>
               <div className="font-semibold">Price: ${item.price}</div>
             </div>

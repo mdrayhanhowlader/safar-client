@@ -83,7 +83,7 @@ const Footer = () => {
             <div className="mt-6 flex justify-center gap-4 lg:justify-start">
               <Link
                 className="text-gray-700 transition hover:text-gray-700/75"
-                href=""
+                to=""
                 target="_blank"
                 rel="noreferrer"
               >
@@ -105,7 +105,7 @@ const Footer = () => {
 
               <Link
                 className="text-gray-700 transition hover:text-gray-700/75"
-                href=""
+                to=""
                 target="_blank"
                 rel="noreferrer"
               >
@@ -127,7 +127,7 @@ const Footer = () => {
 
               <Link
                 className="text-gray-700 transition hover:text-gray-700/75"
-                href=""
+                to=""
                 target="_blank"
                 rel="noreferrer"
               >
@@ -145,7 +145,7 @@ const Footer = () => {
 
               <Link
                 className="text-gray-700 transition hover:text-gray-700/75"
-                href=""
+                to=""
                 target="_blank"
                 rel="noreferrer"
               >
@@ -167,7 +167,7 @@ const Footer = () => {
 
               <Link
                 className="text-gray-700 transition hover:text-gray-700/75"
-                href=""
+                to=""
                 target="_blank"
                 rel="noreferrer"
               >
@@ -197,25 +197,25 @@ const Footer = () => {
                 aria-label="Footer Services Nav"
                 className="mt-6 flex flex-col space-y-1"
               >
-                <a
+                <Link
                   className="text-gray-700 transition hover:text-gray-700/75"
-                  href="/"
+                  to="/"
                 >
                   Customer Service
-                </a>
-                <a
+                </Link>
+                <Link
                   className="text-gray-700 transition hover:text-gray-700/75"
-                  href="/organizer"
+                  to="/organizer"
                 >
                   Become an organizer
-                </a>
+                </Link>
                 <Link to="/registerguide">Become a Guide</Link>
-                <a
+                <Link
                   className="text-gray-700 transition hover:text-gray-700/75"
-                  href="/"
+                  to="/"
                 >
                   News/Blogs
-                </a>
+                </Link>
               </nav>
             </div>
 
@@ -226,18 +226,18 @@ const Footer = () => {
                 aria-label="Footer About Nav"
                 className="mt-6 flex flex-col space-y-1"
               >
-                <a
+                <Link
                   className="text-gray-700 transition hover:text-gray-700/75"
-                  href="/"
+                  to="/"
                 >
                   About Us
-                </a>
-                <a
+                </Link>
+                <Link
                   className="text-gray-700 transition hover:text-gray-700/75"
-                  href="/team"
+                  to="/team"
                 >
                   Our Team
-                </a>
+                </Link>
               </nav>
             </div>
 
@@ -248,26 +248,26 @@ const Footer = () => {
                 aria-label="Footer Support Nav"
                 className="mt-6 flex flex-col space-y-1"
               >
-                <a
+                <Link
                   className="text-gray-700 transition hover:text-gray-700/75"
-                  href="/faq"
+                  to="/faq"
                 >
                   FAQs
-                </a>
+                </Link>
 
-                <a
+                <Link
                   className="text-gray-700 transition hover:text-gray-700/75"
-                  href="/faq"
+                  to="/faq"
                 >
                   Contact
-                </a>
+                </Link>
 
-                <a
+                <Link
                   className="text-gray-700 transition hover:text-gray-700/75"
-                  href="/"
+                  to="/"
                 >
                   Live Chat
-                </a>
+                </Link>
               </nav>
             </div>
           </div>
@@ -279,7 +279,7 @@ const Footer = () => {
             <br />
             Created with <span> </span>
             <Link
-              href=""
+              to=""
               className="text-gray-700 underline transition hover:text-gray-700/75"
             >
               Safar
@@ -287,7 +287,7 @@ const Footer = () => {
             <span> </span>
             and
             <Link
-              href=""
+              to=""
               className="text-gray-700 underline transition hover:text-gray-700/75"
             >
               Safe_Safar Community
