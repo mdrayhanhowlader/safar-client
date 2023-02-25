@@ -21,13 +21,13 @@ const ManageHotels = () => {
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["organizers"],
+    queryKey: ["get-all-destination", page, size],
     queryFn: async () => {
       const res = await fetch(
-        `https://safar-server-nasar06.vercel.app/destination/get-all-destinations?page=${page}&size${size}`
+        `https://safar-server-nasar06.vercel.app/destination/get-all-destinations?page=${page}&size=${size}`
       );
       const data = await res.json();
-      setCount(data.length);
+      setCount(data?.count);
       const hotelData = data.result;
       return hotelData;
     },
@@ -55,7 +55,7 @@ const ManageHotels = () => {
     refetch();
   };
 
-  console.log(hotels);
+  // console.log(hotels);
   return (
     <section className="m-4">
       <h2 className="text-2xl font-bold">All Hotels </h2>
@@ -177,13 +177,12 @@ const ManageHotels = () => {
         </div>
       </div>
       <div className="">
-        <p>
+        <p className="font-semibold my-2">
           Currently selected page: {page} and size: {size}
         </p>
-        {[...Array(pages).keys()].map((number) => (
-          <div className="inline-flex">
+        {[...Array(pages).keys()].map((number, index) => (
+          <div className="inline-flex" key={index}>
             <button
-              key={number}
               className="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-blue-100 rounded-md sm:flex  hover:bg-blue-600 hover:text-white"
               onClick={() => setPage(number)}
             >
@@ -191,13 +190,15 @@ const ManageHotels = () => {
             </button>
           </div>
         ))}
-        <select className="border border-black p-2 rounded-md" onChange={(event) => setSize(event.target.value)}>
-          <option defaultValue="5">5</option>
-          <option defaultValue="10" selected>
-            10
-          </option>
-          <option defaultValue="15">15</option>
-          <option defaultValue="20">20</option>
+        <select
+          className="border border-black py-2 rounded-md"
+          defaultValue={"10"}
+          onChange={(event) => setSize(event.target.value)}
+        >
+          <option value="05">05</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
         </select>
       </div>
     </section>
