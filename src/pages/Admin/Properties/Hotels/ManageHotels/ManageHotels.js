@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useCallback, useState } from "react";
+import { ThreeDots } from "react-loader-spinner";
 
 const ManageHotels = () => {
   const [submenu, setSubmenu] = useState(0);
@@ -107,7 +108,18 @@ const ManageHotels = () => {
               {isLoading ? (
                 <tr>
                   <td>
-                    <span>Loading...</span>
+                    <span>
+                      <ThreeDots
+                        height="80"
+                        width="80"
+                        radius="9"
+                        color="orange"
+                        ariaLabel="three-dots-loading"
+                        wrapperStyle={{}}
+                        wrapperClassName=""
+                        visible={true}
+                      />
+                    </span>
                   </td>
                 </tr>
               ) : (
@@ -178,7 +190,7 @@ const ManageHotels = () => {
       </div>
       <div className="">
         <p className="font-semibold my-2">
-          Currently selected page: {page} and size: {size}
+          Currently selected page: {page + 1} and size: {size}
         </p>
         {[...Array(pages).keys()].map((number, index) => (
           <div className="inline-flex" key={index}>
