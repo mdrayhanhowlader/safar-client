@@ -16,13 +16,13 @@ const OrganizersLogin = () => {
     const onSubmit = (data) => {
         const email = data.email;
         const password = data.password;
-        console.log(email, password)
+        
         emailSignIn(email, password)
             .then(organizer => {
                 console.log(organizer)
             })
             .catch(err => console.error(err))
-        navigate("/sellerdashboard")
+        // navigate("/sellerdashboard")
     }
     useTitle('Org-Login');
     return (

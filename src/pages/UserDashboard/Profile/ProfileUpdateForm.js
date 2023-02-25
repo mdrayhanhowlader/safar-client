@@ -2,6 +2,7 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const ProfileUpdateForm = ({
@@ -18,6 +19,11 @@ const ProfileUpdateForm = ({
     reset,
     formState: { errors },
   } = useForm();
+
+  //navigate from checkout
+  const location = useLocation()
+  const navigate = useNavigate()
+  const from = location.state?.from?.pathname || '/';
 
   const handleProfileUpdate = (data) => {
     const editProfileData = {
@@ -42,6 +48,7 @@ const ProfileUpdateForm = ({
       .then((data) => {
         toast.success("user updated");
         refetch();
+        navigate(from, { replace: true })
       });
   };
 

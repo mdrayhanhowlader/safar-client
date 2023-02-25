@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { DateRange } from "react-date-range";
 import { FaAngleDown, FaMinus, FaPlus, FaRegStar } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -10,19 +10,14 @@ import Rooms from "./Rooms/Rooms";
 
 const DetailSection = ({ hotelData }) => {
   const [openModal, setOpenModal] = useState(false);
+  const [day, setDay] = useState(0);
+  const [allData, setAllData] = useState();
+  const [roomPrice, setRoomPrice] = useState(0);
+  const [roomName, setRoomName] = useState();
 
   const locations = useLocation();
 
-  const {
-    hotel_name,
-    description,
-    location,
-    hotel_id,
-    regular_price,
-    images,
-    offer_price,
-    facilities,
-  } = hotelData;
+  const { hotel_id, regular_price, hotel_name } = hotelData;
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -30,8 +25,8 @@ const DetailSection = ({ hotelData }) => {
 
   const [isHandleClick, setIsHandleClick] = useState(false);
   const [isClick, setIsClick] = useState(false);
-  const [count, setCount] = useState(0);
-  const [state, setState] = useState([
+  const [count, setCount] = useState(1);
+  const [date, setDate] = useState([
     {
       startDate: new Date(),
       endDate: new Date(),
@@ -39,13 +34,23 @@ const DetailSection = ({ hotelData }) => {
     },
   ]);
 
-  const serviceFee = 100;
+  const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
+  function dayDifference(date1, date2) {
+    const timeDiff = Math.abs(date2.getTime() - date1.getTime());
+    const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
+    return diffDays;
+  }
+
+  const serviceFee = 20;
 
   const handleOpenCalender = () => {
     setIsHandleClick(true);
   };
   const handleCloseCalender = () => {
-    setIsHandleClick(false);
+    // setIsHandleClick(false);
+    const Sdays = dayDifference(date[0]?.endDate, date[0].startDate);
+    setDay(Sdays);
+    console.log('Sdays', Sdays)
   };
 
   const handleClickOpen = () => {
@@ -66,21 +71,61 @@ const DetailSection = ({ hotelData }) => {
     }
   };
 
+  const handleReserve = (getData) => {
+    // console.log(getData);
+    setAllData(getData);
+    setOpenModal(false);
+  };
+
+  const rmName = allData?.map((rm) => rm.name);
+  const rmNo = allData?.map((rm) => rm.rooms_no);
+  const rmBed = allData?.map((rm) => rm.size);
+  const totalPrice = allData?.map((dt) => dt.price);
+
+  const sum = totalPrice?.reduce((total, number) => {
+    // console.log(total);
+    // console.log(number);
+    return total + number;
+  }, 0);
+  console.log('de sum', sum);
+
+  const handleBook = () => {
+    const totalPrice = sum * day + serviceFee;
+    const orderInfo = {
+      customer_email: user?.email,
+      hotel_name,
+      hotel_id,
+      room_type_name: rmName,
+      rooms_no: rmNo,
+      bed: rmBed,
+      total_price: totalPrice,
+      checkIn_date: date[0].startDate,
+      checkout_date: date[0].endDate,
+    };
+    // console.log(orderInfo);
+    fetch(`https://safar-server-nasar06.vercel.app/orders/add-order`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(orderInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        navigate("/checkoutPage");
+      });
+  };
+
   return (
     <div>
       <div className="md:flex p-4 w-full relative">
-        <div
-          className="w-full md:w-3/5 p-8"
-          // style={{ width: "60%", padding: "2rem" }}
-        >
+        <div className="w-full md:w-3/5 p-8">
           <LeftSide hotelData={hotelData} />
         </div>
 
         {/* right side / card */}
-        <div
-          className="static w-full md:w-2/5 p-8"
-          // style={{ width: "40%", padding: "2rem" }}
-        >
+        <div className="static w-full md:w-2/5 p-8">
           <div
             style={{
               border: "1px solid grey",
@@ -118,7 +163,7 @@ const DetailSection = ({ hotelData }) => {
                       <h1>
                         <small>Check-In</small>
                       </h1>
-                      <p>01/02/03</p>
+                      {/* <p>01/02/03</p> */}
                     </div>
                   </div>
                 ) : (
@@ -131,7 +176,7 @@ const DetailSection = ({ hotelData }) => {
                       <h1>
                         <small>Check-In</small>
                       </h1>
-                      <p>01/02/03</p>
+                      {/* <p>01/02/03</p> */}
                     </div>
                   </div>
                 )}
@@ -145,7 +190,7 @@ const DetailSection = ({ hotelData }) => {
                       <h1>
                         <small>Check-Out</small>
                       </h1>
-                      <p>01/02/03</p>
+                      {/* <p>01/02/03</p> */}
                     </div>
                   </div>
                 ) : (
@@ -158,7 +203,7 @@ const DetailSection = ({ hotelData }) => {
                       <h1>
                         <small>Check-Out</small>
                       </h1>
-                      <p>01/02/03</p>
+                      {/* <p>01/02/03</p> */}
                     </div>
                   </div>
                 )}
@@ -168,9 +213,15 @@ const DetailSection = ({ hotelData }) => {
                   <DateRange
                     className="w-full"
                     editableDateInputs={true}
-                    onChange={(item) => setState([item.selection])}
+                    onChange={(item) => {
+                      setDate([item.selection])
+                      handleCloseCalender()
+                      setIsHandleClick(false)
+                      handleClickClose()
+                      
+                    }}
                     moveRangeOnFirstSelection={false}
-                    ranges={state}
+                    ranges={date}
                   />
                 </div>
               }
@@ -191,7 +242,7 @@ const DetailSection = ({ hotelData }) => {
                   <h1>
                     <small>GUESTS</small>
                   </h1>
-                  <p>2 guests</p>
+                  <p>{count} guests</p>
                 </div>
                 {isClick === true ? (
                   <div
@@ -255,13 +306,13 @@ const DetailSection = ({ hotelData }) => {
             </div>
 
             {/* button */}
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <Link to="/checkoutPage">
                 <button className="w-full h-8 bg-green-800 rounded-lg hover:bg-green-700 text-white">
                   Check Availability
                 </button>
               </Link>
-            </div>
+            </div> */}
             <div className="mt-4">
               <button
                 onClick={handleClick}
@@ -275,37 +326,65 @@ const DetailSection = ({ hotelData }) => {
               <div className="flex justify-center my-3">
                 <h1>You won't be charged yet ?</h1>
               </div>
-              <div className="flex justify-between my-2">
-                <h1 className="text-green-800">
-                  ${regular_price} x {days} nights
-                </h1>
-                <p>${regular_price * days}</p>
-              </div>
-              <div className="flex justify-between my-2">
-                <h1 className="text-green-800">Service fee</h1>
-                <p>${serviceFee}</p>
+              <div>
+                {allData?.map((info) => (
+                  <div className="flex justify-between" key={info.price}>
+                    <p>{info.size}</p>
+                    <p>
+                      ${info.price * day} x {day}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
 
             {/* total price */}
 
             <div className="flex justify-between mt-6">
-              <h1 className="font-bold">Total before taxes</h1>
-              <p>${regular_price * days + serviceFee}</p>
+              <h1 className="font-bold">Service Fee</h1>
+
+              <p>${serviceFee}</p>
+            </div>
+            <div className="flex justify-between mt-6">
+              <h1 className="font-bold">Total</h1>
+
+              <p>${sum * day + serviceFee}</p>
+            </div>
+            {/* {getData?.map((item) => (
+              <>
+                <p>{item.size}</p>
+                <p>{item.price}</p>
+                <p>{item.sleep}</p>
+              </>
+            ))} */}
+            <div className="mt-4">
+              <button
+                onClick={handleBook}
+                className="w-full h-8 bg-green-800 rounded-lg hover:bg-green-700 text-white capitalize"
+              >
+                Book Now
+              </button>
             </div>
           </div>
         </div>
       </div>
 
       {/* review section & host details*/}
-      <div
-        className="p-8"
-        // style={{ padding: "2rem" }}
-      >
+      <div className="p-8">
         <ReviewSection />
       </div>
       {openModal && (
-        <Rooms setOpenModal={setOpenModal} hotel_id={hotel_id}></Rooms>
+        <Rooms
+          state={date}
+          setOpenModal={setOpenModal}
+          hotel_id={hotel_id}
+          hotelData={hotelData}
+          // getSize={getSize}
+          // setGetSize={setGetSize}
+          // getData={getData}
+          // setGetData={setGetData}
+          handleReserve={handleReserve}
+        ></Rooms>
       )}
       {/* <Rooms setOpenModal={setOpenModal} hotel_id={hotel_id}></Rooms> */}
     </div>
