@@ -122,6 +122,7 @@ const OrganizerForm = () => {
 
   useTitle("Org-Info");
 
+  console.log(user)
   return (
     <div>
       <Navbar />

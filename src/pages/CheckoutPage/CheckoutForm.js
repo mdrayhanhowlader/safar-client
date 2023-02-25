@@ -51,7 +51,7 @@ const CheckoutForm = () => {
         />
         <p className="text-red-500 mt-4">{cardError}</p>
         <button
-          className="px-4 py-4 bg-blue-400 text-black w-full mt-3 rounded shadow font-bold hover:bg-purple- 900"
+          className="px-4 py-2 bg-blue-500 text-slate-50 w-full mt-3 rounded-b-md shadow font-bold hover:bg-purple- 900"
           type="submit"
           disabled={!stripe}
         >
