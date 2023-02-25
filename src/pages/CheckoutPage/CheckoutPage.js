@@ -2,19 +2,25 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import React, { useContext } from "react";
 import CheckoutForm from "./CheckoutForm";
-import { Navigate, useLoaderData, useLocation, useNavigate } from "react-router-dom";
+import {
+  Navigate,
+  useLoaderData,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../contexts/AuthProvider";
 import CheckoutCard from "./CheckoutCard";
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
+const stripePromise = loadStripe(process.env.REACT_APP_PAYMENT_STRIPE_PK);
 
 const CheckoutPage = () => {
   const hotelData = useLoaderData();
   const { user } = useContext(AuthContext);
   const { hotel_name } = hotelData;
 
-const location = useLocation()
+
+  const location = useLocation();
 
   const { data: orders } = useQuery({
     queryKey: ["get-order"],
@@ -28,102 +34,65 @@ const location = useLocation()
     },
   });
 
-  if(user?.displayName === null){
-    console.log(user);
-    return <Navigate to='/myaccount/profile' state={{ from: location }} replace />
-  }
-  
-  
+  // if (user?.displayName === null) {
+  //   console.log(user);
+  //   return (
+  //     <Navigate to="/myaccount/profile" state={{ from: location }} replace />
+  //   );
+  // }
+
   const orderPrice = orders?.map((or) => or?.total_price);
 
   const sum = orderPrice?.reduce((total, number) => {
-    // console.log(total);
-    // console.log(number);
+    // console.log('sum'.sum);
+    // console.log('number',number);
     return total + number;
   }, 0);
 
-  const vat = parseFloat((sum * 15) / 100);
+
+  const vat = parseFloat((sum * 5) / 100);
   const subTotal = sum + vat;
+  const price = parseInt(subTotal)
+ 
   return (
     <div>
-      <div className="w-full flex justify-center mt-6 ">
-        <div className="grid gap-2 grid-cols-1 lg:grid-cols-12">
-          <div className="bg-white rounded  col-span-7">
-            {/* <!-- Order Summary  --> */}
-            <div>
-              <h3 className="text-xl text-center mt-4 font-bold">
-                Order Summary
-              </h3>
-              {/* <!--     BOX     --> */}
-              <CheckoutCard orders={orders}></CheckoutCard>
-              {/* <div className="border w-full rounded mt-5 flex p-4 justify-between items-center flex-wrap">
-                <div className="w-2/3">
-                  <h3 className="text-lg font-medium">
-                    APPAYAN GUEST HOUSE BARIDHARA
-                  </h3>
-                  <p className="text-gray-600 text-xs">
-                    Sold by <b>Taha Dildar</b>
-                  </p>
-                  <h4 className="text-red-700 text-xs font-bold mt-1">
-                    Only 1 left in stock
-                  </h4>
-                </div>
-                <div>
-                  <h4 className="text-xl font-medium">
-                    <sup className="text-blue-500">$</sup> 20
-                  </h4>
-                  <h5 className="text-sm font-bold text-blue-500">40% OFF</h5>
-                </div>
-                <div className="w-full flex justify-between mt-4">
-                  <button className="text-red-700 hover:bg-red-100 px-2">
-                    DELETE
-                  </button>
-                  <label
-                    className="block uppercase tracking-wide text-gray-700"
-                    for="grid-first-name"
-                  >
-                    QTY
-                    <select
-                      className="ml-3 text-sm bg-blue-500 border border-purple-200 text-white p-2 rounded leading-tight"
-                      id="grid-state"
-                    >
-                      <option>1</option>
-                      <option>2</option>
-                    </select>
-                  </label>
-                </div>
-              </div> */}
-            </div>
-            {/* <div className="w-1/2 mx-auto">
-              <button className="py-2 px-2 mx-4 bg-blue-500 text-white mt-3 rounded shadow font-bold hover:bg-blue-600">
-                PROCEED TO CHECKOUT
-              </button>
-            </div> */}
-          </div>
-          <div className="flex justify-between flex-wrap col-span-5">
-            <div className="bg-white rounded  w-full">
-              <div className="w-full bg-white pt-32 pb-8 px-2 md:px-8">
-                <h3 className="text-2xl mt-4 font-semibold">Price Breakdown</h3>
-                <div className="flex justify-between mt-3">
-                  <div className="text-lg text-black font-medium">Total</div>
-                  <div className="text-lg text-right font-medium ">${sum}</div>
-                </div>
-                <div className="flex justify-between mt-3">
-                  <div className="text-lg text-black font-medium">
-                    VAT (15%)
+      <div className="md:w-11/12 mx-auto mt-6 ">
+        {/* <h2 className="text-center text-3xl font-medium py-6"></h2> */}
+        <div className="grid gap-4 grid-cols-1 lg:grid-cols-12 pt-6">
+          <div className="flex justify-between flex-wrap col-span-4">
+            <div className=" rounded  w-full">
+              <div className="w-full bg-white border rounded-xl">
+                <h3 className="text-md text-center font-medium bg-orange-500 text-slate-50 rounded-t-lg mb-12 py-1 rounded-b-md">
+                  Room Price
+                </h3>
+                <div className="w-11/12 mx-auto">
+                  <div className="flex justify-between mt-3">
+                    <div className="text-lg text-slate-700 font-medium">
+                      Total
+                    </div>
+                    <div className="text-lg text-right font-medium ">
+                      ${sum}
+                    </div>
                   </div>
-                  <div className="text-lg text-right font-medium">${vat}</div>
-                </div>
-                <div className="bg-orange-300 h-1 w-full mt-3"></div>
-                <div className="flex justify-between mt-3">
-                  <div className="text-lg text-black font-medium">Subtotal</div>
-                  <div className="text-lg text-black font-medium">
-                    ${subTotal}
+                  <div className="flex justify-between mt-3">
+                    <div className="text-lg text-slate-700 font-medium">
+                      VAT (5%)
+                    </div>
+                    <div className="text-lg text-right font-medium">${vat}</div>
+                  </div>
+                  <div className="bg-blue-500 h-1 w-full mt-3"></div>
+                  <div className="flex justify-between my-3">
+                    <div className="text-lg text-slate-700 font-medium">
+                      Subtotal
+                    </div>
+                    <div className="text-lg text-slate-700 font-medium">
+                      ${subTotal}
+                    </div>
                   </div>
                 </div>
-                <div className="my-6">
+                <div className=" mt-6">
                   <Elements stripe={stripePromise}>
-                    <CheckoutForm />
+                    <CheckoutForm price={price} />
                   </Elements>
                 </div>
               </div>
@@ -141,6 +110,14 @@ const location = useLocation()
                 className="w-24"
               />
             </div> */}
+          </div>
+          <div className="bg-white rounded  col-span-8">
+            {/* <!-- Order Summary  --> */}
+            <div>
+              <h3 className="text-xl mt-4 font-bold">Choose Your Room</h3>
+              {/* <!--     BOX     --> */}
+              <CheckoutCard orders={orders}></CheckoutCard>
+            </div>
           </div>
         </div>
       </div>
