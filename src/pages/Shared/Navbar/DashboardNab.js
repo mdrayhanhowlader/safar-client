@@ -1,12 +1,16 @@
-import React, { useState } from "react";
-import { FaAngleDown, FaAngleUp, FaSignOutAlt } from "react-icons/fa";
+import { useQuery } from "@tanstack/react-query";
+import React, { useContext, useState } from "react";
+import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import logo from "../../../assets/3.png";
+import { AuthContext } from "../../../contexts/AuthProvider";
 import "./DashboardNav.css";
 import SellerSubmenu from "./SellerSubMenu";
-import logo from '../../../assets/3.png'
 
 const DashboardNab = () => {
   const [sellerMenu, setSellerMenu] = useState(false);
+  const [orgInfo, setOrgInfo] = useState("");
+  const { user } = useContext(AuthContext);
 
   const handleOpenSellerMenu = () => {
     setSellerMenu(true);
@@ -14,6 +18,19 @@ const DashboardNab = () => {
   const handleCloseSellerMenu = () => {
     setSellerMenu(false);
   };
+
+  const { data: organizerInfo } = useQuery({
+    queryKey: ["organizerInfo", user?.email],
+    queryFn: async () => {
+      const res = await fetch(
+        `https://safar-server-nasar06.vercel.app/destination/get-hotel-details?email=${user?.email}`
+      );
+      const data = await res.json();
+      setOrgInfo(data);
+      return data;
+    },
+  });
+  console.log(orgInfo, "eta ghotse nav dash e");
   return (
     <div
       // style={{ backgroundImage: `url('https://img.freepik.com/premium-photo/white-snow-hill-snow-mountain-background-with-cloudy-sky_31949-7.jpg?w=2000')` }}
@@ -27,8 +44,10 @@ const DashboardNab = () => {
         /> */}
         <span className="mx-10 font-semibold uppercase text-2xl md:block">
           <div className="flex items-center">
-          <img style={{width: '60px'}} src={logo}></img>
-          <Link to="/" className="text-black">Safar</Link>
+            <img style={{ width: "60px" }} src={logo} alt=""></img>
+            <Link to="/" className="text-black">
+              Safar
+            </Link>
           </div>
         </span>
       </div>
@@ -44,14 +63,14 @@ const DashboardNab = () => {
         </div>
         <ul className="flex items-center">
           <li className="flex mr-6">
-            <h1 className="font-bold">Organizer Name</h1>
+            <h1 className="font-bold text-black">{orgInfo.hotel_name}</h1>
             <div className="border border-black rounded-full h-5 w-5 mt-1 mx-2 flex justify-center items-center hover:bg-[#A7F3D0]">
               {sellerMenu ? (
-                <div onClick={handleCloseSellerMenu}>
+                <div className="text-black" onClick={handleCloseSellerMenu}>
                   <FaAngleUp />
                 </div>
               ) : (
-                <div onClick={handleOpenSellerMenu}>
+                <div className="text-black" onClick={handleOpenSellerMenu}>
                   <FaAngleDown />
                 </div>
               )}

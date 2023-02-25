@@ -75,41 +75,6 @@ const AllGuides = () => {
                                          
                                 </div>
                             </div>
-                            // <div className="w-full justify-between lg:w-3/5 mx-auto odd:gap-4 lg:odd:mr-36 lg:even:ml-36 odd:flex-row-reverse border-2 shadow-lg shadow-blue-300 border-gray-400 rounded-lg p-4 sm:flex sm:space-x-6">
-                            //     <div className='flex items-center gap-4'>
-                            //     <div className="flex-shrink-0 w-full mb-6 h-56 sm:h-44 sm:w-44 sm:mb-0">
-                            //     <img src={guide?.photo} alt="" className="object-cover object-center w-full h-full rounded-md bg-gray-500" />
-                            //     </div>
-                            //     <div className=''>
-                            //     <div>
-                            //     <h2 className="text-2xl font-semibold">{guide?.name}</h2>
-                            //            <span className="text-sm text-gray-400">Tour Guide</span>
-                            //     </div>
-
-                            //     <span className="flex items-center space-x-2">
-                            // <FaRegAddressCard/>
-                            //               <span className="text-gray-400">{guide?.address}</span>
-                            //             </span>
-
-                            //             <span className="flex items-center space-x-2">
-                            //                <TfiEmail className='text-blue-500'/>
-                            //           <span className="text-gray-400">{guide?.email}</span>
-                            //        </span>
-
-                            //        <span className="flex items-center space-x-2">
-                            //               <HiOutlinePhone className='text-green-500'/>
-                            //               <span className="text-gray-400">{guide?.phone}</span>
-                            //          </span>
-
-                            //          <span className="flex items-center space-x-2">
-                            //              <SlLocationPin className='text-orange-500'/>
-                            //               <span className="text-gray-400">{guide?.location}</span>
-                            //            </span>
-                            //     </div>
-                            //     </div>
-
-                            //     <button className=' bg-blue-500'>S</button>
-                            // </div>
 
                         )
                     }

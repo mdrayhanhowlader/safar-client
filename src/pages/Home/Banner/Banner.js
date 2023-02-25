@@ -22,7 +22,7 @@ const Banner = () => {
             <h1 className="text-2xl mt-5 font-semibold">SAFAR</h1>
           </div>
           <div className="flex items-center mt-4 mx-4 lg:mt-0">
-            {user?.uid ?
+            {user?.uid ? (
               <div className="relative">
                 {/* sub menu  */}
                 <div className={`${submenu ? "visible" : "hidden"}`}>
@@ -43,11 +43,13 @@ const Banner = () => {
                   }
                 </button>
               </div>
-              :
+            ) : (
               <Link to="/login">
-              <button className="text-white bg-blue-500 hover:bg-blue-400 px-3 py-1 rounded-lg">Login</button>
+                <button className="text-white bg-blue-500 hover:bg-blue-400 px-3 py-1 rounded-lg">
+                  Login
+                </button>
               </Link>
-              }
+            )}
           </div>
         </div>
         <div className="flex items-center justify-center">
@@ -77,7 +79,7 @@ const Banner = () => {
                         International flights
                       </h1>
                       <p className="text-xs text-blue-500 ">
-                        Lorem ipsum dolor sit amet.
+                        Reach your destination in short time.
                       </p>
                     </div>
                   </div>
@@ -93,18 +95,18 @@ const Banner = () => {
                       <CgEditUnmask className="text-3xl text-orange-600" />
                     </div>
                     <div>
-                      <h1 className="text-xl font-semibold">
-                        Find Your Guide
-                      </h1>
+                      <h1 className="text-xl font-semibold">Find Your Guide</h1>
                       <p className="text-xs text-blue-500 ">
                         To ease your journey.
                       </p>
                     </div>
                   </div>
                   <div className="left-20 mt-4 absolute">
-                    <Link to="/allguides"><button className="bg-orange-600 hover:bg-orange-400 text-white rounded-xl px-5 py-1">
-                      details
-                    </button></Link>
+                    <Link to="/allguides">
+                      <button className="bg-orange-600 hover:bg-orange-400 text-white rounded-xl px-5 py-1">
+                        details
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>

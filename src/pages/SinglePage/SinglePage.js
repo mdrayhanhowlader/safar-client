@@ -24,7 +24,7 @@ const SinglePage = () => {
 
   return (
     <div>
-      <div className="md:flex w-full md:gap-3 p-2 border-2 border-gray-400 rounded-lg">
+      <div className="md:flex w-full md:gap-3 p-2 border-2 border-gray-400 rounded-md">
         <div className="md:mb-0 md:w-4/5  mb-4">
           <img className="w-full h-full " src={images[0]} alt="" />
         </div>
@@ -35,12 +35,7 @@ const SinglePage = () => {
               <PhotoProvider>
                 <PhotoView src={images[1]?.url}>
                   <img className="h-full w-full" src={images[1]} alt="" />
-                  {/* <img className="h-full w-full" src={images[1]?.url} alt="" />
-                  <img className="h-full w-full" src={images[1]?.url} alt="" /> */}
                 </PhotoView>
-                {/* <PhotoView src={images[2]?.url}>
-                  <img className="h-full w-full" src={images[2]?.url} alt="" />
-                </PhotoView> */}
               </PhotoProvider>
               {/* photo view end */}
             </div>

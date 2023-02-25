@@ -122,8 +122,12 @@ export const router = createBrowserRouter([
         element: <Checkout />,
       },
       {
-        path: "/checkoutPage",
+        path: "/checkoutPage/:id",
         element: <CheckoutPage />,
+        loader: async ({ params }) =>
+          fetch(
+            `https://safar-server-nasar06.vercel.app/destination/get-hotel-details/${params.id}`
+          ),
       },
       {
         path: "/organizer",
@@ -139,15 +143,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/registerguide",
-        element: <RegisterGuide/>
+        element: <RegisterGuide />,
       },
       {
         path: "/loginguide",
-        element: <LoginGuide/>
+        element: <LoginGuide />,
       },
       {
         path: "/allguides",
-        element: <AllGuides/>
+        element: <AllGuides />,
       },
       {
         path: "/guideprofile/:id",
@@ -302,8 +306,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "/sellerdashboard/sellerchat",
-        element: <SellerChat></SellerChat>
-      }
+        element: <SellerChat></SellerChat>,
+      },
     ],
   },
 ]);
