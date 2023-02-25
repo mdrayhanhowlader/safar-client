@@ -90,6 +90,7 @@ const DetailSection = ({ hotelData }) => {
 
   const handleBook = () => {
     const totalPrice = sum * day * serviceFee;
+    console.log(typeof (totalPrice + 100000));
     const orderInfo = {
       customer_email: user?.email,
       hotel_name,
@@ -213,9 +214,9 @@ const DetailSection = ({ hotelData }) => {
                     className="w-full"
                     editableDateInputs={true}
                     onChange={(item) => {
-                      setDate([item.selection])
-                      setIsHandleClick(false)
-                      handleCloseCalender()
+                      setDate([item.selection]);
+                      setIsHandleClick(false);
+                      handleCloseCalender();
                     }}
                     moveRangeOnFirstSelection={false}
                     ranges={date}
