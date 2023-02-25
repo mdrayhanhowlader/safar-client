@@ -188,30 +188,34 @@ const ManageHotels = () => {
           </table>
         </div>
       </div>
-      <div className="">
-        <p className="font-semibold my-2">
-          Currently selected page: {page + 1} and size: {size}
-        </p>
-        {[...Array(pages).keys()].map((number, index) => (
-          <div className="inline-flex" key={index}>
-            <button
-              className="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-blue-100 rounded-md sm:flex  hover:bg-blue-600 hover:text-white"
-              onClick={() => setPage(number)}
-            >
-              {number + 1}
-            </button>
-          </div>
-        ))}
-        <select
-          className="border border-black py-2 rounded-md"
-          defaultValue={"10"}
-          onChange={(event) => setSize(event.target.value)}
-        >
-          <option value="05">05</option>
-          <option value="10">10</option>
-          <option value="15">15</option>
-          <option value="20">20</option>
-        </select>
+      <div className="flex items-center justify-center flex-col">
+        <div>
+          <p className="font-semibold my-2">
+            Currently selected page: {page + 1} and size: {size}
+          </p>
+        </div>
+        <div>
+          {[...Array(pages).keys()].map((number, index) => (
+            <div className="inline-flex" key={index}>
+              <button
+                className="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-blue-100 rounded-md sm:flex  hover:bg-blue-600 hover:text-white"
+                onClick={() => setPage(number)}
+              >
+                {number + 1}
+              </button>
+            </div>
+          ))}
+          <select
+            className="border border-black py-2 rounded-md"
+            defaultValue={"10"}
+            onChange={(event) => setSize(event.target.value)}
+          >
+            <option value="05">05</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </select>
+        </div>
       </div>
     </section>
   );
