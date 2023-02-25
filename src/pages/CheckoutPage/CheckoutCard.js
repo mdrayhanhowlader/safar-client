@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
+import { FiDelete } from "react-icons/fi";
 
 const CheckoutCard = ({ orders }) => {
   const { user } = useContext(AuthContext);
@@ -8,42 +9,24 @@ const CheckoutCard = ({ orders }) => {
   return (
     <div>
       {orders?.map((order) => (
-        <div className="border w-full rounded mt-5 p-4 flex justify-between items-center flex-wrap">
-          <div className="w-2/3">
-            <h3 className="text-lg font-medium">{order?.hotel_name}</h3>
-            <p className="text-xl font-medium mt-2">
-              Price: ${order?.total_price}
-            </p>
-            {/* <p className="text-gray-600 text-xs">
-              Sold by <b>{user?.displayName}</b>
-            </p> */}
-            {/* <h4 className="text-red-700 text-xs font-bold mt-1">
-              Only 2 left in stock
-            </h4> */}
-          </div>
-          {/* <div>
-            <h4 className="text-xl font-medium">
-              <sup className="text-blue-500">$</sup> 89
-            </h4>
-            <h5 className="text-sm font-bold text-blue-500">60% OFF</h5>
-          </div> */}
-          <div className="w-full flex justify-between mt-4">
-            <button className="text-red-700 hover:bg-blue-100 px-2">
-              DELETE
-            </button>
-            {/* <label
-              className="block uppercase tracking-wide text-gray-700"
-              for="grid-first-name"
-            >
-              QTY
-              <select
-                className="ml-3 h-8 border-none text-sm font-semibold bg-blue-500 text-white p-2 rounded"
-                id="grid-state"
+        <div className="outline outline-slate-100 hover:outline-2 hover:outline-blue-500 w-full rounded mt-5 p-4 flex justify-between items-center flex-wrap">
+          <div className="w-full flex justify-between items-center">
+            <div className="flex">
+              <input className="" type="checkbox" name="" id={order?._id} />
+              <label
+                htmlFor={order?._id}
+                className="text-lg font-medium ml-1 cursor-default"
               >
-                <option className="bg-white text-black border-none">1</option>
-                <option className="bg-white text-black border-none">2</option>
-              </select>
-            </label> */}
+                {order?.hotel_name}
+              </label>
+            </div>
+            <p className="text-xl font-medium mt-2">${order?.total_price}</p>
+            {console.log(order?.total_price)}
+            <div className="mt-4">
+              <button className="text-rose-500 text-xl hover:text-red-800">
+                <FiDelete />
+              </button>
+            </div>
           </div>
         </div>
       ))}

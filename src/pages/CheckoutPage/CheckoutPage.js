@@ -111,7 +111,7 @@ const CheckoutPage = () => {
               />
             </div> */}
           </div>
-          <div className="bg-white rounded  col-span-8">
+          <div className="bg-white rounded col-span-6">
             {/* <!-- Order Summary  --> */}
             <div>
               <h3 className="text-xl mt-4 font-bold">Choose Your Room</h3>
