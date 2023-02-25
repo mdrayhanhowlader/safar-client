@@ -27,7 +27,7 @@ const AllOrders = () => {
 
         <section className="p-4">
             <h2 className="text-2xl font-bold">
-                {allOrders?.length} All Orders
+                All Orders ({allOrders?.length})
             </h2>
             {/* table all organizer  */}
             <div>
