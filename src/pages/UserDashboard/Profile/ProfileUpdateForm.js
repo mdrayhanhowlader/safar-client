@@ -1,7 +1,9 @@
 // import { useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const ProfileUpdateForm = ({
@@ -11,13 +13,20 @@ const ProfileUpdateForm = ({
   userInfo,
   refetch,
 }) => {
-  const { user } = useContext(AuthContext);
+  const { user, updateUserProfile } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
+
+  console.log(user);
+  //navigate from checkout
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname;
+  console.log(location);
 
   const handleProfileUpdate = (data) => {
     const editProfileData = {
@@ -28,6 +37,7 @@ const ProfileUpdateForm = ({
       work: data.work,
       profile_img: profilePicture,
     };
+
     fetch(
       `https://safar-server-nasar06.vercel.app/users/update-user?email=${user?.email}`,
       {
@@ -39,12 +49,31 @@ const ProfileUpdateForm = ({
       }
     )
       .then((res) => res.json())
-      .then((data) => {
+      .then((result) => {
+        console.log(result);
         toast.success("user updated");
+        const userData = {
+          displayName: data.name,
+          photoURL: data.profilePicture,
+        };
+        updateUserProfile(userData);
         refetch();
+        navigate(from, { replace: true });
       });
   };
 
+  const { data: profileInfo } = useQuery({
+    queryKey: ["get-single-user"],
+    queryFn: async () => {
+      const res = await fetch(
+        `https://safar-server-nasar06.vercel.app/users/get-single-user?${user?.email}`
+      );
+      const data = await res.json();
+      return data;
+    },
+  });
+
+  console.log(profileInfo);
   return (
     <>
       <>
@@ -56,7 +85,7 @@ const ProfileUpdateForm = ({
             <input
               className="w-full border-2 border-slate-200 rounded-md py-2"
               type="text"
-              defaultValue={userInfo?.name ? userInfo?.name : ""}
+              defaultValue={user?.displayName ? user?.displayName : ""}
               name="name"
               id=""
               {...register("name")}
@@ -103,6 +132,19 @@ const ProfileUpdateForm = ({
               defaultValue={userInfo?.language ? userInfo.language : ""}
               id=""
               {...register("language")}
+            />
+          </div>
+          <div>
+            <label htmlFor="">
+              <small className="font-semibold">Work</small>
+            </label>
+            <input
+              className="w-full border-2 border-slate-200 rounded-md py-2"
+              type="text"
+              defaultValue={userInfo?.work ? userInfo?.work : ""}
+              name="work"
+              id=""
+              {...register("work")}
             />
           </div>
           <div>

@@ -47,8 +47,8 @@ const DetailSection = ({ hotelData }) => {
     setIsHandleClick(true);
   };
   const handleCloseCalender = () => {
-    setIsHandleClick(false);
-    const Sdays = dayDifference(date[0].endDate, date[0].startDate);
+    // setIsHandleClick(false);
+    const Sdays = dayDifference(date[0]?.endDate, date[0].startDate);
     setDay(Sdays);
   };
 
@@ -80,6 +80,7 @@ const DetailSection = ({ hotelData }) => {
   const rmNo = allData?.map((rm) => rm.rooms_no);
   const rmBed = allData?.map((rm) => rm.size);
   const totalPrice = allData?.map((dt) => dt.price);
+
   const sum = totalPrice?.reduce((total, number) => {
     console.log(total);
     console.log(number);
@@ -89,6 +90,7 @@ const DetailSection = ({ hotelData }) => {
 
   const handleBook = () => {
     const totalPrice = sum * day * serviceFee;
+    console.log(typeof (totalPrice + 100000));
     const orderInfo = {
       customer_email: user?.email,
       hotel_name,
@@ -109,7 +111,10 @@ const DetailSection = ({ hotelData }) => {
       body: JSON.stringify(orderInfo),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data);
+        navigate("/checkoutPage");
+      });
   };
 
   return (
@@ -208,7 +213,11 @@ const DetailSection = ({ hotelData }) => {
                   <DateRange
                     className="w-full"
                     editableDateInputs={true}
-                    onChange={(item) => setDate([item.selection])}
+                    onChange={(item) => {
+                      setDate([item.selection]);
+                      setIsHandleClick(false);
+                      handleCloseCalender();
+                    }}
                     moveRangeOnFirstSelection={false}
                     ranges={date}
                   />

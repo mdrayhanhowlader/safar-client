@@ -17,7 +17,7 @@ const SellerProfile = () => {
   const { data: organizerInfo } = useQuery({
     queryKey: ['organizerInfo', user?.email],
     queryFn: async () => {
-      const res = await fetch(`https://safar-server-nasar06.vercel.app/destination/get-hotel-details?email=${user?.email}`);
+      const res = await fetch(`https://safar-server-nasar06.vercel.app/users/get-single-organizer?email=${user?.email}`);
       const data = await res.json();
       setOrgInfo(data)
       return data;
