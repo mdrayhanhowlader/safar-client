@@ -12,7 +12,7 @@ import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../contexts/AuthProvider";
 import CheckoutCard from "./CheckoutCard";
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
+const stripePromise = loadStripe(process.env.REACT_APP_PAYMENT_STRIPE_PK);
 
 const CheckoutPage = () => {
   const hotelData = useLoaderData();

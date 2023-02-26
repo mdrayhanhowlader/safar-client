@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import AvailableCampaign from './AvailableCampaign';
 import CreateCampaign from './CreateCampaign';
-import RegisteredCampaign from './RegisteredCampaign';
+import OrganizerOnCampaign from './OrganizerOnCampaign';
 
 const AdminCampaign = () => {
     const [show, setShow] = useState("available-campaign");
@@ -30,9 +30,9 @@ const AdminCampaign = () => {
                                     ? " p-2 cursor-pointer border-b-2 border-orange-400 "
                                     : "p-2 cursor-pointer"
                             }
-                            onClick={() => setShow("registered-campaign")}
+                            onClick={() => setShow("organizer-on-campaign")}
                         >
-                            Registered Campaign
+                            Organizer On Campaign
                         </li>
                         <li
                             className={
@@ -51,8 +51,8 @@ const AdminCampaign = () => {
                     {show === "available-campaign" && (
                         <AvailableCampaign />
                     )}
-                    {show === "registered-campaign" && (
-                        <RegisteredCampaign />
+                    {show === "organizer-on-campaign" && (
+                        <OrganizerOnCampaign />
                     )}
                     {show === "create-campaign" && (
                         <CreateCampaign />
