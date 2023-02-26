@@ -12,7 +12,12 @@ const CheckoutCard = ({ orders }) => {
         <div className="outline outline-slate-100 hover:outline-2 hover:outline-blue-500 w-full rounded mt-5 p-4 flex justify-between items-center flex-wrap">
           <div className="w-full flex justify-between items-center">
             <div className="flex">
-              <input className="" type="checkbox" name="" id={order?._id} />
+              <input
+                className="hidden"
+                type="checkbox"
+                name=""
+                id={order?._id}
+              />
               <label
                 htmlFor={order?._id}
                 className="text-lg font-medium ml-1 cursor-default"
