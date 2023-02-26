@@ -23,6 +23,7 @@ const Organizer = () => {
       return data;
     },
   });
+  console.log(organizers)
 
   return (
     <section className="p-4">

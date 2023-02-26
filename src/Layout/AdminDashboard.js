@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   FaBell,
   FaBox,
+  FaBullhorn,
   FaCheck,
   FaDollarSign,
   FaHandHoldingUsd,
@@ -19,9 +20,9 @@ import {
   HiOutlineMail,
   HiOutlineShoppingBag,
   HiOutlineShoppingCart,
-  HiUserGroup, 
+  HiUserGroup,
 } from "react-icons/hi";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 import useTitle from "../hooks/useTitle";
 import DashboardNab from "../pages/Shared/Navbar/DashboardNab";
 import "./Dashboard.css";
@@ -33,8 +34,9 @@ const AdminDashboard = () => {
   const [ordersSubMenu, setOrdersSubmenu] = useState(false);
   const [accountSubmenu, setAccountSubmenu] = useState(false);
   const [financeSubmenu, setFinanceSubmenu] = useState(false);
+  const [promotionSubmenu, setPromotionSubmenu] = useState(false);
   const [messageSubmenu, setMessageSubmenu] = useState(false);
- useTitle('Dashboard')
+  useTitle('Dashboard')
   return (
     <div>
       <DashboardNab></DashboardNab>
@@ -73,7 +75,7 @@ const AdminDashboard = () => {
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                         >
                           <span className="inline-flex justify-center items-center ml-8">
-                           <FaHome></FaHome>
+                            <FaHome></FaHome>
                           </span>
 
                           <span className="ml-2 text-black font-bold text-sm tracking-wide truncate ">
@@ -87,45 +89,52 @@ const AdminDashboard = () => {
                         >
                           <ul>
                             <li>
-                              <Link
+                              <NavLink
                                 to="/dashboard/managehotel"
-                                className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                                className={({ isActive }) => isActive ? 'relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer' : 'relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer'
+                                }
+                              // className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                               >
                                 <span className="inline-flex justify-center items-center ml-8">
-                                  
+
                                   <HiOutlineHome></HiOutlineHome>
                                 </span>
                                 <span className="ml-2 text-sm tracking-wide truncate text-black font-bold">
                                   Manage Hotels
                                 </span>
-                              </Link>
+                              </NavLink>
                             </li>
                             <li>
-                              <Link
+                              <NavLink
                                 to="/dashboard/pendingHotel"
-                                className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                                className={({ isActive }) => isActive ? 'relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer' : 'relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer'
+                                }
+                              // className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                               >
                                 <span className="inline-flex justify-center items-center ml-8">
+
                                   <FaHourglassHalf></FaHourglassHalf>
                                 </span>
                                 <span className="ml-2 text-sm tracking-wide truncate text-black font-bold">
                                   Pending Hotel
                                 </span>
-                              </Link>
+                              </NavLink>
                             </li>
                             <li>
-                              <Link
+                              <NavLink
                                 to="/dashboard/blockedhotel"
-                                className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                                className={({ isActive }) => isActive ? 'relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer' : 'relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer'
+                                }
+                              // className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                               >
                                 <span className="inline-flex justify-center items-center ml-8">
-                                  <FcCancel className="w-4 h-4"></FcCancel>
-                                </span>
 
+                                  <FaHourglassHalf></FaHourglassHalf>
+                                </span>
                                 <span className="ml-2 text-sm tracking-wide truncate text-black font-bold">
                                   Blocked Hotel
                                 </span>
-                              </Link>
+                              </NavLink>
                             </li>
                           </ul>
                         </div>
@@ -150,9 +159,10 @@ const AdminDashboard = () => {
                   <div className={`${ordersSubMenu ? "visible" : "hidden"}`}>
                     <ul>
                       <li>
-                        <Link
+                        <NavLink
                           to="/dashboard/allorders"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                          className={({ isActive }) => isActive ? 'relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer' : 'relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer'
+                          }
                         >
                           <span className="inline-flex justify-center items-center ml-8">
                             <HiOutlineShoppingBag className="text-xl"></HiOutlineShoppingBag>
@@ -160,12 +170,13 @@ const AdminDashboard = () => {
                           <span className="ml-2 text-sm tracking-wide truncate text-black font-bold">
                             All Orders
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
-                        <Link
+                        <NavLink
                           to="/dashboard/completedorders"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                          className={({ isActive }) => isActive ? 'relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer' : 'relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer'
+                          }
                         >
                           <span className="inline-flex justify-center items-center ml-8">
                             <FaCheck></FaCheck>
@@ -173,12 +184,13 @@ const AdminDashboard = () => {
                           <span className="ml-2 text-sm tracking-wide truncate font-bold text-black">
                             Completed Orders
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
-                        <Link
+                        <NavLink
                           to="/dashboard/canceledorders"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                          className={({ isActive }) => isActive ? 'relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer' : 'relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer'
+                          }
                         >
                           <span className="inline-flex justify-center items-center ml-8">
                             <FcCancel className="w-4 h-4"></FcCancel>
@@ -187,7 +199,7 @@ const AdminDashboard = () => {
                           <span className="ml-2 text-sm tracking-wide truncate font-bold text-black">
                             Canceled Orders
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                     </ul>
                   </div>
@@ -208,9 +220,10 @@ const AdminDashboard = () => {
                   <div className={`${accountSubmenu ? "visible" : "hidden"}`}>
                     <ul>
                       <li>
-                        <Link
+                        <NavLink
                           to="/dashboard/alladmin"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                          className={({ isActive }) => isActive ? 'relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer' : 'relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer'
+                          }
                         >
                           <span className="inline-flex justify-center items-center ml-8">
                             <HiUserGroup className="font-bold"></HiUserGroup>
@@ -218,12 +231,13 @@ const AdminDashboard = () => {
                           <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             All Admin
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
-                        <Link
+                        <NavLink
                           to="/dashboard/editors"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                          className={({ isActive }) => isActive ? 'relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer' : 'relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer'
+                          }
                         >
                           <span className="inline-flex justify-center items-center ml-8">
                             <HiUserGroup className="font-bold"></HiUserGroup>
@@ -231,12 +245,13 @@ const AdminDashboard = () => {
                           <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             Editors
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
-                        <Link
+                        <NavLink
                           to="/dashboard/organizer"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                          className={({ isActive }) => isActive ? 'relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer' : 'relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer'
+                          }
                         >
                           <span className="inline-flex justify-center items-center ml-8">
                             <HiUserGroup className="font-bold"></HiUserGroup>
@@ -244,12 +259,13 @@ const AdminDashboard = () => {
                           <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             All Organizer
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
-                        <Link
+                        <NavLink
                           to="/dashboard/allusers"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                          className={({ isActive }) => isActive ? 'relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer' : 'relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer'
+                          }
                         >
                           <span className="inline-flex justify-center items-center ml-8">
                             <HiUserGroup className="font-bold"></HiUserGroup>
@@ -257,7 +273,7 @@ const AdminDashboard = () => {
                           <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             All Users
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                     </ul>
                   </div>
@@ -278,9 +294,10 @@ const AdminDashboard = () => {
                   <div className={`${financeSubmenu ? "visible" : "hidden"}`}>
                     <ul>
                       <li>
-                        <Link
+                        <NavLink
                           to="/dashboard/paymentreceived"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                          className={({ isActive }) => isActive ? 'relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer' : 'relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer'
+                          }
                         >
                           <span className="inline-flex justify-center items-center ml-8">
                             <HiOutlineCurrencyDollar className="text-xl"></HiOutlineCurrencyDollar>
@@ -289,12 +306,13 @@ const AdminDashboard = () => {
                           <span className="ml-2 text-sm tracking-wide truncate font-bold text-black">
                             Payments Received
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
-                        <Link
+                        <NavLink
                           to="/dashboard/payoutToOrganizer"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                          className={({ isActive }) => isActive ? 'relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer' : 'relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer'
+                          }
                         >
                           <span className="inline-flex justify-center items-center ml-8">
                             <FaDollarSign className=""></FaDollarSign>
@@ -302,12 +320,13 @@ const AdminDashboard = () => {
                           <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             Payouts to organizer
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
-                        <Link
+                        <NavLink
                           to="/dashboard/refundtocustomer"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                          className={({ isActive }) => isActive ? 'relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer' : 'relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer'
+                          }
                         >
                           <span className="inline-flex justify-center items-center ml-8">
                             <FaHandHoldingUsd className="text-xl"></FaHandHoldingUsd>
@@ -315,7 +334,40 @@ const AdminDashboard = () => {
                           <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             Refund to customer
                           </span>
-                        </Link>
+                        </NavLink>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                {/* promotions */}
+                <li>
+                  <p
+                    onClick={() => setPromotionSubmenu(!promotionSubmenu)}
+                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                  >
+                    <span className="inline-flex justify-center items-center ml-4">
+                      <FaPager className="w-5 h-5"></FaPager>
+                    </span>
+                    <span className="ml-2 text-sm tracking-wide truncate font-bold text-black">
+                      Promotions
+                    </span>
+                  </p>
+                  <div className={`${promotionSubmenu ? "visible" : "hidden"}`}>
+                    <ul>
+                      <li>
+                        <NavLink
+                          to="/dashboard/campaign"
+                          className={({ isActive }) => isActive ? 'relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer' : 'relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer'
+                          }
+                        >
+                          <span className="inline-flex justify-center items-center ml-8">
+                            <FaBullhorn className="text-xl"></FaBullhorn>
+                          </span>
+
+                          <span className="ml-2 text-sm tracking-wide truncate font-bold text-black">
+                            Campaign
+                          </span>
+                        </NavLink>
                       </li>
                     </ul>
                   </div>
@@ -337,7 +389,7 @@ const AdminDashboard = () => {
                   <div className={`${messageSubmenu ? "visible" : "hidden"} ml-2`}>
                     <ul>
                       <li>
-                        <Link
+                        <NavLink
                           to="/dashboard/livechat"
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                         >
@@ -347,10 +399,10 @@ const AdminDashboard = () => {
                           <span className="ml-2 text-sm tracking-wide truncate font-bold text-black">
                             Live Chat
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
-                        <Link
+                        <NavLink
                           to="/dashboard/toOrganizer"
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                         >
@@ -360,23 +412,23 @@ const AdminDashboard = () => {
                           <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             message to organizer
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
-                        <Link
+                        <NavLink
                           to="/dashboard/tocustomer"
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                         >
-                           <span className="inline-flex justify-center items-center ml-4">
+                          <span className="inline-flex justify-center items-center ml-4">
                             <HiChat className="w-5 h-5"></HiChat>
                           </span>
                           <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             message to customer
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
-                        <Link
+                        <NavLink
                           to="/dashboard/tosubscriber"
                           className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
                         >
@@ -386,7 +438,7 @@ const AdminDashboard = () => {
                           <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             message to subscribes
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                     </ul>
                   </div>
@@ -424,7 +476,7 @@ const AdminDashboard = () => {
           <Outlet></Outlet>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
