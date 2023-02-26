@@ -41,7 +41,7 @@ const DetailSection = ({ hotelData }) => {
     return diffDays;
   }
 
-  const serviceFee = 100;
+  const serviceFee = 20;
 
   const handleOpenCalender = () => {
     setIsHandleClick(true);
@@ -86,11 +86,11 @@ const DetailSection = ({ hotelData }) => {
   const totalPrice = allData?.map((dt) => dt.price);
 
   const sum = totalPrice?.reduce((total, number) => {
-    console.log(total);
-    console.log(number);
+    // console.log(total);
+    // console.log(number);
     return total + number;
   }, 0);
-  // console.log(sum);
+  console.log('de sum', sum);
 
   const handleBook = () => {
     const totalPrice = sum * day + serviceFee;
@@ -106,7 +106,7 @@ const DetailSection = ({ hotelData }) => {
       checkIn_date: date[0].startDate,
       checkout_date: date[0].endDate,
     };
-    console.log(orderInfo);
+    // console.log(orderInfo);
     fetch(`https://safar-server-nasar06.vercel.app/orders/add-order`, {
       method: "POST",
       headers: {
@@ -116,7 +116,7 @@ const DetailSection = ({ hotelData }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         navigate("/checkoutPage");
       });
   };

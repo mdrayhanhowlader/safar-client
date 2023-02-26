@@ -1,6 +1,6 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import CheckoutForm from "./CheckoutForm";
 import {
   Navigate,
@@ -19,6 +19,7 @@ const CheckoutPage = () => {
   const { user } = useContext(AuthContext);
   const { hotel_name } = hotelData;
 
+
   const location = useLocation();
 
   const { data: orders } = useQuery({
@@ -33,25 +34,26 @@ const CheckoutPage = () => {
     },
   });
 
-  if (user?.displayName === null) {
-    console.log(user);
-    return (
-      <Navigate to="/myaccount/profile" state={{ from: location }} replace />
-    );
-  }
+  // if (user?.displayName === null) {
+  //   console.log(user);
+  //   return (
+  //     <Navigate to="/myaccount/profile" state={{ from: location }} replace />
+  //   );
+  // }
 
   const orderPrice = orders?.map((or) => or?.total_price);
 
   const sum = orderPrice?.reduce((total, number) => {
-    // console.log(total);
-    // console.log(number);
+    // console.log('sum'.sum);
+    // console.log('number',number);
     return total + number;
   }, 0);
 
-  const vat = parseFloat((sum * 5) / 100);
-  const subTotal = sum + vat + 1000;
 
-  console.log(typeof subTotal);
+  const vat = parseFloat((sum * 5) / 100);
+  const subTotal = sum + vat;
+  const price = parseInt(subTotal)
+ 
   return (
     <div>
       <div className="md:w-11/12 mx-auto mt-6 ">
@@ -59,8 +61,8 @@ const CheckoutPage = () => {
         <div className="grid gap-4 grid-cols-1 lg:grid-cols-12 pt-6">
           <div className="flex justify-between flex-wrap col-span-4">
             <div className=" rounded  w-full">
-              <div className="w-full bg-white border ">
-                <h3 className="text-md text-center font-medium bg-pink-500 text-slate-50 rounded-t-lg mb-12 py-1 rounded-b-md">
+              <div className="w-full bg-white border rounded-xl">
+                <h3 className="text-md text-center font-medium bg-orange-500 text-slate-50 rounded-t-lg mb-12 py-1 rounded-b-md">
                   Room Price
                 </h3>
                 <div className="w-11/12 mx-auto">
@@ -74,7 +76,7 @@ const CheckoutPage = () => {
                   </div>
                   <div className="flex justify-between mt-3">
                     <div className="text-lg text-slate-700 font-medium">
-                      VAT (15%)
+                      VAT (5%)
                     </div>
                     <div className="text-lg text-right font-medium">${vat}</div>
                   </div>
@@ -90,7 +92,7 @@ const CheckoutPage = () => {
                 </div>
                 <div className=" mt-6">
                   <Elements stripe={stripePromise}>
-                    <CheckoutForm />
+                    <CheckoutForm price={price} />
                   </Elements>
                 </div>
               </div>
@@ -109,7 +111,7 @@ const CheckoutPage = () => {
               />
             </div> */}
           </div>
-          <div className="bg-white rounded  col-span-8">
+          <div className="bg-white rounded col-span-6">
             {/* <!-- Order Summary  --> */}
             <div>
               <h3 className="text-xl mt-4 font-bold">Choose Your Room</h3>
