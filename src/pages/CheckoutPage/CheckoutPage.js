@@ -1,6 +1,6 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import CheckoutForm from "./CheckoutForm";
 import {
   Navigate,
