@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { DateRange } from 'react-date-range';
 import { useForm } from 'react-hook-form';
 import { FaImage } from "react-icons/fa";
 
@@ -6,33 +7,38 @@ const CreateCampaign = () => {
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const [isHandleClick, setIsHandleClick] = useState(false);
-    const [isClick, setIsClick] = useState(false);
     const [day, setDay] = useState(0);
-
+    const [date, setDate] = useState([
+        {
+            startDate: new Date(),
+            endDate: new Date(),
+            key: "selection",
+        },
+    ]);
+    console.log(day)
 
     const imageHostKey = process.env.REACT_APP_imagePostKey;
 
-
+    const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
+    function dayDifference(date1, date2) {
+        const timeDiff = Math.abs(date2.getTime() - date1.getTime());
+        const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
+        return diffDays;
+    }
     const handleOpenCalender = () => {
         setIsHandleClick(true);
     };
     const handleCloseCalender = () => {
-
+        const campaignDuration = dayDifference(date[0]?.endDate, date[0].startDate);
+        setDay(campaignDuration);
 
     };
-
-    const handleClickOpen = () => {
-        setIsClick(true);
-    };
-
-    const handleClickClose = () => {
-        setIsClick(false);
-    };
-
 
     const onCreateSubmit = async (data) => {
 
-
+        const regularPrice = data.regular_price;
+        const givenPercentage = data.percentage;
+        const offerPrice = parseFloat((regularPrice * givenPercentage) / 100);
         // file send to imgBB
         const photo = data.campaign_image[0];
         // console.log(photo)
@@ -52,6 +58,8 @@ const CreateCampaign = () => {
             campaign_name: data.campaign_name,
             campaign_img: campaignImage,
             description: data.description,
+            regular_price: regularPrice,
+            offer_price: offerPrice
 
         }
         console.log(campaignData);
@@ -89,8 +97,45 @@ const CreateCampaign = () => {
                             </div>
 
                             <div>
+                                <label class="sr-only" htmlFor="campaign_name">Campaign Name</label>
+                                <input
+                                    {...register("campaign_name", { required: true })}
+                                    class="w-full outline-slate-200 rounded-lg border-gray-200 p-3 text-sm"
+                                    placeholder="Campaign Name"
+                                    type="text"
+                                    id="campaign_name"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                            <div>
+                                <label class="sr-only" htmlFor="regular_price">Regular Price</label>
+                                <input
+                                    {...register("regular_price", { required: true })}
+                                    class="w-full outline-slate-200 rounded-lg border-gray-200 p-3 text-sm"
+                                    placeholder="Regular Price"
+                                    type="number"
+                                    id="regular_price"
+                                />
+                            </div>
+                            <div>
+                                <label class="sr-only" htmlFor="percentage">Offer/Percentage</label>
+                                <input
+                                    {...register("percentage", { required: true })}
+                                    class="w-full outline-slate-200 rounded-lg border-gray-200 p-3 text-sm"
+                                    placeholder="Percentage"
+                                    type="number"
+                                    id="percentage"
+                                />
+                            </div>
+
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2">
+                            <div className='border-2 border-slate-200 rounded-lg'>
                                 <label className="flex items-center gap-2" htmlFor="campaign_image">
-                                    <FaImage className='text-3xl text-blue-500' /><span className='text-slate-400'>Select Campaign Image</span>
+                                    <FaImage className='text-3xl mx-3 text-blue-500' /><span className='text-slate-400'>Select Campaign Image</span>
                                 </label>
                                 <input
                                     {...register("campaign_image", { required: true })}
@@ -100,21 +145,8 @@ const CreateCampaign = () => {
                                     id="campaign_image"
                                 />
                             </div>
-                        </div>
-                        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                            <div>
-                                <label class="sr-only" for="campaign_name">Campaign Name</label>
-                                <input
-                                    {...register("campaign_name", { required: true })}
-                                    class="w-full outline-slate-200 rounded-lg border-gray-200 p-3 text-sm"
-                                    placeholder="Campaign Name"
-                                    type="text"
-                                    id="campaign_name"
-                                />
-                            </div>
-
                             {/* Campaign Date */}
-                            <div>
+                            <div className='border-2 border-slate-200 rounded-lg mx-4'>
                                 <div className="flex justify-around">
                                     {isHandleClick === true ? (
                                         <div
@@ -124,7 +156,7 @@ const CreateCampaign = () => {
                                         >
                                             <div>
                                                 <h1>
-                                                    <small>Check-In</small>
+                                                    <small className="text-slate-400">Start Date</small>
                                                 </h1>
                                                 {/* <p>01/02/03</p> */}
                                             </div>
@@ -137,7 +169,7 @@ const CreateCampaign = () => {
                                         >
                                             <div>
                                                 <h1>
-                                                    <small>Check-In</small>
+                                                    <small className="text-slate-400">Start Date</small>
                                                 </h1>
                                                 {/* <p>01/02/03</p> */}
                                             </div>
@@ -151,7 +183,7 @@ const CreateCampaign = () => {
                                         >
                                             <div>
                                                 <h1>
-                                                    <small>Check-Out</small>
+                                                    <small className="text-slate-400">End Date</small>
                                                 </h1>
                                                 {/* <p>01/02/03</p> */}
                                             </div>
@@ -164,13 +196,28 @@ const CreateCampaign = () => {
                                         >
                                             <div>
                                                 <h1>
-                                                    <small>Check-Out</small>
+                                                    <small className="text-slate-400">End Date</small>
                                                 </h1>
                                                 {/* <p>01/02/03</p> */}
                                             </div>
                                         </div>
                                     )}
                                 </div>
+                                {
+                                    <div className={isHandleClick === true ? "visible" : "hidden"}>
+                                        <DateRange
+                                            className="absolute ml-16 mt-2 top-30 z-50"
+                                            editableDateInputs={true}
+                                            onChange={(item) => {
+                                                setDate([item.selection]);
+                                                setIsHandleClick(false);
+                                                handleCloseCalender();
+                                            }}
+                                            moveRangeOnFirstSelection={false}
+                                            ranges={date}
+                                        />
+                                    </div>
+                                }
                             </div>
                         </div>
                         <div>

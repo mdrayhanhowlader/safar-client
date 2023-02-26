@@ -10,9 +10,14 @@ const CheckoutCard = ({ orders }) => {
     <div>
       {orders?.map((order) => (
         <div className="outline outline-slate-100 hover:outline-2 hover:outline-blue-500 w-full rounded mt-5 p-4 flex justify-between items-center flex-wrap">
-          <div className="w-full flex justify-between items-center">
-            <div className="flex">
-              <input className="" type="checkbox" name="" id={order?._id} />
+          <div className="w-full grid grid-cols-4 items-center">
+            <div className="col-span-2 flex">
+              <input
+                className="hidden"
+                type="checkbox"
+                name=""
+                id={order?._id}
+              />
               <label
                 htmlFor={order?._id}
                 className="text-lg font-medium ml-1 cursor-default"
@@ -20,9 +25,9 @@ const CheckoutCard = ({ orders }) => {
                 {order?.hotel_name}
               </label>
             </div>
-            <p className="text-xl font-medium mt-2">${order?.total_price}</p>
+            <p className="col-span-1 text-xl font-medium mt-2 flex justify-center">${order?.total_price}</p>
             {console.log(order?.total_price)}
-            <div className="mt-4">
+            <div className="col-span-1 mt-4 flex justify-end">
               <button className="text-rose-500 text-xl hover:text-red-800">
                 <FiDelete />
               </button>
