@@ -55,6 +55,7 @@ import SellerChat from "../../pages/Seller/SellerChat/SellerChat";
 import RegisterGuide from "../../pages/Guides/RegisterGuide";
 import LoginGuide from "../../pages/Guides/LoginGuide";
 import AllGuides from "../../pages/Guides/AllGuides";
+import AdminCampaign from "../../pages/Admin/Promotions/AdminCampaign";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -258,6 +259,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/refundtocustomer",
         element: <RefundToCustomer></RefundToCustomer>,
+      },
+      {
+        path: "/dashboard/campaign",
+        element: <AdminCampaign />
       },
     ],
   },

@@ -1,5 +1,6 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useContext, useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const CheckoutForm = ({price}) => {
@@ -64,6 +65,22 @@ console.log('clientSecret',clientSecret)
   })
   .then(function(result) {
     // Handle result.error or result.paymentIntent
+    // toast.success('Successfully Ordered')
+      
+        fetch(`https://safar-server-nasar06.vercel.app/orders/update-order?email=${user?.email}`, {
+        method: "PUT",
+        headers:{
+          "content-type": "application/json"
+        }
+      })
+      .then(res => res.json())
+      .then(result => {
+        if (result.acknowledged) {
+          toast.success('Successfully Ordered')
+        }
+      })
+      .catch(err => console.error(err))
+      
   });
 
   };
@@ -89,7 +106,7 @@ console.log('clientSecret',clientSecret)
         />
         <p className="text-red-500 mt-4">{cardError}</p>
         <button
-          className="px-4 py-4 bg-blue-400 text-black w-full mt-3 rounded shadow font-bold hover:bg-purple- 900"
+          className="px-4 py-2 bg-blue-500 text-slate-50 w-full mt-3 rounded-b-md shadow font-bold hover:bg-purple- 900"
           type="submit"
           disabled={!stripe || !clientSecret}
         >
