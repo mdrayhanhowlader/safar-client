@@ -27,7 +27,7 @@ const AllGuides = () => {
         const form = event.target;
         const search = form.search.value;
 
-        const res = await fetch(`http://localhost:5000/users/all-guides?name=${search}&location=${search}`);
+        const res = await fetch(`https://safar-server-nasar06.vercel.app/users/all-guides?name=${search}&location=${search}`);
         const nData = await res.json();
         setNw(nData)
         console.log(nData)
@@ -41,13 +41,13 @@ const AllGuides = () => {
 
                 </div>
                 
-                <div className='flex justify-between items-center mt-24 ml-10 md:ml-16 pb-24'>
+                <div className='md:flex justify-between items-center mt-24 ml-10 md:ml-16 pb-24'>
                     <h1 className="md:text-5xl text-3xl text-indigo-900 font-semibold">Find Your Guide
                  <span className='text-orange-600'> To Ease</span> 
                  <br />
                     Your Journey.</h1>
                     <div style={{ backgroundImage: `url(${cardbg})` }}
-                    className='flex bg-left justify-center w-1/2 mr-10 md:mr-16 py-6 border rounded-lg shadow-md shadow-blue-300'>
+                    className='flex bg-left justify-center w-11/12 mx-auto mt-12 md:mt-0 md:w-1/2 mr-10 md:mr-16 py-6 border rounded-lg shadow-md shadow-blue-300'>
                 <form onSubmit={handleSearch}>
                     <input type="text" name='search' placeholder='location or name' className='p-2 border-y border-l outline-none rounded-l-lg'/>
                     <input type="submit" value="Search" className='p-2 text-white rounded-r-lg outline-none bg-blue-500 hover:bg-blue-400'/>
@@ -71,24 +71,24 @@ const AllGuides = () => {
                                 className="flex w-full flex-col space-y-2">
                                     <div>
                                         <h2 className="text-2xl font-semibold capitalize">{guide?.name}</h2>
-                                        <span className="text-sm text-gray-500">Tour Guide</span>
+                                        <span className="text-sm text-slate-700">Tour Guide</span>
                                     </div>
                                     <div className="">
                                         <span className="flex items-center space-x-2">
                                             <FaRegAddressCard/>
-                                            <span className="text-gray-500">{guide?.address}</span>
+                                            <span className="text-slate-700">{guide?.address}</span>
                                         </span>
                                         <span className="flex items-center space-x-2">
                                             <TfiEmail className='text-blue-500'/>
-                                            <span className="text-gray-500">{guide?.email}</span>
+                                            <span className="text-slate-700">{guide?.email}</span>
                                         </span>
                                         <span className="flex items-center space-x-2">
                                             <HiOutlinePhone className='text-green-500'/>
-                                            <span className="text-gray-500">{guide?.phone}</span>
+                                            <span className="text-slate-700">{guide?.phone}</span>
                                         </span>
                                         <span className="flex items-center space-x-2">
                                             <SlLocationPin className='text-orange-500'/>
-                                            <span className="text-gray-500">{guide?.location}</span>
+                                            <span className="text-slate-700">{guide?.location}</span>
                                         </span>
                                         <Link to={`/guideprofile/${guide?._id}`}>
                                         <button className='bg-blue-500 px-2 rounded-lg py-0.5 my-1 text-white text-xs hover:bg-blue-400'>Details</button>
@@ -119,24 +119,24 @@ const AllGuides = () => {
                                 className="flex w-full flex-col space-y-2">
                                     <div>
                                         <h2 className="text-2xl font-semibold capitalize">{guide?.name}</h2>
-                                        <span className="text-sm text-gray-500">Tour Guide</span>
+                                        <span className="text-sm text-slate-700">Tour Guide</span>
                                     </div>
                                     <div className="">
                                         <span className="flex items-center space-x-2">
                                             <FaRegAddressCard/>
-                                            <span className="text-gray-500">{guide?.address}</span>
+                                            <span className="text-slate-700">{guide?.address}</span>
                                         </span>
                                         <span className="flex items-center space-x-2">
                                             <TfiEmail className='text-blue-500'/>
-                                            <span className="text-gray-500">{guide?.email}</span>
+                                            <span className="text-slate-700">{guide?.email}</span>
                                         </span>
                                         <span className="flex items-center space-x-2">
                                             <HiOutlinePhone className='text-green-500'/>
-                                            <span className="text-gray-500">{guide?.phone}</span>
+                                            <span className="text-slate-700">{guide?.phone}</span>
                                         </span>
                                         <span className="flex items-center space-x-2">
                                             <SlLocationPin className='text-orange-500'/>
-                                            <span className="text-gray-500">{guide?.location}</span>
+                                            <span className="text-slate-700">{guide?.location}</span>
                                         </span>
                                         <Link to={`/guideprofile/${guide?._id}`}>
                                         <button className='bg-blue-500 px-2 rounded-lg py-0.5 my-1 text-white text-xs hover:bg-blue-400'>Details</button>
