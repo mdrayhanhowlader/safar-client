@@ -16,7 +16,7 @@ const MostSelling = () => {
   console.log(allHotels, "hello bangladesfla;fjadljfaldfjaldsjfaldfjal");
   return (
     <div className="w-11/12 mx-auto my-16">
-      <h2 className="text-center py-6 text-2xl font-semibold">
+      <h2 className="text-center py-8 text-3xl font-semibold">
         Top Selling Hotel
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
