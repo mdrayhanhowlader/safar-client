@@ -55,6 +55,7 @@ import SellerChat from "../../pages/Seller/SellerChat/SellerChat";
 import RegisterGuide from "../../pages/Guides/RegisterGuide";
 import LoginGuide from "../../pages/Guides/LoginGuide";
 import AllGuides from "../../pages/Guides/AllGuides";
+import GuideProfile from "../../pages/Guides/GuideProfile";
 import AdminCampaign from "../../pages/Admin/Promotions/AdminCampaign";
 import AccountStatement from "../../pages/Seller/Finance/AccountStatement/AccountStatement";
 import OrderOverview from "../../pages/Seller/Finance/OrderOverview/OrderOverview";
@@ -155,6 +156,11 @@ export const router = createBrowserRouter([
       {
         path: "/allguides",
         element: <AllGuides />,
+      },
+      {
+        path: "/guideprofile/:id",
+        loader: ({params}) => fetch(`https://safar-server-nasar06.vercel.app/users/single-guide/${params?.id}`),
+        element: <GuideProfile/>
       },
       {
         path: "/*",

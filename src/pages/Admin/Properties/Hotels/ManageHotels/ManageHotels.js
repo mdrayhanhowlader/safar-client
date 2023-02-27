@@ -9,6 +9,7 @@ const ManageHotels = () => {
   const [size, setSize] = useState(10);
 
   const pages = Math.ceil(count / size);
+  console.log(count, size)
 
   //handel edit product
   const handleSubMenu = (id) => {
@@ -30,7 +31,9 @@ const ManageHotels = () => {
       const data = await res.json();
       setCount(data?.count);
       const hotelData = data.result;
+      console.log(data)
       return hotelData;
+      
     },
   });
 
