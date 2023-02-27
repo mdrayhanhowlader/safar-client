@@ -8,7 +8,6 @@ import cardbg from '../../assets/fullbg.png';
 import { FaRegAddressCard } from 'react-icons/fa';
 import { SlLocationPin } from 'react-icons/sl';
 import { Link } from 'react-router-dom';
-import { async } from '@firebase/util';
 
 const AllGuides = () => {
     const [nw, setNw] = useState([]);
@@ -48,9 +47,9 @@ const AllGuides = () => {
                  <br />
                     Your Journey.</h1>
                     <div style={{ backgroundImage: `url(${cardbg})` }}
-                    className='flex bg-center justify-center w-1/2 mr-10 md:mr-16 py-6 border rounded-lg shadow-lg'>
+                    className='flex bg-left justify-center w-1/2 mr-10 md:mr-16 py-6 border rounded-lg shadow-md shadow-blue-300'>
                 <form onSubmit={handleSearch}>
-                    <input type="text" name='search' placeholder='location or id' className='p-2 border-y border-l outline-none rounded-l-lg'/>
+                    <input type="text" name='search' placeholder='location or name' className='p-2 border-y border-l outline-none rounded-l-lg'/>
                     <input type="submit" value="Search" className='p-2 text-white rounded-r-lg outline-none bg-blue-500 hover:bg-blue-400'/>
                 </form>
             </div>
@@ -71,7 +70,7 @@ const AllGuides = () => {
                                 <div 
                                 className="flex w-full flex-col space-y-2">
                                     <div>
-                                        <h2 className="text-2xl font-semibold">{guide?.name}</h2>
+                                        <h2 className="text-2xl font-semibold capitalize">{guide?.name}</h2>
                                         <span className="text-sm text-gray-500">Tour Guide</span>
                                     </div>
                                     <div className="">
@@ -119,7 +118,7 @@ const AllGuides = () => {
                                 <div 
                                 className="flex w-full flex-col space-y-2">
                                     <div>
-                                        <h2 className="text-2xl font-semibold">{guide?.name}</h2>
+                                        <h2 className="text-2xl font-semibold capitalize">{guide?.name}</h2>
                                         <span className="text-sm text-gray-500">Tour Guide</span>
                                     </div>
                                     <div className="">
