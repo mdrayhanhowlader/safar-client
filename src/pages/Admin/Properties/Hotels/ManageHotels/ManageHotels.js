@@ -196,7 +196,7 @@ const ManageHotels = () => {
         </div> */}
         <div className="flex items-center justify-center mt-4">
           <div className="">
-            {page === 1 && (
+            {page > 0 && (
               <button
                 onClick={() => setPage(page - 1)}
                 className="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-blue-100 rounded-md sm:flex  hover:bg-blue-600 hover:text-white"
@@ -209,7 +209,11 @@ const ManageHotels = () => {
           {[...Array(pages).keys()].map((number, index) => (
             <div className="inline-flex" key={index}>
               <button
-                className="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-blue-100 rounded-md sm:flex  hover:bg-blue-600 hover:text-white"
+                className={`${
+                  page === number
+                    ? "bg-blue-600 items-center px-4 py-2 mx-1 font-bold text-white  rounded-md"
+                    : "items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-blue-100 rounded-md sm:flex  hover:bg-blue-600 hover:text-white"
+                }`}
                 onClick={() => setPage(number)}
               >
                 {number + 1}
@@ -217,14 +221,16 @@ const ManageHotels = () => {
             </div>
           ))}
 
-          <div>
-            <button
-              onClick={() => setPage(page + 1)}
-              className="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-blue-100 rounded-md sm:flex  hover:bg-blue-600 hover:text-white"
-            >
-              Next
-            </button>
-          </div>
+          {hotels?.length > 0 && (
+            <div>
+              <button
+                onClick={() => setPage(page + 1)}
+                className="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-blue-100 rounded-md sm:flex  hover:bg-blue-600 hover:text-white"
+              >
+                Next
+              </button>
+            </div>
+          )}
 
           {/* <select
             className="border border-black py-2 rounded-md"
