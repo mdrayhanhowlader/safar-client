@@ -189,12 +189,23 @@ const ManageHotels = () => {
         </div>
       </div>
       <div className="flex items-center justify-center flex-col">
-        <div>
+        {/* <div>
           <p className="font-semibold my-2">
             Currently selected page: {page + 1} and size: {size}
           </p>
-        </div>
-        <div>
+        </div> */}
+        <div className="flex items-center justify-center mt-4">
+          <div className="">
+            {page === 1 && (
+              <button
+                onClick={() => setPage(page - 1)}
+                className="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-blue-100 rounded-md sm:flex  hover:bg-blue-600 hover:text-white"
+              >
+                Prev
+              </button>
+            )}
+          </div>
+
           {[...Array(pages).keys()].map((number, index) => (
             <div className="inline-flex" key={index}>
               <button
@@ -205,7 +216,17 @@ const ManageHotels = () => {
               </button>
             </div>
           ))}
-          <select
+
+          <div>
+            <button
+              onClick={() => setPage(page + 1)}
+              className="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-blue-100 rounded-md sm:flex  hover:bg-blue-600 hover:text-white"
+            >
+              Next
+            </button>
+          </div>
+
+          {/* <select
             className="border border-black py-2 rounded-md"
             defaultValue={"10"}
             onChange={(event) => setSize(event.target.value)}
@@ -214,7 +235,7 @@ const ManageHotels = () => {
             <option value="10">10</option>
             <option value="15">15</option>
             <option value="20">20</option>
-          </select>
+          </select> */}
         </div>
       </div>
     </section>
