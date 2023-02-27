@@ -57,6 +57,8 @@ import LoginGuide from "../../pages/Guides/LoginGuide";
 import AllGuides from "../../pages/Guides/AllGuides";
 import GuideProfile from "../../pages/Guides/GuideProfile";
 import AdminCampaign from "../../pages/Admin/Promotions/AdminCampaign";
+import Flights from "../../pages/Flights/Flights";
+import FlightsLogin from "../../pages/Flights/FlightsLogin/FlightsLogin"
 import AccountStatement from "../../pages/Seller/Finance/AccountStatement/AccountStatement";
 import OrderOverview from "../../pages/Seller/Finance/OrderOverview/OrderOverview";
 import TransitionOverview from "../../pages/Seller/Finance/TransitionOverview/TransitionOverview";
@@ -159,8 +161,16 @@ export const router = createBrowserRouter([
       },
       {
         path: "/guideprofile/:id",
-        loader: ({params}) => fetch(`https://safar-server-nasar06.vercel.app/users/single-guide/${params?.id}`),
-        element: <GuideProfile/>
+        loader: ({ params }) => fetch(`https://safar-server-nasar06.vercel.app/users/single-guide/${params?.id}`),
+        element: <GuideProfile />
+      },
+      {
+        path: "/flightslogin",
+        element: <FlightsLogin />
+      },
+      {
+        path: "/flights",
+        element: <Flights />
       },
       {
         path: "/*",
