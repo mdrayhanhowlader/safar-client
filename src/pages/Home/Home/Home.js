@@ -3,6 +3,7 @@ import useTitle from "../../../hooks/useTitle";
 import Banner from "../Banner/Banner";
 import Destination from "../Destination/Destination";
 import HeaderSearch from "../HeaderSearch/HeaderSearch";
+import MostSelling from "../MostSelling/MostSelling";
 import Offers from "../Offers/Offers";
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
       <Destination></Destination>
       {/* <TopRated></TopRated> */}
       {/* <Subscribe></Subscribe> */}
+      <MostSelling></MostSelling>
     </div>
   );
 };
