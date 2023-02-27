@@ -63,7 +63,7 @@ const AllGuides = () => {
                     {
                         guides?.map(guide =>
                             <div style={{ backgroundImage: `url(${cardbg})` }}
-                            className="w-full lg:w-2/6 mx-auto odd:gap-4 lg:odd:mr-96 lg:even:ml-96 odd:flex-row-reverse border-2 shadow-lg shadow-blue-200 rounded-lg p-4 sm:flex sm:space-x-6 ">
+                            className="w-full lg:w-3/6 mx-auto odd:gap-4 lg:odd:mr-96 lg:even:ml-96 odd:flex-row-reverse border-2 shadow-lg shadow-blue-200 rounded-lg p-4 sm:flex sm:space-x-6 ">
                                 <div className="flex-shrink-0 w-full mb-6 h-56 sm:h-44 sm:w-44 sm:mb-0">
                                     <img src={guide?.photo} alt="" className="object-cover object-center w-full h-full rounded-md bg-gray-500" />
                                 </div>
