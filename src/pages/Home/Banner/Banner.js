@@ -84,9 +84,11 @@ const Banner = () => {
                     </div>
                   </div>
                   <div className="left-20 mt-4 absolute">
-                    <button className="bg-blue-500 hover:bg-blue-400 text-white rounded-xl px-5 py-1">
-                      details
-                    </button>
+                    <Link to='/flightslogin'>
+                      <button className="bg-blue-500 hover:bg-blue-400 text-white rounded-xl px-5 py-1">
+                        details
+                      </button>
+                    </Link>
                   </div>
                 </div>
                 <div className="relative">

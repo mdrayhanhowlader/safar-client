@@ -56,6 +56,8 @@ import RegisterGuide from "../../pages/Guides/RegisterGuide";
 import LoginGuide from "../../pages/Guides/LoginGuide";
 import AllGuides from "../../pages/Guides/AllGuides";
 import AdminCampaign from "../../pages/Admin/Promotions/AdminCampaign";
+import Flights from "../../pages/Flights/Flights";
+import FlightsLogin from "../../pages/Flights/FlightsLogin/FlightsLogin"
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -152,6 +154,14 @@ export const router = createBrowserRouter([
       {
         path: "/allguides",
         element: <AllGuides />,
+      },
+      {
+        path: "/flightslogin",
+        element: <FlightsLogin />
+      },
+      {
+        path: "/flights",
+        element: <Flights />
       },
       {
         path: "/*",
