@@ -1,9 +1,21 @@
+import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import useTitle from "../../../../../hooks/useTitle";
 
 const PendingHotels = () => {
   useTitle("Pending Hotels");
   const [submenu, setSubmenu] = useState(false);
+
+  // pending hotel data API
+  const { data: pendingHotel } = useQuery({
+    queryKey: ["pending-hotel"],
+    queryFn: async () => {
+      const res = await fetch(``);
+      const data = await res.json();
+      return data;
+    },
+  });
+
   return (
     <section className="m-4">
       <h2 className="text-2xl font-bold">Pending Hotels</h2>

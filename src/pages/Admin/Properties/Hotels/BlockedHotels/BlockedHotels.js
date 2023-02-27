@@ -1,9 +1,19 @@
+import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import useTitle from "../../../../../hooks/useTitle";
 
 const BlockedHotels = () => {
   useTitle("Blocked Hotels");
   const [submenu, setSubmenu] = useState(false);
+
+  const {data: blockedHotel} = useQuery({
+    queryKey: ["blocked-hotel"],
+    queryFn: async () => {
+      const res = await fetch(``);
+      const data = res.json();
+      return data;
+    }
+  })
   return (
     <section className="m-4">
       <h2 className="text-2xl font-bold">Blocked Hotels</h2>
