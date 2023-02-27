@@ -199,7 +199,7 @@ const Footer = () => {
               >
                 <Link
                   className="text-gray-700 transition hover:text-gray-700/75"
-                  to="/"
+                  to="#"
                 >
                   Customer Service
                 </Link>
@@ -210,9 +210,10 @@ const Footer = () => {
                   Become an organizer
                 </Link>
                 <Link to="/registerguide">Become a Guide</Link>
+                <Link to="/flightslogin">Become a flight agent</Link>
                 <Link
                   className="text-gray-700 transition hover:text-gray-700/75"
-                  to="/"
+                  to="#"
                 >
                   News/Blogs
                 </Link>
@@ -228,7 +229,7 @@ const Footer = () => {
               >
                 <Link
                   className="text-gray-700 transition hover:text-gray-700/75"
-                  to="/"
+                  to="#"
                 >
                   About Us
                 </Link>
@@ -264,7 +265,7 @@ const Footer = () => {
 
                 <Link
                   className="text-gray-700 transition hover:text-gray-700/75"
-                  to="/"
+                  to="#"
                 >
                   Live Chat
                 </Link>
