@@ -41,7 +41,7 @@ const DetailSection = ({ hotelData }) => {
     return diffDays;
   }
 
-  const serviceFee = 100;
+  const serviceFee = 20;
 
   const handleOpenCalender = () => {
     setIsHandleClick(true);
@@ -50,6 +50,7 @@ const DetailSection = ({ hotelData }) => {
     // setIsHandleClick(false);
     const Sdays = dayDifference(date[0]?.endDate, date[0].startDate);
     setDay(Sdays);
+    setIsHandleClick(false);
   };
 
   const handleClickOpen = () => {
@@ -58,6 +59,9 @@ const DetailSection = ({ hotelData }) => {
 
   const handleClickClose = () => {
     setIsClick(false);
+    // setDate([item.selection]);
+    setIsHandleClick(false);
+    handleCloseCalender();
   };
 
   const countData = [{}];
@@ -82,15 +86,15 @@ const DetailSection = ({ hotelData }) => {
   const totalPrice = allData?.map((dt) => dt.price);
 
   const sum = totalPrice?.reduce((total, number) => {
-    console.log(total);
-    console.log(number);
+    // console.log(total);
+    // console.log(number);
     return total + number;
   }, 0);
-  // console.log(sum);
+  console.log('de sum', sum);
 
   const handleBook = () => {
-    const totalPrice = sum * day * serviceFee;
-    console.log(typeof (totalPrice + 100000));
+    const totalPrice = sum * day + serviceFee;
+    // console.log(typeof (totalPrice + 100000));
     const orderInfo = {
       customer_email: user?.email,
       hotel_name,
@@ -102,7 +106,7 @@ const DetailSection = ({ hotelData }) => {
       checkIn_date: date[0].startDate,
       checkout_date: date[0].endDate,
     };
-    console.log(orderInfo);
+    // console.log(orderInfo);
     fetch(`https://safar-server-nasar06.vercel.app/orders/add-order`, {
       method: "POST",
       headers: {
@@ -112,7 +116,7 @@ const DetailSection = ({ hotelData }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         navigate("/checkoutPage");
       });
   };
@@ -182,7 +186,7 @@ const DetailSection = ({ hotelData }) => {
                 )}
                 {isHandleClick === true ? (
                   <div
-                    onClick={handleCloseCalender}
+                    // onClick={handleCloseCalender}
                     className="flex justify-center items-center hover:bg-slate-100"
                     style={{ borderRadius: "2rem", width: "6rem" }}
                   >
@@ -195,7 +199,7 @@ const DetailSection = ({ hotelData }) => {
                   </div>
                 ) : (
                   <div
-                    onClick={handleOpenCalender}
+                    // onClick={handleOpenCalender}
                     className="flex justify-center items-center hover:bg-slate-100"
                     style={{ borderRadius: "2rem", width: "6rem" }}
                   >
@@ -215,51 +219,59 @@ const DetailSection = ({ hotelData }) => {
                     editableDateInputs={true}
                     onChange={(item) => {
                       setDate([item.selection]);
-                      setIsHandleClick(false);
-                      handleCloseCalender();
+                      // setIsHandleClick(false);
+                      // handleCloseCalender();
                     }}
                     moveRangeOnFirstSelection={false}
                     ranges={date}
                   />
+                  <div className="flex justify-end">
+                    <input
+                      onClick={handleCloseCalender}
+                      className="p-1 text-slate-50 bg-red-600 rounded cursor-pointer"
+                      type="button"
+                      value="Close"
+                    />
+                  </div>
                 </div>
               }
             </div>
 
             {
-              <div
-                className="flex justify-between"
-                style={{
-                  border: "1px solid grey",
-                  borderBottomLeftRadius: ".5rem",
-                  borderBottomRightRadius: ".5rem",
-                  padding: ".5rem",
-                  marginTop: "-.2vh",
-                }}
-              >
-                <div className="mx-2">
-                  <h1>
-                    <small>GUESTS</small>
-                  </h1>
-                  <p>{count} guests</p>
-                </div>
-                {isClick === true ? (
-                  <div
-                    onClick={handleClickClose}
-                    className="flex items-center mx-2"
-                  >
-                    <FaAngleDown className="h-5 w-5" />
-                  </div>
-                ) : (
-                  <div
-                    onClick={handleClickOpen}
-                    className="flex items-center mx-2"
-                  >
-                    <FaAngleDown className="h-5 w-5" />
-                  </div>
-                )}
-              </div>
+              // <div
+              //   className="flex justify-between"
+              //   style={{
+              //     border: "1px solid grey",
+              //     borderBottomLeftRadius: ".5rem",
+              //     borderBottomRightRadius: ".5rem",
+              //     padding: ".5rem",
+              //     marginTop: "-.2vh",
+              //   }}
+              // >
+              //   <div className="mx-2">
+              //     <h1>
+              //       <small>GUESTS</small>
+              //     </h1>
+              //     <p>{count} guests</p>
+              //   </div>
+              //   {isClick === true ? (
+              //     <div
+              //       onClick={handleClickClose}
+              //       className="flex items-center mx-2"
+              //     >
+              //       <FaAngleDown className="h-5 w-5" />
+              //     </div>
+              //   ) : (
+              //     <div
+              //       onClick={handleClickOpen}
+              //       className="flex items-center mx-2"
+              //     >
+              //       <FaAngleDown className="h-5 w-5" />
+              //     </div>
+              //   )}
+              // </div>
             }
-            <div
+            {/* <div
               className={isClick === true ? "visible" : "hidden"}
               style={{ width: "100%" }}
             >
@@ -301,7 +313,7 @@ const DetailSection = ({ hotelData }) => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* button */}
             {/* <div className="mt-4">
@@ -314,7 +326,7 @@ const DetailSection = ({ hotelData }) => {
             <div className="mt-4">
               <button
                 onClick={handleClick}
-                className="w-full h-8 bg-green-800 rounded-lg hover:bg-green-700 text-white capitalize"
+                className="w-full h-8 bg-blue-600 hover:bg-blue-500 rounded-lg  text-white capitalize"
               >
                 reserve your room
               </button>
@@ -329,7 +341,7 @@ const DetailSection = ({ hotelData }) => {
                   <div className="flex justify-between" key={info.price}>
                     <p>{info.size}</p>
                     <p>
-                      ${info.price * day} x {day}
+                      ${info.price} * {day} Days
                     </p>
                   </div>
                 ))}
@@ -358,7 +370,7 @@ const DetailSection = ({ hotelData }) => {
             <div className="mt-4">
               <button
                 onClick={handleBook}
-                className="w-full h-8 bg-green-800 rounded-lg hover:bg-green-700 text-white capitalize"
+                className="w-full h-8 bg-blue-600 rounded-lg hover:bg-blue-500 text-white capitalize"
               >
                 Book Now
               </button>
