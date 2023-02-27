@@ -90,7 +90,7 @@ const DetailSection = ({ hotelData }) => {
     // console.log(number);
     return total + number;
   }, 0);
-  console.log('de sum', sum);
+  console.log("de sum", sum);
 
   const handleBook = () => {
     const totalPrice = sum * day + serviceFee;
@@ -237,92 +237,6 @@ const DetailSection = ({ hotelData }) => {
               }
             </div>
 
-            {
-              // <div
-              //   className="flex justify-between"
-              //   style={{
-              //     border: "1px solid grey",
-              //     borderBottomLeftRadius: ".5rem",
-              //     borderBottomRightRadius: ".5rem",
-              //     padding: ".5rem",
-              //     marginTop: "-.2vh",
-              //   }}
-              // >
-              //   <div className="mx-2">
-              //     <h1>
-              //       <small>GUESTS</small>
-              //     </h1>
-              //     <p>{count} guests</p>
-              //   </div>
-              //   {isClick === true ? (
-              //     <div
-              //       onClick={handleClickClose}
-              //       className="flex items-center mx-2"
-              //     >
-              //       <FaAngleDown className="h-5 w-5" />
-              //     </div>
-              //   ) : (
-              //     <div
-              //       onClick={handleClickOpen}
-              //       className="flex items-center mx-2"
-              //     >
-              //       <FaAngleDown className="h-5 w-5" />
-              //     </div>
-              //   )}
-              // </div>
-            }
-            {/* <div
-              className={isClick === true ? "visible" : "hidden"}
-              style={{ width: "100%" }}
-            >
-              <div>
-                <div className="flex justify-between mx-4 my-6">
-                  <div>
-                    <h1 className="font-bold">Adults</h1>
-                    <p>Age 13+</p>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="flex">
-                      <button
-                        disabled={count < 1}
-                        onClick={() => setCount(count - 1)}
-                        className="flex justify-center items-center hover:bg-slate-200"
-                        style={{
-                          width: "1.5rem",
-                          height: "1.5rem",
-                          border: "1px solid grey",
-                          borderRadius: "5rem",
-                        }}
-                      >
-                        <FaMinus className="h-3 w-3" />
-                      </button>
-                      <p className="mx-2">{count}</p>
-                      <button
-                        onClick={() => setCount(count + 1)}
-                        className="flex justify-center items-center hover:bg-slate-200"
-                        style={{
-                          width: "1.5rem",
-                          height: "1.5rem",
-                          border: "1px solid grey",
-                          borderRadius: "5rem",
-                        }}
-                      >
-                        <FaPlus className="h-3 w-3" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> */}
-
-            {/* button */}
-            {/* <div className="mt-4">
-              <Link to="/checkoutPage">
-                <button className="w-full h-8 bg-green-800 rounded-lg hover:bg-green-700 text-white">
-                  Check Availability
-                </button>
-              </Link>
-            </div> */}
             <div className="mt-4">
               <button
                 onClick={handleClick}
@@ -358,7 +272,7 @@ const DetailSection = ({ hotelData }) => {
             <div className="flex justify-between mt-6">
               <h1 className="font-bold">Total</h1>
 
-              <p>${sum * day + serviceFee}</p>
+              <p>${sum ? sum * day + serviceFee : 0}</p>
             </div>
             {/* {getData?.map((item) => (
               <>
