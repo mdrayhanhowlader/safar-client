@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useCallback, useState } from "react";
+import { ThreeDots } from "react-loader-spinner";
 
 const ManageHotels = () => {
   const [submenu, setSubmenu] = useState(0);
@@ -22,7 +23,7 @@ const ManageHotels = () => {
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["get-all-destination", page],
+    queryKey: ["get-all-destination", page, size],
     queryFn: async () => {
       const res = await fetch(
         `https://safar-server-nasar06.vercel.app/destination/get-all-destinations?page=${page}&size=${size}`
@@ -58,7 +59,7 @@ const ManageHotels = () => {
     refetch();
   };
 
-  console.log(hotels); 
+  // console.log(hotels);
   return (
     <section className="m-4">
       <h2 className="text-2xl font-bold">All Hotels </h2>
@@ -110,7 +111,18 @@ const ManageHotels = () => {
               {isLoading ? (
                 <tr>
                   <td>
-                    <span>Loading...</span>
+                    <span>
+                      <ThreeDots
+                        height="80"
+                        width="80"
+                        radius="9"
+                        color="orange"
+                        ariaLabel="three-dots-loading"
+                        wrapperStyle={{}}
+                        wrapperClassName=""
+                        visible={true}
+                      />
+                    </span>
                   </td>
                 </tr>
               ) : (
@@ -179,29 +191,61 @@ const ManageHotels = () => {
           </table>
         </div>
       </div>
-      <div className="">
-        <p>
-          Currently selected page: {page} and size: {size}
-        </p>
-        {[...Array(pages).keys()].map((number) => (
-          <div className="inline-flex">
-            <button
-              key={number}
-              className="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-blue-100 rounded-md sm:flex  hover:bg-blue-600 hover:text-white"
-              onClick={() => setPage(number)}
-            >
-              {number + 1}
-            </button>
+      <div className="flex items-center justify-center flex-col">
+        {/* <div>
+          <p className="font-semibold my-2">
+            Currently selected page: {page + 1} and size: {size}
+          </p>
+        </div> */}
+        <div className="flex items-center justify-center mt-4">
+          <div className="">
+            {page > 0 && (
+              <button
+                onClick={() => setPage(page - 1)}
+                className="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-blue-100 rounded-md sm:flex  hover:bg-blue-600 hover:text-white"
+              >
+                Prev
+              </button>
+            )}
           </div>
-        ))}
-        <select className="border border-black p-2 rounded-md" onChange={(event) => setSize(event.target.value)}>
-          <option defaultValue="5">5</option>
-          <option defaultValue="10" selected>
-            10
-          </option>
-          <option defaultValue="15">15</option>
-          <option defaultValue="20">20</option>
-        </select>
+
+          {[...Array(pages).keys()].map((number, index) => (
+            <div className="inline-flex" key={index}>
+              <button
+                className={`${
+                  page === number
+                    ? "bg-blue-600 items-center px-4 py-2 mx-1 font-bold text-white  rounded-md"
+                    : "items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-blue-100 rounded-md sm:flex  hover:bg-blue-600 hover:text-white"
+                }`}
+                onClick={() => setPage(number)}
+              >
+                {number + 1}
+              </button>
+            </div>
+          ))}
+
+          {hotels?.length > 0 && (
+            <div>
+              <button
+                onClick={() => setPage(page + 1)}
+                className="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-blue-100 rounded-md sm:flex  hover:bg-blue-600 hover:text-white"
+              >
+                Next
+              </button>
+            </div>
+          )}
+
+          {/* <select
+            className="border border-black py-2 rounded-md"
+            defaultValue={"10"}
+            onChange={(event) => setSize(event.target.value)}
+          >
+            <option value="05">05</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </select> */}
+        </div>
       </div>
     </section>
   );

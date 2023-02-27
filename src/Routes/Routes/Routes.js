@@ -56,6 +56,10 @@ import RegisterGuide from "../../pages/Guides/RegisterGuide";
 import LoginGuide from "../../pages/Guides/LoginGuide";
 import AllGuides from "../../pages/Guides/AllGuides";
 import GuideProfile from "../../pages/Guides/GuideProfile";
+import AdminCampaign from "../../pages/Admin/Promotions/AdminCampaign";
+import AccountStatement from "../../pages/Seller/Finance/AccountStatement/AccountStatement";
+import OrderOverview from "../../pages/Seller/Finance/OrderOverview/OrderOverview";
+import TransitionOverview from "../../pages/Seller/Finance/TransitionOverview/TransitionOverview";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -122,7 +126,7 @@ export const router = createBrowserRouter([
         element: <Checkout />,
       },
       {
-        path: "/checkoutPage/:id",
+        path: "/checkoutPage",
         element: <CheckoutPage />,
         loader: async ({ params }) =>
           fetch(
@@ -265,6 +269,10 @@ export const router = createBrowserRouter([
         path: "/dashboard/refundtocustomer",
         element: <RefundToCustomer></RefundToCustomer>,
       },
+      {
+        path: "/dashboard/campaign",
+        element: <AdminCampaign />
+      },
     ],
   },
   // Seller Dashboard routes
@@ -307,6 +315,18 @@ export const router = createBrowserRouter([
       {
         path: "/sellerdashboard/sellerchat",
         element: <SellerChat></SellerChat>,
+      },
+      {
+        path: '/sellerdashboard/accountStatement',
+        element: <AccountStatement></AccountStatement>
+      },
+      {
+        path: '/sellerdashboard/orderOverview',
+        element: <OrderOverview></OrderOverview>
+      },
+      {
+        path: '/sellerdashboard/transitionOverview',
+        element: <TransitionOverview></TransitionOverview>
       },
     ],
   },

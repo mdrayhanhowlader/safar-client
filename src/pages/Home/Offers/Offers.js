@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 const Offers = () => {
   return (
     <div>
-      <section className="container mx-auto my-10 p-10">
+      <section className="container mx-auto mb-10">
         {/* section title  */}
-        <div className="py-8">
+        <div className="pb-8">
           <h2 className="text-4xl font-bold text-center">OFFERS</h2>
           <p className="text-xl font-semi-bold text-center mt-3">
             Promotions, deals, and special offers for you
