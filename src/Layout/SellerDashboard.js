@@ -312,15 +312,15 @@ const SellerDashboard = () => {
                     <span className="inline-flex justify-center items-center ml-4">
                       <FaEnvelope className="w-4 mx-2 h-4 text-black"></FaEnvelope>
                     </span>
-                    <span className="ml-2 font-bold text-sm tracking-wide truncate text-black font-bold">
+                    <span className="ml-2 text-sm tracking-wide truncate text-black font-bold">
                       Messages
                     </span>
                   </NavLink>
                 </li>
 
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="#"
                     className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-black hover:text-white border-l-4 border-transparent hover:border-blue-500 pr-6"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
@@ -332,17 +332,8 @@ const SellerDashboard = () => {
                     <span className="hidden md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-red-500 bg-red-50 rounded-full">
                       1.2k
                     </span>
-                  </a>
+                  </Link>
                 </li>
-                {/* <li className="px-5 hidden md:block">
-                      <div className="flex flex-row items-center mt-5 h-8">
-                        <div className= text-black"text-sm font-light tracking-wide text-gray-400 uppercase">
-                          Settings
-                        </div>
-                      </div>
-                    </li> */}
-
-                {/* // Users  */}
                 <li>
                   <p
                     onClick={() => setUsersSubmenu(!usersSubmenu)}
@@ -384,8 +375,8 @@ const SellerDashboard = () => {
                   </div>
                 </li>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="#"
                     className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-black hover:text-white border-l-4 border-transparent hover:border-blue-500 pr-6"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
@@ -394,7 +385,7 @@ const SellerDashboard = () => {
                     <span className="ml-2 font-bold text-sm tracking-wide truncate">
                       Settings
                     </span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
               <p className="mb-14 px-5 py-3 hidden md:block text-center text-xs text-black">

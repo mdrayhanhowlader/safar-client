@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaKey, FaLock, FaUserCircle } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 import Navbar from '../../../pages/Shared/Navbar/Navbar'
 import './FlightsLogin.css'
 
@@ -29,13 +30,13 @@ const FlightsLogin = () => {
                             </div>
                             <div className='links-flights'>
                                 <p>Already have an account ?</p>
-                                <a href='/'>SignIn</a>
+                                <Link to='#'>SignIn</Link>
                             </div>
-                            <a className='inputBox-flights' href='/flights'>
+                            <Link className='inputBox-flights' to='/flights'>
                                 <div >
                                     <input type='submit' value='Sign Up' />
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
