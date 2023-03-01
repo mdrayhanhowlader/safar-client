@@ -11,6 +11,7 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../contexts/AuthProvider";
 import CheckoutCard from "./CheckoutCard";
+import Navbar from "../Shared/Navbar/Navbar";
 
 const stripePromise = loadStripe(process.env.REACT_APP_PAYMENT_STRIPE_PK);
 
@@ -56,6 +57,7 @@ const CheckoutPage = () => {
  
   return (
     <div>
+      <Navbar></Navbar>
       <div className="md:w-11/12 mx-auto mt-6 ">
         {/* <h2 className="text-center text-3xl font-medium py-6"></h2> */}
         <div className="grid gap-4 grid-cols-1 lg:grid-cols-12 pt-6">

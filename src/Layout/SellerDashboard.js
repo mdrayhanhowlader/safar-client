@@ -15,17 +15,17 @@ import {
   FaClipboardList,
   FaBoxOpen,
   FaFileInvoiceDollar,
-  FaUserEdit
+  FaUserEdit,
 } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { FcCancel } from "react-icons/fc";
 import { BiBasket } from "react-icons/bi";
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import DashboardNab from "../pages/Shared/Navbar/DashboardNab";
 import { MdOutlineFreeCancellation, MdOutlineStarRate } from "react-icons/md";
 
 const SellerDashboard = () => {
-  useState('Seller Dashboard');
+  useState("Seller Dashboard");
   const [productsSubmenu, setProductsSubmenu] = useState(false);
   const [ordersSubMenu, setOrdersSubmenu] = useState(false);
   const [promotionSubmenu, setPromotionSubmenu] = useState(false);
@@ -73,41 +73,48 @@ const SellerDashboard = () => {
                       My Rooms
                     </span>
                     <span>
-                      {
-                        productsSubmenu ?
-                          <FaCaretDown className="ml-5" />
-                          :
-                          <FaCaretRight className="ml-5" />
-                      }
+                      {productsSubmenu ? (
+                        <FaCaretDown className="ml-5" />
+                      ) : (
+                        <FaCaretRight className="ml-5" />
+                      )}
                     </span>
                   </p>
                   <div className={`${productsSubmenu ? "visible" : "hidden"}`}>
                     <ul>
                       <li>
-                        <Link
+                        <NavLink
                           to="/sellerdashboard/managesellerproduct"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-black hover:text-white border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className={({ isActive }) =>
+                            isActive
+                              ? "relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                              : "relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                          }
                         >
                           <span className="inline-flex justify-center items-center ml-4">
                             <FaBed className="w-4 mx-2 h-4"></FaBed>
                           </span>
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             Manage Rooms
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
-                        <Link
+                        <NavLink
                           to="/sellerdashboard/addsellerproduct"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-black hover:text-white border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className={({ isActive }) =>
+                            isActive
+                              ? "relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                              : "relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                          }
                         >
                           <span className="inline-flex justify-center items-center ml-4">
                             <FaPlus className="w-4 mx-2 h-4"></FaPlus>
                           </span>
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             Add Room
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                     </ul>
                   </div>
@@ -125,54 +132,65 @@ const SellerDashboard = () => {
                       Orders
                     </span>
                     <span>
-                      {
-                        ordersSubMenu ?
-                          <FaCaretDown className="ml-5" />
-                          :
-                          <FaCaretRight className="ml-5" />
-                      }
+                      {ordersSubMenu ? (
+                        <FaCaretDown className="ml-5" />
+                      ) : (
+                        <FaCaretRight className="ml-5" />
+                      )}
                     </span>
                   </p>
                   <div className={`${ordersSubMenu ? "visible" : "hidden"}`}>
                     <ul>
                       <li>
-                        <Link
+                        <NavLink
                           to="/sellerdashboard/managesellerorder"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-black hover:text-white border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className={({ isActive }) =>
+                            isActive
+                              ? "relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                              : "relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                          }
                         >
                           <span className="inline-flex justify-center items-center ml-4">
                             <MdOutlineFreeCancellation className="w-4 mx-2 h-4"></MdOutlineFreeCancellation>
                           </span>
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             Manage Orders
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
-                        <Link
+                        <NavLink
                           to="/sellerdashboard/managesellerreview"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-black hover:text-white border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className={({ isActive }) =>
+                            isActive
+                              ? "relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                              : "relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                          }
                         >
                           <span className="inline-flex justify-center items-center ml-4">
                             <MdOutlineStarRate className="w-4 mx-2 h-4"></MdOutlineStarRate>
                           </span>
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="md:ml-4text-sm tracking-wide truncate font-bold text-black">
                             Manage Review
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
-                        <Link
+                        <NavLink
                           to="/sellerdashboard/cancelsellerorder"
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-black hover:text-white border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                          className={({ isActive }) =>
+                            isActive
+                              ? "relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                              : "relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                          }
                         >
                           <span className="inline-flex justify-center items-center ml-4">
                             <FcCancel className="w-4 mx-2 h-4"></FcCancel>
                           </span>
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             Cancel Orders
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                     </ul>
                   </div>
@@ -189,27 +207,29 @@ const SellerDashboard = () => {
                     <span className="ml-2 font-bold text-sm tracking-wide truncate">
                       Promotions
                     </span>
-                    {
-                      promotionSubmenu ?
-                        <FaCaretDown className="ml-5" />
-                        :
-                        <FaCaretRight className="ml-5" />
-                    }
+                    {promotionSubmenu ? (
+                      <FaCaretDown className="ml-5" />
+                    ) : (
+                      <FaCaretRight className="ml-5" />
+                    )}
                   </p>
                   <div className={`${promotionSubmenu ? "visible" : "hidden"}`}>
                     <ul>
                       <li>
-                        <Link
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-black hover:text-white border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          to="/sellerdashboard/sellercampaign"
+                        <NavLink
+                          className={({ isActive }) =>
+                            isActive
+                              ? "relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                              : "relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                          }
                         >
                           <span className="inline-flex justify-center items-center ml-4">
                             <FaBullhorn className="w-4 mx-2 h-4"></FaBullhorn>
                           </span>
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             Campaign
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                     </ul>
                   </div>
@@ -226,75 +246,81 @@ const SellerDashboard = () => {
                     <span className="ml-2 font-bold text-sm tracking-wide truncate">
                       Finance
                     </span>
-                    {
-                      financeSubmenu ?
-                        <FaCaretDown className="ml-5" />
-                        :
-                        <FaCaretRight className="ml-5" />
-                    }
+                    {financeSubmenu ? (
+                      <FaCaretDown className="ml-5" />
+                    ) : (
+                      <FaCaretRight className="ml-5" />
+                    )}
                   </p>
                   <div className={`${financeSubmenu ? "visible" : "hidden"}`}>
                     <ul>
                       <li>
-                        <a
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-black hover:text-white border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          href="/"
+                        <NavLink
+                          to="/sellerdashboard/accountStatement"
+                          className={({ isActive }) => isActive ? 'relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer' : 'relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer'
+                        }
                         >
                           <span className="inline-flex justify-center items-center ml-4">
                             <FaClipboardList className="w-4 mx-2 h-4"></FaClipboardList>
                           </span>
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             Account Statement
                           </span>
-                        </a>
+                        </NavLink>
                       </li>
                       <li>
-                        <a
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-black hover:text-white border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          href="/"
+                        <NavLink
+                          to="/sellerdashboard/orderOverview"
+                          className={({ isActive }) => isActive ? 'relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer' : 'relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer'
+                        }
                         >
                           <span className="inline-flex justify-center items-center ml-4">
                             <FaBoxOpen className="w-4 mx-2 h-4"></FaBoxOpen>
                           </span>
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             Order overview
                           </span>
-                        </a>
+                        </NavLink>
                       </li>
                       <li>
-                        <a
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-black hover:text-white border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
-                          href="/"
+                        <NavLink
+                          to="/sellerdashboard/transitionOverview"
+                          className={({ isActive }) => isActive ? 'relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer' : 'relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer'
+                        }
                         >
                           <span className="inline-flex justify-center items-center ml-4">
                             <FaFileInvoiceDollar className="w-4 mx-2 h-4"></FaFileInvoiceDollar>
                           </span>
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="md:ml-4 text-sm tracking-wide truncate font-bold text-black">
                             Transition overview
                           </span>
-                        </a>
+                        </NavLink>
                       </li>
                     </ul>
                   </div>
                 </li>
 
                 <li>
-                  <Link
-                    to='/sellerdashboard/sellerchat'
-                    className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6"
+                  <NavLink
+                    to="/sellerdashboard/sellerchat"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                        : "relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                    }
                   >
                     <span className="inline-flex justify-center items-center ml-4">
-                      <FaEnvelope className="w-4 mx-2 h-4"></FaEnvelope>
+                      <FaEnvelope className="w-4 mx-2 h-4 text-black"></FaEnvelope>
                     </span>
-                    <span className="ml-2 font-bold text-sm tracking-wide truncate">
+                    <span className="ml-2 text-sm tracking-wide truncate text-black font-bold">
                       Messages
                     </span>
-                  </Link>
+                  </NavLink>
                 </li>
 
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="#"
                     className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-black hover:text-white border-l-4 border-transparent hover:border-blue-500 pr-6"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
@@ -306,17 +332,8 @@ const SellerDashboard = () => {
                     <span className="hidden md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-red-500 bg-red-50 rounded-full">
                       1.2k
                     </span>
-                  </a>
+                  </Link>
                 </li>
-                {/* <li className="px-5 hidden md:block">
-                      <div className="flex flex-row items-center mt-5 h-8">
-                        <div className= text-black"text-sm font-light tracking-wide text-gray-400 uppercase">
-                          Settings
-                        </div>
-                      </div>
-                    </li> */}
-
-                {/* // Users  */}
                 <li>
                   <p
                     onClick={() => setUsersSubmenu(!usersSubmenu)}
@@ -329,34 +346,37 @@ const SellerDashboard = () => {
                     <span className="ml-2 font-bold text-sm tracking-wide truncate">
                       My Account
                     </span>
-                    {
-                      usersSubmenu ?
-                        <FaCaretDown className="ml-5" />
-                        :
-                        <FaCaretRight className="ml-5" />
-                    }
+                    {usersSubmenu ? (
+                      <FaCaretDown className="ml-5" />
+                    ) : (
+                      <FaCaretRight className="ml-5" />
+                    )}
                   </p>
                   <div className={`${usersSubmenu ? "visible" : "hidden"}`}>
                     <ul>
                       <li>
-                        <Link
-                          to='/sellerdashboard/sellerprofile'
-                          className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-black hover:text-white border-l-4 border-transparent hover:border-blue-500 pr-6 pl-4"
+                        <NavLink
+                          to="/sellerdashboard/sellerprofile"
+                          className={({ isActive }) =>
+                            isActive
+                              ? "relative flex flex-row items-center h-11 focus:outline-none bg-sky-300 text-white-600 text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                              : "relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-black border-l-4 border-transparent hover:border-blue-500 pr-6 cursor-pointer"
+                          }
                         >
                           <span className="inline-flex justify-center items-center ml-4">
                             <FaUserEdit className="w-4 mx-2 h-4"></FaUserEdit>
                           </span>
-                          <span className="md:ml-4 text-sm tracking-wide truncate">
+                          <span className="md:ml-4 text-sm tracking-wide truncate text-black font-bold">
                             My Profile
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                     </ul>
                   </div>
                 </li>
                 <li>
-                  <a
-                    href="/"
+                  <Link
+                    to="#"
                     className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-sky-300 text-black hover:text-white border-l-4 border-transparent hover:border-blue-500 pr-6"
                   >
                     <span className="inline-flex justify-center items-center ml-4">
@@ -365,7 +385,7 @@ const SellerDashboard = () => {
                     <span className="ml-2 font-bold text-sm tracking-wide truncate">
                       Settings
                     </span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
               <p className="mb-14 px-5 py-3 hidden md:block text-center text-xs text-black">

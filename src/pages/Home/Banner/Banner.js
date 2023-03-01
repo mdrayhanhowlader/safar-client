@@ -19,7 +19,7 @@ const Banner = () => {
           <div className="flex items-center ">
             <img className="w-16" src={logo} alt="" />
 
-            <h1 className="text-2xl mt-5 font-serif">SAFAR</h1>
+            <h1 className="text-2xl mt-5 font-semibold">SAFAR</h1>
           </div>
           <div className="flex items-center mt-4 mx-4 lg:mt-0">
             {user?.uid ? (
@@ -84,9 +84,11 @@ const Banner = () => {
                     </div>
                   </div>
                   <div className="left-20 mt-4 absolute">
-                    <button className="bg-blue-500 hover:bg-blue-400 text-white rounded-xl px-5 py-1">
-                      details
-                    </button>
+                    <Link to='/flights'>
+                      <button className="bg-blue-500 hover:bg-blue-400 text-white rounded-xl px-5 py-1">
+                        details
+                      </button>
+                    </Link>
                   </div>
                 </div>
                 <div className="relative">

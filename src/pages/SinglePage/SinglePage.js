@@ -6,6 +6,7 @@ import { SearchContext } from "../../contexts/SearchProvider";
 import DetailSection from "./DetailsSection/DetailSection";
 import "react-photo-view/dist/react-photo-view.css";
 import useTitle from "../../hooks/useTitle";
+import Navbar from "../Shared/Navbar/Navbar";
 
 const SinglePage = () => {
   const data = useContext(SearchContext);
@@ -24,6 +25,7 @@ const SinglePage = () => {
 
   return (
     <div>
+      <Navbar></Navbar>
       <div className="md:flex w-full md:gap-3 p-2 border-2 border-gray-400 rounded-md">
         <div className="md:mb-0 md:w-4/5  mb-4">
           <img className="w-full h-full " src={images[0]} alt="" />
