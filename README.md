@@ -1,74 +1,58 @@
-# Getting Started with Safar
+# Safar Client - Booking Website
 
-This project was Tailwind with [safar](https://github.com/facebook/create-react-app).
+## Overview
 
-## Features Safar
+Safar Client is a team project that focuses on creating a booking website. The project incorporates various technologies and resources for both the frontend and backend development.
 
-hello from mohiuddin shimul
-hello from mohiuddin shimul
-hello from mohiuddin shimul
+## Technologies Used
 
-In the project directory, you can run:
+### Frontend
 
-### `npm start`
+- **React**: Version 18.2.0
+- **React Router Dom**: Version 6.6.2
+- **React Query**: Version 4.22.0
+- **Firebase**: Version 9.15.0
+- **Stripe**: 
+  - React Stripe JS: Version 1.16.4
+  - Stripe JS: Version 1.46.0
+- **Date-fns**: Version 2.29.3
+- **Prop-types**: Version 15.8.1
+- **React Date Range**: Version 1.4.0
+- **React Hook Form**: Version 7.42.1
+- **React Hot Toast**: Version 2.4.0
+- **React Icons**: Version 4.7.1
+- **React Loader Spinner**: Version 5.3.4
+- **React Photo View**: Version 1.2.3
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Backend
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Mongoose**
+- **Express**
+- **MongoDB**
+- **JSON Web Token (JWT)**
 
-### `npm test`
+## Scripts
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Start**: `react-scripts start`
+- **Build**: `react-scripts build`
+- **Test**: `react-scripts test`
+- **Eject**: `react-scripts eject`
 
-### `npm run build`
+## Development Dependencies
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Tailwind CSS Typography**: Version 0.5.9
+- **Tailwind CSS**: Version 3.2.4
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Usage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository.
+2. Install dependencies using `npm install`.
+3. Run the development server using `npm start`.
 
-### `npm run eject`
+## Contributing
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Feel free to contribute by submitting issues or pull requests.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the [MIT License](LICENSE).
